@@ -1,0 +1,10 @@
+.venv/
+.env
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+data/graphs/*.graphml
+
+.DS_Store
