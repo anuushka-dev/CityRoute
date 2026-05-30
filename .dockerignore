@@ -1,0 +1,16 @@
+.venv/
+.env
+.git/
+.gitignore
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+tests/
+docs/
+*.md
+
+data/graphs/*.graphml
+
+.DS_Store
