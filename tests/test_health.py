@@ -32,3 +32,4 @@ def test_graph_stats_before_graph_loading():
     assert data["edges"] == 0
     assert data["graph_path"].replace("\\", "/") == "data/graphs/kanpur.graphml"
     assert data["load_time_s"] is None
+    assert data["memory_mb"] is None
