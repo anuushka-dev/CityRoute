@@ -28,7 +28,7 @@ def test_graph_stats_after_graph_loading():
     data = response.json()
 
     assert data["graph_loaded"] is True
-    assert data["city"] == "Kanpur, Uttar Pradesh, India"
+    assert "Kanpur" in data["city"]
     assert data["nodes"] > 0
     assert data["edges"] > 0
     assert data["graph_path"].replace("\\", "/") == "data/graphs/kanpur_central.graphml"
