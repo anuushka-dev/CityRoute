@@ -10,6 +10,7 @@ from app.api.health import router as health_router
 from app.config import settings
 from app.utils.logger import get_logger, setup_logging
 
+from app.services.graph_service import load_or_download_graph
 
 setup_logging(settings.log_level)
 logger = get_logger(__name__)
@@ -20,17 +21,13 @@ async def lifespan(app: FastAPI):
     logger.info("Starting CityRoute application")
 
     app.state.started_at = perf_counter()
-    app.state.graph = None
-    app.state.graph_loaded = False
-    app.state.graph_stats = {
-        "city": settings.city_name,
-        "graph_loaded": False,
-        "nodes": 0,
-        "edges": 0,
-        "load_time_s": None,
-        "graph_path": str(settings.graph_path),
-        "memory_mb": None,
-    }
+    logger.info("Loading CityRoute graph")
+
+    graph, graph_stats = load_or_download_graph()
+
+    app.state.graph = graph
+    app.state.graph_loaded = graph is not None
+    app.state.graph_stats = graph_stats
 
     logger.info("CityRoute startup complete")
 

@@ -1,7 +1,10 @@
 # app/api/graph.py
 
 from fastapi import APIRouter, Request
+
 from app.config import settings
+from app.utils.geo_validation import validate_coordinates
+from app.utils.node_snapper import snap_coordinate_to_graph
 
 router = APIRouter(prefix="/graph")
 
@@ -18,6 +21,36 @@ def graph_stats(request: Request):
             "edges": 0,
             "load_time_s": None,
             "graph_path": str(settings.graph_path),
+            "graph_file_size_mb": None,
             "memory_mb": None,
         },
     )
+
+
+@router.get("/validate")
+def validate_graph_coordinate(lat: float, lon: float):
+    validate_coordinates(lat, lon)
+
+    return {
+        "valid": True,
+        "lat": lat,
+        "lon": lon,
+        "message": "Coordinate is valid and inside the loaded graph area.",
+    }
+
+
+@router.get("/snap")
+def snap_graph_coordinate(request: Request, lat: float, lon: float):
+    graph = getattr(request.app.state, "graph", None)
+
+    result = snap_coordinate_to_graph(
+        graph=graph,
+        lat=lat,
+        lon=lon,
+    )
+
+    return {
+        "status": "ok",
+        "message": "Coordinate snapped to nearest graph node.",
+        **result,
+    }
