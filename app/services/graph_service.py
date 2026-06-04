@@ -5,6 +5,7 @@ from __future__ import annotations
 from time import perf_counter
 from typing import Any
 
+import networkx as nx
 import osmnx as ox
 import psutil
 
@@ -35,6 +36,31 @@ def _get_graph_file_size_mb() -> float | None:
     return round(settings.graph_path.stat().st_size / 1024 / 1024, 2)
 
 
+def _get_connectivity_stats(graph: Any | None) -> dict[str, Any]:
+    """
+    Return weak-connectivity metadata for the loaded directed road graph.
+
+    This does not replace Phase 3 route-level NetworkXNoPath handling.
+    It only records whether the loaded graph is split into weakly connected
+    components, so Phase 2 has honest disconnected-graph evidence.
+    """
+    if graph is None:
+        return {
+            "weakly_connected_components": 0,
+            "largest_component_nodes": 0,
+            "is_weakly_connected": False,
+        }
+
+    component_sizes = [len(component) for component in nx.weakly_connected_components(graph)]
+    largest_component_nodes = max(component_sizes) if component_sizes else 0
+
+    return {
+        "weakly_connected_components": len(component_sizes),
+        "largest_component_nodes": largest_component_nodes,
+        "is_weakly_connected": len(component_sizes) == 1,
+    }
+
+
 def _build_graph_stats(
     *,
     graph: Any | None,
@@ -52,6 +78,8 @@ def _build_graph_stats(
         "graph_file_size_mb": _get_graph_file_size_mb(),
         "memory_mb": _get_memory_mb(),
     }
+
+    stats.update(_get_connectivity_stats(graph))
 
     if error is not None:
         stats["error"] = error
@@ -121,13 +149,20 @@ def load_or_download_graph() -> tuple[Any | None, dict[str, Any]]:
         )
 
         logger.info(
-            "Graph ready | city=%s | nodes=%s | edges=%s | load_time_s=%s | file_size_mb=%s | memory_mb=%s",
+            (
+                "Graph ready | city=%s | nodes=%s | edges=%s | load_time_s=%s | "
+                "file_size_mb=%s | memory_mb=%s | weakly_connected_components=%s | "
+                "largest_component_nodes=%s | is_weakly_connected=%s"
+            ),
             stats["city"],
             stats["nodes"],
             stats["edges"],
             stats["load_time_s"],
             stats["graph_file_size_mb"],
             stats["memory_mb"],
+            stats["weakly_connected_components"],
+            stats["largest_component_nodes"],
+            stats["is_weakly_connected"],
         )
 
         return graph, stats

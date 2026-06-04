@@ -1,16 +1,46 @@
+# Python virtual environments
 .venv/
+venv/
+env/
+
+# Environment/secrets
 .env
+.env.*
+!.env.example
+
+# Git
 .git/
 .gitignore
 
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
+# Tests and docs not needed in runtime image
 tests/
 docs/
 *.md
 
+# Local benchmark/output artifacts
+benchmarks/
+cache/
+
+# Graph data is mounted at runtime, not baked into image
+data/
+data/graphs/
 data/graphs/*.graphml
 
+# OS/editor junk
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docker / misc local files
+docker-compose.yml
+*.log

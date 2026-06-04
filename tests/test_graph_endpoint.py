@@ -98,3 +98,18 @@ def test_graph_snap_rejects_coordinate_outside_bbox():
     data = response.json()
 
     assert data["detail"]["error"] == "Coordinate outside loaded graph area"
+
+def test_graph_stats_includes_connectivity_metadata():
+    with TestClient(app) as client:
+        response = client.get("/graph/stats")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert "weakly_connected_components" in data
+    assert "largest_component_nodes" in data
+    assert "is_weakly_connected" in data
+    assert data["weakly_connected_components"] >= 1
+    assert data["largest_component_nodes"] > 0
+    assert isinstance(data["is_weakly_connected"], bool)
