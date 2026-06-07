@@ -1,10 +1,10 @@
 # CityRoute
 
-CityRoute is an open-source last-mile delivery routing backend built with Python, FastAPI, Docker, OSMnx, NetworkX, and OpenStreetMap data.
+CityRoute is an open-source last-mile delivery routing backend built with Python, FastAPI, Docker, OSMnx, NetworkX, scikit-learn, and OpenStreetMap data.
 
-Current status: **Tier 1 — Phase 2 complete: Graph Loading & Validation**
+Current status: **Tier 1 — Phase 2 complete: Graph Loading, Validation, and Fast Node Snapping**
 
-This project is being built phase-by-phase. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, coordinate validation, and node snapping.
+This project is being built phase-by-phase. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, GraphML persistence, GPS validation, node snapping, graph connectivity metadata, and BallTree-based snap optimization.
 
 ---
 
@@ -44,9 +44,12 @@ This project is being built phase-by-phase. Phase 1 created the FastAPI and Dock
 * Bounding-box validation for the active graph area
 * Structured `422` responses for invalid/out-of-bounds coordinates
 * Node snapping from GPS coordinate to nearest graph node
+* BallTree snap index built at startup for fast nearest-node lookup
+* Snap distance returned in meters
 * Graph connectivity metadata in `/graph/stats`
 * Local and Docker verification
 * Phase 2 test suite with 12 passing tests
+* Benchmark evidence recorded under `benchmarks/`
 
 ---
 
@@ -88,44 +91,140 @@ The graph file is not baked into the Docker image. It is mounted at runtime thro
 
 This keeps the Docker image separate from local graph data.
 
+The `data/graphs/*.graphml` files are local runtime artifacts and are not committed to Git.
+
 ---
 
 ## Phase 2 Runtime Baseline
 
 Observed Phase 2 metrics:
 
-| Metric                   |                                Value |
-| ------------------------ | -----------------------------------: |
-| Active graph             | `data/graphs/kanpur_central.graphml` |
-| City label               | Kanpur Central, Uttar Pradesh, India |
-| Nodes                    |                               12,969 |
-| Edges                    |                               34,996 |
-| GraphML size             |                             12.74 MB |
-| Local graph load time    |                              2.804 s |
-| Docker graph load time   |                              3.254 s |
-| Local memory after load  |                            370.17 MB |
-| Docker memory after load |                            376.89 MB |
-| Docker image size        |                               933 MB |
+| Metric                         |                                Value |
+| ------------------------------ | -----------------------------------: |
+| Active graph                   | `data/graphs/kanpur_central.graphml` |
+| City label                     | Kanpur Central, Uttar Pradesh, India |
+| Nodes                          |                               12,969 |
+| Edges                          |                               34,996 |
+| GraphML size                   |                             12.74 MB |
+| Docker graph load time         |                              3.014 s |
+| Docker graph memory after load |                            378.76 MB |
+| Docker image size              |                               933 MB |
+| Weakly connected components    |                                    1 |
+| Largest component nodes        |                               12,969 |
+| Snap index build time          |                            28.284 ms |
+| Snap index nodes               |                               12,969 |
 
 Docker image size is currently high because Phase 2 uses OSMnx and geospatial dependencies. Image optimization is deferred until deployment hardening.
 
 ---
 
-## Snap Latency Baseline
+## Phase 2 Benchmark Summary
 
-Isolated node snapping benchmark:
+### Local `/graph/snap` API benchmark
 
-| Metric          |      Value |
-| --------------- | ---------: |
-| Iterations      |        100 |
-| Input latitude  |      26.44 |
-| Input longitude |      80.30 |
-| Minimum latency |  29.793 ms |
-| Mean latency    |  59.349 ms |
-| Median latency  |  38.848 ms |
-| Maximum latency | 162.016 ms |
+Benchmark command:
 
-This is a measured baseline, not an optimized target. Snap latency optimization remains a later performance task.
+```powershell
+python benchmarks\snap_api_benchmark.py --url "http://127.0.0.1:8000/graph/snap?lat=26.44&lon=80.30" --iterations 100
+```
+
+Observed result:
+
+| Metric               |      Value |
+| -------------------- | ---------: |
+| Iterations           |        100 |
+| Status codes         |    `[200]` |
+| Snap method          | `balltree` |
+| API min              |   4.247 ms |
+| API mean             |  11.204 ms |
+| API median           |   6.230 ms |
+| API max              |  36.029 ms |
+| Internal snap min    |   0.236 ms |
+| Internal snap mean   |   0.382 ms |
+| Internal snap median |   0.356 ms |
+| Internal snap max    |   0.801 ms |
+
+### Docker `/graph/snap` API benchmark
+
+Benchmark command:
+
+```powershell
+python benchmarks\snap_api_benchmark.py --url "http://127.0.0.1:8001/graph/snap?lat=26.44&lon=80.30" --iterations 100
+```
+
+Observed result:
+
+| Metric               |      Value |
+| -------------------- | ---------: |
+| Iterations           |        100 |
+| Status codes         |    `[200]` |
+| Snap method          | `balltree` |
+| API min              |   6.789 ms |
+| API mean             |   8.743 ms |
+| API median           |   7.811 ms |
+| API max              |  31.511 ms |
+| Internal snap min    |   0.324 ms |
+| Internal snap mean   |   0.435 ms |
+| Internal snap median |   0.429 ms |
+| Internal snap max    |   0.657 ms |
+
+### Docker concurrent `/graph/snap` benchmark
+
+Benchmark command:
+
+```powershell
+python benchmarks\concurrent_snap_probe.py --url "http://127.0.0.1:8001/graph/snap?lat=26.44&lon=80.30" --requests 10
+```
+
+Observed result:
+
+| Metric               |      Value |
+| -------------------- | ---------: |
+| Total requests       |         10 |
+| Status codes         |    `[200]` |
+| Snap method          | `balltree` |
+| Total elapsed        |   54.61 ms |
+| API min              |  30.151 ms |
+| API mean             |  39.520 ms |
+| API median           |  40.474 ms |
+| API max              |  46.642 ms |
+| Internal snap min    |   0.262 ms |
+| Internal snap mean   |   0.526 ms |
+| Internal snap median |   0.410 ms |
+| Internal snap max    |   1.245 ms |
+
+### Docker memory after concurrent snap
+
+Observed result:
+
+| Metric       |                    Value |
+| ------------ | -----------------------: |
+| Container    | `cityroute-tier1-phase2` |
+| Memory usage |                329.2 MiB |
+| CPU          |                    0.21% |
+| PIDs         |                       36 |
+
+---
+
+## Legacy OSMnx Nearest-Node Baseline
+
+The benchmark below measures direct OSMnx `nearest_nodes()` behavior. It is retained only as a baseline comparison.
+
+```powershell
+python benchmarks\snap_latency_probe.py
+```
+
+Observed result:
+
+| Metric     |      Value |
+| ---------- | ---------: |
+| Iterations |        100 |
+| Min        |  29.391 ms |
+| Mean       |  53.381 ms |
+| Median     |  31.666 ms |
+| Max        | 152.373 ms |
+
+This is **not** the current production snap path. The current `/graph/snap` endpoint uses the BallTree snap index and returns `snap_method: "balltree"`.
 
 ---
 
@@ -148,7 +247,7 @@ This is a measured baseline, not an optimized target. Snap latency optimization 
 {
   "status": "ok",
   "graph_loaded": true,
-  "uptime_s": 8.514
+  "uptime_s": 1549.462
 }
 ```
 
@@ -162,24 +261,26 @@ This is a measured baseline, not an optimized target. Snap latency optimization 
   "graph_loaded": true,
   "nodes": 12969,
   "edges": 34996,
-  "load_time_s": 3.254,
+  "load_time_s": 3.014,
   "graph_path": "data/graphs/kanpur_central.graphml",
   "graph_file_size_mb": 12.74,
-  "memory_mb": 376.89,
+  "memory_mb": 378.76,
   "weakly_connected_components": 1,
   "largest_component_nodes": 12969,
-  "is_weakly_connected": true
+  "is_weakly_connected": true,
+  "snap_index_loaded": true,
+  "snap_index_build_time_ms": 28.284
 }
 ```
 
-Values such as `load_time_s` and `memory_mb` vary slightly by machine and run.
+Values such as `load_time_s`, `memory_mb`, and `uptime_s` vary slightly by machine and run.
 
 ---
 
 ## Example Valid Coordinate
 
 ```powershell
-curl "http://127.0.0.1:8000/graph/validate?lat=26.45&lon=80.35"
+curl.exe "http://127.0.0.1:8000/graph/validate?lat=26.45&lon=80.35"
 ```
 
 Expected response:
@@ -198,7 +299,7 @@ Expected response:
 ## Example Invalid Coordinate
 
 ```powershell
-curl "http://127.0.0.1:8000/graph/validate?lat=24.40&lon=80.35"
+curl.exe "http://127.0.0.1:8000/graph/validate?lat=24.40&lon=80.35"
 ```
 
 Expected behavior:
@@ -235,7 +336,7 @@ Example response:
 Request:
 
 ```powershell
-curl "http://127.0.0.1:8000/graph/snap?lat=26.44&lon=80.30"
+curl.exe "http://127.0.0.1:8000/graph/snap?lat=26.44&lon=80.30"
 ```
 
 Example response:
@@ -253,9 +354,13 @@ Example response:
     "lat": 26.4400833,
     "lon": 80.2999386
   },
-  "snap_time_ms": 127.394
+  "snap_distance_m": 11.098,
+  "snap_time_ms": 2.031,
+  "snap_method": "balltree"
 }
 ```
+
+`snap_time_ms` varies per request. Benchmark medians are recorded above.
 
 ---
 
@@ -271,13 +376,24 @@ app/
 ├── utils/
 │   ├── geo_validation.py
 │   ├── logger.py
-│   └── node_snapper.py
+│   ├── node_snapper.py
+│   └── snap_index.py
 ├── config.py
 └── main.py
 
 benchmarks/
+├── concurrent_snap_probe.py
+├── concurrent_snap_docker.txt
+├── docker_phase2_startup_logs.txt
+├── docker_stats_after_concurrent_snap.txt
+├── phase2_number_accuracy.txt
+├── pytest_phase2_after_balltree.txt
+├── snap_api_benchmark.py
+├── snap_api_docker.txt
+├── snap_api_local.txt
+├── snap_latency_docker.txt
 ├── snap_latency_probe.py
-└── snap_latency.txt
+└── snap_latency_probe.txt
 
 data/
 └── graphs/
@@ -288,8 +404,6 @@ tests/
 ├── test_graph_endpoint.py
 └── test_health.py
 ```
-
-The `data/graphs/*.graphml` files are local runtime artifacts and are not committed to Git.
 
 ---
 
@@ -414,46 +528,45 @@ Current test coverage includes:
 
 ---
 
-## Benchmark Probe
+## Benchmark Commands
 
-Run isolated snap latency probe:
-
-```powershell
-python benchmarks\snap_latency_probe.py
-```
-
-Save benchmark output:
+Run local API snap benchmark:
 
 ```powershell
-python benchmarks\snap_latency_probe.py > benchmarks\snap_latency.txt
+python benchmarks\snap_api_benchmark.py --url "http://127.0.0.1:8000/graph/snap?lat=26.44&lon=80.30" --iterations 100
 ```
 
-Latest observed result:
+Run Docker API snap benchmark:
 
-```text
-snap_latency_probe
-graph_path=data\graphs\kanpur_central.graphml
-graph_load_time_s=2.349
-iterations=100
-input_lat=26.44
-input_lon=80.3
-min_ms=29.793
-mean_ms=59.349
-median_ms=38.848
-max_ms=162.016
+```powershell
+python benchmarks\snap_api_benchmark.py --url "http://127.0.0.1:8001/graph/snap?lat=26.44&lon=80.30" --iterations 100
+```
+
+Run Docker concurrent snap benchmark:
+
+```powershell
+python benchmarks\concurrent_snap_probe.py --url "http://127.0.0.1:8001/graph/snap?lat=26.44&lon=80.30" --requests 10
+```
+
+Save all Phase 2 accuracy numbers:
+
+```powershell
+type benchmarks\phase2_number_accuracy.txt
 ```
 
 ---
 
 ## Current Known Risks
 
-| Risk                                                 | Status                                                        |
-| ---------------------------------------------------- | ------------------------------------------------------------- |
-| Docker image size is high at around 933 MB           | Documented; optimization deferred                             |
-| Runtime memory is around 370–377 MB                  | Acceptable for Phase 2; must monitor before public deployment |
-| Snap latency is measured but not optimized           | Benchmark baseline recorded; optimization deferred            |
-| Full route-level no-path handling is not implemented | Deferred to Phase 3 because routing does not exist yet        |
-| Full Kanpur graph is not the active runtime graph    | Central Kanpur graph is used for stable Phase 2 development   |
+| Risk                                                              | Status                                                      |
+| ----------------------------------------------------------------- | ----------------------------------------------------------- |
+| Docker image size is high at around 933 MB                        | Documented; optimization deferred                           |
+| Runtime memory must still be rechecked under future `/route` load | Phase 3 task                                                |
+| Full route-level no-path handling is not implemented              | Deferred to Phase 3 because routing does not exist yet      |
+| Full Kanpur graph is not the active runtime graph                 | Central Kanpur graph is used for stable Phase 2 development |
+| Public deployment is not live                                     | Later Tier 1 work                                           |
+
+Snap latency is no longer a Phase 2 blocker. The current `/graph/snap` endpoint uses BallTree and benchmarked internal snap median is below 1 ms locally and in Docker.
 
 ---
 
@@ -466,14 +579,26 @@ Phase 2 is accepted as complete for:
 * Startup graph state
 * Graph metadata endpoint
 * GPS validation
-* Structured 422 invalid-coordinate handling
+* Structured `422` invalid-coordinate handling
 * Node snapping
+* BallTree snap optimization
 * Connectivity metadata
 * Local verification
 * Docker verification
 * Test verification
+* Benchmark evidence
 
 Phase 2 does not claim routing correctness.
+
+---
+
+## Latest Verified Git State
+
+```text
+3694226 perf(snap): add BallTree snap index and benchmarks
+```
+
+Working tree verified clean after this commit.
 
 ---
 
@@ -494,8 +619,6 @@ Phase 3 must add:
 * ETA calculation
 * Route geometry output
 * Correctness tests against Dijkstra
-* Initial benchmark logging
-* `/benchmarks` folder expansion
-
-```
-```
+* `NetworkXNoPath -> 404` route-level handling
+* Initial A* benchmark logging
+* Route performance benchmarks
