@@ -1,0 +1,13 @@
+snap_api_benchmark
+url=http://127.0.0.1:8001/graph/snap?lat=26.44&lon=80.30
+iterations=100
+status_codes=[200]
+snap_methods=['balltree']
+api_min_ms=6.474
+api_mean_ms=9.299
+api_median_ms=7.978
+api_max_ms=32.153
+internal_snap_min_ms=0.312
+internal_snap_mean_ms=0.422
+internal_snap_median_ms=0.405
+internal_snap_max_ms=0.903

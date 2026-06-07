@@ -1,0 +1,8 @@
+graph_load_time_s=2.349 
+iterations=100 
+input_lat=26.44 
+input_lon=80.3 
+min_ms=29.793 
+mean_ms=59.349 
+median_ms=38.848 
+max_ms=162.016 

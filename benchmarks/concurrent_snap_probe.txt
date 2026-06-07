@@ -1,0 +1,12 @@
+request=0 status_code=200 elapsed_ms=603.99
+request=2 status_code=200 elapsed_ms=666.935
+request=3 status_code=200 elapsed_ms=919.108
+request=4 status_code=200 elapsed_ms=982.113
+request=1 status_code=200 elapsed_ms=998.856
+request=5 status_code=200 elapsed_ms=999.738
+request=7 status_code=200 elapsed_ms=997.723
+request=8 status_code=200 elapsed_ms=998.146
+request=6 status_code=200 elapsed_ms=1001.331
+request=9 status_code=200 elapsed_ms=999.431
+total_requests=10
+total_elapsed_ms=1009.002

@@ -1,0 +1,22 @@
+====================================================================== test session starts =======================================================================
+platform win32 -- Python 3.11.9, pytest-8.3.4, pluggy-1.6.0 -- C:\MYDOWNLOADS\MYPROJECT\CityRoute\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\MYDOWNLOADS\MYPROJECT\CityRoute
+configfile: pytest.ini
+plugins: anyio-4.13.0
+collected 12 items                                                                                                                                                
+
+tests/test_geo_validation.py::test_valid_coordinate_inside_graph_bbox_passes PASSED                                                                         [  8%]
+tests/test_geo_validation.py::test_invalid_latitude_returns_422 PASSED                                                                                      [ 16%]
+tests/test_geo_validation.py::test_invalid_longitude_returns_422 PASSED                                                                                     [ 25%]
+tests/test_geo_validation.py::test_coordinate_outside_graph_bbox_returns_422 PASSED                                                                         [ 33%]
+tests/test_graph_endpoint.py::test_graph_stats_returns_loaded_graph_metadata PASSED                                                                         [ 41%]
+tests/test_graph_endpoint.py::test_graph_validate_accepts_coordinate_inside_bbox PASSED                                                                     [ 50%]
+tests/test_graph_endpoint.py::test_graph_validate_rejects_coordinate_outside_bbox PASSED                                                                    [ 58%]
+tests/test_graph_endpoint.py::test_graph_snap_accepts_coordinate_inside_bbox PASSED                                                                         [ 66%]
+tests/test_graph_endpoint.py::test_graph_snap_rejects_coordinate_outside_bbox PASSED                                                                        [ 75%]
+tests/test_graph_endpoint.py::test_graph_stats_includes_connectivity_metadata PASSED                                                                        [ 83%]
+tests/test_health.py::test_health_endpoint_returns_service_status PASSED                                                                                    [ 91%]
+tests/test_health.py::test_graph_stats_after_graph_loading                                                       PASSED [100%]
+
+================= 12 passed in 28.93s ==================

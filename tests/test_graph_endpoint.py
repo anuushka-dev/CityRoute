@@ -85,6 +85,8 @@ def test_graph_snap_accepts_coordinate_inside_bbox():
     assert isinstance(data["snapped"]["lat"], float)
     assert isinstance(data["snapped"]["lon"], float)
     assert data["snap_time_ms"] >= 0
+    assert data["snap_method"] == "balltree"
+    assert data["snap_distance_m"] >= 0
 
 
 def test_graph_snap_rejects_coordinate_outside_bbox():

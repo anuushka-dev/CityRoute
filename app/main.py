@@ -28,6 +28,23 @@ async def lifespan(app: FastAPI):
     app.state.graph = graph
     app.state.graph_loaded = graph is not None
     app.state.graph_stats = graph_stats
+    app.state.snap_index = None
+
+    if graph is not None:
+        from app.utils.snap_index import build_snap_index
+
+        logger.info("Building snap index")
+        snap_index = build_snap_index(graph)
+
+        app.state.snap_index = snap_index
+        app.state.graph_stats["snap_index_loaded"] = True
+        app.state.graph_stats["snap_index_build_time_ms"] = snap_index.build_time_ms
+
+        logger.info(
+            "Snap index ready | nodes=%s | build_time_ms=%s",
+            len(snap_index.node_ids),
+            snap_index.build_time_ms,
+        )
 
     logger.info("CityRoute startup complete")
 

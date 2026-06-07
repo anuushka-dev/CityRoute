@@ -43,8 +43,11 @@ def validate_graph_coordinate(lat: float, lon: float):
 def snap_graph_coordinate(request: Request, lat: float, lon: float):
     graph = getattr(request.app.state, "graph", None)
 
+    snap_index = getattr(request.app.state, "snap_index", None)
+
     result = snap_coordinate_to_graph(
         graph=graph,
+        snap_index=snap_index,
         lat=lat,
         lon=lon,
     )

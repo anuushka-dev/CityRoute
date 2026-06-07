@@ -1,0 +1,23 @@
+request=1 status_code=200 api_elapsed_ms=25.792 internal_snap_time_ms=0.665 snap_method=balltree
+request=2 status_code=200 api_elapsed_ms=27.023 internal_snap_time_ms=1.528 snap_method=balltree
+request=0 status_code=200 api_elapsed_ms=30.573 internal_snap_time_ms=1.45 snap_method=balltree
+request=4 status_code=200 api_elapsed_ms=33.291 internal_snap_time_ms=0.703 snap_method=balltree
+request=3 status_code=200 api_elapsed_ms=34.165 internal_snap_time_ms=0.309 snap_method=balltree
+request=9 status_code=200 api_elapsed_ms=37.174 internal_snap_time_ms=0.439 snap_method=balltree
+request=5 status_code=200 api_elapsed_ms=39.81 internal_snap_time_ms=0.32 snap_method=balltree
+request=8 status_code=200 api_elapsed_ms=40.766 internal_snap_time_ms=2.437 snap_method=balltree
+request=6 status_code=200 api_elapsed_ms=42.527 internal_snap_time_ms=0.467 snap_method=balltree
+request=7 status_code=200 api_elapsed_ms=42.6 internal_snap_time_ms=0.276 snap_method=balltree
+summary
+total_requests=10
+total_elapsed_ms=50.889
+status_codes=[200]
+snap_methods=['balltree']
+api_min_ms=25.792
+api_mean_ms=35.372
+api_median_ms=35.669
+api_max_ms=42.600
+internal_snap_min_ms=0.276
+internal_snap_mean_ms=0.859
+internal_snap_median_ms=0.566
+internal_snap_max_ms=2.437
