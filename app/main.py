@@ -7,10 +7,10 @@ from fastapi import FastAPI
 
 from app.api.graph import router as graph_router
 from app.api.health import router as health_router
+from app.api.route import router as route_router
 from app.config import settings
-from app.utils.logger import get_logger, setup_logging
-
 from app.services.graph_service import load_or_download_graph
+from app.utils.logger import get_logger, setup_logging
 
 setup_logging(settings.log_level)
 logger = get_logger(__name__)
@@ -30,6 +30,11 @@ async def lifespan(app: FastAPI):
     app.state.graph_stats = graph_stats
     app.state.snap_index = None
 
+    # Safe defaults for Phase 2 + Phase 3 observability.
+    # These fields should exist even if graph loading fails.
+    app.state.graph_stats["snap_index_loaded"] = False
+    app.state.graph_stats["snap_index_build_time_ms"] = None
+
     if graph is not None:
         from app.utils.snap_index import build_snap_index
 
@@ -44,6 +49,10 @@ async def lifespan(app: FastAPI):
             "Snap index ready | nodes=%s | build_time_ms=%s",
             len(snap_index.node_ids),
             snap_index.build_time_ms,
+        )
+    else:
+        logger.warning(
+            "Graph not loaded. Route, snap, and routing-dependent endpoints will return unavailable responses."
         )
 
     logger.info("CityRoute startup complete")
@@ -62,6 +71,7 @@ app = FastAPI(
 
 app.include_router(health_router, tags=["Health"])
 app.include_router(graph_router, tags=["Graph"])
+app.include_router(route_router, tags=["Route"])
 
 
 @app.get("/")
@@ -73,4 +83,6 @@ def root():
         "docs": "/docs",
         "health": "/health",
         "graph_stats": "/graph/stats",
+        "route": "/route",
+        "phase": "Tier 1 Phase 3 - A* Routing",
     }
