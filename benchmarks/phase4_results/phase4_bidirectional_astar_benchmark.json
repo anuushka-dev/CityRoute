@@ -1,0 +1,334 @@
+{
+  "benchmark": "phase4_bidirectional_astar_benchmark",
+  "timestamp_utc": "2026-06-11T06:49:06.864043+00:00",
+  "base_url": "http://127.0.0.1:8001",
+  "target_successful_route_measurements": 1000,
+  "attempted_requests": 1008,
+  "successful_route_measurements": 1000,
+  "no_path_404_skipped": 8,
+  "real_failures": 0,
+  "real_failure_rate_pct": 0.0,
+  "no_path_rate_pct": 0.794,
+  "zero_distance_successes": 3,
+  "elapsed_s": 57.881,
+  "astar_route_time_ms": {
+    "min": 0.002,
+    "mean": 15.443,
+    "median": 10.108,
+    "p50": 10.108,
+    "p95": 45.044,
+    "p99": 87.008,
+    "max": 137.109
+  },
+  "bidirectional_astar_route_time_ms": {
+    "min": 0.001,
+    "mean": 24.713,
+    "median": 15.745,
+    "p50": 15.745,
+    "p95": 74.384,
+    "p99": 157.73,
+    "max": 212.528
+  },
+  "astar_total_time_ms": {
+    "min": 0.527,
+    "mean": 16.565,
+    "median": 11.181,
+    "p50": 11.181,
+    "p95": 46.522,
+    "p99": 89.748,
+    "max": 139.44
+  },
+  "compare_total_time_ms": {
+    "min": 0.559,
+    "mean": 42.24,
+    "median": 28.422,
+    "p50": 28.422,
+    "p95": 121.365,
+    "p99": 234.841,
+    "max": 319.97
+  },
+  "api_elapsed_ms": {
+    "min": 5.904,
+    "mean": 56.896,
+    "median": 43.743,
+    "p50": 43.743,
+    "p95": 140.901,
+    "p99": 254.519,
+    "max": 336.688
+  },
+  "astar_nodes_expanded": {
+    "min": 0,
+    "mean": 1891.226,
+    "median": 1239.5,
+    "p50": 1240,
+    "p95": 5544,
+    "p99": 11117,
+    "max": 12731
+  },
+  "bidirectional_astar_nodes_expanded": {
+    "min": 0,
+    "mean": 1711.041,
+    "median": 1097.0,
+    "p50": 1097,
+    "p95": 5259,
+    "p99": 10167,
+    "max": 12201
+  },
+  "astar_path_node_count": {
+    "min": 1,
+    "mean": 75.159,
+    "median": 72.0,
+    "p50": 72,
+    "p95": 138,
+    "p99": 164,
+    "max": 192
+  },
+  "bidirectional_astar_path_node_count": {
+    "min": 1,
+    "mean": 75.159,
+    "median": 72.0,
+    "p50": 72,
+    "p95": 138,
+    "p99": 164,
+    "max": 192
+  },
+  "distance_m": {
+    "min": 0.0,
+    "mean": 6094.235,
+    "median": 5987.512,
+    "p50": 5987.512,
+    "p95": 11469.865,
+    "p99": 14477.809,
+    "max": 16641.71
+  },
+  "distance_delta_m": {
+    "min": 0.0,
+    "mean": 0.0,
+    "median": 0.0,
+    "p50": 0.0,
+    "p95": 0.0,
+    "p99": 0.0,
+    "max": 0.0
+  },
+  "route_time_delta_ms": {
+    "min": -162.315,
+    "mean": -9.27,
+    "median": -3.125,
+    "p50": -3.125,
+    "p95": 4.494,
+    "p99": 16.242,
+    "max": 25.346
+  },
+  "nodes_expanded_delta": {
+    "min": -7761,
+    "mean": 180.185,
+    "median": 144.5,
+    "p50": 144,
+    "p95": 1661,
+    "p99": 2880,
+    "max": 5013
+  },
+  "nodes_expanded_reduction_pct": {
+    "min": -1141.346,
+    "mean": -9.965,
+    "median": 15.642,
+    "p50": 15.642,
+    "p95": 59.484,
+    "p99": 71.931,
+    "max": 83.064
+  },
+  "route_time_reduction_pct": {
+    "min": -2353.776,
+    "mean": -88.92,
+    "median": -40.861,
+    "p50": -40.861,
+    "p95": 36.316,
+    "p99": 53.9,
+    "max": 73.277
+  },
+  "targets": {
+    "successful_route_measurements": "1000",
+    "real_failures": "0",
+    "distance_delta_m": "<= 0.001",
+    "benchmark_goal": "Compare A* vs Bidirectional A* timing and node expansion; do not assume Bidirectional A* is always faster."
+  },
+  "sample_no_path": [
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 26.311,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 13572796077 and 8813195061",
+          "start_node": 13572796077,
+          "end_node": 8813195061
+        }
+      },
+      "attempt": 88,
+      "start": {
+        "lat": 26.430118,
+        "lon": 80.372558
+      },
+      "end": {
+        "lat": 26.467692,
+        "lon": 80.351943
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 6.418,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 8392132153",
+          "start_node": 8789261727,
+          "end_node": 8392132153
+        }
+      },
+      "attempt": 325,
+      "start": {
+        "lat": 26.435402,
+        "lon": 80.364443
+      },
+      "end": {
+        "lat": 26.43708,
+        "lon": 80.357087
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 17.306,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 560773882",
+          "start_node": 8789261727,
+          "end_node": 560773882
+        }
+      },
+      "attempt": 336,
+      "start": {
+        "lat": 26.437181,
+        "lon": 80.364589
+      },
+      "end": {
+        "lat": 26.489582,
+        "lon": 80.308506
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 101.11,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 612740648 and 8799281888",
+          "start_node": 612740648,
+          "end_node": 8799281888
+        }
+      },
+      "attempt": 636,
+      "start": {
+        "lat": 26.44639,
+        "lon": 80.345549
+      },
+      "end": {
+        "lat": 26.479259,
+        "lon": 80.280109
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 108.012,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8823366822 and 8814510939",
+          "start_node": 8823366822,
+          "end_node": 8814510939
+        }
+      },
+      "attempt": 684,
+      "start": {
+        "lat": 26.48877,
+        "lon": 80.36772
+      },
+      "end": {
+        "lat": 26.496569,
+        "lon": 80.280146
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 6.849,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 13572796077 and 4154248168",
+          "start_node": 13572796077,
+          "end_node": 4154248168
+        }
+      },
+      "attempt": 727,
+      "start": {
+        "lat": 26.430048,
+        "lon": 80.37179
+      },
+      "end": {
+        "lat": 26.444103,
+        "lon": 80.293049
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 6.523,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 567546237",
+          "start_node": 8789261727,
+          "end_node": 567546237
+        }
+      },
+      "attempt": 747,
+      "start": {
+        "lat": 26.43516,
+        "lon": 80.364576
+      },
+      "end": {
+        "lat": 26.450644,
+        "lon": 80.311872
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.798,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 11054313309 and 560758172",
+          "start_node": 11054313309,
+          "end_node": 560758172
+        }
+      },
+      "attempt": 905,
+      "start": {
+        "lat": 26.432261,
+        "lon": 80.361403
+      },
+      "end": {
+        "lat": 26.437174,
+        "lon": 80.366804
+      }
+    }
+  ],
+  "sample_real_failures": []
+}

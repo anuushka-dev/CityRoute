@@ -1,0 +1,2 @@
+﻿CONTAINER ID   NAME                     CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O    PIDS
+0c2e21291f43   cityroute-tier1-phase4   0.20%     344.9MiB / 7.362GiB   4.57%     652kB / 4.59MB   157MB / 0B   32

@@ -1,0 +1,2 @@
+﻿CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+0c2e21291f43   cityroute-api:tier1-phase4   "uvicorn app.main:apΓÇª"   11 minutes ago   Up 11 minutes   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp   cityroute-tier1-phase4
