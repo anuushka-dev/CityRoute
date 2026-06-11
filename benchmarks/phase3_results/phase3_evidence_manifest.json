@@ -1,0 +1,266 @@
+{
+  "artifact": "phase3_evidence_manifest",
+  "generated_at_utc": "2026-06-11T07:28:31.617704+00:00",
+  "project_root": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+  "phase": "Tier 1 Phase 3 - Custom A* Routing",
+  "note": "Manifest generated from existing Phase 3 benchmark/result files. It does not invent benchmark values.",
+  "files": [
+    {
+      "path": "benchmarks/docker_results/phase3_astar_correctness_probe.json",
+      "size_bytes": 471,
+      "sha256": "365302e28f196d36e42d4c455f8904b6ac3ef0f568b2ef534439909c885608d2",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:26:14.033728+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_astar_correctness_probe_console.txt",
+      "size_bytes": 946,
+      "sha256": "456723af1d27740582e8a1e41a2814c619e078e150ec853d329096c185a9537a",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:46:23.975364+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_astar_correctness_summary.json",
+      "size_bytes": 217,
+      "sha256": "212789cd1e4d9c49b0cdff61ba2592c8b82100cb2d7714ac2051e181b4828694",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:57:08.011333+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_astar_route_benchmark.json",
+      "size_bytes": 4855,
+      "sha256": "b6eb867f9d0f4c5069d08de63d275803d5fa42412d2326fb1704191c3d452689",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T06:40:23.668922+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_astar_route_benchmark_routeable.json",
+      "size_bytes": 6155,
+      "sha256": "ae68d383c27ac19b517077d6589be136ebf7dce50a550a98c7c48035ca5370b7",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:14:49.878012+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_concurrent_route_probe.json",
+      "size_bytes": 4454,
+      "sha256": "b15e9a35c1df3cc2b81b92d98b8fa6f7450abec849cc5974fb19d2b7f9e50e83",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:52:06.818623+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_concurrent_route_probe_console.txt",
+      "size_bytes": 8928,
+      "sha256": "289ea58f652794ac15428eb022ff31d692ba3155b02fd669536fd020b7803d25",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:04.731011+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_concurrent_summary.json",
+      "size_bytes": 204,
+      "sha256": "4b1de85cdb3e7098a29835a1a0bd8512bd92fa1284d2867cacc43234d58ffa4c",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:58:11.940899+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_connectivity_audit.json",
+      "size_bytes": 414,
+      "sha256": "78acca88269cacb9a484111ecdde54ef3f9ebda17e6f1d4fc2795b3492ac7219",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:57:03.362921+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_graph_stats.json",
+      "size_bytes": 471,
+      "sha256": "3de3540421b8c6d52ffe978ae46f589c86ab283627d68e6b628c6d312eabf4f3",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:44:01.753930+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_health.json",
+      "size_bytes": 85,
+      "sha256": "728c3731354e2fad8c9491ce0f493c3f3cde5893bc016a077bbabcd080dcf350",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:43:53.042999+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_inspect.json",
+      "size_bytes": 8466,
+      "sha256": "0222664b1bf850125498185fa4518d3903063d0b2a03ce6da1a2c7709c030b5d",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:26.677102+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_logs.txt",
+      "size_bytes": 40228,
+      "sha256": "8cfb6b6aa29bf94e8e7df71288856a7d37e49a29f358306d7887c77546b0f30f",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:21:20.621459+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_logs_tail500.txt",
+      "size_bytes": 67172,
+      "sha256": "135c2a8286f5f2cd20a3a7bd8b2550be704b8cb796b6e6d10d42066c3a902111",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:36.601991+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_openapi_paths.txt",
+      "size_bytes": 67,
+      "sha256": "343a278a9c8b5237b901e584a173d31e1918030c2bb28a8b325601ebac192a12",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:44:11.176789+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_ps.txt",
+      "size_bytes": 684,
+      "sha256": "7070f644f4b161eb4293e81cb315a55e465bca165642de36930e46322448e471",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:43:31.842084+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_results_manifest.txt",
+      "size_bytes": 7166,
+      "sha256": "0706e825bffe211000e17b6cd0a730a1ec5661656260777f7d71356c31dbed7a",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:58:22.479749+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_route_sample.json",
+      "size_bytes": 12174,
+      "sha256": "e52ef7dc112da76030d54c45b520937d14f9b59f62b85986348abefb8a03b90e",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:44:21.091887+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_startup_logs.txt",
+      "size_bytes": 31998,
+      "sha256": "2ea8ea6ba4f772d97876f43630efb2e0e279aab639d00f43790fc790d6bc612e",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:43:42.692467+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_docker_stats.txt",
+      "size_bytes": 474,
+      "sha256": "9c42da9f65fa87d7a0613d4f8cd2e409676f02a2e703df0e0f9c574641b1349c",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:18.008933+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_graph_file_info.json",
+      "size_bytes": 124,
+      "sha256": "79dea12cf373d40ca0d53c47bd83176adde2f0e2cc4df5c6df8521a1a196523c",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:47.281562+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_heuristic_admissibility_10000_console.txt",
+      "size_bytes": 876,
+      "sha256": "ebecee4b41972d09f242d828b540581728fa8b1829aefaa203c28686adeff229",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:54:52.164497+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_heuristic_admissibility_1000_console.txt",
+      "size_bytes": 868,
+      "sha256": "eb7a61eade43f5d5e855bbd9e826c20c453987c251f76201e5ad1c5c61bbafe3",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:47:15.763033+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_heuristic_admissibility_probe.json",
+      "size_bytes": 435,
+      "sha256": "12f1a176e3cfcd75a7f73984d0724f1c7e930539f0de892e0d3b0779291432ee",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T06:51:08.401546+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_heuristic_summary.json",
+      "size_bytes": 238,
+      "sha256": "40bc55e945994142564c50e4b8e7c0ca4f5e60959536f7bf33abcec8a4bc9bb4",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:57:18.585404+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_pytest_49_tests.txt",
+      "size_bytes": 10432,
+      "sha256": "e15236a82c9ca2ad188ee6b19d2ed7df4146f82f24e78e4ebfa7c537296311ff",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:45:46.583373+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_route_latency_summary.json",
+      "size_bytes": 157,
+      "sha256": "9f6f00bc4ea620c2ee26febfe341a64e03833b1ac3f13e61c45f0c533219b27d",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:57:54.688528+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_routeable_benchmark_console.txt",
+      "size_bytes": 13720,
+      "sha256": "12a26864d412c15ba8cfdf848f9ffd899a9aab1e88c5a8823459ba729f243da3",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:55:31.643840+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_routeable_benchmark_summary.json",
+      "size_bytes": 338,
+      "sha256": "6a34d5681832fac210615c211cc839335ea86e38176a7562b4805c992df1026f",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:57:28.740860+00:00"
+    },
+    {
+      "path": "benchmarks/docker_results/phase3_snap_latency_summary.json",
+      "size_bytes": 152,
+      "sha256": "dd3e713df214bb8917b6116079252cbb2ffd12ad3e3a246a997c276af57d0e84",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:58:02.272583+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_astar_correctness_probe.json",
+      "size_bytes": 470,
+      "sha256": "b6fec14a9cd2e4b199f9701de9fc9526a3a6772ef59a4078fa0c53b1d35911bf",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:46:23.943846+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_astar_route_benchmark.json",
+      "size_bytes": 4855,
+      "sha256": "b6eb867f9d0f4c5069d08de63d275803d5fa42412d2326fb1704191c3d452689",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T06:40:23.668922+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_astar_route_benchmark_routeable.json",
+      "size_bytes": 6149,
+      "sha256": "c5c0db46fdf9142a0c984f51d2686806daf511d4f649fb2c9becabc1fadc13f8",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:55:31.436665+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_concurrent_route_probe.json",
+      "size_bytes": 4461,
+      "sha256": "3cb6ad2a734a8fded82bcb12418db3cf401bbabbb109d0e007834df20887979c",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:56:04.623526+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_docker_stats.txt",
+      "size_bytes": 474,
+      "sha256": "58d082be7050b5cead67575abb7d93d09f0b55a7e7f28d62202f379f367db577",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T06:41:07.436522+00:00"
+    },
+    {
+      "path": "benchmarks/results/phase3_heuristic_admissibility_probe.json",
+      "size_bytes": 435,
+      "sha256": "ee676d1f93259fbf202578433c4a8135bac2f0350a7089e3ceab71be0b3606f6",
+      "status": "OK",
+      "last_modified_utc": "2026-06-08T07:54:52.108406+00:00"
+    }
+  ],
+  "summary": {
+    "total_files_indexed": 36,
+    "valid_files": 36,
+    "empty_files": 0
+  }
+}
