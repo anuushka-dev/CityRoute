@@ -1,0 +1,185 @@
+{
+  "benchmark": "phase3_astar_route_benchmark",
+  "timestamp_utc": "2026-06-08T06:40:23.659418+00:00",
+  "base_url": "http://127.0.0.1:8001",
+  "iterations_requested": 1000,
+  "successful_requests": 992,
+  "failed_requests": 8,
+  "error_rate_pct": 0.8,
+  "elapsed_s": 26.122,
+  "route_time_ms": {
+    "min": 0.003,
+    "mean": 15.697,
+    "median": 10.04,
+    "p50": 10.042,
+    "p95": 45.303,
+    "p99": 87.964,
+    "max": 123.66
+  },
+  "total_time_ms": {
+    "min": 0.58,
+    "mean": 16.901,
+    "median": 11.233,
+    "p50": 11.261,
+    "p95": 46.495,
+    "p99": 90.487,
+    "max": 125.627
+  },
+  "api_elapsed_ms": {
+    "min": 5.575,
+    "mean": 25.75,
+    "median": 21.079,
+    "p50": 21.084,
+    "p95": 57.775,
+    "p99": 101.46,
+    "max": 135.637
+  },
+  "two_snap_time_ms": {
+    "min": 0.428,
+    "mean": 0.633,
+    "median": 0.607,
+    "p50": 0.608,
+    "p95": 0.846,
+    "p99": 0.975,
+    "max": 1.116
+  },
+  "nodes_expanded": {
+    "min": 0,
+    "mean": 1891.834,
+    "median": 1239.5,
+    "p50": 1242,
+    "p95": 5481,
+    "p99": 11115,
+    "max": 12731
+  },
+  "distance_m": {
+    "min": 0.0,
+    "mean": 6101.616,
+    "median": 5997.253,
+    "p50": 6003.546,
+    "p95": 11467.842,
+    "p99": 14476.233,
+    "max": 16641.71
+  },
+  "path_node_count": {
+    "min": 1,
+    "mean": 75.164,
+    "median": 72.0,
+    "p50": 72,
+    "p95": 138,
+    "p99": 162,
+    "max": 192
+  },
+  "targets": {
+    "route_time_p50_ms": "10-25 ms",
+    "route_time_p95_ms": "< 60 ms",
+    "route_time_p99_ms": "< 120 ms",
+    "error_rate_pct": "0%"
+  },
+  "sample_errors": [
+    {
+      "iteration": 87,
+      "start": {
+        "lat": 26.430118,
+        "lon": 80.372558
+      },
+      "end": {
+        "lat": 26.467692,
+        "lon": 80.351943
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 13572796077 and 8813195061\",\"start_node\":13572796077,\"end_node\":8813195061}}"
+    },
+    {
+      "iteration": 324,
+      "start": {
+        "lat": 26.435402,
+        "lon": 80.364443
+      },
+      "end": {
+        "lat": 26.43708,
+        "lon": 80.357087
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 8789261727 and 8392132153\",\"start_node\":8789261727,\"end_node\":8392132153}}"
+    },
+    {
+      "iteration": 335,
+      "start": {
+        "lat": 26.437181,
+        "lon": 80.364589
+      },
+      "end": {
+        "lat": 26.489582,
+        "lon": 80.308506
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 8789261727 and 560773882\",\"start_node\":8789261727,\"end_node\":560773882}}"
+    },
+    {
+      "iteration": 635,
+      "start": {
+        "lat": 26.44639,
+        "lon": 80.345549
+      },
+      "end": {
+        "lat": 26.479259,
+        "lon": 80.280109
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 612740648 and 8799281888\",\"start_node\":612740648,\"end_node\":8799281888}}"
+    },
+    {
+      "iteration": 683,
+      "start": {
+        "lat": 26.48877,
+        "lon": 80.36772
+      },
+      "end": {
+        "lat": 26.496569,
+        "lon": 80.280146
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 8823366822 and 8814510939\",\"start_node\":8823366822,\"end_node\":8814510939}}"
+    },
+    {
+      "iteration": 726,
+      "start": {
+        "lat": 26.430048,
+        "lon": 80.37179
+      },
+      "end": {
+        "lat": 26.444103,
+        "lon": 80.293049
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 13572796077 and 4154248168\",\"start_node\":13572796077,\"end_node\":4154248168}}"
+    },
+    {
+      "iteration": 746,
+      "start": {
+        "lat": 26.43516,
+        "lon": 80.364576
+      },
+      "end": {
+        "lat": 26.450644,
+        "lon": 80.311872
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 8789261727 and 567546237\",\"start_node\":8789261727,\"end_node\":567546237}}"
+    },
+    {
+      "iteration": 904,
+      "start": {
+        "lat": 26.432261,
+        "lon": 80.361403
+      },
+      "end": {
+        "lat": 26.437174,
+        "lon": 80.366804
+      },
+      "status_code": 404,
+      "error": "{\"detail\":{\"error\":\"No path found\",\"message\":\"No path found between 11054313309 and 560758172\",\"start_node\":11054313309,\"end_node\":560758172}}"
+    }
+  ]
+}

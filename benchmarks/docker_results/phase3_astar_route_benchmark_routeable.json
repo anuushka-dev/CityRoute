@@ -1,0 +1,265 @@
+{
+  "benchmark": "phase3_astar_route_benchmark_routeable",
+  "timestamp_utc": "2026-06-08T07:14:49.868105+00:00",
+  "base_url": "http://127.0.0.1:8001",
+  "target_successful_route_measurements": 1000,
+  "attempted_requests": 1008,
+  "successful_route_measurements": 1000,
+  "no_path_404_skipped": 8,
+  "real_failures": 0,
+  "real_failure_rate_pct": 0.0,
+  "no_path_rate_pct": 0.794,
+  "zero_distance_successes": 3,
+  "elapsed_s": 25.601,
+  "route_time_ms": {
+    "min": 0.003,
+    "mean": 15.202,
+    "median": 9.892,
+    "p50": 9.904,
+    "p95": 44.371,
+    "p99": 87.893,
+    "max": 106.064
+  },
+  "total_time_ms": {
+    "min": 0.514,
+    "mean": 16.549,
+    "median": 11.226,
+    "p50": 11.241,
+    "p95": 46.13,
+    "p99": 89.492,
+    "max": 108.141
+  },
+  "api_elapsed_ms": {
+    "min": 5.251,
+    "mean": 25.029,
+    "median": 19.752,
+    "p50": 19.77,
+    "p95": 59.154,
+    "p99": 99.809,
+    "max": 129.382
+  },
+  "two_snap_time_ms": {
+    "min": 0.429,
+    "mean": 0.598,
+    "median": 0.569,
+    "p50": 0.569,
+    "p95": 0.798,
+    "p99": 0.961,
+    "max": 1.304
+  },
+  "nodes_expanded": {
+    "min": 0,
+    "mean": 1891.226,
+    "median": 1239.5,
+    "p50": 1242,
+    "p95": 5543,
+    "p99": 11115,
+    "max": 12731
+  },
+  "distance_m": {
+    "min": 0.0,
+    "mean": 6094.235,
+    "median": 5987.512,
+    "p50": 5989.909,
+    "p95": 11467.842,
+    "p99": 14476.233,
+    "max": 16641.71
+  },
+  "path_node_count": {
+    "min": 1,
+    "mean": 75.159,
+    "median": 72.0,
+    "p50": 72,
+    "p95": 138,
+    "p99": 164,
+    "max": 192
+  },
+  "targets": {
+    "successful_route_measurements": "1000",
+    "real_failures": "0",
+    "route_time_p50_ms": "10-25 ms",
+    "route_time_p95_ms": "< 60 ms",
+    "route_time_p99_ms": "< 120 ms",
+    "two_snap_p50_ms": "< 1 ms",
+    "memory": "record separately with docker stats"
+  },
+  "sample_no_path": [
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 7.708,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 13572796077 and 8813195061",
+          "start_node": 13572796077,
+          "end_node": 8813195061
+        }
+      },
+      "attempt": 87,
+      "start": {
+        "lat": 26.430118,
+        "lon": 80.372558
+      },
+      "end": {
+        "lat": 26.467692,
+        "lon": 80.351943
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.528,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 8392132153",
+          "start_node": 8789261727,
+          "end_node": 8392132153
+        }
+      },
+      "attempt": 324,
+      "start": {
+        "lat": 26.435402,
+        "lon": 80.364443
+      },
+      "end": {
+        "lat": 26.43708,
+        "lon": 80.357087
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.743,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 560773882",
+          "start_node": 8789261727,
+          "end_node": 560773882
+        }
+      },
+      "attempt": 335,
+      "start": {
+        "lat": 26.437181,
+        "lon": 80.364589
+      },
+      "end": {
+        "lat": 26.489582,
+        "lon": 80.308506
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 105.519,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 612740648 and 8799281888",
+          "start_node": 612740648,
+          "end_node": 8799281888
+        }
+      },
+      "attempt": 635,
+      "start": {
+        "lat": 26.44639,
+        "lon": 80.345549
+      },
+      "end": {
+        "lat": 26.479259,
+        "lon": 80.280109
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 192.139,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8823366822 and 8814510939",
+          "start_node": 8823366822,
+          "end_node": 8814510939
+        }
+      },
+      "attempt": 683,
+      "start": {
+        "lat": 26.48877,
+        "lon": 80.36772
+      },
+      "end": {
+        "lat": 26.496569,
+        "lon": 80.280146
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.19,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 13572796077 and 4154248168",
+          "start_node": 13572796077,
+          "end_node": 4154248168
+        }
+      },
+      "attempt": 726,
+      "start": {
+        "lat": 26.430048,
+        "lon": 80.37179
+      },
+      "end": {
+        "lat": 26.444103,
+        "lon": 80.293049
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.106,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 8789261727 and 567546237",
+          "start_node": 8789261727,
+          "end_node": 567546237
+        }
+      },
+      "attempt": 746,
+      "start": {
+        "lat": 26.43516,
+        "lon": 80.364576
+      },
+      "end": {
+        "lat": 26.450644,
+        "lon": 80.311872
+      }
+    },
+    {
+      "kind": "no_path",
+      "status_code": 404,
+      "api_elapsed_ms": 5.091,
+      "error": {
+        "detail": {
+          "error": "No path found",
+          "message": "No path found between 11054313309 and 560758172",
+          "start_node": 11054313309,
+          "end_node": 560758172
+        }
+      },
+      "attempt": 904,
+      "start": {
+        "lat": 26.432261,
+        "lon": 80.361403
+      },
+      "end": {
+        "lat": 26.437174,
+        "lon": 80.366804
+      }
+    }
+  ],
+  "sample_real_failures": []
+}

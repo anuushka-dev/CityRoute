@@ -1,0 +1,9 @@
+﻿{
+    "benchmark":  "phase3_astar_correctness_probe",
+    "target_checks":  500,
+    "passed":  500,
+    "failed":  0,
+    "no_path_skipped":  0,
+    "elapsed_s":  28.169,
+    "success_rate_pct":  100.0
+}
