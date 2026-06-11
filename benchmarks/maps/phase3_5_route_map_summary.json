@@ -1,0 +1,29 @@
+{
+  "artifact": "phase3_5_route_map_probe",
+  "base_url": "http://127.0.0.1:8001",
+  "status": "ok",
+  "algorithm": "astar",
+  "api_elapsed_ms": 414.165,
+  "distance_m": 6428.798,
+  "distance_km": 6.429,
+  "eta_seconds": 999.5,
+  "eta_minutes": 16.66,
+  "path_node_count": 77,
+  "geometry_points": 77,
+  "nodes_expanded": 2622,
+  "route_time_ms": 202.624,
+  "total_time_ms": 267.047,
+  "start_snapped_node": 5317312245,
+  "end_snapped_node": 6288159135,
+  "start_snap_method": "balltree",
+  "end_snap_method": "balltree",
+  "output_html": "benchmarks\\maps\\phase3_5_route_map.html",
+  "output_route_json": "benchmarks\\maps\\phase3_5_route_response.json",
+  "verification": {
+    "route_response_received": true,
+    "geometry_present": true,
+    "map_html_generated": true,
+    "uses_route_endpoint_geometry": true,
+    "recomputed_route": false
+  }
+}
