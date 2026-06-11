@@ -5,7 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException, Query, Request
 
 from app.config import settings
-from app.services.routing_service import compute_route
+from app.services.routing_service import compare_routes, compute_route
 
 
 router = APIRouter(prefix="/route")
@@ -58,6 +58,36 @@ def _validate_coordinate(lat: float, lon: float, label: str) -> None:
                 "allowed_bbox": bbox,
             },
         )
+
+
+@router.get("/compare")
+def route_compare(
+    request: Request,
+    start_lat: float = Query(..., description="Start latitude"),
+    start_lon: float = Query(..., description="Start longitude"),
+    end_lat: float = Query(..., description="End latitude"),
+    end_lon: float = Query(..., description="End longitude"),
+):
+    """
+    Compare Phase 3 A* with Phase 4 Bidirectional A*.
+
+    This endpoint does not replace /route.
+    It runs both algorithms on the same snapped start/end nodes.
+    """
+    _validate_coordinate(start_lat, start_lon, "start")
+    _validate_coordinate(end_lat, end_lon, "end")
+
+    graph = getattr(request.app.state, "graph", None)
+    snap_index = getattr(request.app.state, "snap_index", None)
+
+    return compare_routes(
+        graph=graph,
+        snap_index=snap_index,
+        start_lat=start_lat,
+        start_lon=start_lon,
+        end_lat=end_lat,
+        end_lon=end_lon,
+    )
 
 
 @router.get("")

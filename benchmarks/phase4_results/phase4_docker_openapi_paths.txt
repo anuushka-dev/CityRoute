@@ -1,0 +1,7 @@
+﻿/health
+/graph/stats
+/graph/validate
+/graph/snap
+/route/compare
+/route
+/

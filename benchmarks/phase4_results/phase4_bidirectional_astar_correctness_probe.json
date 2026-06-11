@@ -1,0 +1,21 @@
+{
+  "benchmark": "phase4_bidirectional_astar_correctness_probe",
+  "timestamp_utc": "2026-06-11T06:47:24.100750+00:00",
+  "graph": {
+    "nodes": 12969,
+    "edges": 34996,
+    "is_directed": true,
+    "is_multigraph": true,
+    "is_weakly_connected": true
+  },
+  "target_checks": 500,
+  "passed": 500,
+  "failed": 0,
+  "no_path_skipped": 0,
+  "attempts": 500,
+  "max_attempts": 2500,
+  "distance_tolerance_m": 0.001,
+  "success_rate_pct": 100.0,
+  "elapsed_s": 50.804,
+  "errors": []
+}

@@ -1,0 +1,58 @@
+{
+  "artifact": "phase4_route_compare_probe",
+  "timestamp_utc": "2026-06-11T06:46:07.590765+00:00",
+  "base_url": "http://127.0.0.1:8001",
+  "status": "ok",
+  "api_elapsed_ms": 93.664,
+  "start_snapped_node": 5317312245,
+  "end_snapped_node": 6288159135,
+  "start_snap_method": "balltree",
+  "end_snap_method": "balltree",
+  "astar": {
+    "algorithm": "astar",
+    "distance_m": 6428.798,
+    "distance_km": 6.429,
+    "path_node_count": 77,
+    "nodes_expanded": 2622,
+    "route_time_ms": 34.335,
+    "total_time_ms": 37.725
+  },
+  "bidirectional_astar": {
+    "algorithm": "bidirectional_astar",
+    "distance_m": 6428.798,
+    "distance_km": 6.429,
+    "path_node_count": 77,
+    "nodes_expanded": 1458,
+    "forward_nodes_expanded": 846,
+    "backward_nodes_expanded": 612,
+    "route_time_ms": 25.036,
+    "meeting_node": 8810239341,
+    "geometry_points": 77
+  },
+  "comparison": {
+    "distance_delta_m": 0.0,
+    "same_distance": true,
+    "astar_route_time_ms": 34.335,
+    "bidirectional_route_time_ms": 25.036,
+    "route_time_delta_ms": 9.299,
+    "astar_faster": false,
+    "bidirectional_faster": true,
+    "astar_nodes_expanded": 2622,
+    "bidirectional_nodes_expanded": 1458,
+    "nodes_expanded_delta": 1164,
+    "nodes_expanded_reduction_pct": 44.394,
+    "route_time_reduction_pct": 27.083
+  },
+  "compare_total_time_ms": 63.84,
+  "output_json": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\benchmarks\\phase4_results\\phase4_route_compare_sample.json",
+  "verification": {
+    "route_compare_response_received": true,
+    "astar_section_present": true,
+    "bidirectional_astar_section_present": true,
+    "comparison_section_present": true,
+    "same_distance": true,
+    "distance_delta_within_tolerance": true,
+    "uses_balltree_snapping": true,
+    "docker_api_route_compare_working": true
+  }
+}
