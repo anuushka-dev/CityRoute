@@ -23,13 +23,6 @@ class AStarResult:
 
 
 def haversine_m(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
-    """
-    Spherical distance in meters.
-    Used as A* heuristic.
-
-    For road routing this is admissible because straight-line distance
-    cannot be greater than real road distance.
-    """
     lat1_rad = radians(lat1)
     lon1_rad = radians(lon1)
     lat2_rad = radians(lat2)
@@ -52,15 +45,6 @@ def _node_lat_lon(graph: nx.Graph, node: int) -> tuple[float, float]:
 
 
 def _edge_length_m(graph: nx.Graph, u: int, v: int) -> float:
-    """
-    Returns shortest edge length between u and v.
-
-    OSMnx usually gives a MultiDiGraph, so graph.get_edge_data(u, v)
-    can be:
-      {0: {"length": ...}, 1: {"length": ...}}
-    For a normal DiGraph it can be:
-      {"length": ...}
-    """
     edge_data = graph.get_edge_data(u, v)
 
     if not edge_data:
@@ -101,14 +85,6 @@ def reconstruct_path(came_from: dict[int, int], current: int) -> list[int]:
 
 
 def astar_shortest_path(graph: nx.Graph, start_node: int, goal_node: int) -> AStarResult:
-    """
-    Custom A* implementation.
-
-    Strict Phase 3 rule:
-    - no nx.astar_path
-    - no nx.shortest_path for routing
-    - graph adjacency is traversed manually
-    """
     start_time = perf_counter()
 
     if start_node not in graph:

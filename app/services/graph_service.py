@@ -17,19 +17,11 @@ logger = get_logger(__name__)
 
 
 def _get_memory_mb() -> float:
-    """
-    Return current process memory usage in MB.
-    Useful for Phase 2 audit evidence and Docker/Railway monitoring.
-    """
     process = psutil.Process()
     return round(process.memory_info().rss / 1024 / 1024, 2)
 
 
 def _get_graph_file_size_mb() -> float | None:
-    """
-    Return GraphML file size in MB if the file exists.
-    Useful for Phase 2 benchmark evidence.
-    """
     if not settings.graph_path.exists():
         return None
 
@@ -37,13 +29,6 @@ def _get_graph_file_size_mb() -> float | None:
 
 
 def _get_connectivity_stats(graph: Any | None) -> dict[str, Any]:
-    """
-    Return weak-connectivity metadata for the loaded directed road graph.
-
-    This does not replace Phase 3 route-level NetworkXNoPath handling.
-    It only records whether the loaded graph is split into weakly connected
-    components, so Phase 2 has honest disconnected-graph evidence.
-    """
     if graph is None:
         return {
             "weakly_connected_components": 0,

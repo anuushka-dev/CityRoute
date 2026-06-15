@@ -31,25 +31,47 @@ async def lifespan(app: FastAPI):
     app.state.snap_index = None
 
     # Safe defaults for Phase 2 + Phase 3 observability.
-    # These fields should exist even if graph loading fails.
+    # These fields should exist even if graph loading or snap index loading fails.
     app.state.graph_stats["snap_index_loaded"] = False
     app.state.graph_stats["snap_index_build_time_ms"] = None
+    app.state.graph_stats["snap_index_method"] = None
+    app.state.graph_stats["snap_index_import_error"] = None
 
     if graph is not None:
         from app.utils.snap_index import build_snap_index
 
         logger.info("Building snap index")
-        snap_index = build_snap_index(graph)
 
-        app.state.snap_index = snap_index
-        app.state.graph_stats["snap_index_loaded"] = True
-        app.state.graph_stats["snap_index_build_time_ms"] = snap_index.build_time_ms
+        try:
+            snap_index = build_snap_index(graph)
 
-        logger.info(
-            "Snap index ready | nodes=%s | build_time_ms=%s",
-            len(snap_index.node_ids),
-            snap_index.build_time_ms,
-        )
+            app.state.snap_index = snap_index
+            app.state.graph_stats["snap_index_loaded"] = True
+            app.state.graph_stats["snap_index_build_time_ms"] = snap_index.build_time_ms
+            app.state.graph_stats["snap_index_method"] = snap_index.method
+            app.state.graph_stats["snap_index_import_error"] = snap_index.import_error
+
+            logger.info(
+                "Snap index ready | nodes=%s | method=%s | build_time_ms=%s",
+                len(snap_index.node_ids),
+                snap_index.method,
+                snap_index.build_time_ms,
+            )
+
+            if snap_index.import_error is not None:
+                logger.warning(
+                    "BallTree unavailable. Using linear fallback snap index | error=%s",
+                    snap_index.import_error,
+                )
+
+        except Exception as exc:
+            logger.exception("Snap index build failed: %s", exc)
+            app.state.snap_index = None
+            app.state.graph_stats["snap_index_loaded"] = False
+            app.state.graph_stats["snap_index_build_time_ms"] = None
+            app.state.graph_stats["snap_index_method"] = None
+            app.state.graph_stats["snap_index_import_error"] = repr(exc)
+
     else:
         logger.warning(
             "Graph not loaded. Route, snap, and routing-dependent endpoints will return unavailable responses."
