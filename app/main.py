@@ -106,5 +106,5 @@ def root():
         "health": "/health",
         "graph_stats": "/graph/stats",
         "route": "/route",
-        "phase": "Tier 1 Phase 3 - A* Routing",
+        "phase": "Tier 1 Phase 4 - Final Railway Deployment",
     }
