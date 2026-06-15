@@ -73,10 +73,6 @@ def _build_graph_stats(
 
 
 def _download_graph() -> Any:
-    """
-    Download either a smaller central Kanpur bbox graph or full city graph.
-    For Phase 2, bbox graph is preferred because it reduces memory and startup time.
-    """
     if settings.use_bbox_graph:
         logger.info(
             "Downloading bbox graph | north=%s south=%s east=%s west=%s",

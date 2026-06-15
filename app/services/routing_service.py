@@ -232,15 +232,6 @@ def compare_routes(
     end_lat: float,
     end_lon: float,
 ) -> dict[str, Any]:
-    """
-    Compare Phase 3 A* against Phase 4 Bidirectional A*.
-
-    Important:
-    - This does not replace /route.
-    - It reuses existing snapping.
-    - It runs both algorithms on the same snapped start/end nodes.
-    - NetworkX is still only used as the graph container here.
-    """
     if graph is None:
         raise HTTPException(
             status_code=503,

@@ -16,18 +16,6 @@ DISTANCE_TOLERANCE_M = 1e-3
 
 
 def _dijkstra_weight(u, v, edge_data) -> float:
-    """
-    Match CityRoute edge-length behavior.
-
-    For OSMnx MultiDiGraph, NetworkX gives edge_data like:
-    {
-        0: {"length": 50.0},
-        1: {"length": 40.0}
-    }
-
-    CityRoute A* chooses the shortest parallel edge.
-    This Dijkstra test oracle must do the same.
-    """
     if not edge_data:
         return 0.0
 
@@ -64,15 +52,6 @@ def _assert_same_distance(
 
 
 def test_bidirectional_astar_matches_astar_and_dijkstra_for_known_docker_route_nodes() -> None:
-    """
-    Known Phase 3 Docker route evidence:
-
-    start input: 26.44, 80.30
-    end input:   26.45, 80.35
-
-    snapped start node: 5317312245
-    snapped end node:   6288159135
-    """
     with TestClient(app) as client:
         graph = client.app.state.graph
 
@@ -111,12 +90,6 @@ def test_bidirectional_astar_matches_astar_and_dijkstra_for_known_docker_route_n
 
 
 def test_bidirectional_astar_matches_astar_and_dijkstra_on_deterministic_real_graph_pairs() -> None:
-    """
-    Deterministic real-graph correctness check.
-
-    This avoids random flakes while still testing multiple real road-graph pairs.
-    No-path pairs are valid in a directed road graph, so they are skipped here.
-    """
     with TestClient(app) as client:
         graph = client.app.state.graph
         nodes = list(graph.nodes)

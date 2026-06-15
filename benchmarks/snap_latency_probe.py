@@ -18,12 +18,6 @@ from app.config import settings  # noqa: E402
 
 
 def benchmark_single_snap(graph, *, lat: float, lon: float, iterations: int) -> list[float]:
-    """
-    Benchmark repeated single nearest-node lookups.
-
-    This matches how /graph/snap is used: one GPS coordinate comes in,
-    one nearest road node is found.
-    """
     timings_ms: list[float] = []
 
     # Warm-up so first-call setup is not counted.

@@ -68,13 +68,6 @@ def generate_route_map(
     *,
     zoom_start: int = 14,
 ) -> Path:
-    """
-    Generate an HTML Folium map for a CityRoute /route response.
-
-    This is Phase 3.5 visual verification only.
-    It does not recompute the route.
-    It uses the geometry already returned by the /route endpoint.
-    """
     geometry = _require_route_geometry(route_result)
     output = Path(output_path)
 

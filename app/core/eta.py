@@ -56,15 +56,6 @@ def _best_edge_attrs(graph: nx.Graph, u: int, v: int) -> dict[str, Any]:
 
 
 def estimate_eta_seconds(graph: nx.Graph, path: list[int]) -> float:
-    """
-    Formula-based ETA:
-    ETA = sum(edge_length / road_type_speed)
-
-    This is intentionally honest:
-    - no live traffic claim
-    - no Google Maps claim
-    - speed profile is configurable later
-    """
     if len(path) < 2:
         return 0.0
 

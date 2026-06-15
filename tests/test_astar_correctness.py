@@ -10,15 +10,6 @@ from app.main import app
 
 
 def _dijkstra_weight(u, v, edge_data):
-    """
-    Match CityRoute A* edge behavior.
-
-    For OSMnx MultiDiGraph, NetworkX gives edge_data like:
-    {0: {"length": ...}, 1: {"length": ...}}
-
-    CityRoute A* chooses the shortest parallel edge.
-    This Dijkstra baseline must do the same.
-    """
     if not edge_data:
         return 0.0
 

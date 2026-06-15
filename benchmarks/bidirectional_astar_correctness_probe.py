@@ -35,12 +35,6 @@ DISTANCE_TOLERANCE_M = 0.001
 
 
 def _dijkstra_weight(u: Any, v: Any, edge_data: dict[str, Any]) -> float:
-    """
-    Match CityRoute edge-length behavior.
-
-    For MultiDiGraph parallel edges, CityRoute chooses the shortest edge length.
-    This Dijkstra oracle must do the same.
-    """
     if not edge_data:
         return 0.0
 

@@ -29,23 +29,6 @@ def bidirectional_astar_shortest_path(
     start: Any,
     goal: Any,
 ) -> BidirectionalAStarResult:
-    """
-    Optimized Bidirectional A*.
-
-    NetworkX is used only as the graph container.
-    This function does not call nx.shortest_path(), nx.astar_path(),
-    or nx.dijkstra_path().
-
-    Directed graph behavior:
-    - forward search follows successors
-    - backward search follows predecessors
-
-    Optimization:
-    - caches node coordinates
-    - caches heuristic-to-start and heuristic-to-goal values
-    - caches edge lengths
-    - avoids converting successors/predecessors to lists
-    """
     started_at = time.perf_counter()
 
     if start not in graph:
