@@ -1,27 +1,33 @@
 # CityRoute
 
-CityRoute is an open-source last-mile delivery routing backend built with Python, FastAPI, Docker, OSMnx, NetworkX, scikit-learn, and OpenStreetMap data.
+CityRoute is an open-source last-mile delivery routing backend built with Python, FastAPI, Docker, Redis, OSMnx, NetworkX, scikit-learn, and OpenStreetMap data.
 
-Current status: **Tier 1 — Phase 4 complete: Bidirectional A\* Comparison with Docker Benchmark Evidence**
+Current status: **Tier 2 — Phase 5 complete: Distance Matrix Service, Redis Cache, and Source-Dijkstra Matrix Optimization**
 
-This project is being built phase-by-phase. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, GraphML persistence, GPS validation, graph metadata, node snapping, and BallTree-based snap optimization. Phase 3 added custom A\* routing from scratch with ETA, geometry, correctness probes, and Docker benchmarks. Phase 3.5 added Folium route visualization for visual route verification. Phase 4 added Bidirectional A\*, `/route/compare`, correctness validation, Docker evidence, and A\* vs Bidirectional A\* benchmark comparison.
+CityRoute is being built phase-by-phase with evidence-backed engineering gates. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, GraphML persistence, GPS validation, graph metadata, node snapping, and BallTree-based snap optimization. Phase 3 added custom A* routing from scratch with ETA, geometry, correctness probes, and Docker benchmarks. Phase 3.5 added Folium route visualization for route geometry verification. Phase 4 added Bidirectional A*, `/route/compare`, correctness validation, Docker evidence, and A* vs Bidirectional A* benchmark comparison. Phase 5 added the `/matrix` distance-matrix service, Redis caching, matrix correctness probes, local/Docker benchmark evidence, and a source-wise Dijkstra optimization patch for larger matrix workloads.
 
-Strict production decision: **normal A\* remains the production `/route` algorithm**. Bidirectional A\* is retained under `/route/compare` for comparison and algorithm analysis because it matches A\* distance exactly and reduces node expansion, but it is not consistently faster at p50/p95/p99 latency in the 1000-route benchmark.
+Strict production decision:
+
+* `GET /route` remains normal A* because Phase 4 evidence showed A* is faster overall at p50/p95/p99 route latency.
+* `GET /route/compare` retains Bidirectional A* for comparison and algorithm analysis.
+* `POST /matrix` supports `source_dijkstra`, `bidirectional_astar`, and `astar`.
+* `source_dijkstra` is the preferred matrix algorithm for larger N×N matrices because it scales better than repeated pairwise routing.
 
 ---
 
 ## Current Phase Status
 
-| Tier | Phase | Status |
-|---|---|---|
-| Tier 1 | Phase 1 — Project Foundation | Complete |
-| Tier 1 | Phase 2 — Graph Loading & Validation | Complete |
-| Tier 1 | Phase 3 — A\* Routing | Complete |
-| Tier 1 | Phase 3.5 — Folium Route Verification | Complete |
-| Tier 1 | Phase 4 — Bidirectional A\* Comparison | Complete |
-| Tier 2 | Phase 5 — Distance Matrix Service | Next |
-| Tier 2 | Phase 6 — Greedy Baseline | Not started |
-| Tier 2 | Phase 7 — 2-Opt Optimization | Not started |
+| Tier   | Phase                                                                  | Status      |
+| ------ | ---------------------------------------------------------------------- | ----------- |
+| Tier 1 | Phase 1 — Project Foundation                                           | Complete    |
+| Tier 1 | Phase 2 — Graph Loading & Validation                                   | Complete    |
+| Tier 1 | Phase 3 — A* Routing                                                   | Complete    |
+| Tier 1 | Phase 3.5 — Folium Route Verification                                  | Complete    |
+| Tier 1 | Phase 4 — Bidirectional A* Comparison                                  | Complete    |
+| Tier 2 | Phase 5 — Distance Matrix + Redis Cache + Source-Dijkstra Optimization | Complete    |
+| Tier 2 | Phase 6 — Greedy Multi-Stop Baseline                                   | Not started |
+| Tier 2 | Phase 7 — 2-Opt Optimization                                           | Not started |
+| Tier 3 | Phase 8+ — Advanced Optimization / Dispatch                            | Not started |
 
 ---
 
@@ -29,85 +35,107 @@ Strict production decision: **normal A\* remains the production `/route` algorit
 
 ### Phase 1 — Project Foundation
 
-- FastAPI backend
-- Router-based API structure
-- `/health` endpoint
-- `/graph/stats` endpoint
-- Configuration through `.env`
-- Structured logging
-- Dockerfile and Docker Compose
-- Pytest test setup
+* FastAPI backend
+* Router-based API structure
+* `/health` endpoint
+* `/graph/stats` endpoint
+* Configuration through `.env`
+* Structured logging
+* Dockerfile and Docker Compose support
+* Pytest test setup
+* Swagger UI through `/docs`
 
 ### Phase 2 — Graph Loading, Validation, and Fast Snapping
 
-- OSMnx graph loading
-- GraphML persistence
-- Startup graph loading through FastAPI lifespan
-- Real graph metadata through `/graph/stats`
-- GPS latitude/longitude validation
-- Bounding-box validation for the active graph area
-- Structured `422` responses for invalid/out-of-bounds coordinates
-- Node snapping from GPS coordinate to nearest graph node
-- BallTree snap index built at startup for fast nearest-node lookup
-- Snap distance returned in meters
-- Graph connectivity metadata in `/graph/stats`
-- Local and Docker verification
-- Benchmark evidence recorded under `benchmarks/`
+* OSMnx graph loading
+* GraphML persistence
+* Startup graph loading through FastAPI lifespan
+* Real graph metadata through `/graph/stats`
+* GPS latitude/longitude validation
+* Bounding-box validation for active graph area
+* Structured `422` responses for invalid/out-of-bounds coordinates
+* Node snapping from GPS coordinate to nearest graph node
+* BallTree snap index built at startup
+* Snap distance returned in meters
+* Graph connectivity metadata in `/graph/stats`
+* Local and Docker verification
+* Benchmark evidence recorded under `benchmarks/`
 
-### Phase 3 — Custom A\* Routing
+### Phase 3 — Custom A* Routing
 
-- Custom A\* implementation from scratch
-- Manual priority queue using `heapq`
-- Manual `g_score`, `came_from`, closed set, and path reconstruction
-- Haversine straight-line heuristic
-- MultiDiGraph edge handling for OSMnx parallel edges
-- Shortest parallel edge selection for route distance
-- Route endpoint: `GET /route`
-- Start and end GPS validation
-- Start and end snapping through BallTree
-- Route distance in meters and kilometers
-- ETA calculation
-- Route geometry output as graph-node coordinates
-- Node expansion count
-- Internal A\* route timing
-- Total route request timing
-- Clean `404 No path found` handling
-- Clean `503 Graph not loaded` handling
-- A\* correctness verification against Dijkstra
-- Haversine admissibility verification
-- Routeable Docker benchmark
-- Concurrent Docker route probe
-- Docker evidence recorded under `benchmarks/docker_results/`
+* Custom A* implementation from scratch
+* Manual priority queue using `heapq`
+* Manual `g_score`, `came_from`, closed set, and path reconstruction
+* Haversine straight-line heuristic
+* MultiDiGraph edge handling for OSMnx parallel edges
+* Shortest parallel edge selection for route distance
+* Route endpoint: `GET /route`
+* Start and end GPS validation
+* Start and end snapping through BallTree
+* Route distance in meters and kilometers
+* ETA calculation
+* Route geometry output as graph-node coordinates
+* Node expansion count
+* Internal route timing
+* Total route request timing
+* Clean `404 No path found` handling
+* Clean `503 Graph not loaded` handling
+* A* correctness verification against Dijkstra
+* Haversine admissibility verification
+* Docker route benchmark
+* Concurrent Docker route probe
 
 ### Phase 3.5 — Folium Route Verification
 
-- Folium route map generation from `/route` geometry
-- Route polyline rendered from real graph node coordinates
-- Start and end markers
-- Route summary marker
-- Rejection of missing or invalid geometry
-- HTML route map artifact generation
-- Visual verification that route geometry follows road-network nodes
+* Folium route map generation from `/route` geometry
+* Route polyline rendered from real graph node coordinates
+* Start and end markers
+* Route summary marker
+* Rejection of missing or invalid geometry
+* HTML route map artifact generation
+* Visual verification that route geometry follows road-network nodes
 
-### Phase 4 — Bidirectional A\* Comparison
+### Phase 4 — Bidirectional A* Comparison
 
-- Bidirectional A\* implementation from scratch
-- Forward and backward graph search
-- Directed graph support through successors and predecessors
-- MultiDiGraph edge handling
-- Meeting-node tracking
-- Forward and backward node expansion counters
-- Optimized runtime code path with coordinate and edge-length caching
-- Alias function for `bidirectional_a_star_shortest_path`
-- `/route/compare` endpoint
-- A\* and Bidirectional A\* run on the same snapped start/end nodes
-- Same-distance comparison with tolerance
-- Route timing comparison
-- Node expansion comparison
-- Correctness tests against A\* and Dijkstra
-- 500-pair correctness probe
-- 1000-route Docker benchmark
-- Docker code-staleness check proving optimized Phase 4 code is inside the container
+* Bidirectional A* implementation from scratch
+* Forward and backward graph search
+* Directed graph support through successors and predecessors
+* MultiDiGraph edge handling
+* Meeting-node tracking
+* Forward and backward node expansion counters
+* Coordinate and edge-length caching in the algorithm path
+* Alias function for `bidirectional_a_star_shortest_path`
+* `/route/compare` endpoint
+* A* and Bidirectional A* run on the same snapped start/end nodes
+* Same-distance comparison with tolerance
+* Route timing comparison
+* Node expansion comparison
+* Correctness tests against A* and Dijkstra
+* 500-pair correctness probe
+* 1000-route Docker benchmark
+* Docker code-staleness check proving optimized Phase 4 code is inside the container
+
+### Phase 5 — Distance Matrix Service, Redis Cache, and Source-Dijkstra Optimization
+
+* `POST /matrix` endpoint
+* Directed N×N road-distance matrix generation
+* Directed N×N ETA matrix generation
+* Location ID validation
+* Duplicate location ID rejection
+* Max matrix size validation
+* Redis cache integration
+* Cache key generation based on graph identity, algorithm, and ordered coordinates
+* Cache hit/miss behavior
+* Matrix correctness probes
+* Matrix benchmark scripts
+* Local and Docker benchmark evidence
+* Baseline pairwise matrix using `bidirectional_astar`
+* Parallel-vs-serial benchmark evidence
+* Source-wise Dijkstra matrix optimization patch
+* Graph adjacency builder for matrix workloads
+* Multi-target Dijkstra core implementation
+* 25x25 stress testing
+* Full regression coverage: 143 tests passed
 
 ---
 
@@ -115,18 +143,17 @@ Strict production decision: **normal A\* remains the production `/route` algorit
 
 The following are intentionally not implemented yet:
 
-- Redis caching
-- Distance matrix service
-- Multi-stop delivery optimization
-- Greedy delivery baseline
-- 2-Opt optimization
-- Large Neighborhood Search
-- Driver-order dispatch
-- Hungarian algorithm
-- Grafana/Prometheus observability integration
-- Public deployment
-- ALT landmark heuristic
-- Smart algorithm selector (`/route/smart`)
+* Greedy multi-stop delivery ordering
+* 2-Opt route optimization
+* Large Neighborhood Search
+* Driver-order dispatch
+* Hungarian assignment algorithm
+* Grafana/Prometheus observability integration
+* Public production deployment
+* ALT landmark heuristic
+* Smart algorithm selector (`/route/smart`)
+* Traffic-aware ETA
+* Authentication / user accounts
 
 These belong to later phases or optional advanced routing extensions.
 
@@ -150,54 +177,80 @@ The `data/graphs/*.graphml` files are local runtime artifacts and are not commit
 
 ---
 
-## Current API Endpoints
+## Active Graph Baseline
 
-| Endpoint | Method | Purpose |
-|---|---:|---|
-| `/` | GET | Service index |
-| `/health` | GET | Service heartbeat |
-| `/graph/stats` | GET | Loaded graph metadata |
-| `/graph/validate` | GET | Validate GPS coordinate against active graph bounds |
-| `/graph/snap` | GET | Snap GPS coordinate to nearest graph node |
-| `/route` | GET | Compute production A\* route between two GPS coordinates |
-| `/route/compare` | GET | Compare A\* and Bidirectional A\* on the same snapped route |
-| `/docs` | GET | Swagger UI |
+Observed active graph values:
 
-Docker OpenAPI verification showed:
+| Metric                       |                                Value |
+| ---------------------------- | -----------------------------------: |
+| City label                   | Kanpur Central, Uttar Pradesh, India |
+| Active graph                 | `data/graphs/kanpur_central.graphml` |
+| Nodes                        |                               12,969 |
+| Edges                        |                               34,996 |
+| GraphML file size            |                             12.74 MB |
+| Weakly connected components  |                                    1 |
+| Largest weak component nodes |                               12,969 |
+| Is weakly connected          |                                 true |
+| Snap index method            |                             BallTree |
+| Graph load time              |                           ~3.0–3.3 s |
+| Runtime memory               |                              ~380 MB |
 
-```text
-/health
-/graph/stats
-/graph/validate
-/graph/snap
-/route/compare
-/route
-/
-```
+Important note: this is a directed OSM road graph. Some coordinate pairs can still produce clean `404 No path found` responses because one-way road topology can make certain snapped node pairs unreachable.
 
 ---
 
-## Active Graph Baseline
+## Current API Endpoints
 
-Observed Phase 4 Docker graph values:
+| Endpoint          | Method | Purpose                                                   |
+| ----------------- | -----: | --------------------------------------------------------- |
+| `/`               |    GET | Service index                                             |
+| `/health`         |    GET | Service heartbeat                                         |
+| `/graph/stats`    |    GET | Loaded graph metadata                                     |
+| `/graph/validate` |    GET | Validate GPS coordinate against active graph bounds       |
+| `/graph/snap`     |    GET | Snap GPS coordinate to nearest graph node                 |
+| `/route`          |    GET | Compute production A* route between two GPS coordinates   |
+| `/route/compare`  |    GET | Compare A* and Bidirectional A* on the same snapped route |
+| `/matrix`         |   POST | Generate directed N×N distance and ETA matrix             |
+| `/docs`           |    GET | Swagger UI                                                |
 
-| Metric | Value |
-|---|---:|
-| City label | Kanpur Central, Uttar Pradesh, India |
-| Active graph | `data/graphs/kanpur_central.graphml` |
-| Nodes | 12,969 |
-| Edges | 34,996 |
-| Graph loaded | true |
-| GraphML file size | 12.74 MB |
-| Docker graph load time | 3.252 s |
-| Docker graph memory | 380.23 MB |
-| Weakly connected components | 1 |
-| Largest weak component nodes | 12,969 |
-| Is weakly connected | true |
-| Snap index loaded | true |
-| Snap index build time | 23.112 ms |
+---
 
-Important note: this is a directed OSM road graph. Some coordinate pairs can still produce clean `404 No path found` responses because directionality and one-way road structure can make certain snapped node pairs unreachable.
+## Example `/matrix` Request
+
+```powershell
+$body = @{
+    locations = @(
+        @{ id = "depot"; lat = 26.44; lon = 80.30 },
+        @{ id = "stop_1"; lat = 26.45; lon = 80.35 },
+        @{ id = "stop_2"; lat = 26.46; lon = 80.33 }
+    )
+    algorithm = "source_dijkstra"
+    use_cache = $true
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod `
+  -Uri "http://127.0.0.1:8000/matrix" `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body $body |
+ConvertTo-Json -Depth 20
+```
+
+Supported matrix algorithms:
+
+```text
+source_dijkstra
+bidirectional_astar
+astar
+```
+
+Recommended matrix algorithm:
+
+```text
+source_dijkstra
+```
+
+Reason: `source_dijkstra` has fixed setup overhead, so it can be slower for tiny matrices, but it scales much better for larger N×N matrix workloads.
 
 ---
 
@@ -209,435 +262,626 @@ Run:
 python -m pytest -v
 ```
 
-Observed Phase 4 result:
+Latest verified result:
 
 ```text
-81 passed in 136.62s (0:02:16)
+143 passed in 165.74s (0:02:45)
 ```
-
-This confirms Phase 4 did not break earlier Phase 1, Phase 2, Phase 3, or Phase 3.5 behavior.
 
 Test coverage includes:
 
-| Test area | Purpose |
-|---|---|
-| A\* unit tests | Shortest path logic, same-node route, missing node, no path, directed edges, parallel edges |
-| A\* correctness tests | Compare custom A\* distance against Dijkstra |
-| A\* edge case tests | Disconnected graph, directed graph behavior, fallback edge lengths |
-| Bidirectional A\* unit tests | Result object, alias function, same-node route, missing nodes, no path, directed edges, parallel edges, fallback lengths, expansion counters |
-| Bidirectional A\* correctness tests | Compare Bidirectional A\* against A\* and Dijkstra on real graph route pairs |
-| Haversine admissibility test | Verify heuristic does not overestimate sampled real graph routes |
-| Graph endpoint tests | Graph stats, validation, snapping, connectivity metadata |
-| Route endpoint tests | Valid `/route` response and error behavior |
-| Route compare endpoint tests | `/route/compare` sections, snapping consistency, distance equality, error behavior |
-| Route geometry tests | Verify geometry points come from graph nodes |
-| Route map tests | Verify Folium map generation and invalid geometry rejection |
-| Health tests | Service status and graph-loaded status |
+| Test area                          | Purpose                                                                                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| A* unit tests                      | Shortest path logic, same-node route, missing node, no path, directed edges, parallel edges                                                  |
+| A* correctness tests               | Compare custom A* distance against Dijkstra                                                                                                  |
+| A* edge case tests                 | Disconnected graph, directed graph behavior, fallback edge lengths                                                                           |
+| Bidirectional A* unit tests        | Result object, alias function, same-node route, missing nodes, no path, directed edges, parallel edges, fallback lengths, expansion counters |
+| Bidirectional A* correctness tests | Compare Bidirectional A* against A* and Dijkstra on real graph route pairs                                                                   |
+| Haversine admissibility tests      | Verify heuristic does not overestimate sampled real graph routes                                                                             |
+| Graph endpoint tests               | Graph stats, validation, snapping, connectivity metadata                                                                                     |
+| Route endpoint tests               | Valid `/route` response and error behavior                                                                                                   |
+| Route compare endpoint tests       | `/route/compare` sections, snapping consistency, distance equality, error behavior                                                           |
+| Route geometry tests               | Verify geometry points come from graph nodes                                                                                                 |
+| Route map tests                    | Verify Folium map generation and invalid geometry rejection                                                                                  |
+| Matrix endpoint tests              | `/matrix` API response, graph-not-loaded behavior, snap-index missing behavior, invalid payload rejection                                    |
+| Matrix service tests               | Matrix validation and service response behavior                                                                                              |
+| Matrix cache key tests             | Stable cache key generation and algorithm-sensitive cache identity                                                                           |
+| Redis cache tests                  | Redis get/set/delete, corrupt JSON handling, error behavior                                                                                  |
+| Graph adjacency tests              | Directed, undirected, MultiDiGraph, fallback length, isolated nodes                                                                          |
+| Multi-target Dijkstra tests        | Source-wise shortest paths, unreachable targets, directionality, count helpers                                                               |
+| Source-Dijkstra matrix tests       | Matrix correctness, asymmetry, failures, bidirectional comparison                                                                            |
 
 ---
 
-## Phase 4 Targeted Test Summary
+## Phase 5 Benchmark Evidence
 
-| Test file | Result |
-|---|---:|
-| `tests/test_bidirectional_astar_unit.py` | 12 passed |
-| `tests/test_bidirectional_astar_correctness.py` | 3 passed |
-| `tests/test_route_compare_endpoint.py` | 11 passed |
+### Phase 5 baseline cache benchmark
 
-Phase 4 targeted total:
+| Mode   | 5x5 cache median | 10x10 cache median | 15x15 cache median | Cache confirmed |
+| ------ | ---------------: | -----------------: | -----------------: | --------------- |
+| Local  |        11.123 ms |          12.174 ms |          13.159 ms | true            |
+| Docker |         7.436 ms |           7.821 ms |           8.589 ms | true            |
+
+### Phase 5 cache probe
+
+| Mode   | 5x5 hit median | 10x10 hit median | 15x15 hit median | Under 20 ms |
+| ------ | -------------: | ---------------: | ---------------: | ----------- |
+| Local  |      12.780 ms |        11.356 ms |        11.426 ms | true        |
+| Docker |       6.717 ms |         7.460 ms |         8.114 ms | true        |
+
+Verdict:
 
 ```text
-26 passed
+PASS — Redis cache hit behavior is confirmed locally and in Docker. Normal cache-hit medians stay under the 20 ms target.
 ```
 
----
+### Phase 5 correctness benchmark
 
-## Phase 3 Correctness Evidence
+| Mode   |  Size | Shape OK | Diagonal zero | Failed pairs zero | Route mismatch count |
+| ------ | ----: | -------- | ------------- | ----------------- | -------------------: |
+| Local  |   5x5 | true     | true          | true              |                    0 |
+| Local  | 10x10 | true     | true          | true              |                    0 |
+| Local  | 15x15 | true     | true          | true              |                    0 |
+| Docker |   5x5 | true     | true          | true              |                    0 |
+| Docker | 10x10 | true     | true          | true              |                    0 |
+| Docker | 15x15 | true     | true          | true              |                    0 |
 
-### A\* vs Dijkstra correctness probe
-
-Command:
-
-```powershell
-python benchmarks\astar_correctness_probe.py
-```
-
-Observed result:
-
-| Metric | Value |
-|---|---:|
-| Target checks | 500 |
-| Passed | 500 |
-| Failed | 0 |
-| No-path skipped | 0 |
-| Distance tolerance | 0.001 m |
-| Success rate | 100.0% |
-| Runtime | 26.14 s |
-
-This proves the custom A\* route distance matched Dijkstra on 500 sampled route pairs.
-
----
-
-## Haversine Heuristic Admissibility Evidence
-
-### 1,000-pair smoke probe
-
-```powershell
-python benchmarks\heuristic_admissibility_probe.py 1000
-```
-
-| Metric | Value |
-|---|---:|
-| Checked pairs | 1,000 |
-| No-path skipped | 3 |
-| Overestimates | 0 |
-| Worst overestimate | 0.0 m |
-| Runtime | 42.205 s |
-
-### 10,000-pair strict probe
-
-```powershell
-python benchmarks\heuristic_admissibility_probe.py 10000
-```
-
-| Metric | Value |
-|---|---:|
-| Checked pairs | 10,000 |
-| No-path skipped | 18 |
-| Overestimates | 0 |
-| Worst overestimate | 0.0 m |
-| Runtime | 445.858 s |
-
-This supports the Phase 3 claim that the Haversine heuristic is admissible for sampled routes on this graph.
-
----
-
-## Phase 3 Docker A\* Routeable Benchmark
-
-The accepted Phase 3 benchmark is the routeable benchmark, not the raw random benchmark. It separates clean `404 No path found` cases from real failures.
-
-Command:
-
-```powershell
-$env:CITYROUTE_BASE_URL="http://127.0.0.1:8001"
-$env:CITYROUTE_RESULTS_DIR="benchmarks/docker_results"
-python benchmarks\astar_route_benchmark_routeable.py 1000 5 3000
-```
-
-Observed result:
-
-| Metric | Value |
-|---|---:|
-| Target successful route measurements | 1,000 |
-| Attempted requests | 1,008 |
-| Successful route measurements | 1,000 |
-| Clean no-path `404` skipped | 8 |
-| Real failures | 0 |
-| Real failure rate | 0.0% |
-| No-path rate | 0.794% |
-| Zero-distance successes | 3 |
-| Runtime | 25.421 s |
-
-### Phase 3 A\* route latency
-
-| Metric | Value |
-|---|---:|
-| Route min | 0.003 ms |
-| Route mean | 15.324 ms |
-| Route median | 10.05 ms |
-| Route p50 | 10.158 ms |
-| Route p95 | 44.759 ms |
-| Route p99 | 88.015 ms |
-| Route max | 100.108 ms |
-
-### Phase 3 two-snap overhead
-
-Two-snap means start snap + end snap.
-
-| Metric | Value |
-|---|---:|
-| Two-snap min | 0.439 ms |
-| Two-snap mean | 0.600 ms |
-| Two-snap median | 0.574 ms |
-| Two-snap p50 | 0.574 ms |
-| Two-snap p95 | 0.794 ms |
-| Two-snap p99 | 0.958 ms |
-| Two-snap max | 1.378 ms |
-
----
-
-## Phase 4 Docker `/route/compare` Sample
-
-Command:
-
-```powershell
-python benchmarks\phase4_route_compare_probe.py
-```
-
-Sample route:
+Verdict:
 
 ```text
-start_lat=26.44
-start_lon=80.30
-end_lat=26.45
-end_lon=80.35
+PASS — Matrix shape, diagonal zero behavior, failed-pair handling, and selected route-pair correctness passed locally and in Docker.
 ```
 
-Snapping:
+### Phase 5 parallel-vs-serial benchmark
 
-| Metric | Value |
-|---|---:|
-| Start snapped node | 5,317,312,245 |
-| End snapped node | 6,288,159,135 |
-| Start snap method | balltree |
-| End snap method | balltree |
+| Mode   | 5x5 speedup | 10x10 speedup | 15x15 speedup | 4x target |
+| ------ | ----------: | ------------: | ------------: | --------- |
+| Local  |      0.896x |        0.831x |        0.674x | fail      |
+| Docker |      1.063x |        0.814x |        0.688x | fail      |
 
-A\* result:
-
-| Metric | Value |
-|---|---:|
-| Distance | 6,428.798 m |
-| Distance | 6.429 km |
-| ETA | 999.5 s |
-| ETA | 16.66 min |
-| Path node count | 77 |
-| Nodes expanded | 2,622 |
-| Route time | 34.335 ms |
-| Total time | 37.725 ms |
-
-Bidirectional A\* result:
-
-| Metric | Value |
-|---|---:|
-| Distance | 6,428.798 m |
-| Distance | 6.429 km |
-| ETA | 999.5 s |
-| ETA | 16.66 min |
-| Path node count | 77 |
-| Nodes expanded | 1,458 |
-| Forward nodes expanded | 846 |
-| Backward nodes expanded | 612 |
-| Route time | 25.036 ms |
-| Meeting node | 8,810,239,341 |
-| Geometry points | 77 |
-
-Comparison:
-
-| Metric | Value |
-|---|---:|
-| Distance delta | 0.0 m |
-| Same distance | true |
-| A\* route time | 34.335 ms |
-| Bidirectional A\* route time | 25.036 ms |
-| Route-time delta | 9.299 ms |
-| Bidirectional faster | true |
-| A\* nodes expanded | 2,622 |
-| Bidirectional A\* nodes expanded | 1,458 |
-| Nodes expanded delta | 1,164 |
-| Nodes expanded reduction | 44.394% |
-| Route-time reduction | 27.083% |
-| Compare total time | 63.84 ms |
-
-Sample route verdict:
+Verdict:
 
 ```text
-PASS — Bidirectional A* produced the same distance, expanded 44.394% fewer nodes, and was 27.083% faster on this fixed sample route.
+FAIL for original threaded pairwise implementation.
 ```
+
+Interpretation:
+
+The baseline pairwise matrix implementation was correct and cache-fast, but thread-based parallelism did not produce the expected speedup. The workload is CPU-bound and dominated by Python/NetworkX graph traversal, priority-queue operations, and object/dictionary access. ThreadPool overhead and Python GIL contention outweighed the benefit of parallel pair execution.
+
+This finding triggered the Phase 5 source-wise Dijkstra optimization patch.
 
 ---
 
-## Phase 4 Bidirectional A\* Correctness Probe
+## Phase 5 Source-Dijkstra Optimization Evidence
 
-Command:
+Source-Dijkstra reduces matrix computation from repeated pairwise routing toward one source-wise shortest-path expansion per unique snapped source node.
 
-```powershell
-python benchmarks\bidirectional_astar_correctness_probe.py 500 2500
-```
+### Local comparison
 
-Observed result:
+|  Size | Bidirectional median | Source-Dijkstra median | Speedup | Mismatch count |
+| ----: | -------------------: | ---------------------: | ------: | -------------: |
+|   5x5 |           130.777 ms |             173.735 ms |  0.753x |              0 |
+| 10x10 |          1255.083 ms |             516.540 ms |  2.430x |              0 |
+| 15x15 |          4645.089 ms |             695.695 ms |  6.677x |              0 |
 
-| Metric | Value |
-|---|---:|
-| Graph nodes | 12,969 |
-| Graph edges | 34,996 |
-| Directed graph | true |
-| MultiGraph | true |
-| Weakly connected | true |
-| Target checks | 500 |
-| Passed | 500 |
-| Failed | 0 |
-| No-path skipped | 0 |
-| Attempts | 500 |
-| Max attempts | 2,500 |
-| Distance tolerance | 0.001 m |
-| Success rate | 100.0% |
-| Runtime | 50.804 s |
-| Errors | 0 |
+### Docker comparison
 
-Correctness verdict:
+|  Size | Bidirectional median | Source-Dijkstra median | Speedup | Mismatch count |
+| ----: | -------------------: | ---------------------: | ------: | -------------: |
+|   5x5 |           132.196 ms |             189.519 ms |  0.698x |              0 |
+| 10x10 |          1355.156 ms |             502.995 ms |  2.694x |              0 |
+| 15x15 |          4637.942 ms |             678.859 ms |  6.832x |              0 |
+
+Verdict:
 
 ```text
-PASS — Bidirectional A* matched the correctness oracle across 500 checked pairs with 0 failures.
+PASS for larger matrix workloads.
+```
+
+Interpretation:
+
+* `source_dijkstra` is slower for 5x5 because adjacency-build and setup overhead dominate.
+* `source_dijkstra` becomes faster at 10x10.
+* `source_dijkstra` exceeds the 4x speedup target at 15x15 locally and in Docker.
+* Matrix mismatch count is 0 at 0.01 m tolerance.
+
+---
+
+## Phase 5 Source-Dijkstra Correctness
+
+| Mode   |  Size | Request 200 | Shape OK | Diagonal zero | Failed pairs zero | Route mismatch count | Bidirectional match |
+| ------ | ----: | ----------- | -------- | ------------- | ----------------- | -------------------: | ------------------- |
+| Local  |   5x5 | true        | true     | true          | true              |                    0 | true                |
+| Local  | 10x10 | true        | true     | true          | true              |                    0 | true                |
+| Local  | 15x15 | true        | true     | true          | true              |                    0 | true                |
+| Docker |   5x5 | true        | true     | true          | true              |                    0 | true                |
+| Docker | 10x10 | true        | true     | true          | true              |                    0 | true                |
+| Docker | 15x15 | true        | true     | true          | true              |                    0 | true                |
+
+Correctness tolerance:
+
+```text
+0.01 m
+```
+
+Reason for tolerance: two valid shortest-path implementations may accumulate floating-point edge lengths in slightly different orders. Earlier mismatch samples were only 0.001–0.004 m, which is millimeter-level noise, not a real route difference.
+
+---
+
+## Phase 5 Stress Test Evidence
+
+Stress testing uses the maximum configured matrix size:
+
+```text
+25x25 = 625 directed matrix cells
+```
+
+### Source-Dijkstra cold compute stress — cache OFF
+
+#### Local
+
+| Concurrency | Success rate |  API median |      API p95 | Generation median | Generation p95 | Failed pairs zero |
+| ----------: | -----------: | ----------: | -----------: | ----------------: | -------------: | ----------------- |
+|           1 |         100% |  931.211 ms | 11286.762 ms |        870.096 ms |     961.906 ms | true              |
+|           2 |         100% | 3202.097 ms |  4324.134 ms |       2975.529 ms |    3970.184 ms | true              |
+|           4 |         100% | 4330.184 ms |  4444.123 ms |       4036.485 ms |    4423.446 ms | true              |
+
+#### Docker
+
+| Concurrency | Success rate |  API median |     API p95 | Generation median | Generation p95 | Failed pairs zero |
+| ----------: | -----------: | ----------: | ----------: | ----------------: | -------------: | ----------------- |
+|           1 |         100% | 1130.096 ms | 1393.086 ms |       1110.251 ms |    1383.160 ms | true              |
+|           2 |         100% | 2447.795 ms | 2565.872 ms |       2407.233 ms |    2544.074 ms | true              |
+|           4 |         100% | 4590.977 ms | 4730.360 ms |       4527.346 ms |    4714.668 ms | true              |
+
+Verdict:
+
+```text
+PASS for stability and correctness.
+```
+
+Interpretation:
+
+Concurrent cold-compute latency increases because each request performs a full 25x25 matrix computation. Multiple matrix requests compete for CPU and graph traversal resources on a single API process.
+
+### Source-Dijkstra cache stress — cache ON
+
+#### Local
+
+| Concurrency | Success rate | API median |     API p95 | Generation median | Generation p95 | Cache all hits | Failed pairs zero |
+| ----------: | -----------: | ---------: | ----------: | ----------------: | -------------: | -------------- | ----------------- |
+|           1 |         100% | 115.186 ms | 2076.566 ms |          9.309 ms |     949.030 ms | true           | true              |
+|           2 |         100% |  15.192 ms |   24.550 ms |          7.835 ms |      10.789 ms | true           | true              |
+|           4 |         100% |  27.394 ms |   29.930 ms |         14.239 ms |      16.201 ms | true           | true              |
+|           8 |         100% |  39.153 ms |   41.915 ms |         16.697 ms |      21.420 ms | true           | true              |
+
+#### Docker
+
+| Concurrency | Success rate | API median |   API p95 | Generation median | Generation p95 | Cache all hits | Failed pairs zero |
+| ----------: | -----------: | ---------: | --------: | ----------------: | -------------: | -------------- | ----------------- |
+|           1 |         100% |  10.314 ms | 35.173 ms |          2.982 ms |       4.337 ms | true           | true              |
+|           2 |         100% |  12.847 ms | 28.791 ms |          3.142 ms |       5.043 ms | true           | true              |
+|           4 |         100% |  24.282 ms | 36.614 ms |          7.819 ms |      15.234 ms | true           | true              |
+|           8 |         100% |  52.765 ms | 57.721 ms |         22.789 ms |      29.451 ms | true           | true              |
+
+Verdict:
+
+```text
+PASS for cache correctness and stability.
+PARTIAL for high-concurrency latency.
+```
+
+Important interpretation:
+
+The cache stress probe is primarily a stability and boundary test, not a formal SLA benchmark. The p95 values are based on small request counts and therefore represent outlier sensitivity rather than statistically stable latency guarantees. Normal cache-hit benchmark medians are under 20 ms. Under concurrent 25x25 stress, end-to-end API latency rises because the API still parses requests, builds cache keys, queries Redis, validates response models, serializes 25x25 JSON, and sends the response.
+
+### 25x25 source_dijkstra vs bidirectional_astar
+
+Docker cold compute comparison at concurrency 1:
+
+| Algorithm             | Generation median |
+| --------------------- | ----------------: |
+| `bidirectional_astar` |      12362.309 ms |
+| `source_dijkstra`     |       1110.251 ms |
+
+Improvement:
+
+```text
+11.14x faster
+```
+
+Verdict:
+
+```text
+PASS — Source-Dijkstra reduced 25x25 Docker cold-generation median from 12.36 s to 1.11 s with zero failed pairs.
 ```
 
 ---
 
-## Phase 4 1000-Route Benchmark
+## Phase 5 Final Verdict
 
-Command:
+Tier 2 Phase 5 is accepted as complete.
 
-```powershell
-python benchmarks\bidirectional_astar_benchmark.py 1000 5 3000
-```
+The baseline Bidirectional A* distance-matrix service passed functional correctness, Redis caching, Docker parity, and API validation. However, the original thread-parallel pairwise matrix implementation failed the intended 4x speedup target.
 
-Output file:
+A source-wise Dijkstra optimization patch was added within Phase 5. This patch preserved matrix correctness and improved larger matrix performance. For 15x15 matrices, `source_dijkstra` achieved 6.677x local speedup and 6.832x Docker speedup with zero mismatches. For the maximum 25x25 matrix size in Docker, `source_dijkstra` achieved an 11.14x cold-generation improvement over `bidirectional_astar`.
 
-```text
-benchmarks/phase4_results/phase4_bidirectional_astar_benchmark.json
-```
+Stress testing confirmed 100% success rate and zero failed pairs for 25x25 source-Dijkstra matrices under local and Docker concurrency levels up to 4 for cold compute and up to 8 for cache-hit workloads.
 
-Top-level result:
+Harsh verdict:
 
-| Metric | Value |
-|---|---:|
-| Target successful route measurements | 1,000 |
-| Attempted requests | 1,008 |
-| Successful route measurements | 1,000 |
-| Clean no-path `404` skipped | 8 |
-| Real failures | 0 |
-| Real failure rate | 0.0% |
-| No-path rate | 0.794% |
-| Zero-distance successes | 3 |
-| Runtime | 57.881 s |
+| Area                                    | Verdict |
+| --------------------------------------- | ------- |
+| `/matrix` functional response           | PASS    |
+| Redis cache integration                 | PASS    |
+| Cache hit target under normal benchmark | PASS    |
+| 25x25 max matrix support                | PASS    |
+| Matrix correctness                      | PASS    |
+| Failed pairs zero                       | PASS    |
+| Local/Docker parity                     | PASS    |
+| Full regression suite                   | PASS    |
+| Original thread parallel speedup        | FAIL    |
+| Source-Dijkstra 15x15 optimization      | PASS    |
+| Source-Dijkstra 25x25 optimization      | PASS    |
+| Cache under concurrent stress           | PARTIAL |
+| 5x5 source_dijkstra speed               | FAIL    |
 
-Correctness result:
-
-| Metric | Value |
-|---|---:|
-| Distance delta min | 0.0 m |
-| Distance delta mean | 0.0 m |
-| Distance delta median | 0.0 m |
-| Distance delta p95 | 0.0 m |
-| Distance delta p99 | 0.0 m |
-| Distance delta max | 0.0 m |
-
-Correctness verdict:
+Final engineering conclusion:
 
 ```text
-PASS — A* and Bidirectional A* returned identical route distances across 1000 successful route measurements.
-```
-
-### A\* route-time benchmark
-
-| Metric | Value |
-|---|---:|
-| Min | 0.002 ms |
-| Mean | 15.443 ms |
-| Median | 10.108 ms |
-| p50 | 10.108 ms |
-| p95 | 45.044 ms |
-| p99 | 87.008 ms |
-| Max | 137.109 ms |
-
-### Bidirectional A\* route-time benchmark
-
-| Metric | Value |
-|---|---:|
-| Min | 0.001 ms |
-| Mean | 24.713 ms |
-| Median | 15.745 ms |
-| p50 | 15.745 ms |
-| p95 | 74.384 ms |
-| p99 | 157.730 ms |
-| Max | 212.528 ms |
-
-Latency verdict:
-
-```text
-A* is faster overall in the 1000-route benchmark. Production /route remains normal A*.
-```
-
-### Node expansion benchmark
-
-| Metric | A\* | Bidirectional A\* |
-|---|---:|---:|
-| Min | 0 | 0 |
-| Mean | 1,891.226 | 1,711.041 |
-| Median | 1,239.5 | 1,097.0 |
-| p50 | 1,240 | 1,097 |
-| p95 | 5,544 | 5,259 |
-| p99 | 11,117 | 10,167 |
-| Max | 12,731 | 12,201 |
-
-Node expansion verdict:
-
-```text
-Bidirectional A* expands fewer nodes on average and at median, but its additional Python overhead makes it slower overall than normal A* at p50, p95, and p99 route latency.
-```
-
-### Route-time target interpretation
-
-Production routing target is evaluated against `/route`, which uses normal A\*.
-
-| Metric | Value | Target | Status |
-|---|---:|---:|---|
-| Production A\* p99 route time | 87.008 ms | < 120 ms | PASS |
-| Bidirectional A\* p99 route time | 157.730 ms | < 120 ms | FAIL for production replacement |
-
-Conclusion:
-
-```text
-Phase 4 meets the production routing latency target because /route remains A*. Bidirectional A* is not used as the production route algorithm because its p99 route time exceeds the 120 ms target.
+Phase 5 is functionally complete, correct, cache-fast, Docker-stable, and stress-stable. The original threaded pairwise approach failed speedup targets, but the source-Dijkstra patch fixed large-matrix scaling while preserving correctness.
 ```
 
 ---
 
-## Docker Runtime Evidence — Phase 4
+## Local Setup
 
-Manual Docker run:
+Create and activate virtual environment:
 
 ```powershell
-docker run --rm --name cityroute-tier1-phase4 -p 8001:8000 -v "${PWD}\data:/app/data" cityroute-api:tier1-phase4
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 ```
 
-Docker API base URL:
+Install dependencies:
+
+```powershell
+pip install -r requirements.txt
+```
+
+Create local environment file:
+
+```powershell
+copy .env.example .env
+```
+
+Start Redis locally:
+
+```powershell
+docker rm -f cityroute-redis 2>$null
+
+docker run -d --rm `
+  --name cityroute-redis `
+  -p 6379:6379 `
+  redis:7-alpine
+
+docker exec cityroute-redis redis-cli ping
+```
+
+Expected:
 
 ```text
-http://127.0.0.1:8001
+PONG
 ```
 
-| Field | Value |
-|---|---|
-| Container name | `cityroute-tier1-phase4` |
-| Image | `cityroute-api:tier1-phase4` |
-| Internal port | `8000` |
-| Host port | `8001` |
-| Runtime command | `uvicorn app.main:app --host 0.0.0.0 --port 8000` |
-| Data mount | `C:\MYDOWNLOADS\MYPROJECT\CityRoute\data:/app/data` |
-| Platform | linux/amd64 |
-| Container status | running |
-| OOMKilled | false |
-| Restart count | 0 |
-| AutoRemove | true |
+Run the app locally:
 
-Docker runtime stats after benchmark activity:
+```powershell
+python -m uvicorn app.main:app --reload --port 8000
+```
 
-| Metric | Value |
-|---|---:|
-| CPU | 0.20% |
-| Memory usage | 344.9 MiB |
-| Memory limit shown by Docker | 7.362 GiB |
-| Memory percent | 4.57% |
-| PIDs | 32 |
-
-Docker code check:
+Open Swagger UI:
 
 ```text
-coordinate_cache: True
-edge_length_cache: True
+http://127.0.0.1:8000/docs
 ```
 
-This confirms the running Docker container used the optimized Phase 4 Bidirectional A\* code path, not stale code.
+---
+
+## Docker Setup
+
+Create Docker network:
+
+```powershell
+docker network create cityroute-net
+```
+
+If it already exists, ignore the warning.
+
+Start Redis:
+
+```powershell
+docker rm -f cityroute-redis 2>$null
+
+docker run -d --rm `
+  --name cityroute-redis `
+  --network cityroute-net `
+  -p 6379:6379 `
+  redis:7-alpine
+
+docker exec cityroute-redis redis-cli ping
+```
+
+Build API image:
+
+```powershell
+docker build -t cityroute-api .
+```
+
+Run API on port `8001`:
+
+```powershell
+docker rm -f cityroute-api 2>$null
+
+docker run --rm `
+  --name cityroute-api `
+  --network cityroute-net `
+  -p 8001:8000 `
+  --env-file .env `
+  -e CITYROUTE_REDIS_URL=redis://cityroute-redis:6379/0 `
+  -v "${PWD}\data:/app/data" `
+  cityroute-api
+```
+
+Open Docker Swagger UI:
+
+```text
+http://127.0.0.1:8001/docs
+```
+
+Check Docker health:
+
+```powershell
+Invoke-RestMethod "http://127.0.0.1:8001/health"
+Invoke-RestMethod "http://127.0.0.1:8001/graph/stats"
+```
+
+---
+
+## Test Commands
+
+Run full test suite:
+
+```powershell
+python -m pytest -v
+```
+
+Run Phase 5 targeted tests:
+
+```powershell
+python -m pytest tests\test_matrix_endpoint.py -v
+python -m pytest tests\test_matrix_service.py -v
+python -m pytest tests\test_matrix_cache_key.py -v
+python -m pytest tests\test_redis_cache.py -v
+python -m pytest tests\test_graph_adjacency.py -v
+python -m pytest tests\test_multi_target_dijkstra.py -v
+python -m pytest tests\test_distance_matrix_source_dijkstra.py -v
+```
+
+Run the automated Phase 5 test script:
+
+```powershell
+.\scripts\run_phase5_tests.ps1
+```
+
+---
+
+## Benchmark Commands
+
+### Phase 5 automated benchmark runner
+
+Run local Phase 5 + Phase 5 optimization benchmarks:
+
+```powershell
+.\scripts\run_phase5_benchmarks.ps1 -Mode local
+```
+
+Run Docker Phase 5 + Phase 5 optimization benchmarks:
+
+```powershell
+.\scripts\run_phase5_benchmarks.ps1 -Mode docker
+```
+
+Run only Phase 5 optimization benchmarks:
+
+```powershell
+.\scripts\run_phase5_benchmarks.ps1 -Mode local -SkipPhase5
+.\scripts\run_phase5_benchmarks.ps1 -Mode docker -SkipPhase5
+```
+
+Run only baseline Phase 5 benchmarks:
+
+```powershell
+.\scripts\run_phase5_benchmarks.ps1 -Mode local -SkipPhase51
+.\scripts\run_phase5_benchmarks.ps1 -Mode docker -SkipPhase51
+```
+
+### Phase 5 stress probes
+
+Local cold 25x25 source-Dijkstra stress:
+
+```powershell
+python benchmarks\phase5_stress_probe.py --mode local --n 25 --algorithm source_dijkstra --concurrency-levels 1,2,4 --requests-per-level 4
+```
+
+Local cache-hit 25x25 stress:
+
+```powershell
+python benchmarks\phase5_stress_probe.py --mode local --n 25 --algorithm source_dijkstra --use-cache --prewarm-cache --concurrency-levels 1,2,4,8 --requests-per-level 8
+```
+
+Docker cold 25x25 source-Dijkstra stress:
+
+```powershell
+python benchmarks\phase5_stress_probe.py --mode docker --n 25 --algorithm source_dijkstra --concurrency-levels 1,2,4 --requests-per-level 4
+```
+
+Docker cache-hit 25x25 stress:
+
+```powershell
+python benchmarks\phase5_stress_probe.py --mode docker --n 25 --algorithm source_dijkstra --use-cache --prewarm-cache --concurrency-levels 1,2,4,8 --requests-per-level 8
+```
+
+Docker old-algorithm 25x25 comparison stress:
+
+```powershell
+python benchmarks\phase5_stress_probe.py --mode docker --n 25 --algorithm bidirectional_astar --concurrency-levels 1,2 --requests-per-level 2
+```
+
+---
+
+## Evidence Files
+
+Expected Phase 5 evidence directories:
+
+```text
+benchmarks/phase5/local_results
+benchmarks/phase5/docker_results
+benchmarks/phase5_1/local_results
+benchmarks/phase5_1/docker_results
+```
+
+Important evidence files include:
+
+```text
+phase5_matrix_benchmark_5x5.json
+phase5_matrix_benchmark_10x10.json
+phase5_matrix_benchmark_15x15.json
+phase5_cache_probe_5x5.json
+phase5_cache_probe_10x10.json
+phase5_cache_probe_15x15.json
+phase5_parallel_vs_serial_5x5.json
+phase5_parallel_vs_serial_10x10.json
+phase5_parallel_vs_serial_15x15.json
+phase5_matrix_correctness_5x5.json
+phase5_matrix_correctness_10x10.json
+phase5_matrix_correctness_15x15.json
+phase5_stress_source_dijkstra_cache_off_25x25.json
+phase5_stress_source_dijkstra_cache_on_25x25.json
+phase5_stress_bidirectional_astar_cache_off_25x25.json
+phase5_1_algorithm_comparison_5x5.json
+phase5_1_algorithm_comparison_10x10.json
+phase5_1_algorithm_comparison_15x15.json
+phase5_1_source_dijkstra_correctness_5x5.json
+phase5_1_source_dijkstra_correctness_10x10.json
+phase5_1_source_dijkstra_correctness_15x15.json
+```
+
+Note: `phase5_1` is an evidence folder for the optimization patch. The audit should still be treated as **Phase 5**, not a separate phase.
+
+---
+
+## Current Known Risks and Notes
+
+| Risk / note                                                                         | Status                                                         |
+| ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Some random coordinate pairs return `404 No path found`                             | Expected directed routing behavior                             |
+| Bidirectional A* p99 is above the 120 ms production route target                    | Documented; not used as production `/route` algorithm          |
+| A* remains faster overall than Bidirectional A* for single-route production routing | Documented; `/route` remains A*                                |
+| Original Phase 5 threaded pairwise matrix failed speedup target                     | Documented; fixed for larger matrices by source-Dijkstra patch |
+| `source_dijkstra` is slower for 5x5 matrices                                        | Documented fixed-overhead trade-off                            |
+| Concurrent cold 25x25 matrix requests increase latency                              | Expected CPU-bound behavior on single API process              |
+| Stress p95 is based on small samples                                                | Treated as outlier indicator, not formal SLA                   |
+| Cache hit stress remains correct but API latency rises under higher concurrency     | Documented                                                     |
+| ETA is formula-based, not traffic-aware                                             | Accepted for current phase                                     |
+| Graph covers Kanpur Central bbox, not full city scale                               | Accepted for current project stage                             |
+| Public deployment                                                                   | Not completed in current evidence                              |
+| Grafana/Prometheus                                                                  | Not integrated yet                                             |
+
+---
+
+## Project Structure
+
+```text
+app/
+├── api/
+│   ├── graph.py
+│   ├── health.py
+│   ├── matrix.py
+│   └── route.py
+├── core/
+│   ├── a_star.py
+│   ├── bidirectional_a_star.py
+│   ├── distance_matrix.py
+│   ├── eta.py
+│   ├── graph_adjacency.py
+│   └── multi_target_dijkstra.py
+├── infrastructure/
+│   └── redis_cache.py
+├── models/
+│   └── matrix_model.py
+├── services/
+│   ├── graph_service.py
+│   ├── matrix_service.py
+│   └── routing_service.py
+├── utils/
+│   ├── geo_validation.py
+│   ├── logger.py
+│   ├── matrix_cache_key.py
+│   ├── node_snapper.py
+│   ├── route_map.py
+│   └── snap_index.py
+├── config.py
+└── main.py
+
+benchmarks/
+├── astar_correctness_probe.py
+├── astar_route_benchmark.py
+├── astar_route_benchmark_routeable.py
+├── bidirectional_astar_benchmark.py
+├── bidirectional_astar_correctness_probe.py
+├── concurrent_route_probe.py
+├── heuristic_admissibility_probe.py
+├── phase4_route_compare_probe.py
+├── phase5_matrix_benchmark.py
+├── phase5_cache_probe.py
+├── phase5_parallel_vs_serial_probe.py
+├── phase5_matrix_correctness_probe.py
+├── phase5_stress_probe.py
+├── phase5_1_algorithm_comparison.py
+├── phase5_1_source_dijkstra_correctness.py
+├── phase4_results/
+├── phase5/
+└── phase5_1/
+
+scripts/
+├── run_phase5_benchmarks.ps1
+└── run_phase5_tests.ps1
+
+tests/
+├── test_astar_algorithm_unit.py
+├── test_astar_correctness.py
+├── test_astar_edge_cases.py
+├── test_bidirectional_astar_correctness.py
+├── test_bidirectional_astar_unit.py
+├── test_distance_matrix_source_dijkstra.py
+├── test_geo_validation.py
+├── test_graph_adjacency.py
+├── test_graph_endpoint.py
+├── test_health.py
+├── test_heuristic_admissibility.py
+├── test_matrix_cache_key.py
+├── test_matrix_endpoint.py
+├── test_matrix_service.py
+├── test_multi_target_dijkstra.py
+├── test_redis_cache.py
+├── test_route_compare_endpoint.py
+├── test_route_endpoint.py
+├── test_route_failure_cases.py
+├── test_route_geometry.py
+└── test_route_map.py
+```
 
 ---
 
@@ -696,22 +940,17 @@ Example response summary:
   "eta_seconds": 999.5,
   "eta_minutes": 16.66,
   "path_node_count": 77,
-  "nodes_expanded": 2622,
-  "geometry": [
-    {"lat": 26.4400833, "lon": 80.2999386},
-    {"lat": 26.440297, "lon": 80.3002594}
-  ]
+  "nodes_expanded": 2622
 }
 ```
-
-The actual `geometry` array contains all route node coordinates. For this sample route, `path_node_count` is 77.
 
 ---
 
 ## Example `/route/compare` Request
 
 ```powershell
-Invoke-RestMethod "http://127.0.0.1:8001/route/compare?start_lat=26.44&start_lon=80.30&end_lat=26.45&end_lon=80.35" | ConvertTo-Json -Depth 20
+Invoke-RestMethod "http://127.0.0.1:8001/route/compare?start_lat=26.44&start_lon=80.30&end_lat=26.45&end_lon=80.35" |
+ConvertTo-Json -Depth 20
 ```
 
 Example comparison summary:
@@ -719,23 +958,6 @@ Example comparison summary:
 ```json
 {
   "status": "ok",
-  "astar": {
-    "algorithm": "astar",
-    "distance_m": 6428.798,
-    "path_node_count": 77,
-    "nodes_expanded": 2622,
-    "route_time_ms": 34.335
-  },
-  "bidirectional_astar": {
-    "algorithm": "bidirectional_astar",
-    "distance_m": 6428.798,
-    "path_node_count": 77,
-    "nodes_expanded": 1458,
-    "forward_nodes_expanded": 846,
-    "backward_nodes_expanded": 612,
-    "route_time_ms": 25.036,
-    "meeting_node": 8810239341
-  },
   "comparison": {
     "distance_delta_m": 0.0,
     "same_distance": true,
@@ -773,356 +995,21 @@ This is expected for some directed graph node pairs. It is not considered a serv
 
 ---
 
-## Project Structure
-
-```text
-app/
-├── api/
-│   ├── graph.py
-│   ├── health.py
-│   └── route.py
-├── core/
-│   ├── a_star.py
-│   ├── bidirectional_a_star.py
-│   └── eta.py
-├── services/
-│   ├── graph_service.py
-│   └── routing_service.py
-├── utils/
-│   ├── geo_validation.py
-│   ├── logger.py
-│   ├── node_snapper.py
-│   └── snap_index.py
-├── config.py
-└── main.py
-
-benchmarks/
-├── astar_correctness_probe.py
-├── astar_route_benchmark.py
-├── astar_route_benchmark_routeable.py
-├── bidirectional_astar_benchmark.py
-├── bidirectional_astar_correctness_probe.py
-├── concurrent_route_probe.py
-├── heuristic_admissibility_probe.py
-├── phase4_route_compare_probe.py
-├── docker_results/
-├── phase4_results/
-└── results/
-
-tests/
-├── test_astar_algorithm_unit.py
-├── test_astar_correctness.py
-├── test_astar_edge_cases.py
-├── test_bidirectional_astar_correctness.py
-├── test_bidirectional_astar_unit.py
-├── test_geo_validation.py
-├── test_graph_endpoint.py
-├── test_health.py
-├── test_heuristic_admissibility.py
-├── test_route_compare_endpoint.py
-├── test_route_endpoint.py
-├── test_route_failure_cases.py
-├── test_route_geometry.py
-└── test_route_map.py
-```
-
----
-
-## Local Setup
-
-Create and activate virtual environment:
-
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```powershell
-pip install -r requirements.txt
-```
-
-Create local environment file:
-
-```powershell
-copy .env.example .env
-```
-
-Run the app locally:
-
-```powershell
-python -m uvicorn app.main:app --reload --port 8000
-```
-
-Open Swagger UI:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
----
-
-## Docker Setup — Phase 4
-
-Remove old containers:
-
-```powershell
-docker rm -f cityroute-tier1-phase3 cityroute-tier1-phase4 2>$null
-```
-
-Build the Docker image:
-
-```powershell
-docker build --pull=false -t cityroute-api:tier1-phase4 .
-```
-
-If Docker tries to reach Docker Hub and internet/DNS fails, use the classic builder:
-
-```powershell
-$env:DOCKER_BUILDKIT=0
-docker build -t cityroute-api:tier1-phase4 .
-```
-
-Run Docker on port `8001` so local Uvicorn can still use port `8000`:
-
-```powershell
-docker run --rm --name cityroute-tier1-phase4 -p 8001:8000 -v "${PWD}\data:/app/data" cityroute-api:tier1-phase4
-```
-
-Open Docker Swagger UI:
-
-```text
-http://127.0.0.1:8001/docs
-```
-
-Check Docker health:
-
-```powershell
-Invoke-RestMethod "http://127.0.0.1:8001/health"
-```
-
-Run sample A\* route:
-
-```powershell
-Invoke-RestMethod "http://127.0.0.1:8001/route?start_lat=26.44&start_lon=80.30&end_lat=26.45&end_lon=80.35" | ConvertTo-Json -Depth 20
-```
-
-Run sample route comparison:
-
-```powershell
-Invoke-RestMethod "http://127.0.0.1:8001/route/compare?start_lat=26.44&start_lon=80.30&end_lat=26.45&end_lon=80.35" | ConvertTo-Json -Depth 20
-```
-
-Verify Docker contains the optimized Phase 4 code:
-
-```powershell
-docker exec cityroute-tier1-phase4 python -c "from pathlib import Path; text=Path('/app/app/core/bidirectional_a_star.py').read_text(); print('coordinate_cache' in text); print('edge_length_cache' in text)"
-```
-
-Expected:
-
-```text
-True
-True
-```
-
----
-
-## Tests
-
-Run full test suite:
-
-```powershell
-python -m pytest -v
-```
-
-Expected current result:
-
-```text
-81 passed
-```
-
-Run Phase 4 targeted tests:
-
-```powershell
-python -m pytest tests\test_bidirectional_astar_unit.py tests\test_bidirectional_astar_correctness.py tests\test_route_compare_endpoint.py -v
-```
-
-Expected Phase 4 targeted result:
-
-```text
-26 passed
-```
-
----
-
-## Benchmark Commands
-
-### Phase 3 A\* correctness
-
-```powershell
-python benchmarks\astar_correctness_probe.py
-```
-
-### Phase 3 heuristic admissibility
-
-```powershell
-python benchmarks\heuristic_admissibility_probe.py 10000
-```
-
-### Phase 3 A\* routeable benchmark
-
-```powershell
-$env:CITYROUTE_BASE_URL="http://127.0.0.1:8001"
-$env:CITYROUTE_RESULTS_DIR="benchmarks/docker_results"
-python benchmarks\astar_route_benchmark_routeable.py 1000 5 3000
-```
-
-### Phase 4 route compare sample
-
-```powershell
-python benchmarks\phase4_route_compare_probe.py
-```
-
-### Phase 4 Bidirectional A\* correctness probe
-
-```powershell
-python benchmarks\bidirectional_astar_correctness_probe.py 500 2500
-```
-
-### Phase 4 1000-route benchmark
-
-```powershell
-python benchmarks\bidirectional_astar_benchmark.py 1000 5 3000
-```
-
-### Capture Docker memory
-
-```powershell
-docker stats cityroute-tier1-phase4 --no-stream
-```
-
----
-
-## Phase 4 Evidence Files
-
-Expected evidence files under:
-
-```text
-benchmarks/phase4_results
-```
-
-Observed files:
-
-```text
-phase4_bidirectional_astar_benchmark.json
-phase4_bidirectional_astar_correctness_probe.json
-phase4_bidirectional_benchmark_console.txt
-phase4_bidirectional_correctness_console.txt
-phase4_docker_code_check.txt
-phase4_docker_graph_stats.json
-phase4_docker_health.json
-phase4_docker_inspect.json
-phase4_docker_logs_tail300.txt
-phase4_docker_openapi_paths.txt
-phase4_docker_ps.txt
-phase4_docker_stats.txt
-phase4_full_pytest.txt
-phase4_route_compare_sample.json
-phase4_route_compare_summary.json
-```
-
----
-
-## Current Known Risks and Notes
-
-| Risk / note | Status |
-|---|---|
-| Some random coordinate pairs return `404 No path found` | Expected directed routing behavior |
-| Bidirectional A\* p99 is above the 120 ms production target | Documented; not used as production `/route` algorithm |
-| A\* remains faster overall in 1000-route benchmark | Documented; `/route` remains A\* |
-| Bidirectional A\* reduces median node expansion | Documented; retained under `/route/compare` |
-| Docker image size is still high due to OSMnx/geospatial dependencies | Optimization deferred |
-| API latency increases under concurrent CPU-bound routing | Expected with single-worker Uvicorn |
-| ETA is formula-based, not traffic-aware | Accepted for Tier 1 |
-| Redis caching is not integrated yet | Planned for Phase 5 |
-| ALT landmark heuristic is not part of the current roadmap | Optional future advanced routing extension |
-| Public deployment | Not completed yet |
-
----
-
-## Phase 4 Acceptance Status
-
-Phase 4 is accepted as complete for:
-
-- Bidirectional A\* implementation
-- `/route/compare` endpoint
-- Same snapped-node comparison between A\* and Bidirectional A\*
-- Distance equality validation
-- Node expansion comparison
-- Route timing comparison
-- Correctness tests against A\* and Dijkstra
-- 500-pair correctness probe
-- 1000-route Docker benchmark
-- Docker runtime evidence
-- Docker OpenAPI evidence
-- Full project pytest evidence
-- Benchmark files under `benchmarks/phase4_results/`
-
-Phase 4 does **not** claim that Bidirectional A\* replaces A\* in production.
-
-Final Phase 4 engineering conclusion:
-
-```text
-Bidirectional A* is correct and useful for comparison. It reduces node expansion on average and at median, but normal A* remains faster overall at p50, p95, and p99 route latency. Therefore, /route remains normal A*, while /route/compare remains available for benchmarking and algorithm analysis.
-```
-
----
-
-## Latest Verified Phase 4 Evidence
-
-```text
-Full pytest: 81 passed in 136.62s
-Docker graph: 12,969 nodes, 34,996 edges
-Docker graph load time: 3.252 s
-Docker graph memory: 380.23 MB
-Snap index build time: 23.112 ms
-Docker memory after benchmark: 344.9 MiB
-Docker OpenAPI includes /route/compare
-Docker code check: coordinate_cache=True, edge_length_cache=True
-Route compare sample: same distance true, distance delta 0.0 m
-Sample A*: 34.335 ms, 2,622 nodes expanded
-Sample Bidirectional A*: 25.036 ms, 1,458 nodes expanded
-Sample node reduction: 44.394%
-Sample route-time reduction: 27.083%
-Bidirectional correctness probe: 500 / 500 passed, 0 failed
-1000-route benchmark: 1000 successful route measurements
-1000-route benchmark real failures: 0
-1000-route benchmark no-path 404 skipped: 8
-A* p50 / p95 / p99: 10.108 ms / 45.044 ms / 87.008 ms
-Bidirectional A* p50 / p95 / p99: 15.745 ms / 74.384 ms / 157.730 ms
-A* p50 nodes expanded: 1,240
-Bidirectional A* p50 nodes expanded: 1,097
-Distance delta max: 0.0 m
-```
-
----
-
 ## Next Phase
 
 Next planned phase:
 
 ```text
-Tier 2 — Phase 5: Distance Matrix Service
+Tier 2 — Phase 6: Greedy Multi-Stop Baseline
 ```
 
-Phase 5 should add:
+Phase 6 should add:
 
-- N×N distance matrix generation
-- Reuse production A\* route computation
-- Matrix timing benchmarks
-- Cache-ready key design
-- Redis integration if scope permits
-- Cache hit/miss logging if Redis is added
-- Matrix correctness and failure handling tests
+* Multi-stop delivery ordering
+* Nearest-neighbor greedy baseline
+* Use Phase 5 `/matrix` as the cost source
+* Total route distance calculation
+* Greedy route correctness tests
+* Greedy benchmark evidence
+* Baseline route ordering endpoint
+* Honest comparison against future 2-Opt optimization

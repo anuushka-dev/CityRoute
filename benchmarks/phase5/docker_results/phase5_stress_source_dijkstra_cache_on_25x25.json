@@ -1,0 +1,798 @@
+{
+  "benchmark": "phase5_stress_probe",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "matrix_size": 25,
+  "algorithm": "source_dijkstra",
+  "use_cache": true,
+  "prewarm_cache": true,
+  "concurrency_levels": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "requests_per_level": 8,
+  "locations": [
+    {
+      "id": "p01",
+      "lat": 26.44,
+      "lon": 80.3
+    },
+    {
+      "id": "p02",
+      "lat": 26.442,
+      "lon": 80.305
+    },
+    {
+      "id": "p03",
+      "lat": 26.445,
+      "lon": 80.31
+    },
+    {
+      "id": "p04",
+      "lat": 26.448,
+      "lon": 80.315
+    },
+    {
+      "id": "p05",
+      "lat": 26.45,
+      "lon": 80.32
+    },
+    {
+      "id": "p06",
+      "lat": 26.452,
+      "lon": 80.325
+    },
+    {
+      "id": "p07",
+      "lat": 26.455,
+      "lon": 80.33
+    },
+    {
+      "id": "p08",
+      "lat": 26.458,
+      "lon": 80.335
+    },
+    {
+      "id": "p09",
+      "lat": 26.46,
+      "lon": 80.34
+    },
+    {
+      "id": "p10",
+      "lat": 26.462,
+      "lon": 80.345
+    },
+    {
+      "id": "p11",
+      "lat": 26.465,
+      "lon": 80.35
+    },
+    {
+      "id": "p12",
+      "lat": 26.468,
+      "lon": 80.355
+    },
+    {
+      "id": "p13",
+      "lat": 26.47,
+      "lon": 80.36
+    },
+    {
+      "id": "p14",
+      "lat": 26.472,
+      "lon": 80.365
+    },
+    {
+      "id": "p15",
+      "lat": 26.475,
+      "lon": 80.37
+    },
+    {
+      "id": "p16",
+      "lat": 26.4415,
+      "lon": 80.312
+    },
+    {
+      "id": "p17",
+      "lat": 26.4445,
+      "lon": 80.318
+    },
+    {
+      "id": "p18",
+      "lat": 26.4495,
+      "lon": 80.322
+    },
+    {
+      "id": "p19",
+      "lat": 26.4535,
+      "lon": 80.328
+    },
+    {
+      "id": "p20",
+      "lat": 26.4575,
+      "lon": 80.332
+    },
+    {
+      "id": "p21",
+      "lat": 26.4615,
+      "lon": 80.338
+    },
+    {
+      "id": "p22",
+      "lat": 26.4665,
+      "lon": 80.342
+    },
+    {
+      "id": "p23",
+      "lat": 26.4715,
+      "lon": 80.348
+    },
+    {
+      "id": "p24",
+      "lat": 26.4765,
+      "lon": 80.352
+    },
+    {
+      "id": "p25",
+      "lat": 26.479,
+      "lon": 80.358
+    }
+  ],
+  "levels": [
+    {
+      "concurrency": 1,
+      "requests_per_level": 8,
+      "elapsed_s": 0.116,
+      "summary": {
+        "request_count": 8,
+        "success_count": 8,
+        "failure_count": 0,
+        "success_rate_percent": 100.0,
+        "api_elapsed_ms": {
+          "min": 9.152,
+          "mean": 13.972,
+          "median": 10.314,
+          "p95": 35.173,
+          "p99": 35.173,
+          "max": 35.173
+        },
+        "generation_time_ms": {
+          "min": 2.453,
+          "mean": 3.134,
+          "median": 2.982,
+          "p95": 4.337,
+          "p99": 4.337,
+          "max": 4.337
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        },
+        "cache": {
+          "hit_values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_hits": true,
+          "any_hit": true
+        }
+      },
+      "runs": [
+        {
+          "request_index": 1,
+          "status_code": 200,
+          "api_elapsed_ms": 15.084,
+          "generation_time_ms": 4.337,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 2,
+          "status_code": 200,
+          "api_elapsed_ms": 12.717,
+          "generation_time_ms": 3.374,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 3,
+          "status_code": 200,
+          "api_elapsed_ms": 35.173,
+          "generation_time_ms": 2.782,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 4,
+          "status_code": 200,
+          "api_elapsed_ms": 9.493,
+          "generation_time_ms": 2.453,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 5,
+          "status_code": 200,
+          "api_elapsed_ms": 9.152,
+          "generation_time_ms": 2.861,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 6,
+          "status_code": 200,
+          "api_elapsed_ms": 9.968,
+          "generation_time_ms": 3.102,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 7,
+          "status_code": 200,
+          "api_elapsed_ms": 10.66,
+          "generation_time_ms": 3.686,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 8,
+          "status_code": 200,
+          "api_elapsed_ms": 9.527,
+          "generation_time_ms": 2.477,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "requests_per_level": 8,
+      "elapsed_s": 0.063,
+      "summary": {
+        "request_count": 8,
+        "success_count": 8,
+        "failure_count": 0,
+        "success_rate_percent": 100.0,
+        "api_elapsed_ms": {
+          "min": 9.639,
+          "mean": 14.493,
+          "median": 12.847,
+          "p95": 28.791,
+          "p99": 28.791,
+          "max": 28.791
+        },
+        "generation_time_ms": {
+          "min": 2.651,
+          "mean": 3.341,
+          "median": 3.142,
+          "p95": 5.043,
+          "p99": 5.043,
+          "max": 5.043
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        },
+        "cache": {
+          "hit_values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_hits": true,
+          "any_hit": true
+        }
+      },
+      "runs": [
+        {
+          "request_index": 1,
+          "status_code": 200,
+          "api_elapsed_ms": 11.252,
+          "generation_time_ms": 2.665,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 2,
+          "status_code": 200,
+          "api_elapsed_ms": 28.791,
+          "generation_time_ms": 3.38,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 3,
+          "status_code": 200,
+          "api_elapsed_ms": 10.708,
+          "generation_time_ms": 3.133,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 4,
+          "status_code": 200,
+          "api_elapsed_ms": 14.306,
+          "generation_time_ms": 3.151,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 5,
+          "status_code": 200,
+          "api_elapsed_ms": 13.191,
+          "generation_time_ms": 2.881,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 6,
+          "status_code": 200,
+          "api_elapsed_ms": 15.553,
+          "generation_time_ms": 5.043,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 7,
+          "status_code": 200,
+          "api_elapsed_ms": 12.502,
+          "generation_time_ms": 3.827,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 8,
+          "status_code": 200,
+          "api_elapsed_ms": 9.639,
+          "generation_time_ms": 2.651,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "requests_per_level": 8,
+      "elapsed_s": 0.059,
+      "summary": {
+        "request_count": 8,
+        "success_count": 8,
+        "failure_count": 0,
+        "success_rate_percent": 100.0,
+        "api_elapsed_ms": {
+          "min": 16.134,
+          "mean": 25.195,
+          "median": 24.282,
+          "p95": 36.614,
+          "p99": 36.614,
+          "max": 36.614
+        },
+        "generation_time_ms": {
+          "min": 2.904,
+          "mean": 8.306,
+          "median": 7.819,
+          "p95": 15.234,
+          "p99": 15.234,
+          "max": 15.234
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        },
+        "cache": {
+          "hit_values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_hits": true,
+          "any_hit": true
+        }
+      },
+      "runs": [
+        {
+          "request_index": 1,
+          "status_code": 200,
+          "api_elapsed_ms": 21.317,
+          "generation_time_ms": 10.078,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 2,
+          "status_code": 200,
+          "api_elapsed_ms": 25.058,
+          "generation_time_ms": 8.101,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 3,
+          "status_code": 200,
+          "api_elapsed_ms": 29.116,
+          "generation_time_ms": 11.377,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 4,
+          "status_code": 200,
+          "api_elapsed_ms": 31.141,
+          "generation_time_ms": 15.234,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 5,
+          "status_code": 200,
+          "api_elapsed_ms": 36.614,
+          "generation_time_ms": 2.904,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 6,
+          "status_code": 200,
+          "api_elapsed_ms": 23.506,
+          "generation_time_ms": 7.537,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 7,
+          "status_code": 200,
+          "api_elapsed_ms": 16.134,
+          "generation_time_ms": 6.203,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 8,
+          "status_code": 200,
+          "api_elapsed_ms": 18.676,
+          "generation_time_ms": 5.015,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "requests_per_level": 8,
+      "elapsed_s": 0.063,
+      "summary": {
+        "request_count": 8,
+        "success_count": 8,
+        "failure_count": 0,
+        "success_rate_percent": 100.0,
+        "api_elapsed_ms": {
+          "min": 39.399,
+          "mean": 51.103,
+          "median": 52.765,
+          "p95": 57.721,
+          "p99": 57.721,
+          "max": 57.721
+        },
+        "generation_time_ms": {
+          "min": 16.218,
+          "mean": 22.634,
+          "median": 22.789,
+          "p95": 29.451,
+          "p99": 29.451,
+          "max": 29.451
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        },
+        "cache": {
+          "hit_values": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_hits": true,
+          "any_hit": true
+        }
+      },
+      "runs": [
+        {
+          "request_index": 1,
+          "status_code": 200,
+          "api_elapsed_ms": 47.037,
+          "generation_time_ms": 21.863,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 2,
+          "status_code": 200,
+          "api_elapsed_ms": 52.668,
+          "generation_time_ms": 29.451,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 3,
+          "status_code": 200,
+          "api_elapsed_ms": 39.399,
+          "generation_time_ms": 16.708,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 4,
+          "status_code": 200,
+          "api_elapsed_ms": 49.69,
+          "generation_time_ms": 16.218,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 5,
+          "status_code": 200,
+          "api_elapsed_ms": 52.862,
+          "generation_time_ms": 25.333,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 6,
+          "status_code": 200,
+          "api_elapsed_ms": 54.471,
+          "generation_time_ms": 22.334,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 7,
+          "status_code": 200,
+          "api_elapsed_ms": 57.721,
+          "generation_time_ms": 25.919,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        },
+        {
+          "request_index": 8,
+          "status_code": 200,
+          "api_elapsed_ms": 54.979,
+          "generation_time_ms": 23.244,
+          "failed_pairs": 0,
+          "computed_pairs": 625,
+          "pair_count": 625,
+          "cache_enabled": true,
+          "cache_hit": true,
+          "response_type": "dict",
+          "error": null
+        }
+      ]
+    }
+  ],
+  "prewarm_request": {
+    "request_index": 0,
+    "status_code": 200,
+    "api_elapsed_ms": 27.832,
+    "generation_time_ms": 3.921,
+    "failed_pairs": 0,
+    "computed_pairs": 625,
+    "pair_count": 625,
+    "cache_enabled": true,
+    "cache_hit": true,
+    "response_type": "dict",
+    "error": null
+  }
+}

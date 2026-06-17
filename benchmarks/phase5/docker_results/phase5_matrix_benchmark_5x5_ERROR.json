@@ -1,0 +1,9 @@
+{
+  "artifact": "phase5_matrix_benchmark_error",
+  "created_at": "2026-06-16T16:51:54.458647+00:00",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "n": 5,
+  "algorithm": "bidirectional_astar",
+  "error": "RuntimeError(\"POST /matrix failed | status=500 | body={'raw_text': 'Internal Server Error'}\")"
+}

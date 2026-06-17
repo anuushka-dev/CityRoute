@@ -1,0 +1,374 @@
+{
+  "artifact": "phase5_matrix_correctness_probe",
+  "created_at": "2026-06-17T17:26:13.368605+00:00",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "matrix_size": "5x5",
+  "n": 5,
+  "pairs": 25,
+  "algorithm": "bidirectional_astar",
+  "health": {
+    "status": "ok",
+    "graph_loaded": true,
+    "uptime_s": 186.205
+  },
+  "graph_stats": {
+    "city": "Kanpur Central, Uttar Pradesh, India",
+    "graph_loaded": true,
+    "nodes": 12969,
+    "edges": 34996,
+    "load_time_s": 2.526,
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "graph_file_size_mb": 12.74,
+    "memory_mb": 374.71,
+    "weakly_connected_components": 1,
+    "largest_component_nodes": 12969,
+    "is_weakly_connected": true,
+    "snap_index_loaded": true,
+    "snap_index_build_time_ms": 19.288,
+    "snap_index_method": "balltree",
+    "snap_index_import_error": null
+  },
+  "matrix_request": {
+    "status_code": 200,
+    "api_elapsed_ms": 283.811,
+    "service_generation_time_ms": 279.667,
+    "parallel_workers": 8,
+    "cache": {
+      "enabled": false,
+      "hit": false,
+      "key": null,
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "matrix_counts": {
+    "pair_count": 25,
+    "computed_pairs": 25,
+    "failed_pairs": 0,
+    "failures": []
+  },
+  "shape_checks": {
+    "distance_shape_ok": true,
+    "eta_shape_ok": true,
+    "diagonal_zero": true,
+    "n_field_correct": true,
+    "pair_count_correct": true
+  },
+  "directionality": {
+    "asymmetry_detected": true,
+    "asymmetric_pair_count": 9,
+    "sample_asymmetric_pairs": [
+      {
+        "i": 0,
+        "j": 1,
+        "distance_i_to_j_m": 1130.061,
+        "distance_j_to_i_m": 1124.572,
+        "diff_m": 5.489
+      },
+      {
+        "i": 0,
+        "j": 2,
+        "distance_i_to_j_m": 2106.208,
+        "distance_j_to_i_m": 2098.445,
+        "diff_m": 7.763
+      },
+      {
+        "i": 0,
+        "j": 3,
+        "distance_i_to_j_m": 4066.88,
+        "distance_j_to_i_m": 4055.5,
+        "diff_m": 11.38
+      },
+      {
+        "i": 0,
+        "j": 4,
+        "distance_i_to_j_m": 4680.665,
+        "distance_j_to_i_m": 4865.01,
+        "diff_m": 184.345
+      },
+      {
+        "i": 1,
+        "j": 2,
+        "distance_i_to_j_m": 1156.371,
+        "distance_j_to_i_m": 1154.096,
+        "diff_m": 2.275
+      },
+      {
+        "i": 1,
+        "j": 3,
+        "distance_i_to_j_m": 3117.043,
+        "distance_j_to_i_m": 3111.151,
+        "diff_m": 5.892
+      },
+      {
+        "i": 1,
+        "j": 4,
+        "distance_i_to_j_m": 3730.828,
+        "distance_j_to_i_m": 3920.661,
+        "diff_m": 189.833
+      },
+      {
+        "i": 2,
+        "j": 3,
+        "distance_i_to_j_m": 2156.635,
+        "distance_j_to_i_m": 2011.272,
+        "diff_m": 145.363
+      },
+      {
+        "i": 2,
+        "j": 4,
+        "distance_i_to_j_m": 2770.42,
+        "distance_j_to_i_m": 2820.782,
+        "diff_m": 50.362
+      }
+    ]
+  },
+  "route_comparison": {
+    "selected_pair_count": 20,
+    "tolerance_m": 1.0,
+    "route_elapsed_ms": {
+      "min_ms": 3.456,
+      "mean_ms": 9.22,
+      "median_ms": 7.86,
+      "max_ms": 22.386
+    },
+    "comparison_count": 20,
+    "mismatch_count": 0,
+    "all_compared_pairs_match": true,
+    "comparisons": [
+      {
+        "from_index": 0,
+        "to_index": 1,
+        "from_id": "depot_20260617172612160242",
+        "to_id": "stop_01_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1130.061,
+        "route_distance_m": 1130.061,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 0,
+        "to_index": 2,
+        "from_id": "depot_20260617172612160242",
+        "to_id": "stop_02_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2106.208,
+        "route_distance_m": 2106.208,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 0,
+        "to_index": 3,
+        "from_id": "depot_20260617172612160242",
+        "to_id": "stop_03_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 4066.88,
+        "route_distance_m": 4066.88,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 0,
+        "to_index": 4,
+        "from_id": "depot_20260617172612160242",
+        "to_id": "stop_04_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 4680.665,
+        "route_distance_m": 4680.665,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 1,
+        "to_index": 0,
+        "from_id": "stop_01_20260617172612160242",
+        "to_id": "depot_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1124.572,
+        "route_distance_m": 1124.572,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 1,
+        "to_index": 2,
+        "from_id": "stop_01_20260617172612160242",
+        "to_id": "stop_02_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1156.371,
+        "route_distance_m": 1156.371,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 1,
+        "to_index": 3,
+        "from_id": "stop_01_20260617172612160242",
+        "to_id": "stop_03_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 3117.043,
+        "route_distance_m": 3117.043,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 1,
+        "to_index": 4,
+        "from_id": "stop_01_20260617172612160242",
+        "to_id": "stop_04_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 3730.828,
+        "route_distance_m": 3730.828,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 2,
+        "to_index": 0,
+        "from_id": "stop_02_20260617172612160242",
+        "to_id": "depot_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2098.445,
+        "route_distance_m": 2098.445,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 2,
+        "to_index": 1,
+        "from_id": "stop_02_20260617172612160242",
+        "to_id": "stop_01_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1154.096,
+        "route_distance_m": 1154.096,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 2,
+        "to_index": 3,
+        "from_id": "stop_02_20260617172612160242",
+        "to_id": "stop_03_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2156.635,
+        "route_distance_m": 2156.635,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 2,
+        "to_index": 4,
+        "from_id": "stop_02_20260617172612160242",
+        "to_id": "stop_04_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2770.42,
+        "route_distance_m": 2770.42,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 3,
+        "to_index": 0,
+        "from_id": "stop_03_20260617172612160242",
+        "to_id": "depot_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 4055.5,
+        "route_distance_m": 4055.5,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 3,
+        "to_index": 1,
+        "from_id": "stop_03_20260617172612160242",
+        "to_id": "stop_01_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 3111.151,
+        "route_distance_m": 3111.151,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 3,
+        "to_index": 2,
+        "from_id": "stop_03_20260617172612160242",
+        "to_id": "stop_02_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2011.272,
+        "route_distance_m": 2011.272,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 3,
+        "to_index": 4,
+        "from_id": "stop_03_20260617172612160242",
+        "to_id": "stop_04_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1319.325,
+        "route_distance_m": 1319.325,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 4,
+        "to_index": 0,
+        "from_id": "stop_04_20260617172612160242",
+        "to_id": "depot_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 4865.01,
+        "route_distance_m": 4865.01,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 4,
+        "to_index": 1,
+        "from_id": "stop_04_20260617172612160242",
+        "to_id": "stop_01_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 3920.661,
+        "route_distance_m": 3920.661,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 4,
+        "to_index": 2,
+        "from_id": "stop_04_20260617172612160242",
+        "to_id": "stop_02_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 2820.782,
+        "route_distance_m": 2820.782,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "from_index": 4,
+        "to_index": 3,
+        "from_id": "stop_04_20260617172612160242",
+        "to_id": "stop_03_20260617172612160242",
+        "route_status_code": 200,
+        "matrix_distance_m": 1319.325,
+        "route_distance_m": 1319.325,
+        "diff_m": 0.0,
+        "within_tolerance": true
+      }
+    ],
+    "mismatches": []
+  },
+  "acceptance_checks": {
+    "matrix_status_200": true,
+    "distance_shape_ok": true,
+    "eta_shape_ok": true,
+    "diagonal_zero": true,
+    "n_field_correct": true,
+    "pair_count_correct": true,
+    "failed_pairs_zero": true,
+    "selected_route_pairs_match": true,
+    "route_mismatch_count": 0
+  }
+}

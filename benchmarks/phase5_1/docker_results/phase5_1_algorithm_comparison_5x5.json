@@ -1,0 +1,883 @@
+{
+  "benchmark": "phase5_1_algorithm_comparison",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "matrix_size": 5,
+  "repeats": 3,
+  "tolerance_m": 0.01,
+  "locations": [
+    {
+      "id": "p01",
+      "lat": 26.44,
+      "lon": 80.3
+    },
+    {
+      "id": "p02",
+      "lat": 26.442,
+      "lon": 80.305
+    },
+    {
+      "id": "p03",
+      "lat": 26.445,
+      "lon": 80.31
+    },
+    {
+      "id": "p04",
+      "lat": 26.448,
+      "lon": 80.315
+    },
+    {
+      "id": "p05",
+      "lat": 26.45,
+      "lon": 80.32
+    }
+  ],
+  "health": {
+    "status_code": 200,
+    "payload": {
+      "status": "ok",
+      "graph_loaded": true,
+      "uptime_s": 1983.372
+    }
+  },
+  "graph_stats": {
+    "status_code": 200,
+    "payload": {
+      "city": "Kanpur Central, Uttar Pradesh, India",
+      "graph_loaded": true,
+      "nodes": 12969,
+      "edges": 34996,
+      "load_time_s": 3.254,
+      "graph_path": "data/graphs/kanpur_central.graphml",
+      "graph_file_size_mb": 12.74,
+      "memory_mb": 382.95,
+      "weakly_connected_components": 1,
+      "largest_component_nodes": 12969,
+      "is_weakly_connected": true,
+      "snap_index_loaded": true,
+      "snap_index_build_time_ms": 23.26,
+      "snap_index_method": "balltree",
+      "snap_index_import_error": null
+    }
+  },
+  "algorithms": {
+    "bidirectional_astar": {
+      "runs": [
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 138.58,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "bidirectional_astar",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.449,
+                1802.307,
+                2499.767,
+                3154.36
+              ],
+              [
+                554.449,
+                0.0,
+                1807.124,
+                2504.584,
+                3159.177
+              ],
+              [
+                1791.18,
+                1801.485,
+                0.0,
+                872.993,
+                1522.174
+              ],
+              [
+                2502.187,
+                2512.491,
+                872.993,
+                0.0,
+                695.472
+              ],
+              [
+                3185.991,
+                3196.296,
+                1522.174,
+                695.472,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.315
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.064
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.698,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.698,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 132.196,
+            "parallel_workers": 8
+          },
+          "run_index": 1
+        },
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 138.132,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "bidirectional_astar",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.449,
+                1802.307,
+                2499.767,
+                3154.36
+              ],
+              [
+                554.449,
+                0.0,
+                1807.124,
+                2504.584,
+                3159.177
+              ],
+              [
+                1791.18,
+                1801.485,
+                0.0,
+                872.993,
+                1522.174
+              ],
+              [
+                2502.187,
+                2512.491,
+                872.993,
+                0.0,
+                695.472
+              ],
+              [
+                3185.991,
+                3196.296,
+                1522.174,
+                695.472,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.315
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.064
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.698,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.698,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 131.899,
+            "parallel_workers": 8
+          },
+          "run_index": 2
+        },
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 142.836,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "bidirectional_astar",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.449,
+                1802.307,
+                2499.767,
+                3154.36
+              ],
+              [
+                554.449,
+                0.0,
+                1807.124,
+                2504.584,
+                3159.177
+              ],
+              [
+                1791.18,
+                1801.485,
+                0.0,
+                872.993,
+                1522.174
+              ],
+              [
+                2502.187,
+                2512.491,
+                872.993,
+                0.0,
+                695.472
+              ],
+              [
+                3185.991,
+                3196.296,
+                1522.174,
+                695.472,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.315
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.064
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.698,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.698,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 136.218,
+            "parallel_workers": 8
+          },
+          "run_index": 3
+        }
+      ],
+      "summary": {
+        "run_count": 3,
+        "successful_run_count": 3,
+        "failed_run_count": 0,
+        "api_elapsed_ms": {
+          "min": 138.132,
+          "mean": 139.849,
+          "median": 138.58,
+          "max": 142.836
+        },
+        "generation_time_ms": {
+          "min": 131.899,
+          "mean": 133.438,
+          "median": 132.196,
+          "max": 136.218
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        }
+      }
+    },
+    "source_dijkstra": {
+      "runs": [
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 175.883,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.448,
+                1802.305,
+                2499.766,
+                3154.356
+              ],
+              [
+                554.448,
+                0.0,
+                1807.123,
+                2504.584,
+                3159.174
+              ],
+              [
+                1791.181,
+                1801.485,
+                0.0,
+                872.994,
+                1522.174
+              ],
+              [
+                2502.188,
+                2512.492,
+                872.994,
+                0.0,
+                695.469
+              ],
+              [
+                3185.994,
+                3196.298,
+                1522.174,
+                695.469,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.314
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.063
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.699,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.699,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 169.675,
+            "parallel_workers": 8
+          },
+          "run_index": 1
+        },
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 370.992,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.448,
+                1802.305,
+                2499.766,
+                3154.356
+              ],
+              [
+                554.448,
+                0.0,
+                1807.123,
+                2504.584,
+                3159.174
+              ],
+              [
+                1791.181,
+                1801.485,
+                0.0,
+                872.994,
+                1522.174
+              ],
+              [
+                2502.188,
+                2512.492,
+                872.994,
+                0.0,
+                695.469
+              ],
+              [
+                3185.994,
+                3196.298,
+                1522.174,
+                695.469,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.314
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.063
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.699,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.699,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 362.84,
+            "parallel_workers": 8
+          },
+          "run_index": 2
+        },
+        {
+          "status_code": 200,
+          "api_elapsed_ms": 196.73,
+          "response": {
+            "status": "ok",
+            "n": 5,
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400,
+              "error": null
+            },
+            "locations": [
+              {
+                "id": "p01",
+                "lat": 26.44,
+                "lon": 80.3
+              },
+              {
+                "id": "p02",
+                "lat": 26.442,
+                "lon": 80.305
+              },
+              {
+                "id": "p03",
+                "lat": 26.445,
+                "lon": 80.31
+              },
+              {
+                "id": "p04",
+                "lat": 26.448,
+                "lon": 80.315
+              },
+              {
+                "id": "p05",
+                "lat": 26.45,
+                "lon": 80.32
+              }
+            ],
+            "matrix_distance_m": [
+              [
+                0.0,
+                554.448,
+                1802.305,
+                2499.766,
+                3154.356
+              ],
+              [
+                554.448,
+                0.0,
+                1807.123,
+                2504.584,
+                3159.174
+              ],
+              [
+                1791.181,
+                1801.485,
+                0.0,
+                872.994,
+                1522.174
+              ],
+              [
+                2502.188,
+                2512.492,
+                872.994,
+                0.0,
+                695.469
+              ],
+              [
+                3185.994,
+                3196.298,
+                1522.174,
+                695.469,
+                0.0
+              ]
+            ],
+            "matrix_eta_s": [
+              [
+                0.0,
+                86.184,
+                280.151,
+                388.565,
+                490.314
+              ],
+              [
+                86.184,
+                0.0,
+                280.9,
+                389.314,
+                491.063
+              ],
+              [
+                278.422,
+                280.024,
+                0.0,
+                135.699,
+                236.607
+              ],
+              [
+                388.941,
+                390.543,
+                135.699,
+                0.0,
+                108.104
+              ],
+              [
+                495.232,
+                496.834,
+                236.607,
+                108.104,
+                0.0
+              ]
+            ],
+            "pair_count": 25,
+            "computed_pairs": 25,
+            "failed_pairs": 0,
+            "failures": [],
+            "generation_time_ms": 189.519,
+            "parallel_workers": 8
+          },
+          "run_index": 3
+        }
+      ],
+      "summary": {
+        "run_count": 3,
+        "successful_run_count": 3,
+        "failed_run_count": 0,
+        "api_elapsed_ms": {
+          "min": 175.883,
+          "mean": 247.868,
+          "median": 196.73,
+          "max": 370.992
+        },
+        "generation_time_ms": {
+          "min": 169.675,
+          "mean": 240.678,
+          "median": 189.519,
+          "max": 362.84
+        },
+        "failed_pairs": {
+          "values": [
+            0,
+            0,
+            0
+          ],
+          "all_zero": true
+        }
+      }
+    }
+  },
+  "comparison": {
+    "matrix_distance_match": {
+      "shape_match": true,
+      "checked_cells": 25,
+      "mismatch_count": 0,
+      "max_abs_difference_m": 0.004,
+      "samples": []
+    },
+    "source_dijkstra_vs_bidirectional_astar": {
+      "bidirectional_generation_median_ms": 132.196,
+      "source_dijkstra_generation_median_ms": 189.519,
+      "speedup": 0.698,
+      "source_dijkstra_faster": false,
+      "speedup_target_4x_met": false
+    }
+  }
+}
