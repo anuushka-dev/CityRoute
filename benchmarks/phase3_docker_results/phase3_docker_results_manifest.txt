@@ -1,0 +1,122 @@
+﻿
+
+    Directory: C:\MYDOWNLOADS\MYPROJECT\CityRoute\benchmarks
+    \docker_results
+
+
+Mode                 LastWriteTime         Length Name      
+----                 -------------         ------ ----      
+-a----        08-06-2026     12:56            471 phase3_ast
+                                                  ar_correct
+                                                  ness_probe
+                                                  .json     
+-a----        08-06-2026     13:16            946 phase3_ast
+                                                  ar_correct
+                                                  ness_probe
+                                                  _console.t
+                                                  xt        
+-a----        08-06-2026     13:27            217 phase3_ast
+                                                  ar_correct
+                                                  ness_summa
+                                                  ry.json   
+-a----        08-06-2026     12:10           4855 phase3_ast
+                                                  ar_route_b
+                                                  enchmark.j
+                                                  son       
+-a----        08-06-2026     12:44           6155 phase3_ast
+                                                  ar_route_b
+                                                  enchmark_r
+                                                  outeable.j
+                                                  son       
+-a----        08-06-2026     13:22           4454 phase3_con
+                                                  current_ro
+                                                  ute_probe.
+                                                  json      
+-a----        08-06-2026     13:26           8928 phase3_con
+                                                  current_ro
+                                                  ute_probe_
+                                                  console.tx
+                                                  t         
+-a----        08-06-2026     13:28            204 phase3_con
+                                                  current_su
+                                                  mmary.json
+-a----        08-06-2026     13:27            414 phase3_con
+                                                  nectivity_
+                                                  audit.json
+-a----        08-06-2026     13:14            471 phase3_doc
+                                                  ker_graph_
+                                                  stats.json
+-a----        08-06-2026     13:13             85 phase3_doc
+                                                  ker_health
+                                                  .json     
+-a----        08-06-2026     13:26           8466 phase3_doc
+                                                  ker_inspec
+                                                  t.json    
+-a----        08-06-2026     12:51          40228 phase3_doc
+                                                  ker_logs.t
+                                                  xt        
+-a----        08-06-2026     13:26          67172 phase3_doc
+                                                  ker_logs_t
+                                                  ail500.txt
+-a----        08-06-2026     13:14             67 phase3_doc
+                                                  ker_openap
+                                                  i_paths.tx
+                                                  t         
+-a----        08-06-2026     13:13            684 phase3_doc
+                                                  ker_ps.txt
+-a----        08-06-2026     13:28              0 phase3_doc
+                                                  ker_result
+                                                  s_manifest
+                                                  .txt      
+-a----        08-06-2026     13:14          12174 phase3_doc
+                                                  ker_route_
+                                                  sample.jso
+                                                  n         
+-a----        08-06-2026     13:13          31998 phase3_doc
+                                                  ker_startu
+                                                  p_logs.txt
+-a----        08-06-2026     13:26            474 phase3_doc
+                                                  ker_stats.
+                                                  txt       
+-a----        08-06-2026     13:26            124 phase3_gra
+                                                  ph_file_in
+                                                  fo.json   
+-a----        08-06-2026     13:24            876 phase3_heu
+                                                  ristic_adm
+                                                  issibility
+                                                  _10000_con
+                                                  sole.txt  
+-a----        08-06-2026     13:17            868 phase3_heu
+                                                  ristic_adm
+                                                  issibility
+                                                  _1000_cons
+                                                  ole.txt   
+-a----        08-06-2026     12:21            435 phase3_heu
+                                                  ristic_adm
+                                                  issibility
+                                                  _probe.jso
+                                                  n         
+-a----        08-06-2026     13:27            238 phase3_heu
+                                                  ristic_sum
+                                                  mary.json 
+-a----        08-06-2026     13:15          10432 phase3_pyt
+                                                  est_49_tes
+                                                  ts.txt    
+-a----        08-06-2026     13:25          13720 phase3_rou
+                                                  teable_ben
+                                                  chmark_con
+                                                  sole.txt  
+-a----        08-06-2026     13:27            338 phase3_rou
+                                                  teable_ben
+                                                  chmark_sum
+                                                  mary.json 
+-a----        08-06-2026     13:27            157 phase3_rou
+                                                  te_latency
+                                                  _summary.j
+                                                  son       
+-a----        08-06-2026     13:28            152 phase3_sna
+                                                  p_latency_
+                                                  summary.js
+                                                  on        
+
+

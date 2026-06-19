@@ -11,3 +11,4 @@ data/graphs/*.graphml
 cache/
 benchmarks/*.tmp
  
+.vscode/

@@ -1,0 +1,176 @@
+{
+  "benchmark": "phase3_concurrent_route_probe",
+  "timestamp_utc": "2026-06-08T07:56:04.621877+00:00",
+  "base_url": "http://127.0.0.1:8001",
+  "workers": 10,
+  "total_requests": 10,
+  "successful_requests": 10,
+  "failed_requests": 0,
+  "status_codes": [
+    200
+  ],
+  "algorithms": [
+    "astar"
+  ],
+  "snap_methods": [
+    "balltree"
+  ],
+  "total_elapsed_ms": 251.076,
+  "api_elapsed_ms": {
+    "min": 118.142,
+    "mean": 184.665,
+    "median": 185.972,
+    "max": 240.224
+  },
+  "route_time_ms": {
+    "min": 10.29,
+    "mean": 30.702,
+    "median": 29.26,
+    "max": 54.464
+  },
+  "total_time_ms": {
+    "min": 17.599,
+    "mean": 43.933,
+    "median": 37.888,
+    "max": 75.099
+  },
+  "nodes_expanded": {
+    "min": 682,
+    "mean": 1563.8,
+    "median": 1262.5,
+    "max": 2622
+  },
+  "errors": [],
+  "results": [
+    {
+      "request": 0,
+      "status_code": 200,
+      "api_elapsed_ms": 240.224,
+      "route_time_ms": 44.281,
+      "total_time_ms": 54.138,
+      "nodes_expanded": 2622,
+      "distance_m": 6428.798,
+      "path_node_count": 77,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 1,
+      "status_code": 200,
+      "api_elapsed_ms": 118.142,
+      "route_time_ms": 34.223,
+      "total_time_ms": 38.916,
+      "nodes_expanded": 2564,
+      "distance_m": 6233.033,
+      "path_node_count": 77,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 2,
+      "status_code": 200,
+      "api_elapsed_ms": 176.867,
+      "route_time_ms": 54.464,
+      "total_time_ms": 75.099,
+      "nodes_expanded": 2577,
+      "distance_m": 6169.471,
+      "path_node_count": 75,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 3,
+      "status_code": 200,
+      "api_elapsed_ms": 169.346,
+      "route_time_ms": 46.433,
+      "total_time_ms": 71.499,
+      "nodes_expanded": 1232,
+      "distance_m": 5150.784,
+      "path_node_count": 55,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 4,
+      "status_code": 200,
+      "api_elapsed_ms": 195.077,
+      "route_time_ms": 25.872,
+      "total_time_ms": 28.101,
+      "nodes_expanded": 1256,
+      "distance_m": 5066.698,
+      "path_node_count": 55,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 5,
+      "status_code": 200,
+      "api_elapsed_ms": 222.37,
+      "route_time_ms": 10.29,
+      "total_time_ms": 31.329,
+      "nodes_expanded": 1009,
+      "distance_m": 4863.325,
+      "path_node_count": 48,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 6,
+      "status_code": 200,
+      "api_elapsed_ms": 235.612,
+      "route_time_ms": 29.259,
+      "total_time_ms": 55.328,
+      "nodes_expanded": 1331,
+      "distance_m": 4755.153,
+      "path_node_count": 47,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 7,
+      "status_code": 200,
+      "api_elapsed_ms": 136.344,
+      "route_time_ms": 29.26,
+      "total_time_ms": 30.463,
+      "nodes_expanded": 1269,
+      "distance_m": 4678.876,
+      "path_node_count": 53,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 8,
+      "status_code": 200,
+      "api_elapsed_ms": 230.075,
+      "route_time_ms": 21.93,
+      "total_time_ms": 36.859,
+      "nodes_expanded": 1096,
+      "distance_m": 4503.832,
+      "path_node_count": 56,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    },
+    {
+      "request": 9,
+      "status_code": 200,
+      "api_elapsed_ms": 122.593,
+      "route_time_ms": 11.005,
+      "total_time_ms": 17.599,
+      "nodes_expanded": 682,
+      "distance_m": 3774.444,
+      "path_node_count": 63,
+      "algorithm": "astar",
+      "start_snap_method": "balltree",
+      "end_snap_method": "balltree"
+    }
+  ]
+}

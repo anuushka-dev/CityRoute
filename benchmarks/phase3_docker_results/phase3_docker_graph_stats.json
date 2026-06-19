@@ -1,0 +1,15 @@
+﻿{
+    "city":  "Kanpur Central, Uttar Pradesh, India",
+    "graph_loaded":  true,
+    "nodes":  12969,
+    "edges":  34996,
+    "load_time_s":  3.18,
+    "graph_path":  "data/graphs/kanpur_central.graphml",
+    "graph_file_size_mb":  12.74,
+    "memory_mb":  382.77,
+    "weakly_connected_components":  1,
+    "largest_component_nodes":  12969,
+    "is_weakly_connected":  true,
+    "snap_index_loaded":  true,
+    "snap_index_build_time_ms":  20.692
+}
