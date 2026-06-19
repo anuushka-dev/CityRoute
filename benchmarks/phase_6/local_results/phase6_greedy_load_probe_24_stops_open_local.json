@@ -1,0 +1,4685 @@
+{
+  "benchmark": "phase6_greedy_load_probe",
+  "phase": "tier2_phase6_1",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "endpoint": "/vrp/greedy",
+  "created_at_utc": "2026-06-18T18:57:48.359648+00:00",
+  "stop_count": 24,
+  "return_to_start": false,
+  "total_requests": 20,
+  "workers": 5,
+  "matrix_algorithm": "bidirectional_astar",
+  "use_cache": true,
+  "expected_leg_count": 24,
+  "success_count": 20,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "all_orders_valid": true,
+  "all_leg_counts_valid": true,
+  "cache_hit_count": 20,
+  "cache_miss_count": 0,
+  "api_elapsed_ms": {
+    "min": 24.895,
+    "mean": 36.229,
+    "median": 34.679,
+    "p95": 44.738,
+    "p99": 61.623,
+    "max": 65.844
+  },
+  "matrix_generation_time_ms": {
+    "min": 9.334,
+    "mean": 15.463,
+    "median": 13.846,
+    "p95": 19.689,
+    "p99": 32.902,
+    "max": 36.205
+  },
+  "optimization_time_ms": {
+    "min": 0.216,
+    "mean": 0.321,
+    "median": 0.324,
+    "p95": 0.394,
+    "p99": 0.401,
+    "max": 0.403
+  },
+  "response_total_time_ms": {
+    "min": 10.167,
+    "mean": 17.233,
+    "median": 15.754,
+    "p95": 21.261,
+    "p99": 35.611,
+    "max": 39.198
+  },
+  "invalid_limit_probe": {
+    "case": "invalid_25_stops",
+    "stop_count": 25,
+    "expected_status_code": 422,
+    "actual_status_code": 422,
+    "passed": true,
+    "api_elapsed_ms": 5.586,
+    "response": {
+      "detail": [
+        {
+          "type": "too_long",
+          "loc": [
+            "body",
+            "stops"
+          ],
+          "msg": "List should have at most 24 items after validation, not 25",
+          "input": [
+            {
+              "lat": 26.45,
+              "lon": 80.35
+            },
+            {
+              "lat": 26.455,
+              "lon": 80.345
+            },
+            {
+              "lat": 26.46,
+              "lon": 80.34
+            },
+            {
+              "lat": 26.465,
+              "lon": 80.335
+            },
+            {
+              "lat": 26.47,
+              "lon": 80.33
+            },
+            {
+              "lat": 26.475,
+              "lon": 80.325
+            },
+            {
+              "lat": 26.48,
+              "lon": 80.32
+            },
+            {
+              "lat": 26.485,
+              "lon": 80.315
+            },
+            {
+              "lat": 26.49,
+              "lon": 80.31
+            },
+            {
+              "lat": 26.495,
+              "lon": 80.305
+            },
+            {
+              "lat": 26.452,
+              "lon": 80.355
+            },
+            {
+              "lat": 26.457,
+              "lon": 80.352
+            },
+            {
+              "lat": 26.462,
+              "lon": 80.348
+            },
+            {
+              "lat": 26.467,
+              "lon": 80.344
+            },
+            {
+              "lat": 26.472,
+              "lon": 80.338
+            },
+            {
+              "lat": 26.477,
+              "lon": 80.332
+            },
+            {
+              "lat": 26.482,
+              "lon": 80.326
+            },
+            {
+              "lat": 26.487,
+              "lon": 80.318
+            },
+            {
+              "lat": 26.492,
+              "lon": 80.312
+            },
+            {
+              "lat": 26.497,
+              "lon": 80.306
+            },
+            {
+              "lat": 26.448,
+              "lon": 80.36
+            },
+            {
+              "lat": 26.453,
+              "lon": 80.365
+            },
+            {
+              "lat": 26.458,
+              "lon": 80.37
+            },
+            {
+              "lat": 26.463,
+              "lon": 80.375
+            },
+            {
+              "lat": 26.468,
+              "lon": 80.38
+            }
+          ],
+          "ctx": {
+            "field_type": "List",
+            "max_length": 24,
+            "actual_length": 25
+          }
+        }
+      ]
+    }
+  },
+  "load_probe_passed": true,
+  "first_failure": null,
+  "records": [
+    {
+      "request_index": 0,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 33.602,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 17.227,
+        "optimization_time_ms": 0.386,
+        "total_time_ms": 18.511,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 17.227,
+      "optimization_time_ms": 0.386,
+      "total_time_ms": 18.511,
+      "cache_used": true
+    },
+    {
+      "request_index": 1,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 39.064,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.738,
+        "optimization_time_ms": 0.366,
+        "total_time_ms": 15.199,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.738,
+      "optimization_time_ms": 0.366,
+      "total_time_ms": 15.199,
+      "cache_used": true
+    },
+    {
+      "request_index": 2,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 65.844,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 36.205,
+        "optimization_time_ms": 0.306,
+        "total_time_ms": 39.198,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 36.205,
+      "optimization_time_ms": 0.306,
+      "total_time_ms": 39.198,
+      "cache_used": true
+    },
+    {
+      "request_index": 3,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 43.627,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 18.82,
+        "optimization_time_ms": 0.403,
+        "total_time_ms": 20.317,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 18.82,
+      "optimization_time_ms": 0.403,
+      "total_time_ms": 20.317,
+      "cache_used": true
+    },
+    {
+      "request_index": 4,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 38.631,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 14.624,
+        "optimization_time_ms": 0.354,
+        "total_time_ms": 15.696,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 14.624,
+      "optimization_time_ms": 0.354,
+      "total_time_ms": 15.696,
+      "cache_used": true
+    },
+    {
+      "request_index": 5,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 28.799,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.89,
+        "optimization_time_ms": 0.216,
+        "total_time_ms": 15.769,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.89,
+      "optimization_time_ms": 0.216,
+      "total_time_ms": 15.769,
+      "cache_used": true
+    },
+    {
+      "request_index": 6,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 35.704,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 15.824,
+        "optimization_time_ms": 0.324,
+        "total_time_ms": 17.151,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 15.824,
+      "optimization_time_ms": 0.324,
+      "total_time_ms": 17.151,
+      "cache_used": true
+    },
+    {
+      "request_index": 7,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 37.865,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 17.438,
+        "optimization_time_ms": 0.288,
+        "total_time_ms": 19.664,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 17.438,
+      "optimization_time_ms": 0.288,
+      "total_time_ms": 19.664,
+      "cache_used": true
+    },
+    {
+      "request_index": 8,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 31.252,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 12.413,
+        "optimization_time_ms": 0.34,
+        "total_time_ms": 14.99,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 12.413,
+      "optimization_time_ms": 0.34,
+      "total_time_ms": 14.99,
+      "cache_used": true
+    },
+    {
+      "request_index": 9,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 36.161,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 17.981,
+        "optimization_time_ms": 0.308,
+        "total_time_ms": 19.213,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 17.981,
+      "optimization_time_ms": 0.308,
+      "total_time_ms": 19.213,
+      "cache_used": true
+    },
+    {
+      "request_index": 10,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 34.882,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 12.411,
+        "optimization_time_ms": 0.313,
+        "total_time_ms": 15.958,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 12.411,
+      "optimization_time_ms": 0.313,
+      "total_time_ms": 15.958,
+      "cache_used": true
+    },
+    {
+      "request_index": 11,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 34.169,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 15.04,
+        "optimization_time_ms": 0.338,
+        "total_time_ms": 16.455,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 15.04,
+      "optimization_time_ms": 0.338,
+      "total_time_ms": 16.455,
+      "cache_used": true
+    },
+    {
+      "request_index": 12,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 32.236,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.802,
+        "optimization_time_ms": 0.304,
+        "total_time_ms": 15.392,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.802,
+      "optimization_time_ms": 0.304,
+      "total_time_ms": 15.392,
+      "cache_used": true
+    },
+    {
+      "request_index": 13,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 34.477,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.533,
+        "optimization_time_ms": 0.335,
+        "total_time_ms": 15.465,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.533,
+      "optimization_time_ms": 0.335,
+      "total_time_ms": 15.465,
+      "cache_used": true
+    },
+    {
+      "request_index": 14,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 30.75,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 12.666,
+        "optimization_time_ms": 0.324,
+        "total_time_ms": 13.97,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 12.666,
+      "optimization_time_ms": 0.324,
+      "total_time_ms": 13.97,
+      "cache_used": true
+    },
+    {
+      "request_index": 15,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 37.772,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.283,
+        "optimization_time_ms": 0.393,
+        "total_time_ms": 15.062,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.283,
+      "optimization_time_ms": 0.393,
+      "total_time_ms": 15.062,
+      "cache_used": true
+    },
+    {
+      "request_index": 16,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 41.215,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 12.942,
+        "optimization_time_ms": 0.358,
+        "total_time_ms": 14.271,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 12.942,
+      "optimization_time_ms": 0.358,
+      "total_time_ms": 14.271,
+      "cache_used": true
+    },
+    {
+      "request_index": 17,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 32.356,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 14.347,
+        "optimization_time_ms": 0.303,
+        "total_time_ms": 15.739,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 14.347,
+      "optimization_time_ms": 0.303,
+      "total_time_ms": 15.739,
+      "cache_used": true
+    },
+    {
+      "request_index": 18,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 31.272,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 13.751,
+        "optimization_time_ms": 0.245,
+        "total_time_ms": 16.479,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 13.751,
+      "optimization_time_ms": 0.245,
+      "total_time_ms": 16.479,
+      "cache_used": true
+    },
+    {
+      "request_index": 19,
+      "ok": true,
+      "status_code": 200,
+      "api_elapsed_ms": 24.895,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase6",
+        "algorithm": "nearest_neighbor_greedy",
+        "matrix_algorithm": "bidirectional_astar",
+        "stop_count": 24,
+        "optimized_order": [
+          1,
+          0,
+          10,
+          21,
+          22,
+          23,
+          11,
+          12,
+          13,
+          2,
+          3,
+          4,
+          15,
+          16,
+          6,
+          17,
+          7,
+          18,
+          8,
+          9,
+          19,
+          5,
+          14,
+          20
+        ],
+        "total_distance_m": 41486.728,
+        "return_to_start": false,
+        "legs": [
+          {
+            "from_type": "start",
+            "from_index": null,
+            "to_type": "stop",
+            "to_index": 1,
+            "distance_m": 6087.433
+          },
+          {
+            "from_type": "stop",
+            "from_index": 1,
+            "to_type": "stop",
+            "to_index": 0,
+            "distance_m": 756.068
+          },
+          {
+            "from_type": "stop",
+            "from_index": 0,
+            "to_type": "stop",
+            "to_index": 10,
+            "distance_m": 753.319
+          },
+          {
+            "from_type": "stop",
+            "from_index": 10,
+            "to_type": "stop",
+            "to_index": 21,
+            "distance_m": 1588.064
+          },
+          {
+            "from_type": "stop",
+            "from_index": 21,
+            "to_type": "stop",
+            "to_index": 22,
+            "distance_m": 1133.699
+          },
+          {
+            "from_type": "stop",
+            "from_index": 22,
+            "to_type": "stop",
+            "to_index": 23,
+            "distance_m": 1198.662
+          },
+          {
+            "from_type": "stop",
+            "from_index": 23,
+            "to_type": "stop",
+            "to_index": 11,
+            "distance_m": 3229.882
+          },
+          {
+            "from_type": "stop",
+            "from_index": 11,
+            "to_type": "stop",
+            "to_index": 12,
+            "distance_m": 1116.536
+          },
+          {
+            "from_type": "stop",
+            "from_index": 12,
+            "to_type": "stop",
+            "to_index": 13,
+            "distance_m": 921.049
+          },
+          {
+            "from_type": "stop",
+            "from_index": 13,
+            "to_type": "stop",
+            "to_index": 2,
+            "distance_m": 1037.902
+          },
+          {
+            "from_type": "stop",
+            "from_index": 2,
+            "to_type": "stop",
+            "to_index": 3,
+            "distance_m": 1001.572
+          },
+          {
+            "from_type": "stop",
+            "from_index": 3,
+            "to_type": "stop",
+            "to_index": 4,
+            "distance_m": 1140.85
+          },
+          {
+            "from_type": "stop",
+            "from_index": 4,
+            "to_type": "stop",
+            "to_index": 15,
+            "distance_m": 1287.896
+          },
+          {
+            "from_type": "stop",
+            "from_index": 15,
+            "to_type": "stop",
+            "to_index": 16,
+            "distance_m": 1299.298
+          },
+          {
+            "from_type": "stop",
+            "from_index": 16,
+            "to_type": "stop",
+            "to_index": 6,
+            "distance_m": 784.786
+          },
+          {
+            "from_type": "stop",
+            "from_index": 6,
+            "to_type": "stop",
+            "to_index": 17,
+            "distance_m": 951.017
+          },
+          {
+            "from_type": "stop",
+            "from_index": 17,
+            "to_type": "stop",
+            "to_index": 7,
+            "distance_m": 638.211
+          },
+          {
+            "from_type": "stop",
+            "from_index": 7,
+            "to_type": "stop",
+            "to_index": 18,
+            "distance_m": 1665.995
+          },
+          {
+            "from_type": "stop",
+            "from_index": 18,
+            "to_type": "stop",
+            "to_index": 8,
+            "distance_m": 380.653
+          },
+          {
+            "from_type": "stop",
+            "from_index": 8,
+            "to_type": "stop",
+            "to_index": 9,
+            "distance_m": 1559.42
+          },
+          {
+            "from_type": "stop",
+            "from_index": 9,
+            "to_type": "stop",
+            "to_index": 19,
+            "distance_m": 2709.309
+          },
+          {
+            "from_type": "stop",
+            "from_index": 19,
+            "to_type": "stop",
+            "to_index": 5,
+            "distance_m": 3446.849
+          },
+          {
+            "from_type": "stop",
+            "from_index": 5,
+            "to_type": "stop",
+            "to_index": 14,
+            "distance_m": 1861.117
+          },
+          {
+            "from_type": "stop",
+            "from_index": 14,
+            "to_type": "stop",
+            "to_index": 20,
+            "distance_m": 4937.141
+          }
+        ],
+        "matrix_generation_time_ms": 9.334,
+        "optimization_time_ms": 0.217,
+        "total_time_ms": 10.167,
+        "cache_used": true
+      },
+      "stop_count": 24,
+      "expected_leg_count": 24,
+      "optimized_order_valid": true,
+      "leg_count": 24,
+      "leg_count_valid": true,
+      "total_distance_m": 41486.728,
+      "matrix_generation_time_ms": 9.334,
+      "optimization_time_ms": 0.217,
+      "total_time_ms": 10.167,
+      "cache_used": true
+    }
+  ]
+}

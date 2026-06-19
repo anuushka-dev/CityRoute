@@ -2,9 +2,9 @@
 
 CityRoute is an open-source last-mile delivery routing backend built with Python, FastAPI, Docker, Redis, OSMnx, NetworkX, scikit-learn, and OpenStreetMap data.
 
-Current status: **Tier 2 — Phase 5 complete: Distance Matrix Service, Redis Cache, and Source-Dijkstra Matrix Optimization**
+Current status: **Tier 2 — Phase 6 complete: Greedy Multi-Stop Baseline, Return-to-Depot Support, Edge-Case Hardening, and Phase 7 Readiness**
 
-CityRoute is being built phase-by-phase with evidence-backed engineering gates. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, GraphML persistence, GPS validation, graph metadata, node snapping, and BallTree-based snap optimization. Phase 3 added custom A* routing from scratch with ETA, geometry, correctness probes, and Docker benchmarks. Phase 3.5 added Folium route visualization for route geometry verification. Phase 4 added Bidirectional A*, `/route/compare`, correctness validation, Docker evidence, and A* vs Bidirectional A* benchmark comparison. Phase 5 added the `/matrix` distance-matrix service, Redis caching, matrix correctness probes, local/Docker benchmark evidence, and a source-wise Dijkstra optimization patch for larger matrix workloads.
+CityRoute is being built phase-by-phase with evidence-backed engineering gates. Phase 1 created the FastAPI and Docker foundation. Phase 2 added real graph loading, GraphML persistence, GPS validation, graph metadata, node snapping, and BallTree-based snap optimization. Phase 3 added custom A* routing from scratch with ETA, geometry, correctness probes, and Docker benchmarks. Phase 3.5 added Folium route visualization for route geometry verification. Phase 4 added Bidirectional A*, `/route/compare`, correctness validation, Docker evidence, and A* vs Bidirectional A* benchmark comparison. Phase 5 added the `/matrix` distance-matrix service, Redis caching, matrix correctness probes, local/Docker benchmark evidence, and a source-wise Dijkstra optimization patch for larger matrix workloads. Phase 6 added a nearest-neighbor greedy multi-stop route-ordering baseline through `/vrp/greedy`, return-to-depot support, edge-case benchmarks, load probes, improvement-metric readiness, and a Phase 7-ready `/vrp/compare` response contract.
 
 Strict production decision:
 
@@ -12,6 +12,8 @@ Strict production decision:
 * `GET /route/compare` retains Bidirectional A* for comparison and algorithm analysis.
 * `POST /matrix` supports `source_dijkstra`, `bidirectional_astar`, and `astar`.
 * `source_dijkstra` is the preferred matrix algorithm for larger N×N matrices because it scales better than repeated pairwise routing.
+* `POST /vrp/greedy` uses the Phase 5 matrix layer as its distance source and returns a valid nearest-neighbor baseline route order.
+* Greedy ordering is intentionally treated as a baseline heuristic, not as an optimal VRP solver. Phase 7 will add 2-Opt optimization and `/vrp/compare`.
 
 ---
 
@@ -25,8 +27,8 @@ Strict production decision:
 | Tier 1 | Phase 3.5 — Folium Route Verification                                  | Complete    |
 | Tier 1 | Phase 4 — Bidirectional A* Comparison                                  | Complete    |
 | Tier 2 | Phase 5 — Distance Matrix + Redis Cache + Source-Dijkstra Optimization | Complete    |
-| Tier 2 | Phase 6 — Greedy Multi-Stop Baseline                                   | Not started |
-| Tier 2 | Phase 7 — 2-Opt Optimization                                           | Not started |
+| Tier 2 | Phase 6 — Greedy Multi-Stop Baseline + Hardening                       | Complete    |
+| Tier 2 | Phase 7 — 2-Opt Optimization + VRP Compare                             | Ready to start |
 | Tier 3 | Phase 8+ — Advanced Optimization / Dispatch                            | Not started |
 
 ---
@@ -135,7 +137,36 @@ Strict production decision:
 * Graph adjacency builder for matrix workloads
 * Multi-target Dijkstra core implementation
 * 25x25 stress testing
-* Full regression coverage: 143 tests passed
+* Full Phase 5 regression coverage: 143 tests passed
+
+### Phase 6 — Greedy Multi-Stop Baseline and Hardening
+
+* `POST /vrp/greedy` endpoint
+* Nearest-neighbor greedy route-ordering algorithm from scratch
+* Greedy solver separated into core algorithm layer
+* Service layer using the Phase 5 matrix wrapper instead of bypassing cache/timing logic
+* Open-route mode
+* Return-to-start / return-to-depot mode
+* Deterministic stop ordering with tie-break behavior
+* Optimized stop order returned as zero-based stop indexes
+* Total greedy route distance returned in meters
+* Leg-level route output from start to stops and optionally back to start
+* Matrix algorithm selection through request payload
+* Redis cache usage preserved through Phase 5 `/matrix` service wrapper
+* Matrix generation time exposed
+* Greedy optimization time exposed
+* Total request time exposed
+* Cache hit/miss visibility through `cache_used`
+* 1–24 stop validation because the matrix layer supports 25 total locations including depot
+* Invalid 25-stop request rejection with HTTP `422`
+* Graph-not-loaded behavior with HTTP `503`
+* Snap-index-missing behavior with HTTP `503`
+* Edge-case benchmark coverage for clustered, spread-out, near-duplicate, seeded-random, zigzag, and return-to-start cases
+* Local and Docker benchmark evidence
+* Docker and local 24-stop load probes
+* Phase 7 improvement metric utility
+* Phase 7-ready `/vrp/compare` schema contract
+* Formal Phase 6 audit and raw evidence pack
 
 ---
 
@@ -143,13 +174,13 @@ Strict production decision:
 
 The following are intentionally not implemented yet:
 
-* Greedy multi-stop delivery ordering
 * 2-Opt route optimization
+* Actual `POST /vrp/compare` endpoint
 * Large Neighborhood Search
 * Driver-order dispatch
 * Hungarian assignment algorithm
 * Grafana/Prometheus observability integration
-* Public production deployment
+* Public production deployment for the latest Tier 2 state
 * ALT landmark heuristic
 * Smart algorithm selector (`/route/smart`)
 * Traffic-aware ETA
@@ -211,7 +242,10 @@ Important note: this is a directed OSM road graph. Some coordinate pairs can sti
 | `/route`          |    GET | Compute production A* route between two GPS coordinates   |
 | `/route/compare`  |    GET | Compare A* and Bidirectional A* on the same snapped route |
 | `/matrix`         |   POST | Generate directed N×N distance and ETA matrix             |
+| `/vrp/greedy`     |   POST | Compute greedy nearest-neighbor multi-stop route order    |
 | `/docs`           |    GET | Swagger UI                                                |
+
+Important note: `/vrp/compare` is not implemented yet. Phase 6 prepared the response contract for Phase 7, but the real endpoint belongs to Phase 7 after 2-Opt exists.
 
 ---
 
@@ -254,7 +288,91 @@ Reason: `source_dijkstra` has fixed setup overhead, so it can be slower for tiny
 
 ---
 
-## Full Test Summary
+## Example `/vrp/greedy` Request
+
+```powershell
+$body = @{
+    start = @{
+        lat = 26.44
+        lon = 80.30
+    }
+    stops = @(
+        @{ lat = 26.45; lon = 80.35 },
+        @{ lat = 26.46; lon = 80.33 },
+        @{ lat = 26.47; lon = 80.31 }
+    )
+    return_to_start = $false
+    matrix_algorithm = "bidirectional_astar"
+    use_cache = $true
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod `
+  -Uri "http://127.0.0.1:8001/vrp/greedy" `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body $body |
+ConvertTo-Json -Depth 20
+```
+
+Example response shape:
+
+```json
+{
+  "status": "ok",
+  "phase": "tier2_phase6",
+  "algorithm": "nearest_neighbor_greedy",
+  "matrix_algorithm": "bidirectional_astar",
+  "stop_count": 3,
+  "optimized_order": [1, 0, 2],
+  "total_distance_m": 12000.0,
+  "return_to_start": false,
+  "legs": [],
+  "matrix_generation_time_ms": 3.113,
+  "optimization_time_ms": 0.096,
+  "total_time_ms": 3.772,
+  "cache_used": true
+}
+```
+
+Return-to-start mode:
+
+```powershell
+$body.return_to_start = $true
+```
+
+When `return_to_start=true`, the response contains one extra final leg from the last selected stop back to the start/depot.
+
+---
+
+## Validation Rules
+
+### `/matrix`
+
+| Rule | Behavior |
+| ---- | -------- |
+| At least 2 locations | Required |
+| Max locations | 25 total locations |
+| Duplicate location IDs | Rejected |
+| Invalid latitude/longitude | Rejected with 422 |
+| Graph not loaded | 503 |
+| Snap index missing | 503 |
+
+### `/vrp/greedy`
+
+| Rule | Behavior |
+| ---- | -------- |
+| Exactly one start/depot | Required |
+| Stop count | 1 to 24 stops |
+| 24 stops | Accepted because 24 stops + 1 depot = 25 matrix locations |
+| 25 stops | Rejected with HTTP 422 |
+| Invalid latitude/longitude | Rejected with 422 |
+| Invalid matrix algorithm | Rejected with 422 |
+| Graph not loaded | 503 |
+| Snap index missing | 503 |
+
+---
+
+## Test Summary
 
 Run:
 
@@ -262,13 +380,36 @@ Run:
 python -m pytest -v
 ```
 
-Latest verified result:
+Latest verified Phase 5 full-suite result:
 
 ```text
 143 passed in 165.74s (0:02:45)
 ```
 
-Test coverage includes:
+Latest verified Phase 6 targeted hardening result:
+
+```text
+36 passed in 23.11s
+```
+
+Phase 6 targeted hardening included:
+
+```powershell
+python -m pytest tests\test_greedy_algorithm.py tests\test_greedy_return_to_start.py tests\test_vrp_greedy_endpoint.py tests\test_vrp_improvement_metrics.py tests\test_vrp_compare_contract.py -v
+```
+
+Phase 6 test breakdown:
+
+| Test area | Verified result | Purpose |
+| --------- | --------------: | ------- |
+| Greedy core algorithm | 12 passed | Matrix validation, deterministic nearest-neighbor order, leg construction |
+| Return-to-start logic | 4 passed | Final depot leg, open-route behavior, single-stop return behavior |
+| `/vrp/greedy` endpoint | 7 passed | OpenAPI registration, payload validation, graph/snap-index errors |
+| VRP improvement metrics | 8 passed | Distance saved, percentage improvement, strict/non-regression flags |
+| VRP compare contract | 5 passed | Phase 7-ready response schema contract |
+| Combined Phase 6 hardening suite | 36 passed | Phase 6 start-gate and Phase 7 readiness checks |
+
+Overall test coverage includes:
 
 | Test area                          | Purpose                                                                                                                                      |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -290,6 +431,7 @@ Test coverage includes:
 | Graph adjacency tests              | Directed, undirected, MultiDiGraph, fallback length, isolated nodes                                                                          |
 | Multi-target Dijkstra tests        | Source-wise shortest paths, unreachable targets, directionality, count helpers                                                               |
 | Source-Dijkstra matrix tests       | Matrix correctness, asymmetry, failures, bidirectional comparison                                                                            |
+| Greedy VRP tests                   | Greedy route order, route legs, return-to-depot, endpoint validation, Phase 7 compare contract                                               |
 
 ---
 
@@ -499,38 +641,199 @@ PASS — Source-Dijkstra reduced 25x25 Docker cold-generation median from 12.36 
 
 ---
 
-## Phase 5 Final Verdict
+## Phase 6 Benchmark Evidence
 
-Tier 2 Phase 5 is accepted as complete.
+Phase 6 evidence is stored under:
 
-The baseline Bidirectional A* distance-matrix service passed functional correctness, Redis caching, Docker parity, and API validation. However, the original thread-parallel pairwise matrix implementation failed the intended 4x speedup target.
+```text
+benchmarks/phase_6/docker_results
+benchmarks/phase_6/local_results
+```
 
-A source-wise Dijkstra optimization patch was added within Phase 5. This patch preserved matrix correctness and improved larger matrix performance. For 15x15 matrices, `source_dijkstra` achieved 6.677x local speedup and 6.832x Docker speedup with zero mismatches. For the maximum 25x25 matrix size in Docker, `source_dijkstra` achieved an 11.14x cold-generation improvement over `bidirectional_astar`.
+A collector script generated a raw index and full dump from 26 JSON files:
 
-Stress testing confirmed 100% success rate and zero failed pairs for 25x25 source-Dijkstra matrices under local and Docker concurrency levels up to 4 for cold compute and up to 8 for cache-hit workloads.
+```text
+benchmarks/phase_6/phase6_all_results_index.md
+benchmarks/phase_6/phase6_all_results_index.csv
+benchmarks/phase_6/phase6_all_results_index.json
+benchmarks/phase_6/phase6_all_raw_dump.json
+```
+
+### Phase 6 normal Docker greedy benchmark
+
+| Stops | Route mode | Success | Orders valid | Legs valid | Cache hits/misses | API median | Matrix median | Greedy median | Response median | Distance median |
+| ----: | ---------- | ------- | ------------ | ---------- | ----------------- | ---------: | ------------: | ------------: | --------------: | --------------: |
+| 5     | open       | 5/5     | true         | true       | —                 | 12.930 ms  | 3.102 ms      | 0.052 ms      | 3.599 ms        | 11,475.024 m |
+| 10    | open       | 5/5     | true         | true       | —                 | 13.546 ms  | 3.113 ms      | 0.088 ms      | 3.715 ms        | 18,318.919 m |
+| 15    | open       | 5/5     | true         | true       | —                 | 13.612 ms  | 3.353 ms      | 0.130 ms      | 4.085 ms        | 26,590.851 m |
+| 24    | open       | 5/5     | true         | true       | —                 | 13.331 ms  | 3.075 ms      | 0.139 ms      | 3.882 ms        | 41,486.728 m |
+
+### Phase 6 Docker route-mode benchmark
+
+| Stops | Route mode | Success | Cache hits | Cache misses | API median | Matrix median | Greedy median | Response median | Distance median |
+| ----: | ---------- | ------- | ---------: | -----------: | ---------: | ------------: | ------------: | --------------: | --------------: |
+| 5     | open             | 5/5 | 4 | 1 | 14.262 ms | 3.920 ms | 0.061 ms | 4.529 ms | 11,475.024 m |
+| 5     | return_to_start  | 5/5 | 5 | 0 | 13.905 ms | 3.356 ms | 0.060 ms | 3.813 ms | 17,955.980 m |
+| 10    | open             | 5/5 | 4 | 1 | 12.654 ms | 3.069 ms | 0.102 ms | 3.694 ms | 18,318.919 m |
+| 10    | return_to_start  | 5/5 | 5 | 0 | 13.360 ms | 3.113 ms | 0.096 ms | 3.772 ms | 27,524.303 m |
+| 15    | open             | 5/5 | 4 | 1 | 15.086 ms | 3.837 ms | 0.140 ms | 4.649 ms | 26,590.851 m |
+| 15    | return_to_start  | 5/5 | 5 | 0 | 12.467 ms | 2.841 ms | 0.129 ms | 3.435 ms | 33,976.769 m |
+| 24    | open             | 5/5 | 4 | 1 | 13.481 ms | 3.579 ms | 0.225 ms | 4.356 ms | 41,486.728 m |
+| 24    | return_to_start  | 5/5 | 5 | 0 | 13.031 ms | 3.366 ms | 0.221 ms | 4.389 ms | 50,340.083 m |
+
+Verdict:
+
+```text
+PASS — Docker greedy endpoint remained stable from 5 to 24 stops. Greedy optimization itself stayed sub-millisecond, including the 24-stop upper boundary.
+```
+
+### Phase 6 local return-to-start benchmark
+
+| Stops | Route mode | Success | Cache hits | Cache misses | API median | Matrix median | Greedy median | Response median | Distance median |
+| ----: | ---------- | ------- | ---------: | -----------: | ---------: | ------------: | ------------: | --------------: | --------------: |
+| 5     | return_to_start  | 5/5 | 5 | 0 | 37.196 ms | 8.396 ms | 0.072 ms | 8.953 ms | 17,955.980 m |
+| 10    | return_to_start  | 5/5 | 5 | 0 | 15.440 ms | 8.681 ms | 0.118 ms | 9.205 ms | 27,524.303 m |
+| 15    | return_to_start  | 5/5 | 5 | 0 | 17.805 ms | 9.339 ms | 0.152 ms | 10.295 ms | 33,976.769 m |
+| 24    | return_to_start  | 5/5 | 5 | 0 | 17.092 ms | 8.631 ms | 0.311 ms | 9.810 ms | 50,340.083 m |
+
+Verdict:
+
+```text
+PASS — Local return-to-start benchmark confirmed the same route-distance outputs as Docker, with all orders and leg counts valid.
+```
+
+### Phase 6 edge-case benchmark
+
+Edge-case coverage included:
+
+```text
+clustered_8
+spread_out_10
+near_duplicate_8
+seeded_random_42_12
+seeded_random_123_12
+zigzag_order_16
+return_to_start_seeded_42_12
+```
+
+#### Docker edge cases
+
+| Case | Stops | Return to start | Success | Orders valid | Legs valid | Return leg valid | Cache hits/misses | API median | Matrix median | Greedy median | Distance median |
+| ---- | ----: | -------------- | ------- | ------------ | ---------- | ---------------- | ----------------- | ---------: | ------------: | ------------: | --------------: |
+| clustered_8 | 8 | false | 5/5 | true | true | — | 4/1 | 13.058 ms | 3.240 ms | 0.077 ms | 14,845.618 m |
+| spread_out_10 | 10 | false | 5/5 | true | true | — | 4/1 | 13.060 ms | 3.144 ms | 0.090 ms | 32,139.889 m |
+| near_duplicate_8 | 8 | false | 5/5 | true | true | — | 4/1 | 13.653 ms | 3.578 ms | 0.079 ms | 10,334.174 m |
+| seeded_random_42_12 | 12 | false | 5/5 | true | true | — | 4/1 | 14.731 ms | 3.556 ms | 0.118 ms | 30,838.768 m |
+| seeded_random_123_12 | 12 | false | 5/5 | true | true | — | 4/1 | 13.454 ms | 3.338 ms | 0.116 ms | 24,712.212 m |
+| zigzag_order_16 | 16 | false | 5/5 | true | true | — | 4/1 | 14.040 ms | 3.433 ms | 0.135 ms | 29,173.851 m |
+| return_to_start_seeded_42_12 | 12 | true | 5/5 | true | true | true | 5/0 | 14.461 ms | 3.395 ms | 0.128 ms | 40,048.614 m |
+
+#### Local edge cases
+
+| Case | Stops | Return to start | Success | Orders valid | Legs valid | Return leg valid | Cache hits/misses | API median | Matrix median | Greedy median | Distance median |
+| ---- | ----: | -------------- | ------- | ------------ | ---------- | ---------------- | ----------------- | ---------: | ------------: | ------------: | --------------: |
+| clustered_8 | 8 | false | 5/5 | true | true | — | 5/0 | 14.620 ms | 7.697 ms | 0.082 ms | 14,845.618 m |
+| spread_out_10 | 10 | false | 5/5 | true | true | — | 5/0 | 16.380 ms | 7.882 ms | 0.113 ms | 32,139.889 m |
+| near_duplicate_8 | 8 | false | 5/5 | true | true | — | 5/0 | 15.357 ms | 7.815 ms | 0.097 ms | 10,334.174 m |
+| seeded_random_42_12 | 12 | false | 5/5 | true | true | — | 5/0 | 15.825 ms | 8.700 ms | 0.125 ms | 30,838.768 m |
+| seeded_random_123_12 | 12 | false | 5/5 | true | true | — | 5/0 | 15.832 ms | 8.747 ms | 0.128 ms | 24,712.212 m |
+| zigzag_order_16 | 16 | false | 5/5 | true | true | — | 5/0 | 14.827 ms | 7.945 ms | 0.184 ms | 29,173.851 m |
+| return_to_start_seeded_42_12 | 12 | true | 5/5 | true | true | true | 5/0 | 13.973 ms | 7.550 ms | 0.077 ms | 40,048.614 m |
+
+Verdict:
+
+```text
+PASS — Edge-case coverage is sufficient for Phase 6. Greedy validity was confirmed across clustered, spread-out, near-duplicate, seeded-random, zigzag, and return-to-start cases in both Docker and local environments.
+```
+
+Important interpretation:
+
+Near-duplicate coordinates can produce zero-distance legs if multiple coordinates snap to the same road-network node. This is acceptable if the route order remains valid and the API response is consistent.
+
+### Phase 6 robustness and load probe
+
+| Mode | Route mode | Stops | Requests | Workers | Success | Cache hits/misses | Orders valid | Legs valid | Invalid 25-stop rejection | API median | API p95 | Matrix median | Greedy median | Response median |
+| ---- | ---------- | ----: | -------: | ------: | ------- | ----------------- | ------------ | ---------- | ------------------------- | ---------: | ------: | ------------: | ------------: | --------------: |
+| Docker | open            | 24 | 20 | 5 | 20/20 | 20/0 | true | true | 422 | 40.951 ms | 76.087 ms | 13.466 ms | 0.223 ms | 16.489 ms |
+| Docker | return_to_start | 24 | 20 | 5 | 20/20 | 20/0 | true | true | 422 | 37.646 ms | 50.056 ms | 8.218 ms | 0.248 ms | 9.430 ms |
+| Local  | open            | 24 | 20 | 5 | 20/20 | 20/0 | true | true | 422 | 34.679 ms | 44.738 ms | 13.846 ms | 0.324 ms | 15.754 ms |
+| Local  | return_to_start | 24 | 20 | 5 | 20/20 | 20/0 | true | true | 422 | 34.093 ms | 50.574 ms | 14.090 ms | 0.293 ms | 16.073 ms |
+
+Verdict:
+
+```text
+PASS — 24-stop upper-bound requests passed under repeated 20-request / 5-worker probes locally and in Docker. Invalid 25-stop requests were correctly rejected with HTTP 422.
+```
+
+Engineering interpretation:
+
+The configured valid upper boundary is 24 stops because the matrix service supports 25 total matrix locations including the depot. The load probe demonstrates endpoint stability and validation correctness at the configured boundary. It is not a claim of unlimited VRP scale.
+
+---
+
+## Phase 6 Evidence Files
+
+Expected Phase 6 evidence directories:
+
+```text
+benchmarks/phase_6/docker_results
+benchmarks/phase_6/local_results
+```
+
+Important evidence files include:
+
+```text
+phase6_greedy_benchmark_5_stops_open.json
+phase6_greedy_benchmark_10_stops_open.json
+phase6_greedy_benchmark_15_stops_open.json
+phase6_greedy_benchmark_24_stops_open.json
+phase6_greedy_benchmark_5_stops_return_to_start.json
+phase6_greedy_benchmark_10_stops_return_to_start.json
+phase6_greedy_benchmark_15_stops_return_to_start.json
+phase6_greedy_benchmark_24_stops_return_to_start.json
+phase6_greedy_edge_cases_docker.json
+phase6_greedy_edge_cases_local.json
+phase6_greedy_load_probe_24_stops_open_docker.json
+phase6_greedy_load_probe_24_stops_return_to_start_docker.json
+phase6_greedy_load_probe_24_stops_open_local.json
+phase6_greedy_load_probe_24_stops_return_to_start_local.json
+phase6_all_results_index.md
+phase6_all_results_index.csv
+phase6_all_results_index.json
+phase6_all_raw_dump.json
+```
+
+---
+
+## Phase 6 Final Verdict
+
+Tier 2 Phase 6 is accepted as complete.
+
+The `/vrp/greedy` endpoint successfully provides a stable nearest-neighbor baseline for multi-stop route ordering. It correctly integrates with the Phase 5 matrix service, preserves cache metadata, supports open-route and return-to-start modes, validates route order and leg count, rejects invalid 25-stop requests with HTTP `422`, and remains stable at the configured 24-stop upper boundary in both local and Docker environments.
 
 Harsh verdict:
 
-| Area                                    | Verdict |
-| --------------------------------------- | ------- |
-| `/matrix` functional response           | PASS    |
-| Redis cache integration                 | PASS    |
-| Cache hit target under normal benchmark | PASS    |
-| 25x25 max matrix support                | PASS    |
-| Matrix correctness                      | PASS    |
-| Failed pairs zero                       | PASS    |
-| Local/Docker parity                     | PASS    |
-| Full regression suite                   | PASS    |
-| Original thread parallel speedup        | FAIL    |
-| Source-Dijkstra 15x15 optimization      | PASS    |
-| Source-Dijkstra 25x25 optimization      | PASS    |
-| Cache under concurrent stress           | PARTIAL |
-| 5x5 source_dijkstra speed               | FAIL    |
+| Area | Verdict |
+| ---- | ------- |
+| `/vrp/greedy` functional response | PASS |
+| Greedy core route-ordering logic | PASS |
+| Return-to-start/depot logic | PASS |
+| Matrix-service integration | PASS |
+| Redis cache metadata preservation | PASS |
+| Edge-case robustness | PASS |
+| 24-stop upper-bound behavior | PASS |
+| 25-stop invalid rejection | PASS |
+| Docker/local parity | PASS |
+| Phase 7 improvement metric readiness | PASS |
+| Phase 7 `/vrp/compare` contract readiness | PASS |
+| Greedy optimality | NOT CLAIMED |
+| Actual 2-Opt optimization | NOT IMPLEMENTED YET |
+| Actual `/vrp/compare` endpoint | NOT IMPLEMENTED YET |
 
 Final engineering conclusion:
 
 ```text
-Phase 5 is functionally complete, correct, cache-fast, Docker-stable, and stress-stable. The original threaded pairwise approach failed speedup targets, but the source-Dijkstra patch fixed large-matrix scaling while preserving correctness.
+Phase 6 is functionally complete, benchmarked, edge-case tested, return-to-depot tested, load-probed at the configured boundary, and ready to serve as the baseline for Phase 7 2-Opt optimization.
 ```
 
 ---
@@ -669,6 +972,22 @@ python -m pytest tests\test_multi_target_dijkstra.py -v
 python -m pytest tests\test_distance_matrix_source_dijkstra.py -v
 ```
 
+Run Phase 6 targeted tests:
+
+```powershell
+python -m pytest tests\test_greedy_algorithm.py -v
+python -m pytest tests\test_greedy_return_to_start.py -v
+python -m pytest tests\test_vrp_greedy_endpoint.py -v
+python -m pytest tests\test_vrp_improvement_metrics.py -v
+python -m pytest tests\test_vrp_compare_contract.py -v
+```
+
+Run Phase 6 combined hardening tests:
+
+```powershell
+python -m pytest tests\test_greedy_algorithm.py tests\test_greedy_return_to_start.py tests\test_vrp_greedy_endpoint.py tests\test_vrp_improvement_metrics.py tests\test_vrp_compare_contract.py -v
+```
+
 Run the automated Phase 5 test script:
 
 ```powershell
@@ -739,6 +1058,64 @@ Docker old-algorithm 25x25 comparison stress:
 python benchmarks\phase5_stress_probe.py --mode docker --n 25 --algorithm bidirectional_astar --concurrency-levels 1,2 --requests-per-level 2
 ```
 
+### Phase 6 greedy benchmarks
+
+Docker open-route benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_benchmark.py --mode docker --sizes 5,10,15,24 --iterations 5 --matrix-algorithm bidirectional_astar --use-cache
+```
+
+Docker return-to-start benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_benchmark.py --mode docker --sizes 5,10,15,24 --iterations 5 --matrix-algorithm bidirectional_astar --use-cache --return-to-start
+```
+
+Local open-route benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_benchmark.py --mode local --sizes 5,10,15,24 --iterations 5 --matrix-algorithm bidirectional_astar --use-cache
+```
+
+Local return-to-start benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_benchmark.py --mode local --sizes 5,10,15,24 --iterations 5 --matrix-algorithm bidirectional_astar --use-cache --return-to-start
+```
+
+Docker edge-case benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_edge_cases.py --mode docker --iterations 5 --matrix-algorithm bidirectional_astar --use-cache
+```
+
+Local edge-case benchmark:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_edge_cases.py --mode local --iterations 5 --matrix-algorithm bidirectional_astar --use-cache
+```
+
+Docker 24-stop load probe:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_load_probe.py --mode docker --stop-count 24 --requests 20 --workers 5 --matrix-algorithm bidirectional_astar --use-cache
+python benchmarks\phase_6\phase6_greedy_load_probe.py --mode docker --stop-count 24 --requests 20 --workers 5 --matrix-algorithm bidirectional_astar --use-cache --return-to-start
+```
+
+Local 24-stop load probe:
+
+```powershell
+python benchmarks\phase_6\phase6_greedy_load_probe.py --mode local --stop-count 24 --requests 20 --workers 5 --matrix-algorithm bidirectional_astar --use-cache
+python benchmarks\phase_6\phase6_greedy_load_probe.py --mode local --stop-count 24 --requests 20 --workers 5 --matrix-algorithm bidirectional_astar --use-cache --return-to-start
+```
+
+Collect Phase 6 evidence:
+
+```powershell
+python benchmarks\phase_6\collect_phase6_evidence.py
+```
+
 ---
 
 ## Evidence Files
@@ -752,7 +1129,7 @@ benchmarks/phase5_1/local_results
 benchmarks/phase5_1/docker_results
 ```
 
-Important evidence files include:
+Important Phase 5 evidence files include:
 
 ```text
 phase5_matrix_benchmark_5x5.json
@@ -780,6 +1157,36 @@ phase5_1_source_dijkstra_correctness_15x15.json
 
 Note: `phase5_1` is an evidence folder for the optimization patch. The audit should still be treated as **Phase 5**, not a separate phase.
 
+Expected Phase 6 evidence directories:
+
+```text
+benchmarks/phase_6/docker_results
+benchmarks/phase_6/local_results
+```
+
+Important Phase 6 evidence files include:
+
+```text
+phase6_greedy_benchmark_5_stops_open.json
+phase6_greedy_benchmark_10_stops_open.json
+phase6_greedy_benchmark_15_stops_open.json
+phase6_greedy_benchmark_24_stops_open.json
+phase6_greedy_benchmark_5_stops_return_to_start.json
+phase6_greedy_benchmark_10_stops_return_to_start.json
+phase6_greedy_benchmark_15_stops_return_to_start.json
+phase6_greedy_benchmark_24_stops_return_to_start.json
+phase6_greedy_edge_cases_docker.json
+phase6_greedy_edge_cases_local.json
+phase6_greedy_load_probe_24_stops_open_docker.json
+phase6_greedy_load_probe_24_stops_return_to_start_docker.json
+phase6_greedy_load_probe_24_stops_open_local.json
+phase6_greedy_load_probe_24_stops_return_to_start_local.json
+phase6_all_results_index.md
+phase6_all_results_index.csv
+phase6_all_results_index.json
+phase6_all_raw_dump.json
+```
+
 ---
 
 ## Current Known Risks and Notes
@@ -794,9 +1201,14 @@ Note: `phase5_1` is an evidence folder for the optimization patch. The audit sho
 | Concurrent cold 25x25 matrix requests increase latency                              | Expected CPU-bound behavior on single API process              |
 | Stress p95 is based on small samples                                                | Treated as outlier indicator, not formal SLA                   |
 | Cache hit stress remains correct but API latency rises under higher concurrency     | Documented                                                     |
+| Greedy is a baseline heuristic, not an optimal VRP solver                           | Documented; Phase 7 adds 2-Opt                                 |
+| 24 stops is the configured tested greedy limit                                      | Accepted; 25 stops rejected by validation                      |
+| Near-duplicate stops can snap to same road node                                     | Accepted if order/legs remain valid                            |
+| Phase 6 load probe is boundary robustness evidence, not unlimited-scale proof       | Documented                                                     |
+| Actual `/vrp/compare` endpoint is not implemented yet                               | Correctly deferred to Phase 7                                  |
 | ETA is formula-based, not traffic-aware                                             | Accepted for current phase                                     |
 | Graph covers Kanpur Central bbox, not full city scale                               | Accepted for current project stage                             |
-| Public deployment                                                                   | Not completed in current evidence                              |
+| Public deployment                                                                   | Not completed in current Tier 2 evidence                       |
 | Grafana/Prometheus                                                                  | Not integrated yet                                             |
 
 ---
@@ -809,20 +1221,27 @@ app/
 │   ├── graph.py
 │   ├── health.py
 │   ├── matrix.py
-│   └── route.py
+│   ├── route.py
+│   └── vrp.py
 ├── core/
 │   ├── a_star.py
 │   ├── bidirectional_a_star.py
 │   ├── distance_matrix.py
 │   ├── eta.py
 │   ├── graph_adjacency.py
-│   └── multi_target_dijkstra.py
+│   ├── greedy_nearest_neighbor.py
+│   ├── multi_target_dijkstra.py
+│   └── vrp_improvement_metrics.py
 ├── infrastructure/
 │   └── redis_cache.py
 ├── models/
 │   └── matrix_model.py
+├── schemas/
+│   ├── vrp.py
+│   └── vrp_compare.py
 ├── services/
 │   ├── graph_service.py
+│   ├── greedy_service.py
 │   ├── matrix_service.py
 │   └── routing_service.py
 ├── utils/
@@ -851,6 +1270,13 @@ benchmarks/
 ├── phase5_stress_probe.py
 ├── phase5_1_algorithm_comparison.py
 ├── phase5_1_source_dijkstra_correctness.py
+├── phase_6/
+│   ├── collect_phase6_evidence.py
+│   ├── phase6_greedy_benchmark.py
+│   ├── phase6_greedy_edge_cases.py
+│   ├── phase6_greedy_load_probe.py
+│   ├── docker_results/
+│   └── local_results/
 ├── phase4_results/
 ├── phase5/
 └── phase5_1/
@@ -869,6 +1295,8 @@ tests/
 ├── test_geo_validation.py
 ├── test_graph_adjacency.py
 ├── test_graph_endpoint.py
+├── test_greedy_algorithm.py
+├── test_greedy_return_to_start.py
 ├── test_health.py
 ├── test_heuristic_admissibility.py
 ├── test_matrix_cache_key.py
@@ -880,7 +1308,10 @@ tests/
 ├── test_route_endpoint.py
 ├── test_route_failure_cases.py
 ├── test_route_geometry.py
-└── test_route_map.py
+├── test_route_map.py
+├── test_vrp_compare_contract.py
+├── test_vrp_greedy_endpoint.py
+└── test_vrp_improvement_metrics.py
 ```
 
 ---
@@ -1000,16 +1431,19 @@ This is expected for some directed graph node pairs. It is not considered a serv
 Next planned phase:
 
 ```text
-Tier 2 — Phase 6: Greedy Multi-Stop Baseline
+Tier 2 — Phase 7: 2-Opt Optimization + VRP Compare
 ```
 
-Phase 6 should add:
+Phase 7 should add:
 
-* Multi-stop delivery ordering
-* Nearest-neighbor greedy baseline
-* Use Phase 5 `/matrix` as the cost source
-* Total route distance calculation
-* Greedy route correctness tests
-* Greedy benchmark evidence
-* Baseline route ordering endpoint
-* Honest comparison against future 2-Opt optimization
+* 2-Opt route-order optimization
+* Actual `POST /vrp/compare` endpoint
+* Greedy baseline vs 2-Opt improved route comparison
+* Distance saved in meters
+* Improvement percentage
+* Non-regression flag
+* Same matrix input shared between Greedy and 2-Opt
+* Open-route and return-to-start support
+* Phase 7 correctness tests
+* Phase 7 benchmark evidence
+* Honest comparison showing where 2-Opt improves and where greedy is already near-stable
