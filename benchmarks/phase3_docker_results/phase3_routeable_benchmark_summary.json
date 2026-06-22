@@ -1,0 +1,11 @@
+﻿{
+    "benchmark":  "phase3_astar_route_benchmark_routeable",
+    "attempted_requests":  1008,
+    "successful_route_measurements":  1000,
+    "no_path_404_skipped":  8,
+    "real_failures":  0,
+    "real_failure_rate_pct":  0.0,
+    "no_path_rate_pct":  0.794,
+    "zero_distance_successes":  3,
+    "elapsed_s":  25.601
+}

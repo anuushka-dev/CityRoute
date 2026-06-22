@@ -1,0 +1,77 @@
+{
+  "artifact": "phase5_cache_probe",
+  "created_at": "2026-06-17T17:28:22.667168+00:00",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "matrix_size": "5x5",
+  "n": 5,
+  "pairs": 25,
+  "algorithm": "bidirectional_astar",
+  "hit_repeats": 5,
+  "health": {
+    "status": "ok",
+    "graph_loaded": true,
+    "uptime_s": 1940.729
+  },
+  "graph_stats": {
+    "city": "Kanpur Central, Uttar Pradesh, India",
+    "graph_loaded": true,
+    "nodes": 12969,
+    "edges": 34996,
+    "load_time_s": 3.254,
+    "graph_path": "data/graphs/kanpur_central.graphml",
+    "graph_file_size_mb": 12.74,
+    "memory_mb": 382.95,
+    "weakly_connected_components": 1,
+    "largest_component_nodes": 12969,
+    "is_weakly_connected": true,
+    "snap_index_loaded": true,
+    "snap_index_build_time_ms": 23.26,
+    "snap_index_method": "balltree",
+    "snap_index_import_error": null
+  },
+  "cache_miss_request": {
+    "status_code": 200,
+    "api_elapsed_ms": 276.974,
+    "cache_enabled": true,
+    "cache_hit": false,
+    "cache_key": "matrix:v1:kanpur_central.graphml:bidirectional_astar:a0a1c016634549a23d57380bc428bf9ba2cb4e41fbe986d962892dbe511b68ec",
+    "cache_error": null,
+    "generation_time_ms": 270.776,
+    "pair_count": 25,
+    "computed_pairs": 25,
+    "failed_pairs": 0
+  },
+  "cache_hit_requests": {
+    "status_codes": [
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "cache_hit_flags": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "confirmed_hit_count": 5,
+    "api_elapsed_ms": {
+      "min_ms": 6.448,
+      "mean_ms": 6.849,
+      "median_ms": 6.717,
+      "max_ms": 7.247
+    }
+  },
+  "acceptance_checks": {
+    "miss_status_200": true,
+    "miss_confirmed": true,
+    "all_hit_status_200": true,
+    "all_hits_confirmed": true,
+    "hit_median_under_20ms": true,
+    "cache_key_present": true,
+    "failed_pairs": 0
+  }
+}

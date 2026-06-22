@@ -3,11 +3,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cityroute-api
+    image: cityroute-api:tier2-phase7
+    container_name: cityroute-api-tier2-phase-7
     ports:
       - "8001:8000"
     env_file:
       - .env
+    environment:
+      CITYROUTE_REDIS_URL: redis://redis:6379/0
+      CITYROUTE_ENVIRONMENT: docker
     volumes:
       - ./data:/app/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: cityroute-redis-tier2-phase-7
+    ports:
+      - "6379:6379"
     restart: unless-stopped

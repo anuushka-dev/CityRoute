@@ -1,0 +1,9 @@
+﻿{
+    "benchmark":  "phase3_heuristic_admissibility_probe",
+    "target_pairs":  10000,
+    "checked":  10000,
+    "no_path_skipped":  18,
+    "overestimates":  0,
+    "worst_overestimate_m":  0.0,
+    "elapsed_s":  576.587
+}

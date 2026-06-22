@@ -1,0 +1,146 @@
+{
+  "artifact": "phase5_matrix_benchmark",
+  "created_at": "2026-06-17T17:25:07.678273+00:00",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "matrix_size": "5x5",
+  "n": 5,
+  "pairs": 25,
+  "algorithm": "bidirectional_astar",
+  "repeats": 3,
+  "health": {
+    "status": "ok",
+    "graph_loaded": true,
+    "uptime_s": 120.084
+  },
+  "graph_stats": {
+    "city": "Kanpur Central, Uttar Pradesh, India",
+    "graph_loaded": true,
+    "nodes": 12969,
+    "edges": 34996,
+    "load_time_s": 2.526,
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "graph_file_size_mb": 12.74,
+    "memory_mb": 374.71,
+    "weakly_connected_components": 1,
+    "largest_component_nodes": 12969,
+    "is_weakly_connected": true,
+    "snap_index_loaded": true,
+    "snap_index_build_time_ms": 19.288,
+    "snap_index_method": "balltree",
+    "snap_index_import_error": null
+  },
+  "cold_no_cache": {
+    "use_cache": false,
+    "api_elapsed_ms": {
+      "min_ms": 203.575,
+      "mean_ms": 210.537,
+      "median_ms": 210.719,
+      "p95_ms": 216.656,
+      "p99_ms": 217.184,
+      "max_ms": 217.316
+    },
+    "validation": {
+      "shape_ok": true,
+      "diagonal_zero": true,
+      "n": 5,
+      "pair_count": 25,
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "cache_enabled": false,
+      "cache_hit": false,
+      "service_generation_time_ms": 200.057,
+      "parallel_workers": 8
+    }
+  },
+  "cache_miss": {
+    "use_cache": true,
+    "expected_hit": false,
+    "actual_hit": false,
+    "actual_miss_confirmed": true,
+    "api_elapsed_ms": {
+      "min_ms": 236.506,
+      "mean_ms": 236.506,
+      "median_ms": 236.506,
+      "p95_ms": 236.506,
+      "p99_ms": 236.506,
+      "max_ms": 236.506
+    },
+    "validation": {
+      "shape_ok": true,
+      "diagonal_zero": true,
+      "n": 5,
+      "pair_count": 25,
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "cache_enabled": true,
+      "cache_hit": false,
+      "service_generation_time_ms": 231.059,
+      "parallel_workers": 8
+    }
+  },
+  "cache_hit": {
+    "use_cache": true,
+    "expected_hit": true,
+    "actual_hit": true,
+    "actual_hit_confirmed": true,
+    "api_elapsed_ms": {
+      "min_ms": 11.008,
+      "mean_ms": 11.264,
+      "median_ms": 11.123,
+      "p95_ms": 11.606,
+      "p99_ms": 11.649,
+      "max_ms": 11.66
+    },
+    "validation": {
+      "shape_ok": true,
+      "diagonal_zero": true,
+      "n": 5,
+      "pair_count": 25,
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "cache_enabled": true,
+      "cache_hit": true,
+      "service_generation_time_ms": 7.35,
+      "parallel_workers": 8
+    }
+  },
+  "acceptance_checks": {
+    "cold_shape_ok": true,
+    "cold_diagonal_zero": true,
+    "cache_miss_confirmed": true,
+    "cache_hit_confirmed": true,
+    "cache_hit_under_20ms": true,
+    "failed_pairs": 0
+  },
+  "sample_response_fields": {
+    "cold_no_cache": {
+      "n": 5,
+      "pair_count": 25,
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "generation_time_ms": 200.057,
+      "parallel_workers": 8
+    },
+    "cache_miss": {
+      "cache": {
+        "enabled": true,
+        "hit": false,
+        "key": "matrix:v1:kanpur_central.graphml:bidirectional_astar:b73da206bcf137e959c2672f52a9005e39cd04844ac216f5e6b92c3f786cab19",
+        "ttl_seconds": 86400,
+        "error": null
+      },
+      "generation_time_ms": 231.059
+    },
+    "cache_hit": {
+      "cache": {
+        "enabled": true,
+        "hit": true,
+        "key": "matrix:v1:kanpur_central.graphml:bidirectional_astar:b73da206bcf137e959c2672f52a9005e39cd04844ac216f5e6b92c3f786cab19",
+        "ttl_seconds": 86400,
+        "error": null
+      },
+      "generation_time_ms": 7.35
+    }
+  }
+}

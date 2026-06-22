@@ -1,0 +1,169 @@
+{
+  "artifact": "phase5_parallel_vs_serial_probe",
+  "created_at": "2026-06-17T17:25:55.895807+00:00",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "matrix_size": "5x5",
+  "n": 5,
+  "pairs": 25,
+  "non_diagonal_pairs": 20,
+  "algorithm": "bidirectional_astar",
+  "health": {
+    "status": "ok",
+    "graph_loaded": true,
+    "uptime_s": 168.713
+  },
+  "graph_stats": {
+    "city": "Kanpur Central, Uttar Pradesh, India",
+    "graph_loaded": true,
+    "nodes": 12969,
+    "edges": 34996,
+    "load_time_s": 2.526,
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "graph_file_size_mb": 12.74,
+    "memory_mb": 374.71,
+    "weakly_connected_components": 1,
+    "largest_component_nodes": 12969,
+    "is_weakly_connected": true,
+    "snap_index_loaded": true,
+    "snap_index_build_time_ms": 19.288,
+    "snap_index_method": "balltree",
+    "snap_index_import_error": null
+  },
+  "serial_baseline": {
+    "method": "serial_route_endpoint_pair_loop",
+    "description": "Naive baseline: calls GET /route once per directed non-diagonal pair.",
+    "total_elapsed_ms": 232.179,
+    "pair_elapsed_ms": {
+      "min_ms": 4.942,
+      "mean_ms": 11.482,
+      "median_ms": 9.399,
+      "max_ms": 30.727
+    },
+    "status_codes": [
+      200
+    ],
+    "successful_pairs": 25,
+    "failed_pairs": 0,
+    "failures": [],
+    "matrix_distance_m": [
+      [
+        0.0,
+        1130.061,
+        2106.208,
+        4066.88,
+        4680.665
+      ],
+      [
+        1124.572,
+        0.0,
+        1156.371,
+        3117.043,
+        3730.828
+      ],
+      [
+        2098.445,
+        1154.096,
+        0.0,
+        2156.635,
+        2770.42
+      ],
+      [
+        4055.5,
+        3111.151,
+        2011.272,
+        0.0,
+        1319.325
+      ],
+      [
+        4865.01,
+        3920.661,
+        2820.782,
+        1319.325,
+        0.0
+      ]
+    ]
+  },
+  "parallel_matrix": {
+    "method": "parallel_matrix_endpoint",
+    "description": "Phase 5 path: calls POST /matrix once with use_cache=false.",
+    "status_code": 200,
+    "total_elapsed_ms": 259.05,
+    "service_generation_time_ms": 254.989,
+    "parallel_workers": 8,
+    "pair_count": 25,
+    "computed_pairs": 25,
+    "failed_pairs": 0,
+    "cache": {
+      "enabled": false,
+      "hit": false,
+      "key": null,
+      "ttl_seconds": 86400,
+      "error": null
+    },
+    "matrix_distance_m": [
+      [
+        0.0,
+        1130.061,
+        2106.208,
+        4066.88,
+        4680.665
+      ],
+      [
+        1124.572,
+        0.0,
+        1156.371,
+        3117.043,
+        3730.828
+      ],
+      [
+        2098.445,
+        1154.096,
+        0.0,
+        2156.635,
+        2770.42
+      ],
+      [
+        4055.5,
+        3111.151,
+        2011.272,
+        0.0,
+        1319.325
+      ],
+      [
+        4865.01,
+        3920.661,
+        2820.782,
+        1319.325,
+        0.0
+      ]
+    ],
+    "raw_response_summary": {
+      "n": 5,
+      "algorithm": "bidirectional_astar",
+      "generation_time_ms": 254.989,
+      "parallel_workers": 8
+    }
+  },
+  "comparison": {
+    "serial_total_elapsed_ms": 232.179,
+    "parallel_total_elapsed_ms": 259.05,
+    "speedup_serial_over_parallel": 0.896,
+    "speedup_target_4x_met": false,
+    "matrix_distance_comparison": {
+      "compared": true,
+      "tolerance_m": 1.0,
+      "compared_pairs": 25,
+      "mismatch_count": 0,
+      "mismatches": []
+    }
+  },
+  "acceptance_checks": {
+    "serial_completed": true,
+    "parallel_status_200": true,
+    "parallel_failed_pairs": 0,
+    "matrix_mismatch_count": 0,
+    "speedup": 0.896,
+    "speedup_target_4x_met": false
+  }
+}

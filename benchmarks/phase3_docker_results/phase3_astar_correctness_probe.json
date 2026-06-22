@@ -1,0 +1,19 @@
+{
+  "benchmark": "phase3_astar_correctness_probe",
+  "timestamp_utc": "2026-06-08T07:26:14.032724+00:00",
+  "graph": {
+    "city": "Kanpur Central, Uttar Pradesh, India",
+    "nodes": 12969,
+    "edges": 34996,
+    "is_weakly_connected": true
+  },
+  "target_checks": 500,
+  "passed": 500,
+  "failed": 0,
+  "no_path_skipped": 0,
+  "max_attempts": 2500,
+  "elapsed_s": 28.169,
+  "distance_tolerance_m": 0.001,
+  "success_rate_pct": 100.0,
+  "errors": []
+}

@@ -1,0 +1,2733 @@
+{
+  "benchmark": "phase7_2opt_benchmark",
+  "phase": "tier2_phase7",
+  "mode": "local",
+  "result_group": "local",
+  "route_mode": "open",
+  "base_url": "http://127.0.0.1:8000",
+  "endpoint": "/vrp/compare",
+  "created_at_utc": "2026-06-22T11:08:44.468377+00:00",
+  "stop_count": 24,
+  "iterations": 5,
+  "matrix_algorithm": "source_dijkstra",
+  "use_cache": true,
+  "return_to_start": false,
+  "two_opt_max_iterations": 100,
+  "improvement_tolerance_m": 0.001,
+  "keep_trace": true,
+  "success_count": 5,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "expected_leg_count": 24,
+  "all_greedy_orders_valid": true,
+  "all_two_opt_orders_valid": true,
+  "all_greedy_leg_counts_valid": true,
+  "all_two_opt_leg_counts_valid": true,
+  "all_non_regression": true,
+  "api_elapsed_ms": {
+    "min": 263.095,
+    "mean": 292.094,
+    "median": 281.126,
+    "p95": 338.913,
+    "p99": 349.705,
+    "max": 352.403
+  },
+  "matrix_generation_time_ms": {
+    "min": 7.376,
+    "mean": 8.279,
+    "median": 7.613,
+    "p95": 9.824,
+    "p99": 10.05,
+    "max": 10.107
+  },
+  "greedy_optimization_time_ms": {
+    "min": 0.253,
+    "mean": 0.295,
+    "median": 0.259,
+    "p95": 0.397,
+    "p99": 0.42,
+    "max": 0.426
+  },
+  "two_opt_optimization_time_ms": {
+    "min": 245.713,
+    "mean": 265.951,
+    "median": 260.751,
+    "p95": 303.467,
+    "p99": 311.863,
+    "max": 313.962
+  },
+  "response_total_time_ms": {
+    "min": 246.068,
+    "mean": 266.324,
+    "median": 261.254,
+    "p95": 303.802,
+    "p99": 312.197,
+    "max": 314.296
+  },
+  "greedy_distance_m": {
+    "min": 61334.02,
+    "mean": 61334.02,
+    "median": 61334.02,
+    "p95": 61334.02,
+    "p99": 61334.02,
+    "max": 61334.02
+  },
+  "two_opt_distance_m": {
+    "min": 47419.957,
+    "mean": 47419.957,
+    "median": 47419.957,
+    "p95": 47419.957,
+    "p99": 47419.957,
+    "max": 47419.957
+  },
+  "distance_saved_m": {
+    "min": 13914.063,
+    "mean": 13914.063,
+    "median": 13914.063,
+    "p95": 13914.063,
+    "p99": 13914.063,
+    "max": 13914.063
+  },
+  "improvement_pct": {
+    "min": 22.686,
+    "mean": 22.686,
+    "median": 22.686,
+    "p95": 22.686,
+    "p99": 22.686,
+    "max": 22.686
+  },
+  "two_opt_iterations": {
+    "min": 8.0,
+    "mean": 8.0,
+    "median": 8.0,
+    "p95": 8.0,
+    "p99": 8.0,
+    "max": 8.0
+  },
+  "two_opt_swaps_applied": {
+    "min": 7.0,
+    "mean": 7.0,
+    "median": 7.0,
+    "p95": 7.0,
+    "p99": 7.0,
+    "max": 7.0
+  },
+  "first_failure": null,
+  "records": [
+    {
+      "iteration": 1,
+      "status_code": 200,
+      "api_elapsed_ms": 263.095,
+      "ok": true,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase7",
+        "comparison": "greedy_vs_two_opt",
+        "matrix_algorithm": "source_dijkstra",
+        "stop_count": 24,
+        "return_to_start": false,
+        "greedy": {
+          "algorithm": "nearest_neighbor_greedy",
+          "optimized_order": [
+            5,
+            19,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            2,
+            4,
+            13,
+            12,
+            23,
+            11,
+            10,
+            1,
+            21,
+            22,
+            0,
+            20,
+            14,
+            15
+          ],
+          "total_distance_m": 61334.02,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 1946.162
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1872.147
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1530.94
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 2514.357
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2174.958
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 4349.926
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 6262.256
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 14218.289
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 0.282,
+          "iterations": 0,
+          "swaps_applied": 0,
+          "converged": true
+        },
+        "two_opt": {
+          "algorithm": "two_opt",
+          "optimized_order": [
+            0,
+            2,
+            4,
+            13,
+            12,
+            23,
+            22,
+            11,
+            10,
+            1,
+            21,
+            20,
+            19,
+            5,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            14,
+            15
+          ],
+          "total_distance_m": 47419.957,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 2026.744
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1605.941
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2773.024
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 1616.92
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 3168.479
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 1995.204
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1574.4
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 6194.26
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 245.713,
+          "iterations": 8,
+          "swaps_applied": 7,
+          "converged": true
+        },
+        "improvement": {
+          "baseline_distance_m": 61334.02,
+          "optimized_distance_m": 47419.957,
+          "distance_saved_m": 13914.063,
+          "improvement_pct": 22.686,
+          "improved": true,
+          "non_regression": true
+        },
+        "convergence_trace": [
+          {
+            "iteration": 0,
+            "distance_m": 61334.02,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          },
+          {
+            "iteration": 1,
+            "distance_m": 56283.495,
+            "improved": true,
+            "swap_i": 20,
+            "swap_j": 21
+          },
+          {
+            "iteration": 2,
+            "distance_m": 54037.893,
+            "improved": true,
+            "swap_i": 2,
+            "swap_j": 20
+          },
+          {
+            "iteration": 3,
+            "distance_m": 52041.903,
+            "improved": true,
+            "swap_i": 13,
+            "swap_j": 21
+          },
+          {
+            "iteration": 4,
+            "distance_m": 49500.761,
+            "improved": true,
+            "swap_i": 0,
+            "swap_j": 13
+          },
+          {
+            "iteration": 5,
+            "distance_m": 48279.648,
+            "improved": true,
+            "swap_i": 9,
+            "swap_j": 10
+          },
+          {
+            "iteration": 6,
+            "distance_m": 48270.395,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 8
+          },
+          {
+            "iteration": 7,
+            "distance_m": 47419.957,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 9
+          },
+          {
+            "iteration": 8,
+            "distance_m": 47419.957,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          }
+        ],
+        "matrix_generation_time_ms": 7.376,
+        "total_time_ms": 246.068,
+        "cache_used": true,
+        "cache_status": "hit",
+        "cache_hits": 1,
+        "cache_misses": 0
+      },
+      "stop_count": 24,
+      "return_to_start": false,
+      "expected_leg_count": 24,
+      "greedy_order_valid": true,
+      "two_opt_order_valid": true,
+      "greedy_leg_count_valid": true,
+      "two_opt_leg_count_valid": true,
+      "non_regression": true,
+      "greedy_distance_m": 61334.02,
+      "two_opt_distance_m": 47419.957,
+      "distance_saved_m": 13914.063,
+      "improvement_pct": 22.686,
+      "greedy_optimization_time_ms": 0.282,
+      "two_opt_optimization_time_ms": 245.713,
+      "two_opt_iterations": 8,
+      "two_opt_swaps_applied": 7,
+      "two_opt_converged": true,
+      "matrix_generation_time_ms": 7.376,
+      "response_total_time_ms": 246.068,
+      "cache_used": true,
+      "cache_hits": 1,
+      "cache_misses": 0
+    },
+    {
+      "iteration": 2,
+      "status_code": 200,
+      "api_elapsed_ms": 284.953,
+      "ok": true,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase7",
+        "comparison": "greedy_vs_two_opt",
+        "matrix_algorithm": "source_dijkstra",
+        "stop_count": 24,
+        "return_to_start": false,
+        "greedy": {
+          "algorithm": "nearest_neighbor_greedy",
+          "optimized_order": [
+            5,
+            19,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            2,
+            4,
+            13,
+            12,
+            23,
+            11,
+            10,
+            1,
+            21,
+            22,
+            0,
+            20,
+            14,
+            15
+          ],
+          "total_distance_m": 61334.02,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 1946.162
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1872.147
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1530.94
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 2514.357
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2174.958
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 4349.926
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 6262.256
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 14218.289
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 0.253,
+          "iterations": 0,
+          "swaps_applied": 0,
+          "converged": true
+        },
+        "two_opt": {
+          "algorithm": "two_opt",
+          "optimized_order": [
+            0,
+            2,
+            4,
+            13,
+            12,
+            23,
+            22,
+            11,
+            10,
+            1,
+            21,
+            20,
+            19,
+            5,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            14,
+            15
+          ],
+          "total_distance_m": 47419.957,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 2026.744
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1605.941
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2773.024
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 1616.92
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 3168.479
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 1995.204
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1574.4
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 6194.26
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 247.84,
+          "iterations": 8,
+          "swaps_applied": 7,
+          "converged": true
+        },
+        "improvement": {
+          "baseline_distance_m": 61334.02,
+          "optimized_distance_m": 47419.957,
+          "distance_saved_m": 13914.063,
+          "improvement_pct": 22.686,
+          "improved": true,
+          "non_regression": true
+        },
+        "convergence_trace": [
+          {
+            "iteration": 0,
+            "distance_m": 61334.02,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          },
+          {
+            "iteration": 1,
+            "distance_m": 56283.495,
+            "improved": true,
+            "swap_i": 20,
+            "swap_j": 21
+          },
+          {
+            "iteration": 2,
+            "distance_m": 54037.893,
+            "improved": true,
+            "swap_i": 2,
+            "swap_j": 20
+          },
+          {
+            "iteration": 3,
+            "distance_m": 52041.903,
+            "improved": true,
+            "swap_i": 13,
+            "swap_j": 21
+          },
+          {
+            "iteration": 4,
+            "distance_m": 49500.761,
+            "improved": true,
+            "swap_i": 0,
+            "swap_j": 13
+          },
+          {
+            "iteration": 5,
+            "distance_m": 48279.648,
+            "improved": true,
+            "swap_i": 9,
+            "swap_j": 10
+          },
+          {
+            "iteration": 6,
+            "distance_m": 48270.395,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 8
+          },
+          {
+            "iteration": 7,
+            "distance_m": 47419.957,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 9
+          },
+          {
+            "iteration": 8,
+            "distance_m": 47419.957,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          }
+        ],
+        "matrix_generation_time_ms": 7.608,
+        "total_time_ms": 248.176,
+        "cache_used": true,
+        "cache_status": "hit",
+        "cache_hits": 1,
+        "cache_misses": 0
+      },
+      "stop_count": 24,
+      "return_to_start": false,
+      "expected_leg_count": 24,
+      "greedy_order_valid": true,
+      "two_opt_order_valid": true,
+      "greedy_leg_count_valid": true,
+      "two_opt_leg_count_valid": true,
+      "non_regression": true,
+      "greedy_distance_m": 61334.02,
+      "two_opt_distance_m": 47419.957,
+      "distance_saved_m": 13914.063,
+      "improvement_pct": 22.686,
+      "greedy_optimization_time_ms": 0.253,
+      "two_opt_optimization_time_ms": 247.84,
+      "two_opt_iterations": 8,
+      "two_opt_swaps_applied": 7,
+      "two_opt_converged": true,
+      "matrix_generation_time_ms": 7.608,
+      "response_total_time_ms": 248.176,
+      "cache_used": true,
+      "cache_hits": 1,
+      "cache_misses": 0
+    },
+    {
+      "iteration": 3,
+      "status_code": 200,
+      "api_elapsed_ms": 278.892,
+      "ok": true,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase7",
+        "comparison": "greedy_vs_two_opt",
+        "matrix_algorithm": "source_dijkstra",
+        "stop_count": 24,
+        "return_to_start": false,
+        "greedy": {
+          "algorithm": "nearest_neighbor_greedy",
+          "optimized_order": [
+            5,
+            19,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            2,
+            4,
+            13,
+            12,
+            23,
+            11,
+            10,
+            1,
+            21,
+            22,
+            0,
+            20,
+            14,
+            15
+          ],
+          "total_distance_m": 61334.02,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 1946.162
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1872.147
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1530.94
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 2514.357
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2174.958
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 4349.926
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 6262.256
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 14218.289
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 0.259,
+          "iterations": 0,
+          "swaps_applied": 0,
+          "converged": true
+        },
+        "two_opt": {
+          "algorithm": "two_opt",
+          "optimized_order": [
+            0,
+            2,
+            4,
+            13,
+            12,
+            23,
+            22,
+            11,
+            10,
+            1,
+            21,
+            20,
+            19,
+            5,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            14,
+            15
+          ],
+          "total_distance_m": 47419.957,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 2026.744
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1605.941
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2773.024
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 1616.92
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 3168.479
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 1995.204
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1574.4
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 6194.26
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 261.487,
+          "iterations": 8,
+          "swaps_applied": 7,
+          "converged": true
+        },
+        "improvement": {
+          "baseline_distance_m": 61334.02,
+          "optimized_distance_m": 47419.957,
+          "distance_saved_m": 13914.063,
+          "improvement_pct": 22.686,
+          "improved": true,
+          "non_regression": true
+        },
+        "convergence_trace": [
+          {
+            "iteration": 0,
+            "distance_m": 61334.02,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          },
+          {
+            "iteration": 1,
+            "distance_m": 56283.495,
+            "improved": true,
+            "swap_i": 20,
+            "swap_j": 21
+          },
+          {
+            "iteration": 2,
+            "distance_m": 54037.893,
+            "improved": true,
+            "swap_i": 2,
+            "swap_j": 20
+          },
+          {
+            "iteration": 3,
+            "distance_m": 52041.903,
+            "improved": true,
+            "swap_i": 13,
+            "swap_j": 21
+          },
+          {
+            "iteration": 4,
+            "distance_m": 49500.761,
+            "improved": true,
+            "swap_i": 0,
+            "swap_j": 13
+          },
+          {
+            "iteration": 5,
+            "distance_m": 48279.648,
+            "improved": true,
+            "swap_i": 9,
+            "swap_j": 10
+          },
+          {
+            "iteration": 6,
+            "distance_m": 48270.395,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 8
+          },
+          {
+            "iteration": 7,
+            "distance_m": 47419.957,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 9
+          },
+          {
+            "iteration": 8,
+            "distance_m": 47419.957,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          }
+        ],
+        "matrix_generation_time_ms": 7.613,
+        "total_time_ms": 261.824,
+        "cache_used": true,
+        "cache_status": "hit",
+        "cache_hits": 1,
+        "cache_misses": 0
+      },
+      "stop_count": 24,
+      "return_to_start": false,
+      "expected_leg_count": 24,
+      "greedy_order_valid": true,
+      "two_opt_order_valid": true,
+      "greedy_leg_count_valid": true,
+      "two_opt_leg_count_valid": true,
+      "non_regression": true,
+      "greedy_distance_m": 61334.02,
+      "two_opt_distance_m": 47419.957,
+      "distance_saved_m": 13914.063,
+      "improvement_pct": 22.686,
+      "greedy_optimization_time_ms": 0.259,
+      "two_opt_optimization_time_ms": 261.487,
+      "two_opt_iterations": 8,
+      "two_opt_swaps_applied": 7,
+      "two_opt_converged": true,
+      "matrix_generation_time_ms": 7.613,
+      "response_total_time_ms": 261.824,
+      "cache_used": true,
+      "cache_hits": 1,
+      "cache_misses": 0
+    },
+    {
+      "iteration": 4,
+      "status_code": 200,
+      "api_elapsed_ms": 281.126,
+      "ok": true,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase7",
+        "comparison": "greedy_vs_two_opt",
+        "matrix_algorithm": "source_dijkstra",
+        "stop_count": 24,
+        "return_to_start": false,
+        "greedy": {
+          "algorithm": "nearest_neighbor_greedy",
+          "optimized_order": [
+            5,
+            19,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            2,
+            4,
+            13,
+            12,
+            23,
+            11,
+            10,
+            1,
+            21,
+            22,
+            0,
+            20,
+            14,
+            15
+          ],
+          "total_distance_m": 61334.02,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 1946.162
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1872.147
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1530.94
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 2514.357
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2174.958
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 4349.926
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 6262.256
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 14218.289
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 0.426,
+          "iterations": 0,
+          "swaps_applied": 0,
+          "converged": true
+        },
+        "two_opt": {
+          "algorithm": "two_opt",
+          "optimized_order": [
+            0,
+            2,
+            4,
+            13,
+            12,
+            23,
+            22,
+            11,
+            10,
+            1,
+            21,
+            20,
+            19,
+            5,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            14,
+            15
+          ],
+          "total_distance_m": 47419.957,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 2026.744
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1605.941
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2773.024
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 1616.92
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 3168.479
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 1995.204
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1574.4
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 6194.26
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 260.751,
+          "iterations": 8,
+          "swaps_applied": 7,
+          "converged": true
+        },
+        "improvement": {
+          "baseline_distance_m": 61334.02,
+          "optimized_distance_m": 47419.957,
+          "distance_saved_m": 13914.063,
+          "improvement_pct": 22.686,
+          "improved": true,
+          "non_regression": true
+        },
+        "convergence_trace": [
+          {
+            "iteration": 0,
+            "distance_m": 61334.02,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          },
+          {
+            "iteration": 1,
+            "distance_m": 56283.495,
+            "improved": true,
+            "swap_i": 20,
+            "swap_j": 21
+          },
+          {
+            "iteration": 2,
+            "distance_m": 54037.893,
+            "improved": true,
+            "swap_i": 2,
+            "swap_j": 20
+          },
+          {
+            "iteration": 3,
+            "distance_m": 52041.903,
+            "improved": true,
+            "swap_i": 13,
+            "swap_j": 21
+          },
+          {
+            "iteration": 4,
+            "distance_m": 49500.761,
+            "improved": true,
+            "swap_i": 0,
+            "swap_j": 13
+          },
+          {
+            "iteration": 5,
+            "distance_m": 48279.648,
+            "improved": true,
+            "swap_i": 9,
+            "swap_j": 10
+          },
+          {
+            "iteration": 6,
+            "distance_m": 48270.395,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 8
+          },
+          {
+            "iteration": 7,
+            "distance_m": 47419.957,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 9
+          },
+          {
+            "iteration": 8,
+            "distance_m": 47419.957,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          }
+        ],
+        "matrix_generation_time_ms": 8.69,
+        "total_time_ms": 261.254,
+        "cache_used": true,
+        "cache_status": "hit",
+        "cache_hits": 1,
+        "cache_misses": 0
+      },
+      "stop_count": 24,
+      "return_to_start": false,
+      "expected_leg_count": 24,
+      "greedy_order_valid": true,
+      "two_opt_order_valid": true,
+      "greedy_leg_count_valid": true,
+      "two_opt_leg_count_valid": true,
+      "non_regression": true,
+      "greedy_distance_m": 61334.02,
+      "two_opt_distance_m": 47419.957,
+      "distance_saved_m": 13914.063,
+      "improvement_pct": 22.686,
+      "greedy_optimization_time_ms": 0.426,
+      "two_opt_optimization_time_ms": 260.751,
+      "two_opt_iterations": 8,
+      "two_opt_swaps_applied": 7,
+      "two_opt_converged": true,
+      "matrix_generation_time_ms": 8.69,
+      "response_total_time_ms": 261.254,
+      "cache_used": true,
+      "cache_hits": 1,
+      "cache_misses": 0
+    },
+    {
+      "iteration": 5,
+      "status_code": 200,
+      "api_elapsed_ms": 352.403,
+      "ok": true,
+      "response": {
+        "status": "ok",
+        "phase": "tier2_phase7",
+        "comparison": "greedy_vs_two_opt",
+        "matrix_algorithm": "source_dijkstra",
+        "stop_count": 24,
+        "return_to_start": false,
+        "greedy": {
+          "algorithm": "nearest_neighbor_greedy",
+          "optimized_order": [
+            5,
+            19,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            2,
+            4,
+            13,
+            12,
+            23,
+            11,
+            10,
+            1,
+            21,
+            22,
+            0,
+            20,
+            14,
+            15
+          ],
+          "total_distance_m": 61334.02,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 1946.162
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1872.147
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1530.94
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 2514.357
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2174.958
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 4349.926
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 6262.256
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 14218.289
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 0.256,
+          "iterations": 0,
+          "swaps_applied": 0,
+          "converged": true
+        },
+        "two_opt": {
+          "algorithm": "two_opt",
+          "optimized_order": [
+            0,
+            2,
+            4,
+            13,
+            12,
+            23,
+            22,
+            11,
+            10,
+            1,
+            21,
+            20,
+            19,
+            5,
+            18,
+            6,
+            17,
+            7,
+            8,
+            16,
+            9,
+            3,
+            14,
+            15
+          ],
+          "total_distance_m": 47419.957,
+          "legs": [
+            {
+              "from_type": "start",
+              "from_index": null,
+              "to_type": "stop",
+              "to_index": 0,
+              "distance_m": 2026.744
+            },
+            {
+              "from_type": "stop",
+              "from_index": 0,
+              "to_type": "stop",
+              "to_index": 2,
+              "distance_m": 1605.941
+            },
+            {
+              "from_type": "stop",
+              "from_index": 2,
+              "to_type": "stop",
+              "to_index": 4,
+              "distance_m": 1537.07
+            },
+            {
+              "from_type": "stop",
+              "from_index": 4,
+              "to_type": "stop",
+              "to_index": 13,
+              "distance_m": 1280.033
+            },
+            {
+              "from_type": "stop",
+              "from_index": 13,
+              "to_type": "stop",
+              "to_index": 12,
+              "distance_m": 1936.351
+            },
+            {
+              "from_type": "stop",
+              "from_index": 12,
+              "to_type": "stop",
+              "to_index": 23,
+              "distance_m": 1547.372
+            },
+            {
+              "from_type": "stop",
+              "from_index": 23,
+              "to_type": "stop",
+              "to_index": 22,
+              "distance_m": 2773.024
+            },
+            {
+              "from_type": "stop",
+              "from_index": 22,
+              "to_type": "stop",
+              "to_index": 11,
+              "distance_m": 1616.92
+            },
+            {
+              "from_type": "stop",
+              "from_index": 11,
+              "to_type": "stop",
+              "to_index": 10,
+              "distance_m": 1120.612
+            },
+            {
+              "from_type": "stop",
+              "from_index": 10,
+              "to_type": "stop",
+              "to_index": 1,
+              "distance_m": 1098.332
+            },
+            {
+              "from_type": "stop",
+              "from_index": 1,
+              "to_type": "stop",
+              "to_index": 21,
+              "distance_m": 2725.111
+            },
+            {
+              "from_type": "stop",
+              "from_index": 21,
+              "to_type": "stop",
+              "to_index": 20,
+              "distance_m": 3168.479
+            },
+            {
+              "from_type": "stop",
+              "from_index": 20,
+              "to_type": "stop",
+              "to_index": 19,
+              "distance_m": 1995.204
+            },
+            {
+              "from_type": "stop",
+              "from_index": 19,
+              "to_type": "stop",
+              "to_index": 5,
+              "distance_m": 710.425
+            },
+            {
+              "from_type": "stop",
+              "from_index": 5,
+              "to_type": "stop",
+              "to_index": 18,
+              "distance_m": 1574.4
+            },
+            {
+              "from_type": "stop",
+              "from_index": 18,
+              "to_type": "stop",
+              "to_index": 6,
+              "distance_m": 676.408
+            },
+            {
+              "from_type": "stop",
+              "from_index": 6,
+              "to_type": "stop",
+              "to_index": 17,
+              "distance_m": 881.237
+            },
+            {
+              "from_type": "stop",
+              "from_index": 17,
+              "to_type": "stop",
+              "to_index": 7,
+              "distance_m": 2215.051
+            },
+            {
+              "from_type": "stop",
+              "from_index": 7,
+              "to_type": "stop",
+              "to_index": 8,
+              "distance_m": 2810.986
+            },
+            {
+              "from_type": "stop",
+              "from_index": 8,
+              "to_type": "stop",
+              "to_index": 16,
+              "distance_m": 2743.799
+            },
+            {
+              "from_type": "stop",
+              "from_index": 16,
+              "to_type": "stop",
+              "to_index": 9,
+              "distance_m": 2403.851
+            },
+            {
+              "from_type": "stop",
+              "from_index": 9,
+              "to_type": "stop",
+              "to_index": 3,
+              "distance_m": 2778.347
+            },
+            {
+              "from_type": "stop",
+              "from_index": 3,
+              "to_type": "stop",
+              "to_index": 14,
+              "distance_m": 6194.26
+            },
+            {
+              "from_type": "stop",
+              "from_index": 14,
+              "to_type": "stop",
+              "to_index": 15,
+              "distance_m": 0.0
+            }
+          ],
+          "optimization_time_ms": 313.962,
+          "iterations": 8,
+          "swaps_applied": 7,
+          "converged": true
+        },
+        "improvement": {
+          "baseline_distance_m": 61334.02,
+          "optimized_distance_m": 47419.957,
+          "distance_saved_m": 13914.063,
+          "improvement_pct": 22.686,
+          "improved": true,
+          "non_regression": true
+        },
+        "convergence_trace": [
+          {
+            "iteration": 0,
+            "distance_m": 61334.02,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          },
+          {
+            "iteration": 1,
+            "distance_m": 56283.495,
+            "improved": true,
+            "swap_i": 20,
+            "swap_j": 21
+          },
+          {
+            "iteration": 2,
+            "distance_m": 54037.893,
+            "improved": true,
+            "swap_i": 2,
+            "swap_j": 20
+          },
+          {
+            "iteration": 3,
+            "distance_m": 52041.903,
+            "improved": true,
+            "swap_i": 13,
+            "swap_j": 21
+          },
+          {
+            "iteration": 4,
+            "distance_m": 49500.761,
+            "improved": true,
+            "swap_i": 0,
+            "swap_j": 13
+          },
+          {
+            "iteration": 5,
+            "distance_m": 48279.648,
+            "improved": true,
+            "swap_i": 9,
+            "swap_j": 10
+          },
+          {
+            "iteration": 6,
+            "distance_m": 48270.395,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 8
+          },
+          {
+            "iteration": 7,
+            "distance_m": 47419.957,
+            "improved": true,
+            "swap_i": 6,
+            "swap_j": 9
+          },
+          {
+            "iteration": 8,
+            "distance_m": 47419.957,
+            "improved": false,
+            "swap_i": null,
+            "swap_j": null
+          }
+        ],
+        "matrix_generation_time_ms": 10.107,
+        "total_time_ms": 314.296,
+        "cache_used": true,
+        "cache_status": "hit",
+        "cache_hits": 1,
+        "cache_misses": 0
+      },
+      "stop_count": 24,
+      "return_to_start": false,
+      "expected_leg_count": 24,
+      "greedy_order_valid": true,
+      "two_opt_order_valid": true,
+      "greedy_leg_count_valid": true,
+      "two_opt_leg_count_valid": true,
+      "non_regression": true,
+      "greedy_distance_m": 61334.02,
+      "two_opt_distance_m": 47419.957,
+      "distance_saved_m": 13914.063,
+      "improvement_pct": 22.686,
+      "greedy_optimization_time_ms": 0.256,
+      "two_opt_optimization_time_ms": 313.962,
+      "two_opt_iterations": 8,
+      "two_opt_swaps_applied": 7,
+      "two_opt_converged": true,
+      "matrix_generation_time_ms": 10.107,
+      "response_total_time_ms": 314.296,
+      "cache_used": true,
+      "cache_hits": 1,
+      "cache_misses": 0
+    }
+  ]
+}
