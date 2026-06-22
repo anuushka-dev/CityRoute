@@ -1,0 +1,58 @@
+{
+  "phase": "tier2_phase7_1",
+  "benchmark": "cache_observability_cold_warm_vrp",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "run_id": "bfc6f13e",
+  "location_count": 6,
+  "stop_count": 5,
+  "algorithm": "source_dijkstra",
+  "validations": {
+    "cold_matrix_cache_miss": true,
+    "warm_matrix_cache_hit": true,
+    "vrp_compare_cache_hit": false,
+    "vrp_compare_cache_hits_positive": false,
+    "vrp_compare_cache_misses_zero": false,
+    "vrp_non_regression": true
+  },
+  "cold_matrix": {
+    "http_elapsed_ms": 381.708,
+    "generation_time_ms": 325.76,
+    "cache": {
+      "enabled": true,
+      "hit": false,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:38aea84b56ebb692a5fa44b1e7aef19e732b8edfd7283f536f4630c94fb24c4f",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "warm_matrix": {
+    "http_elapsed_ms": 11.097,
+    "generation_time_ms": 3.321,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:38aea84b56ebb692a5fa44b1e7aef19e732b8edfd7283f536f4630c94fb24c4f",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "vrp_compare": {
+    "http_elapsed_ms": 253.621,
+    "matrix_generation_time_ms": 228.409,
+    "total_time_ms": 0.61,
+    "cache_used": true,
+    "cache_status": "miss",
+    "cache_hits": 0,
+    "cache_misses": 1,
+    "greedy_distance_m": 11229.898,
+    "two_opt_distance_m": 11229.898,
+    "distance_saved_m": 0.0,
+    "improvement_pct": 0.0,
+    "non_regression": true
+  },
+  "speedups": {
+    "cold_matrix_to_warm_matrix_generation": 98.091,
+    "cold_matrix_to_vrp_matrix_generation": 1.426
+  }
+}

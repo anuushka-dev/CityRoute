@@ -9,6 +9,7 @@ from app.api.graph import router as graph_router
 from app.api.health import router as health_router
 from app.api.matrix import router as matrix_router
 from app.api.route import router as route_router
+from app.api.vrp import router as vrp_router
 from app.config import settings
 from app.services.graph_service import load_or_download_graph
 from app.utils.logger import get_logger, setup_logging
@@ -97,6 +98,7 @@ app.include_router(health_router, tags=["Health"])
 app.include_router(graph_router, tags=["Graph"])
 app.include_router(route_router, tags=["Route"])
 app.include_router(matrix_router)
+app.include_router(vrp_router)
 
 
 @app.get("/")
@@ -109,6 +111,9 @@ def root():
         "health": "/health",
         "graph_stats": "/graph/stats",
         "route": "/route",
+        "route_compare": "/route/compare",
         "matrix": "/matrix",
-        "phase": "Tier 2 Phase 5 - Distance Matrix Service",
+        "vrp_greedy": "/vrp/greedy",
+        "vrp_compare": "/vrp/compare",
+        "phase": "Tier 2 Phase 7 - 2-Opt VRP Optimization",
     }

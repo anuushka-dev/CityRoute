@@ -1,0 +1,258 @@
+﻿CityRoute Phase 7.1 Raw Benchmark Evidence Dump
+Generated: 2026-06-22 16:51:41
+
+
+============================================================
+FILE: C:\MYDOWNLOADS\MYPROJECT\CityRoute\benchmarks\phase_7_1\docker_results\phase7_1_cache_observability_docker_59cc8d64.json
+============================================================
+
+{
+  "phase": "tier2_phase7_1",
+  "benchmark": "cache_observability_cold_warm_vrp",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "run_id": "59cc8d64",
+  "location_count": 6,
+  "stop_count": 5,
+  "algorithm": "source_dijkstra",
+  "all_validations_passed": true,
+  "validations": {
+    "cold_matrix_cache_miss": true,
+    "warm_matrix_cache_hit": true,
+    "vrp_compare_cache_hit": true,
+    "vrp_compare_cache_hits_positive": true,
+    "vrp_compare_cache_misses_zero": true,
+    "vrp_non_regression": true
+  },
+  "cold_matrix": {
+    "http_elapsed_ms": 602.681,
+    "generation_time_ms": 585.986,
+    "cache": {
+      "enabled": true,
+      "hit": false,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "warm_matrix": {
+    "http_elapsed_ms": 10.463,
+    "generation_time_ms": 2.967,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "vrp_compare": {
+    "http_elapsed_ms": 12.414,
+    "matrix_generation_time_ms": 3.147,
+    "total_time_ms": 0.464,
+    "cache_used": true,
+    "cache_status": "hit",
+    "cache_hits": 1,
+    "cache_misses": 0,
+    "greedy_distance_m": 11229.898,
+    "two_opt_distance_m": 11229.898,
+    "distance_saved_m": 0.0,
+    "improvement_pct": 0.0,
+    "non_regression": true
+  },
+  "speedups": {
+    "cold_matrix_to_warm_matrix_generation": 197.501,
+    "cold_matrix_to_vrp_matrix_generation": 186.205
+  }
+}
+
+============================================================
+FILE: C:\MYDOWNLOADS\MYPROJECT\CityRoute\benchmarks\phase_7_1\docker_results\phase7_1_cache_observability_docker_71a95ee0.json
+============================================================
+
+{
+  "phase": "tier2_phase7_1",
+  "benchmark": "cache_observability_cold_warm_vrp",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "run_id": "71a95ee0",
+  "location_count": 6,
+  "stop_count": 5,
+  "algorithm": "source_dijkstra",
+  "all_validations_passed": true,
+  "validations": {
+    "cold_matrix_cache_miss": true,
+    "warm_matrix_cache_hit": true,
+    "vrp_compare_cache_hit": true,
+    "vrp_compare_cache_hits_positive": true,
+    "vrp_compare_cache_misses_zero": true,
+    "vrp_non_regression": true
+  },
+  "cold_matrix": {
+    "http_elapsed_ms": 360.885,
+    "generation_time_ms": 335.327,
+    "cache": {
+      "enabled": true,
+      "hit": false,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "warm_matrix": {
+    "http_elapsed_ms": 9.772,
+    "generation_time_ms": 3.131,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "vrp_compare": {
+    "http_elapsed_ms": 18.558,
+    "matrix_generation_time_ms": 3.316,
+    "total_time_ms": 0.365,
+    "cache_used": true,
+    "cache_status": "hit",
+    "cache_hits": 1,
+    "cache_misses": 0,
+    "greedy_distance_m": 11229.898,
+    "two_opt_distance_m": 11229.898,
+    "distance_saved_m": 0.0,
+    "improvement_pct": 0.0,
+    "non_regression": true
+  },
+  "speedups": {
+    "cold_matrix_to_warm_matrix_generation": 107.099,
+    "cold_matrix_to_vrp_matrix_generation": 101.124
+  }
+}
+
+============================================================
+FILE: C:\MYDOWNLOADS\MYPROJECT\CityRoute\benchmarks\phase_7_1\docker_results\phase7_1_cache_observability_docker_bfc6f13e.json
+============================================================
+
+{
+  "phase": "tier2_phase7_1",
+  "benchmark": "cache_observability_cold_warm_vrp",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "run_id": "bfc6f13e",
+  "location_count": 6,
+  "stop_count": 5,
+  "algorithm": "source_dijkstra",
+  "validations": {
+    "cold_matrix_cache_miss": true,
+    "warm_matrix_cache_hit": true,
+    "vrp_compare_cache_hit": false,
+    "vrp_compare_cache_hits_positive": false,
+    "vrp_compare_cache_misses_zero": false,
+    "vrp_non_regression": true
+  },
+  "cold_matrix": {
+    "http_elapsed_ms": 381.708,
+    "generation_time_ms": 325.76,
+    "cache": {
+      "enabled": true,
+      "hit": false,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:38aea84b56ebb692a5fa44b1e7aef19e732b8edfd7283f536f4630c94fb24c4f",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "warm_matrix": {
+    "http_elapsed_ms": 11.097,
+    "generation_time_ms": 3.321,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:38aea84b56ebb692a5fa44b1e7aef19e732b8edfd7283f536f4630c94fb24c4f",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "vrp_compare": {
+    "http_elapsed_ms": 253.621,
+    "matrix_generation_time_ms": 228.409,
+    "total_time_ms": 0.61,
+    "cache_used": true,
+    "cache_status": "miss",
+    "cache_hits": 0,
+    "cache_misses": 1,
+    "greedy_distance_m": 11229.898,
+    "two_opt_distance_m": 11229.898,
+    "distance_saved_m": 0.0,
+    "improvement_pct": 0.0,
+    "non_regression": true
+  },
+  "speedups": {
+    "cold_matrix_to_warm_matrix_generation": 98.091,
+    "cold_matrix_to_vrp_matrix_generation": 1.426
+  }
+}
+
+============================================================
+FILE: C:\MYDOWNLOADS\MYPROJECT\CityRoute\benchmarks\phase_7_1\docker_results\phase7_1_cache_observability_docker_latest.json
+============================================================
+
+{
+  "phase": "tier2_phase7_1",
+  "benchmark": "cache_observability_cold_warm_vrp",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "run_id": "71a95ee0",
+  "location_count": 6,
+  "stop_count": 5,
+  "algorithm": "source_dijkstra",
+  "all_validations_passed": true,
+  "validations": {
+    "cold_matrix_cache_miss": true,
+    "warm_matrix_cache_hit": true,
+    "vrp_compare_cache_hit": true,
+    "vrp_compare_cache_hits_positive": true,
+    "vrp_compare_cache_misses_zero": true,
+    "vrp_non_regression": true
+  },
+  "cold_matrix": {
+    "http_elapsed_ms": 360.885,
+    "generation_time_ms": 335.327,
+    "cache": {
+      "enabled": true,
+      "hit": false,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "warm_matrix": {
+    "http_elapsed_ms": 9.772,
+    "generation_time_ms": 3.131,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:056dc7405796b5cb28de14e1f001e6227b32c59766212feafe07ee8a338cfca2",
+      "ttl_seconds": 86400,
+      "error": null
+    }
+  },
+  "vrp_compare": {
+    "http_elapsed_ms": 18.558,
+    "matrix_generation_time_ms": 3.316,
+    "total_time_ms": 0.365,
+    "cache_used": true,
+    "cache_status": "hit",
+    "cache_hits": 1,
+    "cache_misses": 0,
+    "greedy_distance_m": 11229.898,
+    "two_opt_distance_m": 11229.898,
+    "distance_saved_m": 0.0,
+    "improvement_pct": 0.0,
+    "non_regression": true
+  },
+  "speedups": {
+    "cold_matrix_to_warm_matrix_generation": 107.099,
+    "cold_matrix_to_vrp_matrix_generation": 101.124
+  }
+}
