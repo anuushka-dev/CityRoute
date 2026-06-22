@@ -1,6 +1,0 @@
-﻿/
-/graph/snap
-/graph/stats
-/graph/validate
-/health
-/route
