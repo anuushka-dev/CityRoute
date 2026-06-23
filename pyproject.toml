@@ -1,0 +1,24 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+    ".venv",
+    "benchmarks",
+    "data",
+    "cache",
+]
+
+[tool.ruff.lint]
+# Pyflakes (F), pycodestyle errors (E), import sorting (I), and pyupgrade (UP).
+select = ["E", "F", "I", "UP"]
+# E501: line length is enforced by the formatter, not the linter.
+# UP038: rewriting isinstance(x, (a, b)) into union form is contentious (and the rule
+#        was later deprecated upstream); the tuple form is kept for clarity.
+ignore = ["E501", "UP038"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
