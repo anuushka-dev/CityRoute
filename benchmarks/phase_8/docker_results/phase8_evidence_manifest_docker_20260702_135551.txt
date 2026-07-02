@@ -1,0 +1,675 @@
+CityRoute tier3_phase8 Evidence Manifest
+Created UTC: 2026-07-02T08:25:17.712809+00:00
+Mode: docker
+Base URL: http://127.0.0.1:8001
+
+Audit flags:
+{
+  "advanced_endpoint_available": true,
+  "all_expected_source_files_exist": true,
+  "graph_loaded": true,
+  "graph_stats_loaded": true,
+  "health_ok": true,
+  "ruff_ok": true
+}
+
+OpenAPI paths:
+/
+/graph/snap
+/graph/stats
+/graph/validate
+/health
+/matrix
+/route
+/route/compare
+/vrp/compare
+/vrp/compare/advanced
+/vrp/greedy
+
+Expected source files:
+{
+  "app/api/vrp.py": true,
+  "app/core/lns.py": true,
+  "app/schemas/vrp_advanced_compare.py": true,
+  "app/services/vrp_advanced_compare_service.py": true,
+  "benchmarks/phase_8/phase8_evidence_collector.py": true,
+  "benchmarks/phase_8/phase8_lns_benchmark.py": true,
+  "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py": true,
+  "tests/test_lns.py": true,
+  "tests/test_vrp_advanced_compare_endpoint.py": true
+}
+
+Latest benchmark summaries:
+{
+  "latest_lns_benchmark_summaries": [
+    {
+      "created_at_utc": "2026-07-02T08:20:12.118821+00:00",
+      "endpoint": "/vrp/compare/advanced",
+      "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_135012.json",
+      "group_summaries": {
+        "10_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 25.626,
+            "median": 21.306,
+            "p95": 24.854
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 7.651,
+            "median": 6.773,
+            "p95": 7.645
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 8.344,
+            "median": 8.344
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.854,
+            "median": 0.854
+          },
+          "response_elapsed_ms": {
+            "max": 47.276,
+            "median": 33.352,
+            "p95": 46.238
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "15_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 47.58,
+            "median": 44.167,
+            "p95": 47.06
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 16.543,
+            "median": 15.801,
+            "p95": 16.528
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 10.751,
+            "median": 10.751
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 1.949,
+            "median": 1.949
+          },
+          "response_elapsed_ms": {
+            "max": 67.71,
+            "median": 55.496,
+            "p95": 67.419
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "24_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 247.89,
+            "median": 235.327,
+            "p95": 246.981
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 65.832,
+            "median": 53.34,
+            "p95": 64.91
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 12.284,
+            "median": 12.284
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 2.952,
+            "median": 2.952
+          },
+          "response_elapsed_ms": {
+            "max": 266.083,
+            "median": 251.179,
+            "p95": 264.013
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "5_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 7.86,
+            "median": 7.283,
+            "p95": 7.774
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 2.237,
+            "median": 2.078,
+            "p95": 2.216
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 9.38,
+            "median": 9.38
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 36.617,
+            "median": 30.778,
+            "p95": 35.533
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        }
+      },
+      "mode": "docker",
+      "overall": {
+        "all_groups_have_success": true,
+        "all_successes_lns_non_regression": true,
+        "all_successes_two_opt_non_regression": true,
+        "group_count": 4,
+        "successful_group_count": 4
+      },
+      "return_to_start": true,
+      "sizes": [
+        5,
+        10,
+        15,
+        24
+      ]
+    },
+    {
+      "created_at_utc": "2026-07-02T08:18:56.569728+00:00",
+      "endpoint": "/vrp/compare/advanced",
+      "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134856.json",
+      "group_summaries": {
+        "10_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 26.832,
+            "median": 22.946,
+            "p95": 26.613
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 11.618,
+            "median": 9.167,
+            "p95": 11.463
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 4.667,
+            "median": 4.667
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 43.131,
+            "median": 33.521,
+            "p95": 41.593
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "15_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 43.106,
+            "median": 41.687,
+            "p95": 43.036
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 14.71,
+            "median": 13.367,
+            "p95": 14.633
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 11.069,
+            "median": 11.069
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.616,
+            "median": 0.616
+          },
+          "response_elapsed_ms": {
+            "max": 67.048,
+            "median": 62.831,
+            "p95": 66.305
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "24_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 232.24,
+            "median": 212.973,
+            "p95": 231.661
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 61.968,
+            "median": 55.013,
+            "p95": 61.02
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 13.611,
+            "median": 13.611
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 3.11,
+            "median": 3.11
+          },
+          "response_elapsed_ms": {
+            "max": 260.381,
+            "median": 220.568,
+            "p95": 256.188
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "5_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 8.699,
+            "median": 8.058,
+            "p95": 8.616
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 2.459,
+            "median": 2.337,
+            "p95": 2.453
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 2.368,
+            "median": 2.368
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 40.691,
+            "median": 16.99,
+            "p95": 37.783
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        }
+      },
+      "mode": "docker",
+      "overall": {
+        "all_groups_have_success": true,
+        "all_successes_lns_non_regression": true,
+        "all_successes_two_opt_non_regression": true,
+        "group_count": 4,
+        "successful_group_count": 4
+      },
+      "return_to_start": false,
+      "sizes": [
+        5,
+        10,
+        15,
+        24
+      ]
+    },
+    {
+      "created_at_utc": "2026-07-02T08:15:38.715757+00:00",
+      "endpoint": "/vrp/compare/advanced",
+      "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_134538.json",
+      "group_summaries": {
+        "10_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 22.763,
+            "median": 21.455,
+            "p95": 22.515
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 8.047,
+            "median": 7.228,
+            "p95": 7.945
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 8.344,
+            "median": 8.344
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.854,
+            "median": 0.854
+          },
+          "response_elapsed_ms": {
+            "max": 46.585,
+            "median": 28.589,
+            "p95": 43.451
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "15_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 49.159,
+            "median": 45.377,
+            "p95": 48.425
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 17.179,
+            "median": 15.287,
+            "p95": 16.945
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 10.751,
+            "median": 10.751
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 1.949,
+            "median": 1.949
+          },
+          "response_elapsed_ms": {
+            "max": 56.748,
+            "median": 53.442,
+            "p95": 56.13
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "24_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 232.457,
+            "median": 202.505,
+            "p95": 227.502
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 55.019,
+            "median": 48.445,
+            "p95": 54.056
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 12.284,
+            "median": 12.284
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 2.952,
+            "median": 2.952
+          },
+          "response_elapsed_ms": {
+            "max": 253.563,
+            "median": 214.317,
+            "p95": 246.403
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "5_stops_return": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 8.4,
+            "median": 8.181,
+            "p95": 8.372
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 3.256,
+            "median": 2.9,
+            "p95": 3.196
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 9.38,
+            "median": 9.38
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 39.024,
+            "median": 15.823,
+            "p95": 34.473
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        }
+      },
+      "mode": "docker",
+      "overall": {
+        "all_groups_have_success": true,
+        "all_successes_lns_non_regression": true,
+        "all_successes_two_opt_non_regression": true,
+        "group_count": 4,
+        "successful_group_count": 4
+      },
+      "return_to_start": true,
+      "sizes": [
+        5,
+        10,
+        15,
+        24
+      ]
+    },
+    {
+      "created_at_utc": "2026-07-02T08:15:28.529507+00:00",
+      "endpoint": "/vrp/compare/advanced",
+      "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134528.json",
+      "group_summaries": {
+        "10_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 197.335,
+            "median": 20.371,
+            "p95": 161.975
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 7.962,
+            "median": 7.691,
+            "p95": 7.926
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 4.667,
+            "median": 4.667
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 204.149,
+            "median": 27.466,
+            "p95": 168.91
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "15_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 419.922,
+            "median": 41.995,
+            "p95": 344.372
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 14.739,
+            "median": 13.867,
+            "p95": 14.693
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 11.069,
+            "median": 11.069
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.616,
+            "median": 0.616
+          },
+          "response_elapsed_ms": {
+            "max": 426.589,
+            "median": 49.84,
+            "p95": 351.261
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "24_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 780.679,
+            "median": 195.463,
+            "p95": 666.26
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 57.151,
+            "median": 47.262,
+            "p95": 55.509
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 13.611,
+            "median": 13.611
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 3.11,
+            "median": 3.11
+          },
+          "response_elapsed_ms": {
+            "max": 792.013,
+            "median": 205.561,
+            "p95": 677.223
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        },
+        "5_stops_open": {
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true,
+          "api_total_time_ms": {
+            "max": 10.112,
+            "median": 8.482,
+            "p95": 9.997
+          },
+          "attempt_count": 5,
+          "failure_count": 0,
+          "failures": [],
+          "lns_optimization_time_ms": {
+            "max": 3.049,
+            "median": 2.618,
+            "p95": 2.969
+          },
+          "lns_vs_greedy_improvement_pct": {
+            "best": 2.368,
+            "median": 2.368
+          },
+          "lns_vs_two_opt_improvement_pct": {
+            "best": 0.0,
+            "median": 0.0
+          },
+          "response_elapsed_ms": {
+            "max": 19.586,
+            "median": 17.379,
+            "p95": 19.288
+          },
+          "success_count": 5,
+          "success_rate_pct": 100.0
+        }
+      },
+      "mode": "docker",
+      "overall": {
+        "all_groups_have_success": true,
+        "all_successes_lns_non_regression": true,
+        "all_successes_two_opt_non_regression": true,
+        "group_count": 4,
+        "successful_group_count": 4
+      },
+      "return_to_start": false,
+      "sizes": [
+        5,
+        10,
+        15,
+        24
+      ]
+    }
+  ],
+  "latest_optimality_gap_summaries": [
+    {
+      "case_count": 6,
+      "created_at_utc": "2026-07-02T08:24:43.969415+00:00",
+      "file": "benchmarks/phase_8/docker_results/phase8_lns_optimality_gap_summary_docker_20260702_135443.json",
+      "gap_summary_pct": {
+        "greedy_best": 1.851,
+        "greedy_worst": 10.35,
+        "lns_best": 0.0,
+        "lns_worst": 0.0,
+        "two_opt_best": 0.0,
+        "two_opt_worst": 0.0
+      },
+      "mode": "docker",
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_lns_at_or_above_exact": true,
+        "all_lns_non_regression": true,
+        "all_two_opt_non_regression": true
+      },
+      "sizes": [
+        5,
+        6,
+        7
+      ],
+      "success_count": 6,
+      "success_rate_pct": 100.0
+    }
+  ]
+}

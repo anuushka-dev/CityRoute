@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: cityroute-api:tier2-phase7
-    container_name: cityroute-api-tier2-phase-7
+    image: cityroute-api:tier3-phase8
+    container_name: cityroute-api-tier3-phase8
     ports:
       - "8001:8000"
     env_file:
@@ -12,7 +12,7 @@ services:
     environment:
       CITYROUTE_REDIS_URL: redis://redis:6379/0
       CITYROUTE_ENVIRONMENT: docker
-      WEB_CONCURRENCY: "2"
+      WEB_CONCURRENCY: "1"
     volumes:
       - ./data:/app/data
     depends_on:
@@ -28,7 +28,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: cityroute-redis-tier2-phase-7
+    container_name: cityroute-redis-tier3-phase8
     # Redis is only reachable on the internal compose network, NOT published to the
     # host. Publishing 6379 exposed an unauthenticated cache to the host/LAN.
     expose:

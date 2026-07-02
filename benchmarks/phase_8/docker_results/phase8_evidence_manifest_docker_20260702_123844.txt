@@ -1,0 +1,36 @@
+CityRoute tier3_phase8 Evidence Manifest
+Created UTC: 2026-07-02T07:06:55.227850+00:00
+Mode: docker
+Base URL: http://127.0.0.1:8001
+
+Audit flags:
+{
+  "advanced_endpoint_available": false,
+  "all_expected_source_files_exist": true,
+  "graph_loaded": false,
+  "graph_stats_loaded": false,
+  "health_ok": false,
+  "ruff_ok": false
+}
+
+OpenAPI paths:
+
+
+Expected source files:
+{
+  "app/api/vrp.py": true,
+  "app/core/lns.py": true,
+  "app/schemas/vrp_advanced_compare.py": true,
+  "app/services/vrp_advanced_compare_service.py": true,
+  "benchmarks/phase_8/phase8_evidence_collector.py": true,
+  "benchmarks/phase_8/phase8_lns_benchmark.py": true,
+  "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py": true,
+  "tests/test_lns.py": true,
+  "tests/test_vrp_advanced_compare_endpoint.py": true
+}
+
+Latest benchmark summaries:
+{
+  "latest_lns_benchmark_summaries": [],
+  "latest_optimality_gap_summaries": []
+}

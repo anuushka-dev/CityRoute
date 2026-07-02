@@ -9,6 +9,10 @@ from starlette.concurrency import run_in_threadpool
 
 from app.models.matrix_model import MatrixRequest
 from app.schemas.vrp import GreedyRouteRequest, GreedyRouteResponse
+from app.schemas.vrp_advanced_compare import (
+    AdvancedCompareRequest,
+    AdvancedCompareResponse,
+)
 from app.schemas.vrp_compare import VrpCompareRequest, VrpCompareResponse
 from app.services.greedy_service import (
     GreedyNoPathError,
@@ -16,6 +20,7 @@ from app.services.greedy_service import (
     solve_greedy_baseline,
 )
 from app.services.matrix_service import build_distance_matrix_response
+from app.services.vrp_advanced_compare_service import build_advanced_compare_response
 from app.services.vrp_compare_service import (
     VrpCompareServiceError,
     compute_vrp_compare,
@@ -182,6 +187,62 @@ async def compare_vrp(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail={
                 "error": "VRP compare internal error",
+                "message": str(exc),
+                "type": type(exc).__name__,
+            },
+        ) from exc
+
+
+@router.post("/compare/advanced", response_model=AdvancedCompareResponse)
+async def compare_vrp_advanced(
+    payload: AdvancedCompareRequest,
+    request: Request,
+) -> AdvancedCompareResponse:
+    """
+    Tier 3 Phase 8 endpoint.
+
+    Runs:
+    1. Greedy baseline
+    2. 2-Opt local improvement
+    3. LNS destroy/repair improvement
+
+    Existing /vrp/compare is intentionally kept unchanged for Phase 7 stability.
+    """
+    _ensure_graph_ready(request)
+
+    try:
+        return await build_advanced_compare_response(
+            request=request,
+            payload=payload,
+        )
+
+    # Preserve graph/matrix HTTP errors exactly.
+    except HTTPException:
+        raise
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={
+                "error": "Invalid advanced VRP compare input",
+                "message": str(exc),
+            },
+        ) from exc
+
+    except RuntimeError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail={
+                "error": "Advanced VRP compare dependency unavailable",
+                "message": str(exc),
+            },
+        ) from exc
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail={
+                "error": "Advanced VRP compare internal error",
                 "message": str(exc),
                 "type": type(exc).__name__,
             },

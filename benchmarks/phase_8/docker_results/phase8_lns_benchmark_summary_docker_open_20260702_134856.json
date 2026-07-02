@@ -1,0 +1,194 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "benchmark": "lns_advanced_compare",
+  "created_at_utc": "2026-07-02T08:18:56.569728+00:00",
+  "endpoint": "/vrp/compare/advanced",
+  "group_summaries": {
+    "10_stops_open": {
+      "all_lns_non_regression": true,
+      "all_two_opt_non_regression": true,
+      "api_total_time_ms": {
+        "max": 26.832,
+        "median": 22.946,
+        "p95": 26.613
+      },
+      "attempt_count": 5,
+      "failure_count": 0,
+      "failures": [],
+      "lns_optimization_time_ms": {
+        "max": 11.618,
+        "median": 9.167,
+        "p95": 11.463
+      },
+      "lns_vs_greedy_improvement_pct": {
+        "best": 4.667,
+        "median": 4.667
+      },
+      "lns_vs_two_opt_improvement_pct": {
+        "best": 0.0,
+        "median": 0.0
+      },
+      "response_elapsed_ms": {
+        "max": 43.131,
+        "median": 33.521,
+        "p95": 41.593
+      },
+      "success_count": 5,
+      "success_rate_pct": 100.0
+    },
+    "15_stops_open": {
+      "all_lns_non_regression": true,
+      "all_two_opt_non_regression": true,
+      "api_total_time_ms": {
+        "max": 43.106,
+        "median": 41.687,
+        "p95": 43.036
+      },
+      "attempt_count": 5,
+      "failure_count": 0,
+      "failures": [],
+      "lns_optimization_time_ms": {
+        "max": 14.71,
+        "median": 13.367,
+        "p95": 14.633
+      },
+      "lns_vs_greedy_improvement_pct": {
+        "best": 11.069,
+        "median": 11.069
+      },
+      "lns_vs_two_opt_improvement_pct": {
+        "best": 0.616,
+        "median": 0.616
+      },
+      "response_elapsed_ms": {
+        "max": 67.048,
+        "median": 62.831,
+        "p95": 66.305
+      },
+      "success_count": 5,
+      "success_rate_pct": 100.0
+    },
+    "24_stops_open": {
+      "all_lns_non_regression": true,
+      "all_two_opt_non_regression": true,
+      "api_total_time_ms": {
+        "max": 232.24,
+        "median": 212.973,
+        "p95": 231.661
+      },
+      "attempt_count": 5,
+      "failure_count": 0,
+      "failures": [],
+      "lns_optimization_time_ms": {
+        "max": 61.968,
+        "median": 55.013,
+        "p95": 61.02
+      },
+      "lns_vs_greedy_improvement_pct": {
+        "best": 13.611,
+        "median": 13.611
+      },
+      "lns_vs_two_opt_improvement_pct": {
+        "best": 3.11,
+        "median": 3.11
+      },
+      "response_elapsed_ms": {
+        "max": 260.381,
+        "median": 220.568,
+        "p95": 256.188
+      },
+      "success_count": 5,
+      "success_rate_pct": 100.0
+    },
+    "5_stops_open": {
+      "all_lns_non_regression": true,
+      "all_two_opt_non_regression": true,
+      "api_total_time_ms": {
+        "max": 8.699,
+        "median": 8.058,
+        "p95": 8.616
+      },
+      "attempt_count": 5,
+      "failure_count": 0,
+      "failures": [],
+      "lns_optimization_time_ms": {
+        "max": 2.459,
+        "median": 2.337,
+        "p95": 2.453
+      },
+      "lns_vs_greedy_improvement_pct": {
+        "best": 2.368,
+        "median": 2.368
+      },
+      "lns_vs_two_opt_improvement_pct": {
+        "best": 0.0,
+        "median": 0.0
+      },
+      "response_elapsed_ms": {
+        "max": 40.691,
+        "median": 16.99,
+        "p95": 37.783
+      },
+      "success_count": 5,
+      "success_rate_pct": 100.0
+    }
+  },
+  "iterations_per_size": 5,
+  "keep_trace": false,
+  "lns_settings": {
+    "lns_destroy_fraction": 0.3,
+    "lns_max_iterations": 500,
+    "lns_no_improvement_limit": 100,
+    "seed_base": 42
+  },
+  "matrix_algorithm": "source_dijkstra",
+  "mode": "docker",
+  "overall": {
+    "all_groups_have_success": true,
+    "all_successes_lns_non_regression": true,
+    "all_successes_two_opt_non_regression": true,
+    "group_count": 4,
+    "successful_group_count": 4
+  },
+  "phase": "tier3_phase8",
+  "preflight": {
+    "advanced_endpoint_available": true,
+    "graph_stats": {
+      "city": "Kanpur Central, Uttar Pradesh, India",
+      "edges": 34996,
+      "graph_file_size_mb": 12.74,
+      "graph_loaded": true,
+      "graph_path": "data/graphs/kanpur_central.graphml",
+      "is_weakly_connected": true,
+      "largest_component_nodes": 12969,
+      "load_time_s": 3.343,
+      "memory_mb": 386.4,
+      "nodes": 12969,
+      "snap_index_build_time_ms": 26.93,
+      "snap_index_import_error": null,
+      "snap_index_loaded": true,
+      "snap_index_method": "balltree",
+      "weakly_connected_components": 1
+    },
+    "graph_stats_ok": true,
+    "health": {
+      "graph_loaded": true,
+      "status": "ok",
+      "uptime_s": 355.958
+    },
+    "health_ok": true,
+    "openapi_ok": true
+  },
+  "return_to_start": false,
+  "sizes": [
+    5,
+    10,
+    15,
+    24
+  ],
+  "two_opt_settings": {
+    "two_opt_improvement_tolerance_m": 0.001,
+    "two_opt_max_iterations": 100
+  },
+  "use_cache": true
+}

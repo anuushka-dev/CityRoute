@@ -1,0 +1,633 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "case_count": 6,
+  "cases": [
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 78.223,
+        "lns_vs_greedy_improvement_pct": 2.368,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 78.223,
+        "two_opt_vs_greedy_improvement_pct": 2.368
+      },
+      "exact": {
+        "exact_distance_m": 3225.561,
+        "exact_order": [
+          0,
+          4,
+          1,
+          2,
+          3
+        ],
+        "permutations_evaluated": 120,
+        "reachable_permutations": 120
+      },
+      "greedy": {
+        "distance_m": 3303.784,
+        "gap_to_exact_pct": 2.425,
+        "order": [
+          0,
+          1,
+          4,
+          2,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 3225.561,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          4,
+          1,
+          2,
+          3
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": false,
+      "seed": 542,
+      "stage": "complete",
+      "stop_count": 5,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 16.557,
+        "api_total_time_ms": 8.171,
+        "exact_elapsed_ms": 0.513,
+        "lns_optimization_time_ms": 2.735,
+        "matrix_elapsed_ms": 14.012,
+        "matrix_generation_time_ms": 3.202
+      },
+      "two_opt": {
+        "distance_m": 3225.561,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          4,
+          1,
+          2,
+          3
+        ]
+      },
+      "use_cache": true
+    },
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 490.375,
+        "lns_vs_greedy_improvement_pct": 9.38,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 490.375,
+        "two_opt_vs_greedy_improvement_pct": 9.38
+      },
+      "exact": {
+        "exact_distance_m": 4737.744,
+        "exact_order": [
+          0,
+          4,
+          3,
+          2,
+          1
+        ],
+        "permutations_evaluated": 120,
+        "reachable_permutations": 120
+      },
+      "greedy": {
+        "distance_m": 5228.119,
+        "gap_to_exact_pct": 10.35,
+        "order": [
+          0,
+          1,
+          4,
+          2,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 4737.744,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          4,
+          3,
+          2,
+          1
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": true,
+      "seed": 543,
+      "stage": "complete",
+      "stop_count": 5,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 17.271,
+        "api_total_time_ms": 8.618,
+        "exact_elapsed_ms": 0.425,
+        "lns_optimization_time_ms": 2.621,
+        "matrix_elapsed_ms": 10.637,
+        "matrix_generation_time_ms": 3.004
+      },
+      "two_opt": {
+        "distance_m": 4737.744,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          4,
+          3,
+          2,
+          1
+        ]
+      },
+      "use_cache": true
+    },
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 78.223,
+        "lns_vs_greedy_improvement_pct": 1.817,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 78.223,
+        "two_opt_vs_greedy_improvement_pct": 1.817
+      },
+      "exact": {
+        "exact_distance_m": 4225.696,
+        "exact_order": [
+          0,
+          4,
+          5,
+          1,
+          2,
+          3
+        ],
+        "permutations_evaluated": 720,
+        "reachable_permutations": 720
+      },
+      "greedy": {
+        "distance_m": 4303.919,
+        "gap_to_exact_pct": 1.851,
+        "order": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 4225.696,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          4,
+          5,
+          1,
+          2,
+          3
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": false,
+      "seed": 642,
+      "stage": "complete",
+      "stop_count": 6,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 16.17,
+        "api_total_time_ms": 8.585,
+        "exact_elapsed_ms": 2.066,
+        "lns_optimization_time_ms": 2.719,
+        "matrix_elapsed_ms": 288.566,
+        "matrix_generation_time_ms": 2.955
+      },
+      "two_opt": {
+        "distance_m": 4225.696,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          4,
+          5,
+          1,
+          2,
+          3
+        ]
+      },
+      "use_cache": true
+    },
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 384.492,
+        "lns_vs_greedy_improvement_pct": 6.173,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 384.492,
+        "two_opt_vs_greedy_improvement_pct": 6.173
+      },
+      "exact": {
+        "exact_distance_m": 5843.762,
+        "exact_order": [
+          0,
+          3,
+          2,
+          1,
+          5,
+          4
+        ],
+        "permutations_evaluated": 720,
+        "reachable_permutations": 720
+      },
+      "greedy": {
+        "distance_m": 6228.254,
+        "gap_to_exact_pct": 6.58,
+        "order": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 5843.762,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          3,
+          2,
+          1,
+          5,
+          4
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": true,
+      "seed": 643,
+      "stage": "complete",
+      "stop_count": 6,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 17.934,
+        "api_total_time_ms": 10.102,
+        "exact_elapsed_ms": 2.172,
+        "lns_optimization_time_ms": 3.542,
+        "matrix_elapsed_ms": 9.911,
+        "matrix_generation_time_ms": 3.024
+      },
+      "two_opt": {
+        "distance_m": 5843.762,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          3,
+          2,
+          1,
+          5,
+          4
+        ]
+      },
+      "use_cache": true
+    },
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 232.616,
+        "lns_vs_greedy_improvement_pct": 4.736,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 232.616,
+        "two_opt_vs_greedy_improvement_pct": 4.736
+      },
+      "exact": {
+        "exact_distance_m": 4678.817,
+        "exact_order": [
+          0,
+          4,
+          5,
+          1,
+          6,
+          2,
+          3
+        ],
+        "permutations_evaluated": 5040,
+        "reachable_permutations": 5040
+      },
+      "greedy": {
+        "distance_m": 4911.433,
+        "gap_to_exact_pct": 4.972,
+        "order": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          6,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 4678.817,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          4,
+          5,
+          1,
+          6,
+          2,
+          3
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": false,
+      "seed": 742,
+      "stage": "complete",
+      "stop_count": 7,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 21.433,
+        "api_total_time_ms": 13.032,
+        "exact_elapsed_ms": 13.819,
+        "lns_optimization_time_ms": 5.654,
+        "matrix_elapsed_ms": 170.327,
+        "matrix_generation_time_ms": 3.067
+      },
+      "two_opt": {
+        "distance_m": 4678.817,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          4,
+          5,
+          1,
+          6,
+          2,
+          3
+        ]
+      },
+      "use_cache": true
+    },
+    {
+      "cache": {
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_status": "hit",
+        "cache_used": true
+      },
+      "comparison": {
+        "lns_non_regression": true,
+        "lns_vs_greedy_distance_saved_m": 538.885,
+        "lns_vs_greedy_improvement_pct": 7.883,
+        "lns_vs_two_opt_distance_saved_m": 0.0,
+        "lns_vs_two_opt_improvement_pct": 0.0,
+        "two_opt_non_regression": true,
+        "two_opt_vs_greedy_distance_saved_m": 538.885,
+        "two_opt_vs_greedy_improvement_pct": 7.883
+      },
+      "exact": {
+        "exact_distance_m": 6296.883,
+        "exact_order": [
+          0,
+          3,
+          2,
+          6,
+          1,
+          5,
+          4
+        ],
+        "permutations_evaluated": 5040,
+        "reachable_permutations": 5040
+      },
+      "greedy": {
+        "distance_m": 6835.768,
+        "gap_to_exact_pct": 8.558,
+        "order": [
+          0,
+          1,
+          4,
+          5,
+          2,
+          6,
+          3
+        ]
+      },
+      "lns": {
+        "converged": true,
+        "distance_m": 6296.883,
+        "gap_to_exact_pct": 0.0,
+        "improvements_applied": 0,
+        "iterations_run": 100,
+        "order": [
+          0,
+          3,
+          2,
+          6,
+          1,
+          5,
+          4
+        ],
+        "trace_length": 100
+      },
+      "matrix_algorithm": "source_dijkstra",
+      "non_regression": {
+        "greedy_ge_exact": true,
+        "lns_ge_exact": true,
+        "lns_non_regression": true,
+        "two_opt_ge_exact": true,
+        "two_opt_non_regression": true
+      },
+      "return_to_start": true,
+      "seed": 743,
+      "stage": "complete",
+      "stop_count": 7,
+      "success": true,
+      "timings_ms": {
+        "advanced_elapsed_ms": 18.315,
+        "api_total_time_ms": 10.799,
+        "exact_elapsed_ms": 13.548,
+        "lns_optimization_time_ms": 3.855,
+        "matrix_elapsed_ms": 33.066,
+        "matrix_generation_time_ms": 2.673
+      },
+      "two_opt": {
+        "distance_m": 6296.883,
+        "gap_to_exact_pct": 0.0,
+        "order": [
+          0,
+          3,
+          2,
+          6,
+          1,
+          5,
+          4
+        ]
+      },
+      "use_cache": true
+    }
+  ],
+  "created_at_utc": "2026-07-02T08:24:43.969415+00:00",
+  "failure_count": 0,
+  "gap_summary_pct": {
+    "greedy_best": 1.851,
+    "greedy_worst": 10.35,
+    "lns_best": 0.0,
+    "lns_worst": 0.0,
+    "two_opt_best": 0.0,
+    "two_opt_worst": 0.0
+  },
+  "keep_trace": true,
+  "matrix_algorithm": "source_dijkstra",
+  "mode": "docker",
+  "phase": "tier3_phase8",
+  "preflight": {
+    "advanced_endpoint_available": true,
+    "graph_stats": {
+      "city": "Kanpur Central, Uttar Pradesh, India",
+      "edges": 34996,
+      "graph_file_size_mb": 12.74,
+      "graph_loaded": true,
+      "graph_path": "data/graphs/kanpur_central.graphml",
+      "is_weakly_connected": true,
+      "largest_component_nodes": 12969,
+      "load_time_s": 3.343,
+      "memory_mb": 386.4,
+      "nodes": 12969,
+      "snap_index_build_time_ms": 26.93,
+      "snap_index_import_error": null,
+      "snap_index_loaded": true,
+      "snap_index_method": "balltree",
+      "weakly_connected_components": 1
+    },
+    "graph_stats_ok": true,
+    "health": {
+      "graph_loaded": true,
+      "status": "ok",
+      "uptime_s": 704.469
+    },
+    "health_ok": true,
+    "matrix_endpoint_available": true,
+    "openapi_ok": true
+  },
+  "probe": "lns_optimality_gap",
+  "quality_flags": {
+    "all_cases_successful": true,
+    "all_lns_at_or_above_exact": true,
+    "all_lns_non_regression": true,
+    "all_two_opt_non_regression": true
+  },
+  "return_modes": [
+    false,
+    true
+  ],
+  "settings": {
+    "lns_destroy_fraction": 0.3,
+    "lns_max_iterations": 500,
+    "lns_no_improvement_limit": 100,
+    "seed_base": 42,
+    "two_opt_max_iterations": 100
+  },
+  "sizes": [
+    5,
+    6,
+    7
+  ],
+  "success_count": 6,
+  "success_rate_pct": 100.0,
+  "use_cache": true
+}

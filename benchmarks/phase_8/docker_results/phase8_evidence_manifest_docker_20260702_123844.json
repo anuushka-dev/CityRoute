@@ -1,0 +1,307 @@
+{
+  "audit_flags": {
+    "advanced_endpoint_available": false,
+    "all_expected_source_files_exist": true,
+    "graph_loaded": false,
+    "graph_stats_loaded": false,
+    "health_ok": false,
+    "ruff_ok": false
+  },
+  "base_url": "http://127.0.0.1:8001",
+  "benchmarks": {
+    "latest_lns_benchmark_summaries": [],
+    "latest_optimality_gap_summaries": []
+  },
+  "collector": "phase8_evidence_collector",
+  "commands": {
+    "docker": {
+      "docker_compose_ps": {
+        "command": [
+          "docker",
+          "compose",
+          "ps"
+        ],
+        "ok": false,
+        "returncode": 1,
+        "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+        "stdout": ""
+      },
+      "docker_compose_version": {
+        "command": [
+          "docker",
+          "compose",
+          "version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Docker Compose version v5.1.4\n"
+      },
+      "docker_images_cityroute": {
+        "command": [
+          "docker",
+          "images",
+          "cityroute-api"
+        ],
+        "ok": false,
+        "returncode": 1,
+        "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+        "stdout": ""
+      },
+      "docker_ps": {
+        "command": [
+          "docker",
+          "ps"
+        ],
+        "ok": false,
+        "returncode": 1,
+        "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n",
+        "stdout": ""
+      },
+      "docker_version": {
+        "command": [
+          "docker",
+          "--version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Docker version 29.5.3, build d1c06ef\n"
+      }
+    },
+    "git": {
+      "branch": {
+        "command": [
+          "git",
+          "branch",
+          "--show-current"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "tier3-phase8-lns\n"
+      },
+      "diff_cached_stat": {
+        "command": [
+          "git",
+          "diff",
+          "--cached",
+          "--stat"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "diff_stat": {
+        "command": [
+          "git",
+          "diff",
+          "--stat"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": " app/api/vrp.py     | 61 ++++++++++++++++++++++++++++++++++++++++++++++++++++++\n docker-compose.yml |  8 +++----\n 2 files changed, 65 insertions(+), 4 deletions(-)\n"
+      },
+      "log_oneline_10": {
+        "command": [
+          "git",
+          "log",
+          "--oneline",
+          "-10"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "b497cbd chore(hardening): add metrics ci docker hardening and cache key fix\n910ace8 chore(deploy): verify Tier 2 Railway API surface\necea32e chore(deploy): trigger Tier 2 Railway redeploy\n71378d9 merge: complete Tier 2 Phase 7 two-opt vrp\na3066c8 chore(benchmarks): remove relocated phase 3 benchmark artifacts\n8871653 feat(phase7): complete two-opt vrp compare and cache telemetry\n1c8202c Add CodeQL analysis workflow configuration\nac8cb0b feat(phase6): add greedy VRP baseline and evidence\n999506b chore(evidence): reorganize Phase 3 benchmark artifacts\n03b4702 Update README.md\n"
+      },
+      "status": {
+        "command": [
+          "git",
+          "status"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "On branch tier3-phase8-lns\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   app/api/vrp.py\n\tmodified:   docker-compose.yml\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tapp/core/lns.py\n\tapp/schemas/vrp_advanced_compare.py\n\tapp/services/vrp_advanced_compare_service.py\n\tbenchmarks/phase_8/\n\ttests/test_lns.py\n\ttests/test_vrp_advanced_compare_endpoint.py\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n"
+      },
+      "status_short": {
+        "command": [
+          "git",
+          "status",
+          "--short"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": " M app/api/vrp.py\n M docker-compose.yml\n?? app/core/lns.py\n?? app/schemas/vrp_advanced_compare.py\n?? app/services/vrp_advanced_compare_service.py\n?? benchmarks/phase_8/\n?? tests/test_lns.py\n?? tests/test_vrp_advanced_compare_endpoint.py\n"
+      }
+    },
+    "python_quality": {
+      "app_import": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-c",
+          "from app.main import app; print('app import ok')"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "app import ok\n"
+      },
+      "pytest_advanced_endpoint": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/test_vrp_advanced_compare_endpoint.py",
+          "-q"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "....                                                                     [100%]\n4 passed in 85.79s (0:01:25)\n"
+      },
+      "pytest_lns": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/test_lns.py",
+          "-q"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "............                                                             [100%]\n12 passed in 0.07s\n"
+      },
+      "python_version": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Python 3.11.9\n"
+      },
+      "ruff_phase8": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "ruff",
+          "check",
+          "app/core/lns.py",
+          "tests/test_lns.py",
+          "app/schemas/vrp_advanced_compare.py",
+          "app/services/vrp_advanced_compare_service.py",
+          "app/api/vrp.py",
+          "tests/test_vrp_advanced_compare_endpoint.py",
+          "benchmarks/phase_8/phase8_lns_benchmark.py",
+          "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py",
+          "benchmarks/phase_8/phase8_evidence_collector.py"
+        ],
+        "ok": false,
+        "returncode": 1,
+        "stderr": "warning: The following rules have been removed and ignoring them has no effect:\n    - UP038\n\n",
+        "stdout": "I001 [*] Import block is un-sorted or un-formatted\n --> app\\core\\lns.py:1:1\n  |\n1 | / from __future__ import annotations\n2 | |\n3 | | from dataclasses import dataclass, field\n4 | | from random import Random\n  | |_________________________^\n  |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n --> app\\schemas\\vrp_advanced_compare.py:1:1\n  |\n1 | / from __future__ import annotations\n2 | |\n3 | | from typing import Literal\n4 | |\n5 | | from pydantic import BaseModel, Field\n  | |_____________________________________^\n  |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_8\\phase8_evidence_collector.py:1:1\n   |\n 1 | / from __future__ import annotations\n 2 | |\n 3 | | import argparse\n 4 | | import json\n 5 | | import platform\n 6 | | import subprocess\n 7 | | import sys\n 8 | | from datetime import datetime, timezone\n 9 | | from pathlib import Path\n10 | | from typing import Any\n11 | | from urllib.error import HTTPError, URLError\n12 | | from urllib.request import Request, urlopen\n   | |___________________________________________^\n   |\nhelp: Organize imports\n\nUP017 [*] Use `datetime.UTC` alias\n  --> benchmarks\\phase_8\\phase8_evidence_collector.py:20:25\n   |\n19 | def _utc_now_iso() -> str:\n20 |     return datetime.now(timezone.utc).isoformat()\n   |                         ^^^^^^^^^^^^\n   |\nhelp: Convert to `datetime.UTC` alias\n\nUP017 [*] Use `datetime.UTC` alias\n   --> benchmarks\\phase_8\\phase8_evidence_collector.py:155:24\n    |\n153 |                 \"modified_utc\": datetime.fromtimestamp(\n154 |                     stat.st_mtime,\n155 |                     tz=timezone.utc,\n    |                        ^^^^^^^^^^^^\n156 |                 ).isoformat(),\n157 |             }\n    |\nhelp: Convert to `datetime.UTC` alias\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_8\\phase8_lns_benchmark.py:1:1\n   |\n 1 | / from __future__ import annotations\n 2 | |\n 3 | | import argparse\n 4 | | import json\n 5 | | import sys\n 6 | | import time\n 7 | | from datetime import datetime, timezone\n 8 | | from pathlib import Path\n 9 | | from typing import Any\n10 | | from urllib.error import HTTPError, URLError\n11 | | from urllib.request import Request, urlopen\n   | |___________________________________________^\n   |\nhelp: Organize imports\n\nUP017 [*] Use `datetime.UTC` alias\n  --> benchmarks\\phase_8\\phase8_lns_benchmark.py:45:25\n   |\n44 | def _utc_now_iso() -> str:\n45 |     return datetime.now(timezone.utc).isoformat()\n   |                         ^^^^^^^^^^^^\n   |\nhelp: Convert to `datetime.UTC` alias\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_8\\phase8_lns_optimality_gap_probe.py:1:1\n   |\n 1 | / from __future__ import annotations\n 2 | |\n 3 | | import argparse\n 4 | | import itertools\n 5 | | import json\n 6 | | import sys\n 7 | | import time\n 8 | | from datetime import datetime, timezone\n 9 | | from pathlib import Path\n10 | | from typing import Any\n11 | | from urllib.error import HTTPError, URLError\n12 | | from urllib.request import Request, urlopen\n   | |___________________________________________^\n   |\nhelp: Organize imports\n\nUP017 [*] Use `datetime.UTC` alias\n  --> benchmarks\\phase_8\\phase8_lns_optimality_gap_probe.py:30:25\n   |\n29 | def _utc_now_iso() -> str:\n30 |     return datetime.now(timezone.utc).isoformat()\n   |                         ^^^^^^^^^^^^\n   |\nhelp: Convert to `datetime.UTC` alias\n\nFound 9 errors.\n[*] 9 fixable with the `--fix` option.\n"
+      },
+      "vrp_routes": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-c",
+          "from app.main import app; print([route.path for route in app.routes if 'vrp' in route.path])"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "['/vrp/greedy', '/vrp/compare', '/vrp/compare/advanced']\n"
+      }
+    }
+  },
+  "created_at_utc": "2026-07-02T07:06:55.227850+00:00",
+  "mode": "docker",
+  "phase": "tier3_phase8",
+  "phase8_files": [
+    {
+      "modified_utc": "2026-06-23T21:17:42.795517+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_compose_ps.txt",
+      "size_bytes": 489
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:27.213785+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_graph_stats.json",
+      "size_bytes": 1096
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:19.381006+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_health.json",
+      "size_bytes": 166
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:43.225663+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_images.txt",
+      "size_bytes": 240
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:42.980558+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_ps.txt",
+      "size_bytes": 552
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:35.297812+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_openapi_paths.txt",
+      "size_bytes": 119
+    },
+    {
+      "modified_utc": "2026-06-24T22:50:32.429810+00:00",
+      "path": "benchmarks/phase_8/phase8_evidence_collector.py",
+      "size_bytes": 15340
+    },
+    {
+      "modified_utc": "2026-06-24T22:36:35.487742+00:00",
+      "path": "benchmarks/phase_8/phase8_lns_benchmark.py",
+      "size_bytes": 18853
+    },
+    {
+      "modified_utc": "2026-06-24T22:41:15.758305+00:00",
+      "path": "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py",
+      "size_bytes": 22239
+    }
+  ],
+  "platform": {
+    "machine": "AMD64",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "release": "10",
+    "system": "Windows",
+    "version": "10.0.26200"
+  },
+  "preflight": {
+    "advanced_endpoint_available": false,
+    "graph_stats": {
+      "error": "URL error",
+      "message": "<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+    },
+    "graph_stats_ok": false,
+    "health": {
+      "error": "URL error",
+      "message": "<urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>"
+    },
+    "health_ok": false,
+    "openapi_ok": false,
+    "openapi_paths": []
+  },
+  "source_file_status": {
+    "app/api/vrp.py": true,
+    "app/core/lns.py": true,
+    "app/schemas/vrp_advanced_compare.py": true,
+    "app/services/vrp_advanced_compare_service.py": true,
+    "benchmarks/phase_8/phase8_evidence_collector.py": true,
+    "benchmarks/phase_8/phase8_lns_benchmark.py": true,
+    "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py": true,
+    "tests/test_lns.py": true,
+    "tests/test_vrp_advanced_compare_endpoint.py": true
+  }
+}

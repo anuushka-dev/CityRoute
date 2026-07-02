@@ -1,0 +1,1022 @@
+{
+  "audit_flags": {
+    "advanced_endpoint_available": true,
+    "all_expected_source_files_exist": true,
+    "graph_loaded": true,
+    "graph_stats_loaded": true,
+    "health_ok": true,
+    "ruff_ok": true
+  },
+  "base_url": "http://127.0.0.1:8001",
+  "benchmarks": {
+    "latest_lns_benchmark_summaries": [
+      {
+        "created_at_utc": "2026-07-02T08:20:12.118821+00:00",
+        "endpoint": "/vrp/compare/advanced",
+        "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_135012.json",
+        "group_summaries": {
+          "10_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 25.626,
+              "median": 21.306,
+              "p95": 24.854
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 7.651,
+              "median": 6.773,
+              "p95": 7.645
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 8.344,
+              "median": 8.344
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.854,
+              "median": 0.854
+            },
+            "response_elapsed_ms": {
+              "max": 47.276,
+              "median": 33.352,
+              "p95": 46.238
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "15_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 47.58,
+              "median": 44.167,
+              "p95": 47.06
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 16.543,
+              "median": 15.801,
+              "p95": 16.528
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 10.751,
+              "median": 10.751
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 1.949,
+              "median": 1.949
+            },
+            "response_elapsed_ms": {
+              "max": 67.71,
+              "median": 55.496,
+              "p95": 67.419
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "24_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 247.89,
+              "median": 235.327,
+              "p95": 246.981
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 65.832,
+              "median": 53.34,
+              "p95": 64.91
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 12.284,
+              "median": 12.284
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 2.952,
+              "median": 2.952
+            },
+            "response_elapsed_ms": {
+              "max": 266.083,
+              "median": 251.179,
+              "p95": 264.013
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "5_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 7.86,
+              "median": 7.283,
+              "p95": 7.774
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 2.237,
+              "median": 2.078,
+              "p95": 2.216
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 9.38,
+              "median": 9.38
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 36.617,
+              "median": 30.778,
+              "p95": 35.533
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          }
+        },
+        "mode": "docker",
+        "overall": {
+          "all_groups_have_success": true,
+          "all_successes_lns_non_regression": true,
+          "all_successes_two_opt_non_regression": true,
+          "group_count": 4,
+          "successful_group_count": 4
+        },
+        "return_to_start": true,
+        "sizes": [
+          5,
+          10,
+          15,
+          24
+        ]
+      },
+      {
+        "created_at_utc": "2026-07-02T08:18:56.569728+00:00",
+        "endpoint": "/vrp/compare/advanced",
+        "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134856.json",
+        "group_summaries": {
+          "10_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 26.832,
+              "median": 22.946,
+              "p95": 26.613
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 11.618,
+              "median": 9.167,
+              "p95": 11.463
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 4.667,
+              "median": 4.667
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 43.131,
+              "median": 33.521,
+              "p95": 41.593
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "15_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 43.106,
+              "median": 41.687,
+              "p95": 43.036
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 14.71,
+              "median": 13.367,
+              "p95": 14.633
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 11.069,
+              "median": 11.069
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.616,
+              "median": 0.616
+            },
+            "response_elapsed_ms": {
+              "max": 67.048,
+              "median": 62.831,
+              "p95": 66.305
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "24_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 232.24,
+              "median": 212.973,
+              "p95": 231.661
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 61.968,
+              "median": 55.013,
+              "p95": 61.02
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 13.611,
+              "median": 13.611
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 3.11,
+              "median": 3.11
+            },
+            "response_elapsed_ms": {
+              "max": 260.381,
+              "median": 220.568,
+              "p95": 256.188
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "5_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 8.699,
+              "median": 8.058,
+              "p95": 8.616
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 2.459,
+              "median": 2.337,
+              "p95": 2.453
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 2.368,
+              "median": 2.368
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 40.691,
+              "median": 16.99,
+              "p95": 37.783
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          }
+        },
+        "mode": "docker",
+        "overall": {
+          "all_groups_have_success": true,
+          "all_successes_lns_non_regression": true,
+          "all_successes_two_opt_non_regression": true,
+          "group_count": 4,
+          "successful_group_count": 4
+        },
+        "return_to_start": false,
+        "sizes": [
+          5,
+          10,
+          15,
+          24
+        ]
+      },
+      {
+        "created_at_utc": "2026-07-02T08:15:38.715757+00:00",
+        "endpoint": "/vrp/compare/advanced",
+        "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_134538.json",
+        "group_summaries": {
+          "10_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 22.763,
+              "median": 21.455,
+              "p95": 22.515
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 8.047,
+              "median": 7.228,
+              "p95": 7.945
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 8.344,
+              "median": 8.344
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.854,
+              "median": 0.854
+            },
+            "response_elapsed_ms": {
+              "max": 46.585,
+              "median": 28.589,
+              "p95": 43.451
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "15_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 49.159,
+              "median": 45.377,
+              "p95": 48.425
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 17.179,
+              "median": 15.287,
+              "p95": 16.945
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 10.751,
+              "median": 10.751
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 1.949,
+              "median": 1.949
+            },
+            "response_elapsed_ms": {
+              "max": 56.748,
+              "median": 53.442,
+              "p95": 56.13
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "24_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 232.457,
+              "median": 202.505,
+              "p95": 227.502
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 55.019,
+              "median": 48.445,
+              "p95": 54.056
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 12.284,
+              "median": 12.284
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 2.952,
+              "median": 2.952
+            },
+            "response_elapsed_ms": {
+              "max": 253.563,
+              "median": 214.317,
+              "p95": 246.403
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "5_stops_return": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 8.4,
+              "median": 8.181,
+              "p95": 8.372
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 3.256,
+              "median": 2.9,
+              "p95": 3.196
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 9.38,
+              "median": 9.38
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 39.024,
+              "median": 15.823,
+              "p95": 34.473
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          }
+        },
+        "mode": "docker",
+        "overall": {
+          "all_groups_have_success": true,
+          "all_successes_lns_non_regression": true,
+          "all_successes_two_opt_non_regression": true,
+          "group_count": 4,
+          "successful_group_count": 4
+        },
+        "return_to_start": true,
+        "sizes": [
+          5,
+          10,
+          15,
+          24
+        ]
+      },
+      {
+        "created_at_utc": "2026-07-02T08:15:28.529507+00:00",
+        "endpoint": "/vrp/compare/advanced",
+        "file": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134528.json",
+        "group_summaries": {
+          "10_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 197.335,
+              "median": 20.371,
+              "p95": 161.975
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 7.962,
+              "median": 7.691,
+              "p95": 7.926
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 4.667,
+              "median": 4.667
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 204.149,
+              "median": 27.466,
+              "p95": 168.91
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "15_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 419.922,
+              "median": 41.995,
+              "p95": 344.372
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 14.739,
+              "median": 13.867,
+              "p95": 14.693
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 11.069,
+              "median": 11.069
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.616,
+              "median": 0.616
+            },
+            "response_elapsed_ms": {
+              "max": 426.589,
+              "median": 49.84,
+              "p95": 351.261
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "24_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 780.679,
+              "median": 195.463,
+              "p95": 666.26
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 57.151,
+              "median": 47.262,
+              "p95": 55.509
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 13.611,
+              "median": 13.611
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 3.11,
+              "median": 3.11
+            },
+            "response_elapsed_ms": {
+              "max": 792.013,
+              "median": 205.561,
+              "p95": 677.223
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          },
+          "5_stops_open": {
+            "all_lns_non_regression": true,
+            "all_two_opt_non_regression": true,
+            "api_total_time_ms": {
+              "max": 10.112,
+              "median": 8.482,
+              "p95": 9.997
+            },
+            "attempt_count": 5,
+            "failure_count": 0,
+            "failures": [],
+            "lns_optimization_time_ms": {
+              "max": 3.049,
+              "median": 2.618,
+              "p95": 2.969
+            },
+            "lns_vs_greedy_improvement_pct": {
+              "best": 2.368,
+              "median": 2.368
+            },
+            "lns_vs_two_opt_improvement_pct": {
+              "best": 0.0,
+              "median": 0.0
+            },
+            "response_elapsed_ms": {
+              "max": 19.586,
+              "median": 17.379,
+              "p95": 19.288
+            },
+            "success_count": 5,
+            "success_rate_pct": 100.0
+          }
+        },
+        "mode": "docker",
+        "overall": {
+          "all_groups_have_success": true,
+          "all_successes_lns_non_regression": true,
+          "all_successes_two_opt_non_regression": true,
+          "group_count": 4,
+          "successful_group_count": 4
+        },
+        "return_to_start": false,
+        "sizes": [
+          5,
+          10,
+          15,
+          24
+        ]
+      }
+    ],
+    "latest_optimality_gap_summaries": [
+      {
+        "case_count": 6,
+        "created_at_utc": "2026-07-02T08:24:43.969415+00:00",
+        "file": "benchmarks/phase_8/docker_results/phase8_lns_optimality_gap_summary_docker_20260702_135443.json",
+        "gap_summary_pct": {
+          "greedy_best": 1.851,
+          "greedy_worst": 10.35,
+          "lns_best": 0.0,
+          "lns_worst": 0.0,
+          "two_opt_best": 0.0,
+          "two_opt_worst": 0.0
+        },
+        "mode": "docker",
+        "quality_flags": {
+          "all_cases_successful": true,
+          "all_lns_at_or_above_exact": true,
+          "all_lns_non_regression": true,
+          "all_two_opt_non_regression": true
+        },
+        "sizes": [
+          5,
+          6,
+          7
+        ],
+        "success_count": 6,
+        "success_rate_pct": 100.0
+      }
+    ]
+  },
+  "collector": "phase8_evidence_collector",
+  "commands": {
+    "docker": {
+      "docker_compose_ps": {
+        "command": [
+          "docker",
+          "compose",
+          "ps"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "NAME                           IMAGE                        COMMAND                  SERVICE   CREATED          STATUS                    PORTS\ncityroute-api-tier3-phase8     cityroute-api:tier3-phase8   \"sh -c 'uvicorn app.\u00e2\u20ac\u00a6\"   api       12 minutes ago   Up 12 minutes (healthy)   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp\ncityroute-redis-tier3-phase8   redis:7-alpine               \"docker-entrypoint.s\u00e2\u20ac\u00a6\"   redis     12 minutes ago   Up 12 minutes (healthy)   6379/tcp\n"
+      },
+      "docker_compose_version": {
+        "command": [
+          "docker",
+          "compose",
+          "version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Docker Compose version v5.1.4\n"
+      },
+      "docker_images_cityroute": {
+        "command": [
+          "docker",
+          "images",
+          "cityroute-api"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA\ncityroute-api:tier2-phase7   c065bfca2a2c        940MB          215MB        \ncityroute-api:tier3-phase8   e20a2652a269        943MB          215MB   U    \n"
+      },
+      "docker_ps": {
+        "command": [
+          "docker",
+          "ps"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS                    PORTS                                         NAMES\n83307297ea46   cityroute-api:tier3-phase8   \"sh -c 'uvicorn app.\u00e2\u20ac\u00a6\"   12 minutes ago   Up 12 minutes (healthy)   0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp   cityroute-api-tier3-phase8\nb7676689605f   redis:7-alpine               \"docker-entrypoint.s\u00e2\u20ac\u00a6\"   12 minutes ago   Up 12 minutes (healthy)   6379/tcp                                      cityroute-redis-tier3-phase8\n"
+      },
+      "docker_version": {
+        "command": [
+          "docker",
+          "--version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Docker version 29.5.3, build d1c06ef\n"
+      }
+    },
+    "git": {
+      "branch": {
+        "command": [
+          "git",
+          "branch",
+          "--show-current"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "tier3-phase8-lns\n"
+      },
+      "diff_cached_stat": {
+        "command": [
+          "git",
+          "diff",
+          "--cached",
+          "--stat"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "diff_stat": {
+        "command": [
+          "git",
+          "diff",
+          "--stat"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": " app/api/vrp.py     | 61 ++++++++++++++++++++++++++++++++++++++++++++++++++++++\n docker-compose.yml |  8 +++----\n 2 files changed, 65 insertions(+), 4 deletions(-)\n"
+      },
+      "log_oneline_10": {
+        "command": [
+          "git",
+          "log",
+          "--oneline",
+          "-10"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "b497cbd chore(hardening): add metrics ci docker hardening and cache key fix\n910ace8 chore(deploy): verify Tier 2 Railway API surface\necea32e chore(deploy): trigger Tier 2 Railway redeploy\n71378d9 merge: complete Tier 2 Phase 7 two-opt vrp\na3066c8 chore(benchmarks): remove relocated phase 3 benchmark artifacts\n8871653 feat(phase7): complete two-opt vrp compare and cache telemetry\n1c8202c Add CodeQL analysis workflow configuration\nac8cb0b feat(phase6): add greedy VRP baseline and evidence\n999506b chore(evidence): reorganize Phase 3 benchmark artifacts\n03b4702 Update README.md\n"
+      },
+      "status": {
+        "command": [
+          "git",
+          "status"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "On branch tier3-phase8-lns\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   app/api/vrp.py\n\tmodified:   docker-compose.yml\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tapp/core/lns.py\n\tapp/schemas/vrp_advanced_compare.py\n\tapp/services/vrp_advanced_compare_service.py\n\tbenchmarks/phase_8/\n\ttests/test_lns.py\n\ttests/test_vrp_advanced_compare_endpoint.py\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n"
+      },
+      "status_short": {
+        "command": [
+          "git",
+          "status",
+          "--short"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": " M app/api/vrp.py\n M docker-compose.yml\n?? app/core/lns.py\n?? app/schemas/vrp_advanced_compare.py\n?? app/services/vrp_advanced_compare_service.py\n?? benchmarks/phase_8/\n?? tests/test_lns.py\n?? tests/test_vrp_advanced_compare_endpoint.py\n"
+      }
+    },
+    "python_quality": {
+      "app_import": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-c",
+          "from app.main import app; print('app import ok')"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "app import ok\n"
+      },
+      "pytest_advanced_endpoint": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/test_vrp_advanced_compare_endpoint.py",
+          "-q"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "....                                                                     [100%]\n4 passed in 16.25s\n"
+      },
+      "pytest_lns": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/test_lns.py",
+          "-q"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "............                                                             [100%]\n12 passed in 0.09s\n"
+      },
+      "python_version": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Python 3.11.9\n"
+      },
+      "ruff_phase8": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-m",
+          "ruff",
+          "check",
+          "app/core/lns.py",
+          "tests/test_lns.py",
+          "app/schemas/vrp_advanced_compare.py",
+          "app/services/vrp_advanced_compare_service.py",
+          "app/api/vrp.py",
+          "tests/test_vrp_advanced_compare_endpoint.py",
+          "benchmarks/phase_8/phase8_lns_benchmark.py",
+          "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py",
+          "benchmarks/phase_8/phase8_evidence_collector.py"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "warning: The following rules have been removed and ignoring them has no effect:\n    - UP038\n\n",
+        "stdout": "All checks passed!\n"
+      },
+      "vrp_routes": {
+        "command": [
+          "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+          "-c",
+          "from app.main import app; print([route.path for route in app.routes if 'vrp' in route.path])"
+        ],
+        "ok": true,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "['/vrp/greedy', '/vrp/compare', '/vrp/compare/advanced']\n"
+      }
+    }
+  },
+  "created_at_utc": "2026-07-02T08:25:17.712809+00:00",
+  "mode": "docker",
+  "phase": "tier3_phase8",
+  "phase8_files": [
+    {
+      "modified_utc": "2026-06-23T21:17:42.795517+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_compose_ps.txt",
+      "size_bytes": 489
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:27.213785+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_graph_stats.json",
+      "size_bytes": 1096
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:19.381006+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_health.json",
+      "size_bytes": 166
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:43.225663+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_images.txt",
+      "size_bytes": 240
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:42.980558+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_docker_ps.txt",
+      "size_bytes": 552
+    },
+    {
+      "modified_utc": "2026-07-02T07:08:44.209011+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_evidence_manifest_docker_20260702_123844.json",
+      "size_bytes": 14725
+    },
+    {
+      "modified_utc": "2026-07-02T07:08:44.211012+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_evidence_manifest_docker_20260702_123844.txt",
+      "size_bytes": 939
+    },
+    {
+      "modified_utc": "2026-07-02T08:15:28.585320+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_raw_docker_open_20260702_134528.json",
+      "size_bytes": 726239
+    },
+    {
+      "modified_utc": "2026-07-02T08:18:56.600414+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_raw_docker_open_20260702_134856.json",
+      "size_bytes": 250988
+    },
+    {
+      "modified_utc": "2026-07-02T08:15:38.778908+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_raw_docker_return_20260702_134538.json",
+      "size_bytes": 745816
+    },
+    {
+      "modified_utc": "2026-07-02T08:20:12.149911+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_raw_docker_return_20260702_135012.json",
+      "size_bytes": 263312
+    },
+    {
+      "modified_utc": "2026-07-02T08:15:28.532493+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134528.json",
+      "size_bytes": 4983
+    },
+    {
+      "modified_utc": "2026-07-02T08:18:56.572650+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_open_20260702_134856.json",
+      "size_bytes": 4976
+    },
+    {
+      "modified_utc": "2026-07-02T08:15:38.719536+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_134538.json",
+      "size_bytes": 4983
+    },
+    {
+      "modified_utc": "2026-07-02T08:20:12.122394+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_benchmark_summary_docker_return_20260702_135012.json",
+      "size_bytes": 4982
+    },
+    {
+      "modified_utc": "2026-07-02T08:24:43.976676+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_optimality_gap_raw_docker_20260702_135443.json",
+      "size_bytes": 12584
+    },
+    {
+      "modified_utc": "2026-07-02T08:24:43.973032+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_lns_optimality_gap_summary_docker_20260702_135443.json",
+      "size_bytes": 15591
+    },
+    {
+      "modified_utc": "2026-06-23T21:17:35.297812+00:00",
+      "path": "benchmarks/phase_8/docker_results/phase8_openapi_paths.txt",
+      "size_bytes": 119
+    },
+    {
+      "modified_utc": "2026-07-02T07:11:02.447853+00:00",
+      "path": "benchmarks/phase_8/phase8_evidence_collector.py",
+      "size_bytes": 15315
+    },
+    {
+      "modified_utc": "2026-07-02T07:11:02.448855+00:00",
+      "path": "benchmarks/phase_8/phase8_lns_benchmark.py",
+      "size_bytes": 18837
+    },
+    {
+      "modified_utc": "2026-07-02T07:51:24.361717+00:00",
+      "path": "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py",
+      "size_bytes": 22826
+    }
+  ],
+  "platform": {
+    "machine": "AMD64",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9",
+    "release": "10",
+    "system": "Windows",
+    "version": "10.0.26200"
+  },
+  "preflight": {
+    "advanced_endpoint_available": true,
+    "graph_stats": {
+      "city": "Kanpur Central, Uttar Pradesh, India",
+      "edges": 34996,
+      "graph_file_size_mb": 12.74,
+      "graph_loaded": true,
+      "graph_path": "data/graphs/kanpur_central.graphml",
+      "is_weakly_connected": true,
+      "largest_component_nodes": 12969,
+      "load_time_s": 3.343,
+      "memory_mb": 386.4,
+      "nodes": 12969,
+      "snap_index_build_time_ms": 26.93,
+      "snap_index_import_error": null,
+      "snap_index_loaded": true,
+      "snap_index_method": "balltree",
+      "weakly_connected_components": 1
+    },
+    "graph_stats_ok": true,
+    "health": {
+      "graph_loaded": true,
+      "status": "ok",
+      "uptime_s": 738.865
+    },
+    "health_ok": true,
+    "openapi_ok": true,
+    "openapi_paths": [
+      "/",
+      "/graph/snap",
+      "/graph/stats",
+      "/graph/validate",
+      "/health",
+      "/matrix",
+      "/route",
+      "/route/compare",
+      "/vrp/compare",
+      "/vrp/compare/advanced",
+      "/vrp/greedy"
+    ]
+  },
+  "source_file_status": {
+    "app/api/vrp.py": true,
+    "app/core/lns.py": true,
+    "app/schemas/vrp_advanced_compare.py": true,
+    "app/services/vrp_advanced_compare_service.py": true,
+    "benchmarks/phase_8/phase8_evidence_collector.py": true,
+    "benchmarks/phase_8/phase8_lns_benchmark.py": true,
+    "benchmarks/phase_8/phase8_lns_optimality_gap_probe.py": true,
+    "tests/test_lns.py": true,
+    "tests/test_vrp_advanced_compare_endpoint.py": true
+  }
+}
