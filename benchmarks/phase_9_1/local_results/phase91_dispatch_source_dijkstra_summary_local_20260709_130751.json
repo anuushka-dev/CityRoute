@@ -1,0 +1,198 @@
+{
+  "phase": "tier3_phase9_1",
+  "benchmark": "dispatch_source_dijkstra_probe",
+  "mode": "local",
+  "created_at_utc": "2026-07-09T13:07:51.187203+00:00",
+  "sizes": [
+    2,
+    5,
+    10,
+    25,
+    50
+  ],
+  "iterations_per_size": 20,
+  "case_count": 100,
+  "success_count": 100,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "group_summaries": {
+    "2x2": {
+      "size": 2,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 0.3763,
+        "median": 0.57645,
+        "mean": 0.584815,
+        "p95": 0.7289,
+        "max": 1.126
+      },
+      "total_time_ms": {
+        "min": 0.2724,
+        "median": 0.40915,
+        "mean": 0.41001,
+        "p95": 0.533405,
+        "max": 0.7121
+      },
+      "cost_matrix_build_time_ms": {
+        "min": 0.149,
+        "median": 0.2038,
+        "mean": 0.21075,
+        "p95": 0.304945,
+        "max": 0.3077
+      },
+      "all_source_dijkstra_used": true,
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "all_costs_non_negative": true
+    },
+    "5x5": {
+      "size": 5,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 1.0095,
+        "median": 1.2286,
+        "mean": 1.228655,
+        "p95": 1.414315,
+        "max": 1.4203
+      },
+      "total_time_ms": {
+        "min": 0.802,
+        "median": 0.9334,
+        "mean": 0.948855,
+        "p95": 1.088265,
+        "max": 1.1218
+      },
+      "cost_matrix_build_time_ms": {
+        "min": 0.515,
+        "median": 0.63965,
+        "mean": 0.62566,
+        "p95": 0.73051,
+        "max": 0.7307
+      },
+      "all_source_dijkstra_used": true,
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "all_costs_non_negative": true
+    },
+    "10x10": {
+      "size": 10,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 1.6153,
+        "median": 1.9499,
+        "mean": 2.36595,
+        "p95": 3.6649,
+        "max": 3.9993
+      },
+      "total_time_ms": {
+        "min": 1.396,
+        "median": 1.6537,
+        "mean": 2.020305,
+        "p95": 3.07832,
+        "max": 3.4226
+      },
+      "cost_matrix_build_time_ms": {
+        "min": 1.069,
+        "median": 1.18715,
+        "mean": 1.532775,
+        "p95": 2.29783,
+        "max": 2.7753
+      },
+      "all_source_dijkstra_used": true,
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "all_costs_non_negative": true
+    },
+    "25x25": {
+      "size": 25,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 8.7349,
+        "median": 9.3201,
+        "mean": 10.86242,
+        "p95": 16.53537,
+        "max": 17.3233
+      },
+      "total_time_ms": {
+        "min": 8.2324,
+        "median": 8.80225,
+        "mean": 10.20533,
+        "p95": 15.77074,
+        "max": 16.3358
+      },
+      "cost_matrix_build_time_ms": {
+        "min": 7.156,
+        "median": 7.5821,
+        "mean": 8.74328,
+        "p95": 13.951665,
+        "max": 14.1315
+      },
+      "all_source_dijkstra_used": true,
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "all_costs_non_negative": true
+    },
+    "50x50": {
+      "size": 50,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 44.9426,
+        "median": 53.1789,
+        "mean": 55.134315,
+        "p95": 63.59121,
+        "max": 72.9147
+      },
+      "total_time_ms": {
+        "min": 43.7571,
+        "median": 51.51135,
+        "mean": 53.54543,
+        "p95": 62.30338,
+        "max": 71.4021
+      },
+      "cost_matrix_build_time_ms": {
+        "min": 39.0393,
+        "median": 46.04895,
+        "mean": 48.075925,
+        "p95": 56.915875,
+        "max": 66.0772
+      },
+      "all_source_dijkstra_used": true,
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "all_costs_non_negative": true
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_raw_local_20260709_130751.json",
+  "output_summary_file": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_summary_local_20260709_130751.json",
+  "quality_flags": {
+    "all_cases_successful": true,
+    "all_source_dijkstra_used": true,
+    "all_builder_called_once": true,
+    "all_non_regression": true,
+    "all_assignment_counts_valid": true,
+    "all_capacity_counts_valid": true,
+    "all_costs_non_negative": true,
+    "cache_not_used_in_this_probe": true
+  },
+  "evidence_note": "This probe proves source_dijkstra dispatch service integration through an injected internal matrix builder. It does not prove the live API is wired to the real Phase 5 graph builder yet."
+}

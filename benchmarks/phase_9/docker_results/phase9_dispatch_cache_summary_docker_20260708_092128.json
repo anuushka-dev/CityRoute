@@ -1,0 +1,169 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "dispatch_cache_probe",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "endpoint": "/dispatch/compare",
+  "matrix_algorithm": "haversine",
+  "require_cache": false,
+  "created_at_utc": "2026-07-08T09:21:28.151829+00:00",
+  "sizes": [
+    5,
+    10,
+    25,
+    50
+  ],
+  "cycles_per_size": 10,
+  "request_count": 80,
+  "cycle_count": 40,
+  "successful_cycle_count": 40,
+  "failed_cycle_count": 0,
+  "success_rate_pct": 100.0,
+  "cache_hit_count": 0,
+  "cache_hit_rate_pct": 0.0,
+  "group_summaries": {
+    "5x5": {
+      "size": 5,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 10,
+      "stable_assignment_count": 10,
+      "repeat_faster_or_equal_count": 7,
+      "first_request_elapsed_ms": {
+        "min": 6.0941,
+        "median": 6.8596,
+        "mean": 12.29364,
+        "p95": 29.080845,
+        "max": 31.7016
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 5.581,
+        "median": 6.63325,
+        "mean": 7.66664,
+        "p95": 12.432065,
+        "max": 16.5371
+      },
+      "speedup_ratio": {
+        "min": 0.402531,
+        "median": 1.036321,
+        "mean": 1.735303,
+        "p95": 3.96348,
+        "max": 4.275449
+      }
+    },
+    "10x10": {
+      "size": 10,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 10,
+      "stable_assignment_count": 10,
+      "repeat_faster_or_equal_count": 3,
+      "first_request_elapsed_ms": {
+        "min": 6.5704,
+        "median": 7.05295,
+        "mean": 7.0694,
+        "p95": 7.66013,
+        "max": 7.6667
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 6.6514,
+        "median": 7.29015,
+        "mean": 8.36483,
+        "p95": 13.79789,
+        "max": 18.7505
+      },
+      "speedup_ratio": {
+        "min": 0.40888,
+        "median": 0.944108,
+        "mean": 0.91707,
+        "p95": 1.0718,
+        "max": 1.078961
+      }
+    },
+    "25x25": {
+      "size": 25,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 10,
+      "stable_assignment_count": 10,
+      "repeat_faster_or_equal_count": 5,
+      "first_request_elapsed_ms": {
+        "min": 11.4931,
+        "median": 12.97995,
+        "mean": 15.86571,
+        "p95": 28.402,
+        "max": 37.9141
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 11.8807,
+        "median": 12.84345,
+        "mean": 16.7564,
+        "p95": 30.894645,
+        "max": 32.0997
+      },
+      "speedup_ratio": {
+        "min": 0.452958,
+        "median": 0.984715,
+        "mean": 1.071742,
+        "p95": 2.086601,
+        "max": 2.932462
+      }
+    },
+    "50x50": {
+      "size": 50,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 10,
+      "stable_assignment_count": 10,
+      "repeat_faster_or_equal_count": 4,
+      "first_request_elapsed_ms": {
+        "min": 27.6211,
+        "median": 28.9302,
+        "mean": 32.54338,
+        "p95": 47.821005,
+        "max": 50.0958
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 28.09,
+        "median": 30.26255,
+        "mean": 35.58867,
+        "p95": 56.103185,
+        "max": 58.4498
+      },
+      "speedup_ratio": {
+        "min": 0.483805,
+        "median": 0.966994,
+        "mean": 0.972453,
+        "p95": 1.424249,
+        "max": 1.450946
+      }
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_raw_docker_20260708_092128.json",
+  "output_summary_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_summary_docker_20260708_092128.json",
+  "quality_flags": {
+    "all_cycles_successful": true,
+    "all_response_costs_stable": true,
+    "all_assignment_counts_stable": true,
+    "cache_field_present_all_cycles": true,
+    "cache_hits_observed": false,
+    "cache_requirement_met": true,
+    "repeat_faster_or_equal_all_cycles": false
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "phase": "tier3_phase9_1",
+  "collector": "collect_phase91_evidence",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "created_at_utc": "2026-07-09T14:31:34.594170+00:00",
+  "project_root": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+  "output_manifest_json": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_143134.json",
+  "output_manifest_txt": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_143134.txt",
+  "source_files": [
+    {
+      "relative_path": "app/services/dispatch_distance_service.py",
+      "exists": true,
+      "size_bytes": 11307,
+      "modified_utc": "2026-07-09T14:15:43.044944+00:00"
+    },
+    {
+      "relative_path": "app/utils/dispatch_cache_key.py",
+      "exists": true,
+      "size_bytes": 4431,
+      "modified_utc": "2026-07-09T14:15:43.044944+00:00"
+    },
+    {
+      "relative_path": "app/services/dispatch_service.py",
+      "exists": true,
+      "size_bytes": 10871,
+      "modified_utc": "2026-07-09T12:14:10.392197+00:00"
+    },
+    {
+      "relative_path": "app/schemas/dispatch.py",
+      "exists": true,
+      "size_bytes": 4225,
+      "modified_utc": "2026-07-09T14:15:43.044944+00:00"
+    },
+    {
+      "relative_path": "app/core/dispatch_cost_matrix.py",
+      "exists": true,
+      "size_bytes": 10449,
+      "modified_utc": "2026-07-09T12:36:36.844646+00:00"
+    }
+  ],
+  "test_files": [
+    {
+      "relative_path": "tests/test_dispatch_endpoint.py",
+      "exists": true,
+      "size_bytes": 9827,
+      "modified_utc": "2026-07-09T12:40:58.909339+00:00"
+    },
+    {
+      "relative_path": "tests/test_dispatch_source_dijkstra.py",
+      "exists": true,
+      "size_bytes": 8453,
+      "modified_utc": "2026-07-09T14:15:43.045945+00:00"
+    },
+    {
+      "relative_path": "tests/test_dispatch_cache_integration.py",
+      "exists": true,
+      "size_bytes": 9996,
+      "modified_utc": "2026-07-09T12:47:44.144090+00:00"
+    },
+    {
+      "relative_path": "tests/test_phase91_integration_routes.py",
+      "exists": true,
+      "size_bytes": 4412,
+      "modified_utc": "2026-07-09T12:56:40.395827+00:00"
+    }
+  ],
+  "benchmark_files": [
+    {
+      "relative_path": "benchmarks/phase_9_1/phase91_dispatch_source_dijkstra_probe.py",
+      "exists": true,
+      "size_bytes": 18649,
+      "modified_utc": "2026-07-09T14:15:43.046945+00:00"
+    },
+    {
+      "relative_path": "benchmarks/phase_9_1/phase91_dispatch_cache_probe.py",
+      "exists": true,
+      "size_bytes": 21921,
+      "modified_utc": "2026-07-09T14:15:43.046945+00:00"
+    },
+    {
+      "relative_path": "benchmarks/phase_9_1/collect_phase91_evidence.py",
+      "exists": true,
+      "size_bytes": 24479,
+      "modified_utc": "2026-07-09T14:30:55.678764+00:00"
+    },
+    {
+      "relative_path": "benchmarks/phase_9_1/phase91_full_integration_probe.py",
+      "exists": true,
+      "size_bytes": 20796,
+      "modified_utc": "2026-07-09T14:31:11.369995+00:00"
+    }
+  ],
+  "result_files": [
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_raw_local_20260709_134551.json",
+      "filename": "phase91_dispatch_cache_raw_local_20260709_134551.json",
+      "exists": true,
+      "size_bytes": 62546,
+      "modified_utc": "2026-07-09T13:45:53.056015+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "cycle_count": 50,
+        "request_count": 100,
+        "cycles_per_size": 10,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_raw_local_20260709_140153.json",
+      "filename": "phase91_dispatch_cache_raw_local_20260709_140153.json",
+      "exists": true,
+      "size_bytes": 62548,
+      "modified_utc": "2026-07-09T14:01:55.143041+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "cycle_count": 50,
+        "request_count": 100,
+        "cycles_per_size": 10,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_summary_local_20260709_134551.json",
+      "filename": "phase91_dispatch_cache_summary_local_20260709_134551.json",
+      "exists": true,
+      "size_bytes": 6744,
+      "modified_utc": "2026-07-09T13:45:53.058982+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": true,
+        "cache_backend_used": true,
+        "cache_hits_observed": true,
+        "cache_hit_count_matches_second_requests": true,
+        "all_first_requests_miss": true,
+        "all_second_requests_hit": true,
+        "all_cache_keys_stable": true,
+        "all_response_costs_stable": true,
+        "all_assignment_counts_stable": true,
+        "all_builder_not_called_on_hit": true,
+        "all_non_regression_stable": true
+      },
+      "key_metrics": {
+        "success_rate_pct": 100.0,
+        "cycle_count": 50,
+        "successful_cycle_count": 50,
+        "failed_cycle_count": 0,
+        "request_count": 100,
+        "cache_used_count": 100,
+        "cache_hit_count": 50,
+        "cache_hit_rate_pct": 50.0,
+        "cycles_per_size": 10,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_summary_local_20260709_140153.json",
+      "filename": "phase91_dispatch_cache_summary_local_20260709_140153.json",
+      "exists": true,
+      "size_bytes": 6736,
+      "modified_utc": "2026-07-09T14:01:55.145041+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": true,
+        "cache_backend_used": true,
+        "cache_hits_observed": true,
+        "cache_hit_count_matches_second_requests": true,
+        "all_first_requests_miss": true,
+        "all_second_requests_hit": true,
+        "all_cache_keys_stable": true,
+        "all_response_costs_stable": true,
+        "all_assignment_counts_stable": true,
+        "all_builder_not_called_on_hit": true,
+        "all_non_regression_stable": true
+      },
+      "key_metrics": {
+        "success_rate_pct": 100.0,
+        "cycle_count": 50,
+        "successful_cycle_count": 50,
+        "failed_cycle_count": 0,
+        "request_count": 100,
+        "cache_used_count": 100,
+        "cache_hit_count": 50,
+        "cache_hit_rate_pct": 50.0,
+        "cycles_per_size": 10,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_raw_local_20260709_130751.json",
+      "filename": "phase91_dispatch_source_dijkstra_raw_local_20260709_130751.json",
+      "exists": true,
+      "size_bytes": 88822,
+      "modified_utc": "2026-07-09T13:07:52.606862+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_source_dijkstra_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "case_count": 100,
+        "iterations_per_size": 20,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_raw_local_20260709_140040.json",
+      "filename": "phase91_dispatch_source_dijkstra_raw_local_20260709_140040.json",
+      "exists": true,
+      "size_bytes": 88870,
+      "modified_utc": "2026-07-09T14:00:41.885256+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_source_dijkstra_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "case_count": 100,
+        "iterations_per_size": 20,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_summary_local_20260709_130751.json",
+      "filename": "phase91_dispatch_source_dijkstra_summary_local_20260709_130751.json",
+      "exists": true,
+      "size_bytes": 5460,
+      "modified_utc": "2026-07-09T13:07:52.612772+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_source_dijkstra_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_source_dijkstra_used": true,
+        "all_builder_called_once": true,
+        "all_non_regression": true,
+        "all_assignment_counts_valid": true,
+        "all_capacity_counts_valid": true,
+        "all_costs_non_negative": true,
+        "cache_not_used_in_this_probe": true
+      },
+      "key_metrics": {
+        "case_count": 100,
+        "success_count": 100,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_summary_local_20260709_140040.json",
+      "filename": "phase91_dispatch_source_dijkstra_summary_local_20260709_140040.json",
+      "exists": true,
+      "size_bytes": 5474,
+      "modified_utc": "2026-07-09T14:00:41.887256+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_source_dijkstra_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_source_dijkstra_used": true,
+        "all_builder_called_once": true,
+        "all_non_regression": true,
+        "all_assignment_counts_valid": true,
+        "all_capacity_counts_valid": true,
+        "all_costs_non_negative": true,
+        "cache_not_used_in_this_probe": true
+      },
+      "key_metrics": {
+        "case_count": 100,
+        "success_count": 100,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_140206.json",
+      "filename": "phase91_evidence_manifest_local_20260709_140206.json",
+      "exists": true,
+      "size_bytes": 26117,
+      "modified_utc": "2026-07-09T14:02:19.523522+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": null,
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_expected_source_files_exist": true,
+        "all_expected_test_files_exist": true,
+        "all_expected_benchmark_files_exist": true,
+        "result_json_files_present": true,
+        "all_result_json_files_valid": true,
+        "latest_summary_files_present": true,
+        "all_critical_summary_quality_flags_true": true,
+        "pytest_passed": true,
+        "ruff_passed": false,
+        "http_checks_passed": true,
+        "dispatch_endpoint_available": true,
+        "health_ok": true,
+        "git_commit_available": true,
+        "git_working_tree_clean": false
+      },
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_140238.json",
+      "filename": "phase91_evidence_manifest_local_20260709_140238.json",
+      "exists": true,
+      "size_bytes": 26217,
+      "modified_utc": "2026-07-09T14:02:46.018474+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": null,
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_expected_source_files_exist": true,
+        "all_expected_test_files_exist": true,
+        "all_expected_benchmark_files_exist": true,
+        "result_json_files_present": true,
+        "all_result_json_files_valid": true,
+        "latest_summary_files_present": true,
+        "all_critical_summary_quality_flags_true": true,
+        "pytest_passed": true,
+        "ruff_passed": false,
+        "http_checks_passed": true,
+        "dispatch_endpoint_available": true,
+        "health_ok": true,
+        "git_commit_available": true,
+        "git_working_tree_clean": false
+      },
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_141605.json",
+      "filename": "phase91_evidence_manifest_local_20260709_141605.json",
+      "exists": true,
+      "size_bytes": 23381,
+      "modified_utc": "2026-07-09T14:16:15.211701+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": null,
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_expected_source_files_exist": true,
+        "all_expected_test_files_exist": true,
+        "all_expected_benchmark_files_exist": true,
+        "result_json_files_present": true,
+        "all_result_json_files_valid": true,
+        "latest_summary_files_present": true,
+        "all_critical_summary_quality_flags_true": true,
+        "pytest_passed": true,
+        "ruff_passed": true,
+        "http_checks_passed": true,
+        "dispatch_endpoint_available": true,
+        "health_ok": true,
+        "git_commit_available": true
+      },
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_evidence_manifest_local_20260709_142239.json",
+      "filename": "phase91_evidence_manifest_local_20260709_142239.json",
+      "exists": true,
+      "size_bytes": 26260,
+      "modified_utc": "2026-07-09T14:22:46.402489+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": null,
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_expected_source_files_exist": true,
+        "all_expected_test_files_exist": true,
+        "all_expected_benchmark_files_exist": true,
+        "result_json_files_present": true,
+        "all_result_json_files_valid": true,
+        "latest_summary_files_present": true,
+        "all_critical_summary_quality_flags_true": true,
+        "pytest_passed": true,
+        "ruff_passed": true,
+        "http_checks_passed": true,
+        "dispatch_endpoint_available": true,
+        "health_ok": true,
+        "git_commit_available": true
+      },
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_raw_local_20260709_142217.json",
+      "filename": "phase91_full_integration_raw_local_20260709_142217.json",
+      "exists": true,
+      "size_bytes": 3786,
+      "modified_utc": "2026-07-09T14:22:17.926954+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "full_integration_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_raw_local_20260709_142743.json",
+      "filename": "phase91_full_integration_raw_local_20260709_142743.json",
+      "exists": true,
+      "size_bytes": 3771,
+      "modified_utc": "2026-07-09T14:27:44.049476+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "full_integration_probe",
+      "mode": "local",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_summary_local_20260709_142217.json",
+      "filename": "phase91_full_integration_summary_local_20260709_142217.json",
+      "exists": true,
+      "size_bytes": 4943,
+      "modified_utc": "2026-07-09T14:22:17.928202+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "full_integration_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_checks_successful": false,
+        "root_ok": true,
+        "health_ok": true,
+        "openapi_required_paths_available": true,
+        "graph_stats_shape_valid": true,
+        "dispatch_haversine_ok": true,
+        "dispatch_haversine_non_regression": true,
+        "dispatch_source_dijkstra_status_expected": false,
+        "source_dijkstra_api_blocked_acknowledged": false,
+        "source_dijkstra_api_ok": true
+      },
+      "key_metrics": {
+        "success_count": 5,
+        "failure_count": 1,
+        "success_rate_pct": 83.333333,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_summary_local_20260709_142743.json",
+      "filename": "phase91_full_integration_summary_local_20260709_142743.json",
+      "exists": true,
+      "size_bytes": 4921,
+      "modified_utc": "2026-07-09T14:27:44.051475+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "full_integration_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_checks_successful": true,
+        "root_ok": true,
+        "health_ok": true,
+        "openapi_required_paths_available": true,
+        "graph_stats_shape_valid": true,
+        "dispatch_haversine_ok": true,
+        "dispatch_haversine_non_regression": true,
+        "dispatch_source_dijkstra_status_expected": true,
+        "source_dijkstra_api_blocked_acknowledged": true,
+        "source_dijkstra_api_ok": true
+      },
+      "key_metrics": {
+        "success_count": 6,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "mode": "local"
+      }
+    }
+  ],
+  "latest_summary_files": [
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_source_dijkstra_summary_local_20260709_140040.json",
+      "filename": "phase91_dispatch_source_dijkstra_summary_local_20260709_140040.json",
+      "exists": true,
+      "size_bytes": 5474,
+      "modified_utc": "2026-07-09T14:00:41.887256+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_source_dijkstra_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_source_dijkstra_used": true,
+        "all_builder_called_once": true,
+        "all_non_regression": true,
+        "all_assignment_counts_valid": true,
+        "all_capacity_counts_valid": true,
+        "all_costs_non_negative": true,
+        "cache_not_used_in_this_probe": true
+      },
+      "key_metrics": {
+        "case_count": 100,
+        "success_count": 100,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_summary_local_20260709_140153.json",
+      "filename": "phase91_dispatch_cache_summary_local_20260709_140153.json",
+      "exists": true,
+      "size_bytes": 6736,
+      "modified_utc": "2026-07-09T14:01:55.145041+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": true,
+        "cache_backend_used": true,
+        "cache_hits_observed": true,
+        "cache_hit_count_matches_second_requests": true,
+        "all_first_requests_miss": true,
+        "all_second_requests_hit": true,
+        "all_cache_keys_stable": true,
+        "all_response_costs_stable": true,
+        "all_assignment_counts_stable": true,
+        "all_builder_not_called_on_hit": true,
+        "all_non_regression_stable": true
+      },
+      "key_metrics": {
+        "success_rate_pct": 100.0,
+        "cycle_count": 50,
+        "successful_cycle_count": 50,
+        "failed_cycle_count": 0,
+        "request_count": 100,
+        "cache_used_count": 100,
+        "cache_hit_count": 50,
+        "cache_hit_rate_pct": 50.0,
+        "cycles_per_size": 10,
+        "mode": "local"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_summary_local_20260709_142743.json",
+      "filename": "phase91_full_integration_summary_local_20260709_142743.json",
+      "exists": true,
+      "size_bytes": 4921,
+      "modified_utc": "2026-07-09T14:27:44.051475+00:00",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9_1",
+      "benchmark": "full_integration_probe",
+      "mode": "local",
+      "is_summary": true,
+      "quality_flags": {
+        "all_checks_successful": true,
+        "root_ok": true,
+        "health_ok": true,
+        "openapi_required_paths_available": true,
+        "graph_stats_shape_valid": true,
+        "dispatch_haversine_ok": true,
+        "dispatch_haversine_non_regression": true,
+        "dispatch_source_dijkstra_status_expected": true,
+        "source_dijkstra_api_blocked_acknowledged": true,
+        "source_dijkstra_api_ok": true
+      },
+      "key_metrics": {
+        "success_count": 6,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "mode": "local"
+      }
+    }
+  ],
+  "command_results": [
+    {
+      "name": "phase91_pytest",
+      "command": [
+        "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_dispatch_endpoint.py",
+        "tests/test_dispatch_source_dijkstra.py",
+        "tests/test_dispatch_cache_integration.py",
+        "tests/test_phase91_integration_routes.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "elapsed_ms": 8328.8872,
+      "stdout_tail": "patch_compare_returns_greedy_and_hungarian_results PASSED [ 10%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_hungarian_is_not_worse_than_greedy PASSED [ 12%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_assigns_each_order_at_most_once PASSED [ 15%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_returns_cost_breakdown_when_requested PASSED [ 17%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_omits_cost_breakdown_by_default PASSED [ 20%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_returns_fairness_metrics PASSED [ 23%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_more_orders_than_capacity_returns_unassigned_orders PASSED [ 25%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_extra_capacity_returns_unused_slots PASSED [ 28%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_source_dijkstra_requires_internal_builder PASSED [ 30%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_duplicate_driver_ids PASSED [ 33%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_duplicate_order_ids PASSED [ 35%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_all_drivers_full PASSED [ 38%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_invalid_driver_latitude_with_422 PASSED [ 41%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_invalid_order_longitude_with_422 PASSED [ 43%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_missing_drivers_with_422 PASSED [ 46%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_missing_orders_with_422 PASSED [ 48%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_requires_builder PASSED [ 51%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_uses_injected_builder PASSED [ 53%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_returns_driver_order_costs PASSED [ 56%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_converts_unreachable_to_large_cost PASSED [ 58%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_rejects_wrong_row_count PASSED [ 61%]\ntests/test_dispatch_source_dijkstra.py::test_source_dijkstra_distance_lookup_rejects_wrong_column_count PASSED [ 64%]\ntests/test_dispatch_source_dijkstra.py::test_dispatch_service_source_dijkstra_works_with_injected_builder PASSED [ 66%]\ntests/test_dispatch_source_dijkstra.py::test_dispatch_service_source_dijkstra_keeps_hungarian_non_regression PASSED [ 69%]\ntests/test_dispatch_source_dijkstra.py::test_dispatch_service_haversine_still_works_without_builder PASSED [ 71%]\ntests/test_dispatch_cache_integration.py::test_dispatch_distance_cache_miss_then_hit_for_source_dijkstra PASSED [ 74%]\ntests/test_dispatch_cache_integration.py::test_dispatch_distance_cache_disabled_skips_cache_backend PASSED [ 76%]\ntests/test_dispatch_cache_integration.py::test_dispatch_distance_cache_ignores_corrupt_cached_value_and_rebuilds PASSED [ 79%]\ntests/test_dispatch_cache_integration.py::test_dispatch_service_cache_miss_then_hit_for_source_dijkstra PASSED [ 82%]\ntests/test_dispatch_cache_integration.py::test_dispatch_service_cache_key_changes_when_payload_changes PASSED [ 84%]\ntests/test_phase91_integration_routes.py::test_phase91_required_routes_are_registered_in_openapi PASSED [ 87%]\ntests/test_phase91_integration_routes.py::test_phase91_root_lists_core_phase_links PASSED [ 89%]\ntests/test_phase91_integration_routes.py::test_phase91_health_endpoint_still_works PASSED [ 92%]\ntests/test_phase91_integration_routes.py::test_phase91_graph_stats_endpoint_still_works PASSED [ 94%]\ntests/test_phase91_integration_routes.py::test_phase91_dispatch_endpoint_still_works_with_haversine PASSED [ 97%]\ntests/test_phase91_integration_routes.py::test_phase91_dispatch_source_dijkstra_api_requires_builder_until_wired PASSED [100%]\n\n============================= 39 passed in 6.97s ==============================\n",
+      "stderr_tail": "",
+      "error": null
+    },
+    {
+      "name": "phase91_ruff",
+      "command": [
+        "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "app/services/dispatch_distance_service.py",
+        "app/utils/dispatch_cache_key.py",
+        "app/services/dispatch_service.py",
+        "app/schemas/dispatch.py",
+        "app/core/dispatch_cost_matrix.py",
+        "tests/test_dispatch_endpoint.py",
+        "tests/test_dispatch_source_dijkstra.py",
+        "tests/test_dispatch_cache_integration.py",
+        "tests/test_phase91_integration_routes.py",
+        "benchmarks/phase_9_1/phase91_dispatch_source_dijkstra_probe.py",
+        "benchmarks/phase_9_1/phase91_dispatch_cache_probe.py",
+        "benchmarks/phase_9_1/collect_phase91_evidence.py",
+        "benchmarks/phase_9_1/phase91_full_integration_probe.py"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "elapsed_ms": 216.6716,
+      "stdout_tail": "All checks passed!\n",
+      "stderr_tail": "warning: The following rules have been removed and ignoring them has no effect:\n    - UP038\n\n",
+      "error": null
+    }
+  ],
+  "http_checks": [
+    {
+      "name": "root",
+      "url": "http://127.0.0.1:8000/",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 18.411,
+      "error": null,
+      "key_values": {
+        "phase": "Tier 3 Phase 9 - Hungarian Dispatch Engine",
+        "dispatch_compare": "/dispatch/compare",
+        "matrix": "/matrix",
+        "vrp_advanced_compare": "/vrp/compare/advanced"
+      }
+    },
+    {
+      "name": "health",
+      "url": "http://127.0.0.1:8000/health",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 3.3976,
+      "error": null,
+      "key_values": {
+        "status": "ok",
+        "graph_loaded": true
+      }
+    },
+    {
+      "name": "openapi",
+      "url": "http://127.0.0.1:8000/openapi.json",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 6.8566,
+      "error": null,
+      "key_values": {
+        "dispatch_compare_available": true,
+        "path_count": 12,
+        "missing_required_paths": [],
+        "all_required_paths_available": true
+      }
+    }
+  ],
+  "git": {
+    "branch": "tier3-phase8-lns",
+    "commit": "afdebd4",
+    "short_status": "M README.md\n M app/main.py\n?? app/api/dispatch.py\n?? app/core/dispatch_cost_matrix.py\n?? app/core/dispatch_fairness.py\n?? app/core/greedy_dispatch.py\n?? app/core/hungarian.py\n?? app/schemas/dispatch.py\n?? app/services/dispatch_distance_service.py\n?? app/services/dispatch_service.py\n?? app/utils/dispatch_cache_key.py\n?? benchmarks/phase_8/phase8_FINAL_CLEAN_EVIDENCE_20260702_193641.txt\n?? benchmarks/phase_8/phase8_STRICT_FINAL_EVIDENCE_20260702_193943.txt\n?? benchmarks/phase_8/phase8_docker_results_FULL_DUMP_20260702_192850.txt\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_191814.json\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_192031.json\n?? benchmarks/phase_9/\n?? benchmarks/phase_9_1/\n?? tests/test_dispatch_cache_integration.py\n?? tests/test_dispatch_cost_matrix.py\n?? tests/test_dispatch_endpoint.py\n?? tests/test_dispatch_fairness.py\n?? tests/test_dispatch_source_dijkstra.py\n?? tests/test_greedy_dispatch.py\n?? tests/test_hungarian_algorithm.py\n?? tests/test_phase91_integration_routes.py",
+    "clean_working_tree": false
+  },
+  "quality_flags": {
+    "all_expected_source_files_exist": true,
+    "all_expected_test_files_exist": true,
+    "all_expected_benchmark_files_exist": true,
+    "result_json_files_present": true,
+    "all_result_json_files_valid": true,
+    "latest_summary_files_present": true,
+    "all_critical_summary_quality_flags_true": true,
+    "pytest_passed": true,
+    "ruff_passed": true,
+    "http_checks_passed": true,
+    "dispatch_endpoint_available": true,
+    "health_ok": true,
+    "git_commit_available": true
+  },
+  "evidence_note": "Phase 9.1 evidence validates service-level source_dijkstra dispatch integration through an injected internal builder and service-level cache miss-hit behavior using an in-process fake backend. It does not claim live real-graph dispatch API wiring or real Redis hits unless separate probes are added later."
+}

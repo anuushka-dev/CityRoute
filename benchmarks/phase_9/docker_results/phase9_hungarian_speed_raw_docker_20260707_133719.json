@@ -1,0 +1,1017 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "hungarian_speed_benchmark",
+  "mode": "docker",
+  "created_at_utc": "2026-07-07T13:37:19.210405+00:00",
+  "seed": 919,
+  "sizes": [
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "iterations_per_size": 20,
+  "cases": [
+    {
+      "size": 5,
+      "iteration": 1,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 105768.0,
+      "elapsed_ms": 0.1304,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 2,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 124124.0,
+      "elapsed_ms": 0.0918,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 3,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 73715.0,
+      "elapsed_ms": 0.0829,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 4,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 52797.0,
+      "elapsed_ms": 0.083,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 5,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 128298.0,
+      "elapsed_ms": 0.0829,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 6,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 95470.0,
+      "elapsed_ms": 0.1081,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 7,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 109342.0,
+      "elapsed_ms": 0.0841,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 8,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 85002.0,
+      "elapsed_ms": 0.0887,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 9,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 150431.0,
+      "elapsed_ms": 0.115,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 10,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 71010.0,
+      "elapsed_ms": 0.0848,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 11,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 91308.0,
+      "elapsed_ms": 0.0795,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 12,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 89395.0,
+      "elapsed_ms": 0.0581,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 13,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 117399.0,
+      "elapsed_ms": 0.0502,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 14,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 121925.0,
+      "elapsed_ms": 0.0597,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 15,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 140132.0,
+      "elapsed_ms": 0.0736,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 16,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 167047.0,
+      "elapsed_ms": 0.0652,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 17,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 125402.0,
+      "elapsed_ms": 0.0504,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 18,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 137644.0,
+      "elapsed_ms": 0.0536,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 19,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 123261.0,
+      "elapsed_ms": 0.0618,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 5,
+      "iteration": 20,
+      "row_count": 5,
+      "col_count": 5,
+      "assigned_count": 5,
+      "total_cost": 64017.0,
+      "elapsed_ms": 0.0532,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 1,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 125030.0,
+      "elapsed_ms": 0.1886,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 2,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 138829.0,
+      "elapsed_ms": 0.2883,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 3,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 108736.0,
+      "elapsed_ms": 0.2373,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 4,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 142436.0,
+      "elapsed_ms": 0.3325,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 5,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 166466.0,
+      "elapsed_ms": 0.3404,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 6,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 180381.0,
+      "elapsed_ms": 0.2065,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 7,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 145207.0,
+      "elapsed_ms": 0.1567,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 8,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 144536.0,
+      "elapsed_ms": 0.1667,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 9,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 119533.0,
+      "elapsed_ms": 0.229,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 10,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 127142.0,
+      "elapsed_ms": 0.2488,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 11,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 66786.0,
+      "elapsed_ms": 0.2207,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 12,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 156929.0,
+      "elapsed_ms": 0.3144,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 13,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 133821.0,
+      "elapsed_ms": 0.2437,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 14,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 130582.0,
+      "elapsed_ms": 0.2538,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 15,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 143394.0,
+      "elapsed_ms": 0.2396,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 16,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 171310.0,
+      "elapsed_ms": 0.2613,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 17,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 196274.0,
+      "elapsed_ms": 0.1431,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 18,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 151528.0,
+      "elapsed_ms": 0.1963,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 19,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 148447.0,
+      "elapsed_ms": 0.1328,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 10,
+      "iteration": 20,
+      "row_count": 10,
+      "col_count": 10,
+      "assigned_count": 10,
+      "total_cost": 146098.0,
+      "elapsed_ms": 0.1471,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 1,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 121730.0,
+      "elapsed_ms": 1.1255,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 2,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 134838.0,
+      "elapsed_ms": 1.5406,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 3,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 142238.0,
+      "elapsed_ms": 1.5279,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 4,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 160163.0,
+      "elapsed_ms": 1.4546,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 5,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 119414.0,
+      "elapsed_ms": 1.4014,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 6,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 132364.0,
+      "elapsed_ms": 1.3973,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 7,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 156960.0,
+      "elapsed_ms": 1.375,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 8,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 182903.0,
+      "elapsed_ms": 1.453,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 9,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 158721.0,
+      "elapsed_ms": 1.2393,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 10,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 187416.0,
+      "elapsed_ms": 1.4066,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 11,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 118554.0,
+      "elapsed_ms": 1.0825,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 12,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 146430.0,
+      "elapsed_ms": 1.1922,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 13,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 148927.0,
+      "elapsed_ms": 1.0286,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 14,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 194843.0,
+      "elapsed_ms": 1.2137,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 15,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 135452.0,
+      "elapsed_ms": 1.6065,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 16,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 151569.0,
+      "elapsed_ms": 1.1876,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 17,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 146757.0,
+      "elapsed_ms": 1.4767,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 18,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 139706.0,
+      "elapsed_ms": 1.1381,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 19,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 152450.0,
+      "elapsed_ms": 0.7586,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 25,
+      "iteration": 20,
+      "row_count": 25,
+      "col_count": 25,
+      "assigned_count": 25,
+      "total_cost": 165989.0,
+      "elapsed_ms": 1.0005,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 1,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 160624.0,
+      "elapsed_ms": 5.3325,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 2,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 157814.0,
+      "elapsed_ms": 5.7207,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 3,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 172107.0,
+      "elapsed_ms": 5.3047,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 4,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 166909.0,
+      "elapsed_ms": 5.3881,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 5,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 152114.0,
+      "elapsed_ms": 5.5371,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 6,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 147995.0,
+      "elapsed_ms": 5.651,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 7,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 179060.0,
+      "elapsed_ms": 4.3629,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 8,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 167180.0,
+      "elapsed_ms": 8.9028,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 9,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 160907.0,
+      "elapsed_ms": 6.7091,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 10,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 162858.0,
+      "elapsed_ms": 6.8087,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 11,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 180221.0,
+      "elapsed_ms": 6.7928,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 12,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 180043.0,
+      "elapsed_ms": 6.1825,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 13,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 139773.0,
+      "elapsed_ms": 4.9731,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 14,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 151560.0,
+      "elapsed_ms": 7.0352,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 15,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 163362.0,
+      "elapsed_ms": 8.1834,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 16,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 148506.0,
+      "elapsed_ms": 6.183,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 17,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 141192.0,
+      "elapsed_ms": 5.3546,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 18,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 151175.0,
+      "elapsed_ms": 6.8325,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 19,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 160568.0,
+      "elapsed_ms": 4.094,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 50,
+      "iteration": 20,
+      "row_count": 50,
+      "col_count": 50,
+      "assigned_count": 50,
+      "total_cost": 157032.0,
+      "elapsed_ms": 6.3222,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 1,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 144922.0,
+      "elapsed_ms": 36.5292,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 2,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 145853.0,
+      "elapsed_ms": 26.8157,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 3,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 164124.0,
+      "elapsed_ms": 24.975,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 4,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 158140.0,
+      "elapsed_ms": 26.0661,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 5,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 158488.0,
+      "elapsed_ms": 29.6913,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 6,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 164826.0,
+      "elapsed_ms": 23.2523,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 7,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 169884.0,
+      "elapsed_ms": 30.2647,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 8,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 175365.0,
+      "elapsed_ms": 36.5898,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 9,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 139599.0,
+      "elapsed_ms": 25.2737,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 10,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 148201.0,
+      "elapsed_ms": 25.7158,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 11,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 154022.0,
+      "elapsed_ms": 32.0977,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 12,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 166234.0,
+      "elapsed_ms": 37.1879,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 13,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 154466.0,
+      "elapsed_ms": 31.6192,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 14,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 177276.0,
+      "elapsed_ms": 28.5109,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 15,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 144525.0,
+      "elapsed_ms": 35.0926,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 16,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 159084.0,
+      "elapsed_ms": 33.3618,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 17,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 174006.0,
+      "elapsed_ms": 29.9176,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 18,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 172580.0,
+      "elapsed_ms": 40.2793,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 19,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 142101.0,
+      "elapsed_ms": 33.1027,
+      "assignment_count_valid": true
+    },
+    {
+      "size": 100,
+      "iteration": 20,
+      "row_count": 100,
+      "col_count": 100,
+      "assigned_count": 100,
+      "total_cost": 180760.0,
+      "elapsed_ms": 40.9169,
+      "assignment_count_valid": true
+    }
+  ]
+}

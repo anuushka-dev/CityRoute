@@ -1,0 +1,193 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "dispatch_endpoint_benchmark",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "endpoint": "/dispatch/compare",
+  "matrix_algorithm": "haversine",
+  "created_at_utc": "2026-07-09T11:34:55.039101+00:00",
+  "sizes": [
+    5,
+    10,
+    25,
+    50
+  ],
+  "iterations_per_size": 20,
+  "warmup_iterations": 2,
+  "case_count": 80,
+  "success_count": 80,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "group_summaries": {
+    "5x5": {
+      "size": 5,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 5.5404,
+        "median": 16.23355,
+        "mean": 19.826325,
+        "p95": 31.55973,
+        "max": 31.851
+      },
+      "api_elapsed_ms": {
+        "min": 0.4873,
+        "median": 0.6673,
+        "mean": 0.715665,
+        "p95": 1.044475,
+        "max": 1.3651
+      },
+      "matrix_generation_time_ms": {
+        "min": 0.2393,
+        "median": 0.29705,
+        "mean": 0.3393,
+        "p95": 0.53255,
+        "max": 0.6684
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": null
+    },
+    "10x10": {
+      "size": 10,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 5.4123,
+        "median": 11.4431,
+        "mean": 15.738735,
+        "p95": 30.86579,
+        "max": 31.5629
+      },
+      "api_elapsed_ms": {
+        "min": 1.0964,
+        "median": 1.44785,
+        "mean": 1.53195,
+        "p95": 1.99151,
+        "max": 2.2995
+      },
+      "matrix_generation_time_ms": {
+        "min": 0.7014,
+        "median": 0.9501,
+        "mean": 1.03007,
+        "p95": 1.437415,
+        "max": 1.5061
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": null
+    },
+    "25x25": {
+      "size": 25,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 11.191,
+        "median": 30.7651,
+        "mean": 26.37938,
+        "p95": 34.80381,
+        "max": 35.0301
+      },
+      "api_elapsed_ms": {
+        "min": 5.38,
+        "median": 6.1812,
+        "mean": 7.101565,
+        "p95": 10.23238,
+        "max": 11.106
+      },
+      "matrix_generation_time_ms": {
+        "min": 4.1267,
+        "median": 4.69295,
+        "mean": 5.41593,
+        "p95": 8.005835,
+        "max": 8.0844
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": true,
+      "median_request_under_500ms": null
+    },
+    "50x50": {
+      "size": 50,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 28.2644,
+        "median": 44.8474,
+        "mean": 42.485795,
+        "p95": 51.33893,
+        "max": 51.6663
+      },
+      "api_elapsed_ms": {
+        "min": 20.3607,
+        "median": 22.2432,
+        "mean": 23.00296,
+        "p95": 27.19646,
+        "max": 27.8664
+      },
+      "matrix_generation_time_ms": {
+        "min": 16.0168,
+        "median": 17.7567,
+        "mean": 18.406385,
+        "p95": 21.217975,
+        "max": 21.7799
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": true
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9\\local_results\\phase9_dispatch_endpoint_raw_local_20260709_113455.json",
+  "output_summary_file": "benchmarks\\phase_9\\local_results\\phase9_dispatch_endpoint_summary_local_20260709_113455.json",
+  "quality_flags": {
+    "all_requests_successful": true,
+    "all_non_regression": true,
+    "all_assignment_counts_valid": true,
+    "all_capacity_counts_valid": true,
+    "size_25_median_request_under_250ms": true,
+    "size_50_median_request_under_500ms": true
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "dispatch_cache_probe",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "endpoint": "/dispatch/compare",
+  "matrix_algorithm": "haversine",
+  "require_cache": false,
+  "created_at_utc": "2026-07-07T13:20:20.686984+00:00",
+  "sizes": [
+    5,
+    10,
+    25,
+    50
+  ],
+  "cycles_per_size": 10,
+  "request_count": 80,
+  "cycle_count": 40,
+  "successful_cycle_count": 0,
+  "failed_cycle_count": 40,
+  "success_rate_pct": 0.0,
+  "cache_hit_count": 0,
+  "cache_hit_rate_pct": 0.0,
+  "group_summaries": {
+    "5x5": {
+      "size": 5,
+      "cycle_count": 10,
+      "success_count": 0,
+      "failure_count": 10,
+      "success_rate_pct": 0.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 0,
+      "stable_assignment_count": 0,
+      "repeat_faster_or_equal_count": 8,
+      "first_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "speedup_ratio": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "10x10": {
+      "size": 10,
+      "cycle_count": 10,
+      "success_count": 0,
+      "failure_count": 10,
+      "success_rate_pct": 0.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 0,
+      "stable_assignment_count": 0,
+      "repeat_faster_or_equal_count": 6,
+      "first_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "speedup_ratio": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "25x25": {
+      "size": 25,
+      "cycle_count": 10,
+      "success_count": 0,
+      "failure_count": 10,
+      "success_rate_pct": 0.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 0,
+      "stable_assignment_count": 0,
+      "repeat_faster_or_equal_count": 6,
+      "first_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "speedup_ratio": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "50x50": {
+      "size": 50,
+      "cycle_count": 10,
+      "success_count": 0,
+      "failure_count": 10,
+      "success_rate_pct": 0.0,
+      "cache_hit_count": 0,
+      "cache_hit_rate_pct": 0.0,
+      "stable_cost_count": 0,
+      "stable_assignment_count": 0,
+      "repeat_faster_or_equal_count": 6,
+      "first_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "repeat_request_elapsed_ms": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "speedup_ratio": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_raw_docker_20260707_132020.json",
+  "output_summary_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_summary_docker_20260707_132020.json",
+  "quality_flags": {
+    "all_cycles_successful": false,
+    "all_response_costs_stable": false,
+    "all_assignment_counts_stable": false,
+    "cache_field_present_all_cycles": false,
+    "cache_hits_observed": false,
+    "cache_requirement_met": true,
+    "repeat_faster_or_equal_all_cycles": false
+  }
+}

@@ -1,0 +1,42 @@
+CityRoute Phase 9.1 Evidence Manifest
+========================================
+created_at_utc: 2026-07-09T14:02:06.189591+00:00
+mode: local
+base_url: http://127.0.0.1:8000
+
+Quality flags:
+- all_expected_source_files_exist: True
+- all_expected_test_files_exist: True
+- all_expected_benchmark_files_exist: True
+- result_json_files_present: True
+- all_result_json_files_valid: True
+- latest_summary_files_present: True
+- all_critical_summary_quality_flags_true: True
+- pytest_passed: True
+- ruff_passed: False
+- http_checks_passed: True
+- dispatch_endpoint_available: True
+- health_ok: True
+- git_commit_available: True
+- git_working_tree_clean: False
+
+Latest summary files:
+- phase91_dispatch_source_dijkstra_summary_local_20260709_140040.json | benchmark=dispatch_source_dijkstra_probe | valid=True
+- phase91_dispatch_cache_summary_local_20260709_140153.json | benchmark=dispatch_cache_probe | valid=True
+
+Command results:
+- phase91_pytest: passed=True returncode=0
+- phase91_ruff: passed=False returncode=1
+
+HTTP checks:
+- root: success=True status=200
+- health: success=True status=200
+- openapi: success=True status=200
+
+Git:
+- branch: tier3-phase8-lns
+- commit: afdebd4
+- clean_working_tree: False
+
+Evidence note:
+Phase 9.1 evidence validates service-level source_dijkstra dispatch integration through an injected internal builder and service-level cache miss-hit behavior using an in-process fake backend. It does not claim live real-graph dispatch API wiring or real Redis hits unless separate probes are added later.

@@ -1,0 +1,193 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "dispatch_endpoint_benchmark",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "endpoint": "/dispatch/compare",
+  "matrix_algorithm": "haversine",
+  "created_at_utc": "2026-07-07T14:12:55.659617+00:00",
+  "sizes": [
+    5,
+    10,
+    25,
+    50
+  ],
+  "iterations_per_size": 20,
+  "warmup_iterations": 2,
+  "case_count": 80,
+  "success_count": 80,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "group_summaries": {
+    "5x5": {
+      "size": 5,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 6.7559,
+        "median": 9.8606,
+        "mean": 10.84002,
+        "p95": 14.61825,
+        "max": 24.6664
+      },
+      "api_elapsed_ms": {
+        "min": 0.518645,
+        "median": 0.695282,
+        "mean": 0.689042,
+        "p95": 0.958983,
+        "max": 0.962686
+      },
+      "matrix_generation_time_ms": {
+        "min": 0.215362,
+        "median": 0.353656,
+        "mean": 0.361248,
+        "p95": 0.537534,
+        "max": 0.593338
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": null
+    },
+    "10x10": {
+      "size": 10,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 9.037,
+        "median": 11.59135,
+        "mean": 12.567565,
+        "p95": 16.96028,
+        "max": 31.6013
+      },
+      "api_elapsed_ms": {
+        "min": 1.094797,
+        "median": 1.824099,
+        "mean": 1.751149,
+        "p95": 2.211976,
+        "max": 2.232522
+      },
+      "matrix_generation_time_ms": {
+        "min": 0.632839,
+        "median": 1.19341,
+        "mean": 1.162116,
+        "p95": 1.539237,
+        "max": 1.56014
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": null
+    },
+    "25x25": {
+      "size": 25,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 16.8159,
+        "median": 25.9687,
+        "mean": 25.13988,
+        "p95": 34.00252,
+        "max": 39.1481
+      },
+      "api_elapsed_ms": {
+        "min": 5.533638,
+        "median": 10.774157,
+        "mean": 12.307661,
+        "p95": 20.114197,
+        "max": 20.473248
+      },
+      "matrix_generation_time_ms": {
+        "min": 3.85832,
+        "median": 7.026844,
+        "mean": 7.949527,
+        "p95": 17.123146,
+        "max": 18.668665
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": true,
+      "median_request_under_500ms": null
+    },
+    "50x50": {
+      "size": 50,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "min": 45.9686,
+        "median": 58.05385,
+        "mean": 59.24942,
+        "p95": 75.09321,
+        "max": 78.4868
+      },
+      "api_elapsed_ms": {
+        "min": 30.291444,
+        "median": 40.805464,
+        "mean": 39.743922,
+        "p95": 47.430811,
+        "max": 49.770667
+      },
+      "matrix_generation_time_ms": {
+        "min": 25.645444,
+        "median": 33.776289,
+        "mean": 33.337854,
+        "p95": 41.250919,
+        "max": 44.07747
+      },
+      "hungarian_improvement_pct": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true,
+      "all_capacity_counts_valid": true,
+      "median_request_under_250ms": null,
+      "median_request_under_500ms": true
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_endpoint_raw_docker_20260707_141255.json",
+  "output_summary_file": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_endpoint_summary_docker_20260707_141255.json",
+  "quality_flags": {
+    "all_requests_successful": true,
+    "all_non_regression": true,
+    "all_assignment_counts_valid": true,
+    "all_capacity_counts_valid": true,
+    "size_25_median_request_under_250ms": true,
+    "size_50_median_request_under_500ms": true
+  }
+}

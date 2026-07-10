@@ -1,0 +1,829 @@
+{
+  "phase": "tier3_phase9",
+  "collector": "collect_phase9_evidence",
+  "mode": "docker",
+  "base_url": "http://127.0.0.1:8001",
+  "created_at_utc": "2026-07-08T09:32:54.509974+00:00",
+  "project_root": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+  "output_manifest_json": "benchmarks\\phase_9\\docker_results\\phase9_evidence_manifest_docker_20260708_093254.json",
+  "output_manifest_txt": "benchmarks\\phase_9\\docker_results\\phase9_evidence_manifest_docker_20260708_093254.txt",
+  "source_files": [
+    {
+      "relative_path": "app/core/hungarian.py",
+      "exists": true,
+      "size_bytes": 6614,
+      "modified_utc": "2026-07-07T11:44:05.090309+00:00",
+      "sha256": "f7ab06810890d3dc86797050e61995f6cd29d240ce5406b07fe0c6e152689116"
+    },
+    {
+      "relative_path": "app/core/greedy_dispatch.py",
+      "exists": true,
+      "size_bytes": 3536,
+      "modified_utc": "2026-07-07T11:43:42.598827+00:00",
+      "sha256": "517ff7dd18ddb3a81cac7896ddc7c81bfc4843f9fef4acbabb8db5ba636215b8"
+    },
+    {
+      "relative_path": "app/core/dispatch_cost_matrix.py",
+      "exists": true,
+      "size_bytes": 9788,
+      "modified_utc": "2026-07-07T11:43:15.025055+00:00",
+      "sha256": "b3068d8ef2f42ca45f73c64d49d51f9b552f837a9f77649a4e876235799639ab"
+    },
+    {
+      "relative_path": "app/core/dispatch_fairness.py",
+      "exists": true,
+      "size_bytes": 7654,
+      "modified_utc": "2026-07-07T11:42:54.016427+00:00",
+      "sha256": "8ab0b3616103c006af8ad94b7b9c1464fae5d4397c01065850ef66b6c4dd07f7"
+    },
+    {
+      "relative_path": "app/schemas/dispatch.py",
+      "exists": true,
+      "size_bytes": 3890,
+      "modified_utc": "2026-07-07T11:50:53.216562+00:00",
+      "sha256": "98c3c17fe5204cde49fbe72afe6f15f5b273bc60b651ac38a1f0abdb169683b5"
+    },
+    {
+      "relative_path": "app/services/dispatch_service.py",
+      "exists": true,
+      "size_bytes": 10211,
+      "modified_utc": "2026-07-07T11:54:03.968512+00:00",
+      "sha256": "1ce2d4cf3d6942538f12f3b9ccac809bbbd3a263f468aea6d5547a079db09f8c"
+    },
+    {
+      "relative_path": "app/api/dispatch.py",
+      "exists": true,
+      "size_bytes": 806,
+      "modified_utc": "2026-07-07T11:55:18.066184+00:00",
+      "sha256": "fe48db76c09565df9c80030db9865032f415fc6ab53537e885d6c4147bd4133b"
+    },
+    {
+      "relative_path": "app/main.py",
+      "exists": true,
+      "size_bytes": 4209,
+      "modified_utc": "2026-07-07T12:02:32.238977+00:00",
+      "sha256": "adb88d29119a78e7c047580a0292c2de87fb6e434d45e8853fdfc03a2d3ad53a"
+    }
+  ],
+  "test_files": [
+    {
+      "relative_path": "tests/test_hungarian_algorithm.py",
+      "exists": true,
+      "size_bytes": 5489,
+      "modified_utc": "2026-07-07T12:06:42.020293+00:00",
+      "sha256": "8ea3f831725c2ec729e7b6f8670dbacdb62d2f68962d2a313b4cdbbd31c8dbbb"
+    },
+    {
+      "relative_path": "tests/test_greedy_dispatch.py",
+      "exists": true,
+      "size_bytes": 4707,
+      "modified_utc": "2026-07-07T12:31:21.131650+00:00",
+      "sha256": "ff13935cd20412797bae68834c7b3b26eb134a02b3f4df86c091f8d37ddd1066"
+    },
+    {
+      "relative_path": "tests/test_dispatch_cost_matrix.py",
+      "exists": true,
+      "size_bytes": 10806,
+      "modified_utc": "2026-07-07T12:14:43.126073+00:00",
+      "sha256": "a52d2551e50632748eca0ec17e4055062c869a0ffdb376260cf7493d30e39f35"
+    },
+    {
+      "relative_path": "tests/test_dispatch_fairness.py",
+      "exists": true,
+      "size_bytes": 9482,
+      "modified_utc": "2026-07-07T12:25:11.953244+00:00",
+      "sha256": "e0028a67caa40ae9f99194e46a792ea8a40c9db44092f23abac5d9e42b76d4c4"
+    },
+    {
+      "relative_path": "tests/test_dispatch_endpoint.py",
+      "exists": true,
+      "size_bytes": 9661,
+      "modified_utc": "2026-07-07T12:27:25.197120+00:00",
+      "sha256": "65414b8fd3c2afa9d77600b37dd96bf1b3081269b0facf3944912e50d3475b76"
+    }
+  ],
+  "benchmark_files": [
+    {
+      "relative_path": "benchmarks/phase_9/phase9_hungarian_correctness_probe.py",
+      "exists": true,
+      "size_bytes": 8560,
+      "modified_utc": "2026-07-07T13:35:11.585380+00:00",
+      "sha256": "85c7f0ec7f72b299cf1ce3ad47bb2e3a60fd9ba418557d0dfa2e0ef4127bd9eb"
+    },
+    {
+      "relative_path": "benchmarks/phase_9/phase9_hungarian_speed_benchmark.py",
+      "exists": true,
+      "size_bytes": 10536,
+      "modified_utc": "2026-07-07T12:46:41.993051+00:00",
+      "sha256": "6eac39cea8ab2f1b5b50dc285e851bcacc7916e52ee0511a8e4866e25332093b"
+    },
+    {
+      "relative_path": "benchmarks/phase_9/phase9_dispatch_endpoint_benchmark.py",
+      "exists": true,
+      "size_bytes": 24988,
+      "modified_utc": "2026-07-07T14:12:43.416443+00:00",
+      "sha256": "94b16b8ec5ac62982852b7b1e8d79cd0cfbd9f8d62f199ff94d8565c2fc7cf99"
+    },
+    {
+      "relative_path": "benchmarks/phase_9/phase9_dispatch_fairness_probe.py",
+      "exists": true,
+      "size_bytes": 17949,
+      "modified_utc": "2026-07-07T14:26:07.524967+00:00",
+      "sha256": "00981d8e27a3cd5ad2b354e81ebdd94f59c0809071397d6e22c079f65edcba1d"
+    },
+    {
+      "relative_path": "benchmarks/phase_9/phase9_dispatch_cache_probe.py",
+      "exists": true,
+      "size_bytes": 25285,
+      "modified_utc": "2026-07-07T13:19:25.842963+00:00",
+      "sha256": "1b9f835891c695e2fc799d2e84e6d580d1df8cc14a00ae71bb864cba66e0e7d7"
+    },
+    {
+      "relative_path": "benchmarks/phase_9/collect_phase9_evidence.py",
+      "exists": true,
+      "size_bytes": 25025,
+      "modified_utc": "2026-07-07T13:23:09.833370+00:00",
+      "sha256": "97f9f92bdca857cb184bcae1c536b06ce34e7d2a3113927faa5a4dc3e3acc2fd"
+    }
+  ],
+  "result_files": [
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_raw_docker_20260707_132020.json",
+      "filename": "phase9_dispatch_cache_raw_docker_20260707_132020.json",
+      "exists": true,
+      "size_bytes": 82099,
+      "modified_utc": "2026-07-07T13:20:20.685871+00:00",
+      "sha256": "98a9c365b5315db93807ec04cfb531c94f3ed968ec2d180502c08be513b6b45d",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "cycles_per_size": 10,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_raw_docker_20260708_092128.json",
+      "filename": "phase9_dispatch_cache_raw_docker_20260708_092128.json",
+      "exists": true,
+      "size_bytes": 80685,
+      "modified_utc": "2026-07-08T09:21:28.150713+00:00",
+      "sha256": "6a8aff12dc86a7523134a0e740443230395cbe404414ea57410509738318621a",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "cycles_per_size": 10,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_summary_docker_20260707_132020.json",
+      "filename": "phase9_dispatch_cache_summary_docker_20260707_132020.json",
+      "exists": true,
+      "size_bytes": 4271,
+      "modified_utc": "2026-07-07T13:20:20.690312+00:00",
+      "sha256": "bb49ac2e269e9cb3490cc6a052c795343b7d8a45b7bc9e0eef8a6ecf308ceaf4",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": false,
+        "all_response_costs_stable": false,
+        "all_assignment_counts_stable": false,
+        "cache_field_present_all_cycles": false,
+        "cache_hits_observed": false,
+        "cache_requirement_met": true,
+        "repeat_faster_or_equal_all_cycles": false
+      },
+      "key_metrics": {
+        "success_rate_pct": 0.0,
+        "cache_hit_count": 0,
+        "cache_hit_rate_pct": 0.0,
+        "cycle_count": 40,
+        "successful_cycle_count": 0,
+        "failed_cycle_count": 40,
+        "request_count": 80,
+        "cycles_per_size": 10,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_summary_docker_20260708_092128.json",
+      "filename": "phase9_dispatch_cache_summary_docker_20260708_092128.json",
+      "exists": true,
+      "size_bytes": 4547,
+      "modified_utc": "2026-07-08T09:21:28.154039+00:00",
+      "sha256": "eaecd4b37bcc4593a1e885e07ef448c8b5b91b508de3a24468d62f95cd86c2a6",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": true,
+        "all_response_costs_stable": true,
+        "all_assignment_counts_stable": true,
+        "cache_field_present_all_cycles": true,
+        "cache_hits_observed": false,
+        "cache_requirement_met": true,
+        "repeat_faster_or_equal_all_cycles": false
+      },
+      "key_metrics": {
+        "success_rate_pct": 100.0,
+        "cache_hit_count": 0,
+        "cache_hit_rate_pct": 0.0,
+        "cycle_count": 40,
+        "successful_cycle_count": 40,
+        "failed_cycle_count": 0,
+        "request_count": 80,
+        "cycles_per_size": 10,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_endpoint_raw_docker_20260707_141255.json",
+      "filename": "phase9_dispatch_endpoint_raw_docker_20260707_141255.json",
+      "exists": true,
+      "size_bytes": 68756,
+      "modified_utc": "2026-07-07T14:12:55.657232+00:00",
+      "sha256": "ad92c3f405e6df23d8a954e759db880759a79fdb771989059852826bb9118f4e",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_endpoint_benchmark",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "iterations_per_size": 20,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_endpoint_summary_docker_20260707_141255.json",
+      "filename": "phase9_dispatch_endpoint_summary_docker_20260707_141255.json",
+      "exists": true,
+      "size_bytes": 5222,
+      "modified_utc": "2026-07-07T14:12:55.662842+00:00",
+      "sha256": "5f8970455df68ef9493e932626f36d6cf84f2bbec8213c0f9c963c98cc3437a4",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_endpoint_benchmark",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_requests_successful": true,
+        "all_non_regression": true,
+        "all_assignment_counts_valid": true,
+        "all_capacity_counts_valid": true,
+        "size_25_median_request_under_250ms": true,
+        "size_50_median_request_under_500ms": true
+      },
+      "key_metrics": {
+        "case_count": 80,
+        "success_count": 80,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_raw_docker_20260707_131839.json",
+      "filename": "phase9_dispatch_fairness_raw_docker_20260707_131839.json",
+      "exists": true,
+      "size_bytes": 46439,
+      "modified_utc": "2026-07-07T13:18:39.661146+00:00",
+      "sha256": "5a91a00b9ecfa4ce2dc24000b9ab80a9a99ef859fb4df32e2a15782aac15cdd1",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_raw_docker_20260707_141720.json",
+      "filename": "phase9_dispatch_fairness_raw_docker_20260707_141720.json",
+      "exists": true,
+      "size_bytes": 46444,
+      "modified_utc": "2026-07-07T14:17:20.876673+00:00",
+      "sha256": "562e07b61f3f81292399e1792a7bd53ac2905badfc88ae185bf44351e90ea36a",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_raw_docker_20260707_142617.json",
+      "filename": "phase9_dispatch_fairness_raw_docker_20260707_142617.json",
+      "exists": true,
+      "size_bytes": 46444,
+      "modified_utc": "2026-07-07T14:26:17.137388+00:00",
+      "sha256": "b9de97bdbdc147488b0a605b87b1640b1a47e776db9339b65aa59fa4e387c44f",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_summary_docker_20260707_131839.json",
+      "filename": "phase9_dispatch_fairness_summary_docker_20260707_131839.json",
+      "exists": true,
+      "size_bytes": 6550,
+      "modified_utc": "2026-07-07T13:18:39.664146+00:00",
+      "sha256": "186b7a5b08f90170b3594447d6b42aec38045b6687b8e47646ce751a7d642570",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_costs_non_negative": true,
+        "all_assignment_counts_valid": true,
+        "all_fairness_scores_valid": true,
+        "all_hungarian_non_regression": true,
+        "at_least_one_policy_changes_fairness": false
+      },
+      "key_metrics": {
+        "case_count": 18,
+        "success_count": 18,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "scenario_count": 3,
+        "policy_count": 3,
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_summary_docker_20260707_141720.json",
+      "filename": "phase9_dispatch_fairness_summary_docker_20260707_141720.json",
+      "exists": true,
+      "size_bytes": 6550,
+      "modified_utc": "2026-07-07T14:17:20.879142+00:00",
+      "sha256": "b3312d39eaccbf384de75d8f54df13d333feaf5f0cacd6171edaabc5a16b5528",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_costs_non_negative": true,
+        "all_assignment_counts_valid": true,
+        "all_fairness_scores_valid": true,
+        "all_hungarian_non_regression": true,
+        "at_least_one_policy_changes_fairness": false
+      },
+      "key_metrics": {
+        "case_count": 18,
+        "success_count": 18,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "scenario_count": 3,
+        "policy_count": 3,
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_summary_docker_20260707_142617.json",
+      "filename": "phase9_dispatch_fairness_summary_docker_20260707_142617.json",
+      "exists": true,
+      "size_bytes": 6549,
+      "modified_utc": "2026-07-07T14:26:17.140408+00:00",
+      "sha256": "5d56365c6e94d833a7aa2e625d6e4c796a264e2a8c89597cd45fea4a520523a8",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_costs_non_negative": true,
+        "all_assignment_counts_valid": true,
+        "all_fairness_scores_valid": true,
+        "all_hungarian_non_regression": true,
+        "at_least_one_policy_changes_fairness": true
+      },
+      "key_metrics": {
+        "case_count": 18,
+        "success_count": 18,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "scenario_count": 3,
+        "policy_count": 3,
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_evidence_manifest_docker_20260707_132410.json",
+      "filename": "phase9_evidence_manifest_docker_20260707_132410.json",
+      "exists": true,
+      "size_bytes": 31009,
+      "modified_utc": "2026-07-07T13:24:10.110966+00:00",
+      "sha256": "b4a11609d877e657b0f2e620c153eebb905574a732f92bca8df8ee24236ed6a9",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": null,
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_expected_source_files_exist": true,
+        "all_expected_test_files_exist": true,
+        "all_expected_benchmark_files_exist": true,
+        "result_json_files_present": true,
+        "all_result_json_files_valid": true,
+        "latest_summary_files_present": true,
+        "all_critical_summary_quality_flags_true": false,
+        "pytest_passed": true,
+        "ruff_passed": false,
+        "http_checks_passed": false,
+        "dispatch_endpoint_available": false,
+        "health_ok": true,
+        "git_commit_available": true
+      },
+      "key_metrics": {
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_correctness_raw_20260707_133352.json",
+      "filename": "phase9_hungarian_correctness_raw_20260707_133352.json",
+      "exists": true,
+      "size_bytes": 555018,
+      "modified_utc": "2026-07-07T13:33:52.901607+00:00",
+      "sha256": "a0e9b1bddb21b5bfeed95fb17d3d5ef556a41eb31662e72585344b9fcb7f9658",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "hungarian_correctness_probe",
+      "mode": null,
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "iterations_per_size": 50
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_correctness_raw_20260707_133534.json",
+      "filename": "phase9_hungarian_correctness_raw_20260707_133534.json",
+      "exists": true,
+      "size_bytes": 555021,
+      "modified_utc": "2026-07-07T13:35:34.518985+00:00",
+      "sha256": "4ca688c0db7ec86d68ea696fbc00ac4533a408314de40a568a5465db016157ce",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "hungarian_correctness_probe",
+      "mode": null,
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "iterations_per_size": 50
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_speed_raw_docker_20260707_133719.json",
+      "filename": "phase9_hungarian_speed_raw_docker_20260707_133719.json",
+      "exists": true,
+      "size_bytes": 23540,
+      "modified_utc": "2026-07-07T13:37:19.214407+00:00",
+      "sha256": "c7e9ccd7fd75f79a698f21e0307c9e6baafa5ff09f2ea14b85ba80387771c185",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "hungarian_speed_benchmark",
+      "mode": "docker",
+      "is_summary": false,
+      "quality_flags": {},
+      "key_metrics": {
+        "iterations_per_size": 20,
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_speed_summary_docker_20260707_133719.json",
+      "filename": "phase9_hungarian_speed_summary_docker_20260707_133719.json",
+      "exists": true,
+      "size_bytes": 2921,
+      "modified_utc": "2026-07-07T13:37:19.219079+00:00",
+      "sha256": "f0800ec92a55d874da4f930c322412e63f90e71fe7022510aed70d44c167ffb2",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "hungarian_speed_benchmark",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_assignment_counts_valid": true,
+        "size_50_median_under_250ms": true,
+        "size_100_median_under_2sec": true
+      },
+      "key_metrics": {
+        "case_count": 100,
+        "success_count": 100,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "docker"
+      }
+    }
+  ],
+  "latest_summary_files": [
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_cache_summary_docker_20260708_092128.json",
+      "filename": "phase9_dispatch_cache_summary_docker_20260708_092128.json",
+      "exists": true,
+      "size_bytes": 4547,
+      "modified_utc": "2026-07-08T09:21:28.154039+00:00",
+      "sha256": "eaecd4b37bcc4593a1e885e07ef448c8b5b91b508de3a24468d62f95cd86c2a6",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_cache_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cycles_successful": true,
+        "all_response_costs_stable": true,
+        "all_assignment_counts_stable": true,
+        "cache_field_present_all_cycles": true,
+        "cache_hits_observed": false,
+        "cache_requirement_met": true,
+        "repeat_faster_or_equal_all_cycles": false
+      },
+      "key_metrics": {
+        "success_rate_pct": 100.0,
+        "cache_hit_count": 0,
+        "cache_hit_rate_pct": 0.0,
+        "cycle_count": 40,
+        "successful_cycle_count": 40,
+        "failed_cycle_count": 0,
+        "request_count": 80,
+        "cycles_per_size": 10,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_endpoint_summary_docker_20260707_141255.json",
+      "filename": "phase9_dispatch_endpoint_summary_docker_20260707_141255.json",
+      "exists": true,
+      "size_bytes": 5222,
+      "modified_utc": "2026-07-07T14:12:55.662842+00:00",
+      "sha256": "5f8970455df68ef9493e932626f36d6cf84f2bbec8213c0f9c963c98cc3437a4",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_endpoint_benchmark",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_requests_successful": true,
+        "all_non_regression": true,
+        "all_assignment_counts_valid": true,
+        "all_capacity_counts_valid": true,
+        "size_25_median_request_under_250ms": true,
+        "size_50_median_request_under_500ms": true
+      },
+      "key_metrics": {
+        "case_count": 80,
+        "success_count": 80,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "docker",
+        "base_url": "http://127.0.0.1:8001",
+        "endpoint": "/dispatch/compare",
+        "matrix_algorithm": "haversine"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_dispatch_fairness_summary_docker_20260707_142617.json",
+      "filename": "phase9_dispatch_fairness_summary_docker_20260707_142617.json",
+      "exists": true,
+      "size_bytes": 6549,
+      "modified_utc": "2026-07-07T14:26:17.140408+00:00",
+      "sha256": "5d56365c6e94d833a7aa2e625d6e4c796a264e2a8c89597cd45fea4a520523a8",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "dispatch_fairness_probe",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_cases_successful": true,
+        "all_costs_non_negative": true,
+        "all_assignment_counts_valid": true,
+        "all_fairness_scores_valid": true,
+        "all_hungarian_non_regression": true,
+        "at_least_one_policy_changes_fairness": true
+      },
+      "key_metrics": {
+        "case_count": 18,
+        "success_count": 18,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "scenario_count": 3,
+        "policy_count": 3,
+        "mode": "docker"
+      }
+    },
+    {
+      "relative_path": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_speed_summary_docker_20260707_133719.json",
+      "filename": "phase9_hungarian_speed_summary_docker_20260707_133719.json",
+      "exists": true,
+      "size_bytes": 2921,
+      "modified_utc": "2026-07-07T13:37:19.219079+00:00",
+      "sha256": "f0800ec92a55d874da4f930c322412e63f90e71fe7022510aed70d44c167ffb2",
+      "json_valid": true,
+      "parse_error": null,
+      "phase": "tier3_phase9",
+      "benchmark": "hungarian_speed_benchmark",
+      "mode": "docker",
+      "is_summary": true,
+      "quality_flags": {
+        "all_assignment_counts_valid": true,
+        "size_50_median_under_250ms": true,
+        "size_100_median_under_2sec": true
+      },
+      "key_metrics": {
+        "case_count": 100,
+        "success_count": 100,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "iterations_per_size": 20,
+        "mode": "docker"
+      }
+    }
+  ],
+  "command_results": [
+    {
+      "name": "phase9_pytest",
+      "command": [
+        "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_hungarian_algorithm.py",
+        "tests/test_greedy_dispatch.py",
+        "tests/test_dispatch_cost_matrix.py",
+        "tests/test_dispatch_fairness.py",
+        "tests/test_dispatch_endpoint.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "elapsed_ms": 9297.3825,
+      "stdout_tail": "ests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_balanced_assignment PASSED [ 65%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_unbalanced_assignment PASSED [ 66%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_includes_current_load_in_projected_load PASSED [ 67%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_computes_utilization_percentages PASSED [ 68%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_keeps_drivers_with_zero_new_assignments PASSED [ 69%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_allows_no_assignments PASSED [ 70%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_sorts_driver_metrics_by_driver_id PASSED [ 71%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_empty_slots PASSED [ 72%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_duplicate_slot_rows PASSED [ 73%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_negative_slot_row PASSED [ 74%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_empty_driver_id PASSED [ 75%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_negative_current_load PASSED [ 76%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_non_positive_capacity PASSED [ 77%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_current_load_above_capacity PASSED [ 78%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_assignment_row_not_in_slots PASSED [ 79%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_duplicate_assignment_rows PASSED [ 80%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_duplicate_assignment_cols PASSED [ 80%]\ntests/test_dispatch_fairness.py::test_calculate_dispatch_fairness_rejects_negative_assignment_col PASSED [ 81%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_route_is_registered_in_openapi PASSED [ 82%]\ntests/test_dispatch_endpoint.py::test_root_lists_dispatch_compare_endpoint PASSED [ 83%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_valid_payload_returns_ok PASSED [ 84%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_returns_greedy_and_hungarian_results PASSED [ 85%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_hungarian_is_not_worse_than_greedy PASSED [ 86%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_assigns_each_order_at_most_once PASSED [ 87%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_returns_cost_breakdown_when_requested PASSED [ 88%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_omits_cost_breakdown_by_default PASSED [ 89%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_returns_fairness_metrics PASSED [ 90%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_more_orders_than_capacity_returns_unassigned_orders PASSED [ 91%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_extra_capacity_returns_unused_slots PASSED [ 92%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_source_dijkstra_until_wired PASSED [ 93%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_duplicate_driver_ids PASSED [ 94%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_duplicate_order_ids PASSED [ 95%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_all_drivers_full PASSED [ 96%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_invalid_driver_latitude_with_422 PASSED [ 97%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_invalid_order_longitude_with_422 PASSED [ 98%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_missing_drivers_with_422 PASSED [ 99%]\ntests/test_dispatch_endpoint.py::test_dispatch_compare_rejects_missing_orders_with_422 PASSED [100%]\n\n============================= 105 passed in 7.57s =============================\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "phase9_ruff",
+      "command": [
+        "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "app/core/hungarian.py",
+        "app/core/greedy_dispatch.py",
+        "app/core/dispatch_cost_matrix.py",
+        "app/core/dispatch_fairness.py",
+        "app/schemas/dispatch.py",
+        "app/services/dispatch_service.py",
+        "app/api/dispatch.py",
+        "app/main.py",
+        "tests/test_hungarian_algorithm.py",
+        "tests/test_greedy_dispatch.py",
+        "tests/test_dispatch_cost_matrix.py",
+        "tests/test_dispatch_fairness.py",
+        "tests/test_dispatch_endpoint.py",
+        "benchmarks/phase_9/phase9_hungarian_correctness_probe.py",
+        "benchmarks/phase_9/phase9_hungarian_speed_benchmark.py",
+        "benchmarks/phase_9/phase9_dispatch_endpoint_benchmark.py",
+        "benchmarks/phase_9/phase9_dispatch_fairness_probe.py",
+        "benchmarks/phase_9/phase9_dispatch_cache_probe.py",
+        "benchmarks/phase_9/collect_phase9_evidence.py"
+      ],
+      "returncode": 1,
+      "passed": false,
+      "elapsed_ms": 267.5013,
+      "stdout_tail": "# phase9_dispatch_endpoint_benchmark.py\n 2 |\n 3 | / from __future__ import annotations\n 4 | |\n 5 | | import argparse\n 6 | | import json\n 7 | | import statistics\n 8 | | import sys\n 9 | | from dataclasses import asdict, dataclass\n10 | | from datetime import UTC, datetime\n11 | | from pathlib import Path\n12 | | from time import perf_counter\n13 | | from typing import Any, Literal\n14 | | from urllib.error import HTTPError, URLError\n15 | | from urllib.request import Request, urlopen\n   | |___________________________________________^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_dispatch_fairness_probe.py:3:1\n   |\n 1 |   # benchmarks/phase_9/phase9_dispatch_fairness_probe.py\n 2 |\n 3 | / from __future__ import annotations\n 4 | |\n 5 | | import argparse\n 6 | | import json\n 7 | | import sys\n 8 | | from dataclasses import asdict, dataclass\n 9 | | from datetime import UTC, datetime\n10 | | from pathlib import Path\n11 | | from time import perf_counter\n12 | | from typing import Any, Literal\n   | |_______________________________^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_dispatch_fairness_probe.py:19:1\n   |\n17 |       sys.path.insert(0, str(PROJECT_ROOT))\n18 |\n19 | / from app.core.dispatch_cost_matrix import (  # noqa: E402\n20 | |     DispatchDriver,\n21 | |     DispatchOrder,\n22 | |     build_dispatch_cost_matrix,\n23 | | )\n24 | | from app.core.dispatch_fairness import calculate_dispatch_fairness  # noqa: E402\n25 | | from app.core.greedy_dispatch import solve_greedy_dispatch  # noqa: E402\n26 | | from app.core.hungarian import solve_hungarian  # noqa: E402\n   | |______________________________________________^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_hungarian_correctness_probe.py:3:1\n   |\n 1 |   # benchmarks/phase_9/phase9_dispatch_fairness_probe.py\n 2 |\n 3 | / from __future__ import annotations\n 4 | |\n 5 | | import argparse\n 6 | | import itertools\n 7 | | import json\n 8 | | import random\n 9 | | import sys\n10 | | from dataclasses import asdict, dataclass\n11 | | from datetime import UTC, datetime\n12 | | from pathlib import Path\n13 | | from time import perf_counter\n14 | | from typing import Any\n   | |______________________^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_hungarian_correctness_probe.py:21:1\n   |\n19 |     sys.path.insert(0, str(PROJECT_ROOT))\n20 |\n21 | from app.core.hungarian import solve_hungarian  # noqa: E402\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_hungarian_speed_benchmark.py:3:1\n   |\n 1 |   # phase9_hungarian_speed_benchmark.py\n 2 |\n 3 | / from __future__ import annotations\n 4 | |\n 5 | | import argparse\n 6 | | import json\n 7 | | import random\n 8 | | import statistics\n 9 | | import sys\n10 | | from dataclasses import asdict, dataclass\n11 | | from datetime import UTC, datetime\n12 | | from pathlib import Path\n13 | | from time import perf_counter\n14 | | from typing import Any, Literal\n   | |_______________________________^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> benchmarks\\phase_9\\phase9_hungarian_speed_benchmark.py:21:1\n   |\n19 |     sys.path.insert(0, str(PROJECT_ROOT))\n20 |\n21 | from app.core.hungarian import solve_hungarian  # noqa: E402\n   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n   |\nhelp: Organize imports\n\nI001 [*] Import block is un-sorted or un-formatted\n --> tests\\test_dispatch_endpoint.py:3:1\n  |\n1 |   # tests/test_dispatch_endpoint.py\n2 |\n3 | / from __future__ import annotations\n4 | |\n5 | | from fastapi.testclient import TestClient\n6 | |\n7 | | from app.main import app\n  | |________________________^\n  |\nhelp: Organize imports\n\nFound 21 errors.\n[*] 21 fixable with the `--fix` option.\n",
+      "stderr_tail": "warning: The following rules have been removed and ignoring them has no effect:\n    - UP038\n\n"
+    }
+  ],
+  "http_checks": [
+    {
+      "name": "root",
+      "url": "http://127.0.0.1:8001/",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 20.4381,
+      "error": null,
+      "key_values": {
+        "phase": "Tier 3 Phase 9 - Hungarian Dispatch Engine",
+        "dispatch_compare": "/dispatch/compare"
+      }
+    },
+    {
+      "name": "health",
+      "url": "http://127.0.0.1:8001/health",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 5.278,
+      "error": null,
+      "key_values": {
+        "status": "ok",
+        "graph_loaded": true
+      }
+    },
+    {
+      "name": "openapi",
+      "url": "http://127.0.0.1:8001/openapi.json",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 6.396,
+      "error": null,
+      "key_values": {
+        "dispatch_compare_available": true,
+        "path_count": 12
+      }
+    }
+  ],
+  "git": {
+    "branch": "tier3-phase8-lns",
+    "commit": "afdebd4",
+    "short_status": "M README.md\n M app/main.py\n?? app/api/dispatch.py\n?? app/core/dispatch_cost_matrix.py\n?? app/core/dispatch_fairness.py\n?? app/core/greedy_dispatch.py\n?? app/core/hungarian.py\n?? app/schemas/dispatch.py\n?? app/services/dispatch_service.py\n?? benchmarks/phase_8/phase8_FINAL_CLEAN_EVIDENCE_20260702_193641.txt\n?? benchmarks/phase_8/phase8_STRICT_FINAL_EVIDENCE_20260702_193943.txt\n?? benchmarks/phase_8/phase8_docker_results_FULL_DUMP_20260702_192850.txt\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_191814.json\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_192031.json\n?? benchmarks/phase_9/\n?? tests/test_dispatch_cost_matrix.py\n?? tests/test_dispatch_endpoint.py\n?? tests/test_dispatch_fairness.py\n?? tests/test_greedy_dispatch.py\n?? tests/test_hungarian_algorithm.py",
+    "clean_working_tree": false
+  },
+  "quality_flags": {
+    "all_expected_source_files_exist": true,
+    "all_expected_test_files_exist": true,
+    "all_expected_benchmark_files_exist": true,
+    "result_json_files_present": true,
+    "all_result_json_files_valid": true,
+    "latest_summary_files_present": true,
+    "all_critical_summary_quality_flags_true": true,
+    "pytest_passed": true,
+    "ruff_passed": false,
+    "http_checks_passed": true,
+    "dispatch_endpoint_available": true,
+    "health_ok": true,
+    "git_commit_available": true
+  }
+}

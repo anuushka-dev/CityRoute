@@ -1,0 +1,240 @@
+{
+  "phase": "tier3_phase9_1",
+  "benchmark": "dispatch_cache_probe",
+  "mode": "local",
+  "created_at_utc": "2026-07-09T13:45:51.787855+00:00",
+  "sizes": [
+    2,
+    5,
+    10,
+    25,
+    50
+  ],
+  "cycles_per_size": 10,
+  "cycle_count": 50,
+  "successful_cycle_count": 50,
+  "failed_cycle_count": 0,
+  "success_rate_pct": 100.0,
+  "request_count": 100,
+  "cache_used_count": 100,
+  "cache_hit_count": 50,
+  "cache_hit_rate_pct": 50.0,
+  "group_summaries": {
+    "2x2": {
+      "size": 2,
+      "cycle_count": 10,
+      "successful_cycle_count": 10,
+      "failed_cycle_count": 0,
+      "success_rate_pct": 100.0,
+      "first_elapsed_ms": {
+        "min": 0.3245,
+        "median": 0.5402,
+        "mean": 0.53086,
+        "p95": 0.74098,
+        "max": 0.8371
+      },
+      "second_elapsed_ms": {
+        "min": 0.3199,
+        "median": 0.51335,
+        "mean": 0.5001,
+        "p95": 0.62688,
+        "max": 0.6735
+      },
+      "first_total_time_ms": {
+        "min": 0.2533,
+        "median": 0.41325,
+        "mean": 0.41182,
+        "p95": 0.582385,
+        "max": 0.6565
+      },
+      "second_total_time_ms": {
+        "min": 0.2369,
+        "median": 0.3926,
+        "mean": 0.38074,
+        "p95": 0.484425,
+        "max": 0.5193
+      },
+      "all_first_miss_second_hit": true,
+      "all_cache_keys_stable": true,
+      "all_response_costs_stable": true,
+      "all_assignment_counts_stable": true,
+      "all_builder_not_called_on_hit": true
+    },
+    "5x5": {
+      "size": 5,
+      "cycle_count": 10,
+      "successful_cycle_count": 10,
+      "failed_cycle_count": 0,
+      "success_rate_pct": 100.0,
+      "first_elapsed_ms": {
+        "min": 0.7219,
+        "median": 0.81485,
+        "mean": 1.00634,
+        "p95": 1.6308,
+        "max": 1.962
+      },
+      "second_elapsed_ms": {
+        "min": 0.6408,
+        "median": 0.66815,
+        "mean": 0.77824,
+        "p95": 1.168395,
+        "max": 1.2345
+      },
+      "first_total_time_ms": {
+        "min": 0.6017,
+        "median": 0.68505,
+        "mean": 0.85578,
+        "p95": 1.424945,
+        "max": 1.7354
+      },
+      "second_total_time_ms": {
+        "min": 0.5189,
+        "median": 0.55055,
+        "mean": 0.63232,
+        "p95": 0.973625,
+        "max": 1.0373
+      },
+      "all_first_miss_second_hit": true,
+      "all_cache_keys_stable": true,
+      "all_response_costs_stable": true,
+      "all_assignment_counts_stable": true,
+      "all_builder_not_called_on_hit": true
+    },
+    "10x10": {
+      "size": 10,
+      "cycle_count": 10,
+      "successful_cycle_count": 10,
+      "failed_cycle_count": 0,
+      "success_rate_pct": 100.0,
+      "first_elapsed_ms": {
+        "min": 1.6147,
+        "median": 1.8331,
+        "mean": 2.02252,
+        "p95": 2.66754,
+        "max": 2.7138
+      },
+      "second_elapsed_ms": {
+        "min": 1.3857,
+        "median": 1.5364,
+        "mean": 1.83479,
+        "p95": 2.68969,
+        "max": 2.7364
+      },
+      "first_total_time_ms": {
+        "min": 1.4467,
+        "median": 1.61945,
+        "mean": 1.80994,
+        "p95": 2.34024,
+        "max": 2.3811
+      },
+      "second_total_time_ms": {
+        "min": 1.2237,
+        "median": 1.36075,
+        "mean": 1.62698,
+        "p95": 2.42322,
+        "max": 2.5251
+      },
+      "all_first_miss_second_hit": true,
+      "all_cache_keys_stable": true,
+      "all_response_costs_stable": true,
+      "all_assignment_counts_stable": true,
+      "all_builder_not_called_on_hit": true
+    },
+    "25x25": {
+      "size": 25,
+      "cycle_count": 10,
+      "successful_cycle_count": 10,
+      "failed_cycle_count": 0,
+      "success_rate_pct": 100.0,
+      "first_elapsed_ms": {
+        "min": 8.9662,
+        "median": 9.80765,
+        "mean": 10.2248,
+        "p95": 12.646055,
+        "max": 13.7927
+      },
+      "second_elapsed_ms": {
+        "min": 7.6051,
+        "median": 8.6935,
+        "mean": 8.84671,
+        "p95": 10.64214,
+        "max": 11.2446
+      },
+      "first_total_time_ms": {
+        "min": 8.5484,
+        "median": 9.4072,
+        "mean": 9.77489,
+        "p95": 12.07889,
+        "max": 13.1003
+      },
+      "second_total_time_ms": {
+        "min": 7.2542,
+        "median": 8.30745,
+        "mean": 8.4197,
+        "p95": 10.10489,
+        "max": 10.8545
+      },
+      "all_first_miss_second_hit": true,
+      "all_cache_keys_stable": true,
+      "all_response_costs_stable": true,
+      "all_assignment_counts_stable": true,
+      "all_builder_not_called_on_hit": true
+    },
+    "50x50": {
+      "size": 50,
+      "cycle_count": 10,
+      "successful_cycle_count": 10,
+      "failed_cycle_count": 0,
+      "success_rate_pct": 100.0,
+      "first_elapsed_ms": {
+        "min": 42.4048,
+        "median": 51.25015,
+        "mean": 51.50369,
+        "p95": 64.31606,
+        "max": 65.8736
+      },
+      "second_elapsed_ms": {
+        "min": 35.9078,
+        "median": 45.00865,
+        "mean": 47.12956,
+        "p95": 61.52541,
+        "max": 65.4234
+      },
+      "first_total_time_ms": {
+        "min": 41.5242,
+        "median": 49.8426,
+        "mean": 50.29161,
+        "p95": 62.777415,
+        "max": 64.1631
+      },
+      "second_total_time_ms": {
+        "min": 35.0008,
+        "median": 44.10315,
+        "mean": 46.14412,
+        "p95": 60.31334,
+        "max": 63.9614
+      },
+      "all_first_miss_second_hit": true,
+      "all_cache_keys_stable": true,
+      "all_response_costs_stable": true,
+      "all_assignment_counts_stable": true,
+      "all_builder_not_called_on_hit": true
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_raw_local_20260709_134551.json",
+  "output_summary_file": "benchmarks\\phase_9_1\\local_results\\phase91_dispatch_cache_summary_local_20260709_134551.json",
+  "quality_flags": {
+    "all_cycles_successful": true,
+    "cache_backend_used": true,
+    "cache_hits_observed": true,
+    "cache_hit_count_matches_second_requests": true,
+    "all_first_requests_miss": true,
+    "all_second_requests_hit": true,
+    "all_cache_keys_stable": true,
+    "all_response_costs_stable": true,
+    "all_assignment_counts_stable": true,
+    "all_builder_not_called_on_hit": true,
+    "all_non_regression_stable": true
+  },
+  "evidence_note": "This probe proves Phase 9.1 service-level cache behavior using an in-process fake backend: first identical request misses, second identical request hits, and the source_dijkstra builder is not called again on hit. It does not prove real Redis yet."
+}

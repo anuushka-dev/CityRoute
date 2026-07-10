@@ -1,0 +1,86 @@
+CityRoute Tier 3 Phase 9 Evidence Manifest
+================================================
+Created UTC: 2026-07-09T11:39:01.759193+00:00
+Mode: local
+Base URL: http://127.0.0.1:8000
+Project root: C:\MYDOWNLOADS\MYPROJECT\CityRoute
+
+Quality Flags:
+- all_expected_source_files_exist: True
+- all_expected_test_files_exist: True
+- all_expected_benchmark_files_exist: True
+- result_json_files_present: True
+- all_result_json_files_valid: True
+- latest_summary_files_present: True
+- all_critical_summary_quality_flags_true: True
+- pytest_passed: True
+- ruff_passed: True
+- http_checks_passed: True
+- dispatch_endpoint_available: True
+- health_ok: True
+- git_commit_available: True
+
+Expected Source Files:
+- app/core/hungarian.py | exists=True | size=6621 | sha256=bcf355022f7c37eaa72a1920e0862ef12abc0c1ad01ed6e9f09f940527c5b764
+- app/core/greedy_dispatch.py | exists=True | size=3545 | sha256=16a9f792bb0e457e7e021019459d7e3897697a461bc1a5b60699b97d386dce00
+- app/core/dispatch_cost_matrix.py | exists=True | size=9767 | sha256=3dbda9c19a9fb9486e839787834b7619832959bc892a65ab475b9afd416d758c
+- app/core/dispatch_fairness.py | exists=True | size=7663 | sha256=e7ad13ef2767bf4f0aa7bd3e6c19ceb529c318ce70626fc401c84c65a1fc376b
+- app/schemas/dispatch.py | exists=True | size=3890 | sha256=98c3c17fe5204cde49fbe72afe6f15f5b273bc60b651ac38a1f0abdb169683b5
+- app/services/dispatch_service.py | exists=True | size=10162 | sha256=32a9653a772efa836237a37df85c19854ff22c454367cf242e4d2ca6b66a2edf
+- app/api/dispatch.py | exists=True | size=804 | sha256=454779d0bf218dbb83e5096ab595828ba4c14d0666954dc432adc85650b2a5a6
+- app/main.py | exists=True | size=4209 | sha256=adb88d29119a78e7c047580a0292c2de87fb6e434d45e8853fdfc03a2d3ad53a
+
+Expected Test Files:
+- tests/test_hungarian_algorithm.py | exists=True | size=5489 | sha256=8ea3f831725c2ec729e7b6f8670dbacdb62d2f68962d2a313b4cdbbd31c8dbbb
+- tests/test_greedy_dispatch.py | exists=True | size=4707 | sha256=ff13935cd20412797bae68834c7b3b26eb134a02b3f4df86c091f8d37ddd1066
+- tests/test_dispatch_cost_matrix.py | exists=True | size=10806 | sha256=a52d2551e50632748eca0ec17e4055062c869a0ffdb376260cf7493d30e39f35
+- tests/test_dispatch_fairness.py | exists=True | size=9482 | sha256=e0028a67caa40ae9f99194e46a792ea8a40c9db44092f23abac5d9e42b76d4c4
+- tests/test_dispatch_endpoint.py | exists=True | size=9659 | sha256=b082bd127e70d7d8db8cedd3364f5fd441462424b31402c7efc4316f72d9f8cd
+
+Expected Benchmark Files:
+- benchmarks/phase_9/phase9_hungarian_correctness_probe.py | exists=True | size=8646 | sha256=ecd45a80dc1b872c857434486f71a8510fb6aa8e745497c92fdb39ab11ee7130
+- benchmarks/phase_9/phase9_hungarian_speed_benchmark.py | exists=True | size=10532 | sha256=4edf39f24b908a23e8de5e207977218864e428440f0440332e8f6768be59756c
+- benchmarks/phase_9/phase9_dispatch_endpoint_benchmark.py | exists=True | size=24986 | sha256=32a370f70b0dfbf30c241dd4efa9f3516e901bcd61c946efd07db34f9e40d379
+- benchmarks/phase_9/phase9_dispatch_fairness_probe.py | exists=True | size=17945 | sha256=f8bc5560bc1038f7dc928464974bb71ebe5f3d29feda934981b643f8c2811804
+- benchmarks/phase_9/phase9_dispatch_cache_probe.py | exists=True | size=25283 | sha256=a25a6252a91013b34c514d93821477739a63d2c3f10b6c08e5a20613eaae22bf
+- benchmarks/phase_9/collect_phase9_evidence.py | exists=True | size=25023 | sha256=0c072354b5eed2875987eaf0b07ad4d64adcacb5673b8a99ba1578492f80fd91
+
+Latest Summary Files:
+- benchmarks\phase_9\local_results\phase9_dispatch_endpoint_summary_local_20260709_113455.json | benchmark=dispatch_endpoint_benchmark | quality_flags={'all_requests_successful': True, 'all_non_regression': True, 'all_assignment_counts_valid': True, 'all_capacity_counts_valid': True, 'size_25_median_request_under_250ms': True, 'size_50_median_request_under_500ms': True} | metrics={'case_count': 80, 'success_count': 80, 'failure_count': 0, 'success_rate_pct': 100.0, 'iterations_per_size': 20, 'mode': 'local', 'base_url': 'http://127.0.0.1:8000', 'endpoint': '/dispatch/compare', 'matrix_algorithm': 'haversine'}
+
+HTTP Checks:
+- root | success=True | status=200 | url=http://127.0.0.1:8000/ | values={'phase': 'Tier 3 Phase 9 - Hungarian Dispatch Engine', 'dispatch_compare': '/dispatch/compare'} | error=None
+- health | success=True | status=200 | url=http://127.0.0.1:8000/health | values={'status': 'ok', 'graph_loaded': True} | error=None
+- openapi | success=True | status=200 | url=http://127.0.0.1:8000/openapi.json | values={'dispatch_compare_available': True, 'path_count': 12} | error=None
+
+Command Results:
+- phase9_pytest | passed=True | returncode=0 | elapsed_ms=10861.5085
+- phase9_ruff | passed=True | returncode=0 | elapsed_ms=283.6737
+
+Git:
+- branch: tier3-phase8-lns
+- commit: afdebd4
+- clean_working_tree: False
+- short_status: M README.md
+ M app/main.py
+?? app/api/dispatch.py
+?? app/core/dispatch_cost_matrix.py
+?? app/core/dispatch_fairness.py
+?? app/core/greedy_dispatch.py
+?? app/core/hungarian.py
+?? app/schemas/dispatch.py
+?? app/services/dispatch_service.py
+?? benchmarks/phase_8/phase8_FINAL_CLEAN_EVIDENCE_20260702_193641.txt
+?? benchmarks/phase_8/phase8_STRICT_FINAL_EVIDENCE_20260702_193943.txt
+?? benchmarks/phase_8/phase8_docker_results_FULL_DUMP_20260702_192850.txt
+?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_191814.json
+?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_192031.json
+?? benchmarks/phase_9/
+?? tests/test_dispatch_cost_matrix.py
+?? tests/test_dispatch_endpoint.py
+?? tests/test_dispatch_fairness.py
+?? tests/test_greedy_dispatch.py
+?? tests/test_hungarian_algorithm.py
+
+Manifest JSON: benchmarks\phase_9\local_results\phase9_evidence_manifest_local_20260709_113901.json
+Manifest TXT: benchmarks\phase_9\local_results\phase9_evidence_manifest_local_20260709_113901.txt

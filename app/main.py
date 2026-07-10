@@ -5,6 +5,7 @@ from time import perf_counter
 
 from fastapi import FastAPI
 
+from app.api.dispatch import router as dispatch_router
 from app.api.graph import router as graph_router
 from app.api.health import router as health_router
 from app.api.matrix import router as matrix_router
@@ -76,8 +77,8 @@ async def lifespan(app: FastAPI):
 
     else:
         logger.warning(
-            "Graph not loaded. Route, snap, matrix, and routing-dependent endpoints "
-            "will return unavailable responses."
+            "Graph not loaded. Route, snap, matrix, VRP, and dispatch-dependent "
+            "endpoints will return unavailable responses."
         )
 
     logger.info("CityRoute startup complete")
@@ -99,6 +100,7 @@ app.include_router(graph_router, tags=["Graph"])
 app.include_router(route_router, tags=["Route"])
 app.include_router(matrix_router)
 app.include_router(vrp_router)
+app.include_router(dispatch_router)
 
 
 @app.get("/")
@@ -115,5 +117,7 @@ def root():
         "matrix": "/matrix",
         "vrp_greedy": "/vrp/greedy",
         "vrp_compare": "/vrp/compare",
-        "phase": "Tier 2 Phase 7 - 2-Opt VRP Optimization",
+        "vrp_advanced_compare": "/vrp/compare/advanced",
+        "dispatch_compare": "/dispatch/compare",
+        "phase": "Tier 3 Phase 9 - Hungarian Dispatch Engine",
     }

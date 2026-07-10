@@ -1,0 +1,113 @@
+{
+  "phase": "tier3_phase9",
+  "benchmark": "hungarian_speed_benchmark",
+  "mode": "docker",
+  "created_at_utc": "2026-07-07T13:37:19.215405+00:00",
+  "seed": 919,
+  "sizes": [
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "iterations_per_size": 20,
+  "case_count": 100,
+  "success_count": 100,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "group_summaries": {
+    "5x5": {
+      "size": 5,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 0.0502,
+        "median": 0.0812,
+        "mean": 0.07785,
+        "p95": 0.11577,
+        "max": 0.1304
+      },
+      "assigned_count_all_valid": true,
+      "target_250ms_met": null,
+      "target_2sec_met": null
+    },
+    "10x10": {
+      "size": 10,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 0.1328,
+        "median": 0.23315,
+        "mean": 0.22738,
+        "p95": 0.332895,
+        "max": 0.3404
+      },
+      "assigned_count_all_valid": true,
+      "target_250ms_met": null,
+      "target_2sec_met": null
+    },
+    "25x25": {
+      "size": 25,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 0.7586,
+        "median": 1.30715,
+        "mean": 1.28031,
+        "p95": 1.543895,
+        "max": 1.6065
+      },
+      "assigned_count_all_valid": true,
+      "target_250ms_met": null,
+      "target_2sec_met": null
+    },
+    "50x50": {
+      "size": 50,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 4.094,
+        "median": 5.9516,
+        "mean": 6.083545,
+        "p95": 8.21937,
+        "max": 8.9028
+      },
+      "assigned_count_all_valid": true,
+      "target_250ms_met": true,
+      "target_2sec_met": null
+    },
+    "100x100": {
+      "size": 100,
+      "iteration_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "elapsed_ms": {
+        "min": 23.2523,
+        "median": 30.94195,
+        "mean": 31.36301,
+        "p95": 40.31118,
+        "max": 40.9169
+      },
+      "assigned_count_all_valid": true,
+      "target_250ms_met": null,
+      "target_2sec_met": true
+    }
+  },
+  "output_raw_file": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_speed_raw_docker_20260707_133719.json",
+  "output_summary_file": "benchmarks\\phase_9\\docker_results\\phase9_hungarian_speed_summary_docker_20260707_133719.json",
+  "quality_flags": {
+    "all_assignment_counts_valid": true,
+    "size_50_median_under_250ms": true,
+    "size_100_median_under_2sec": true
+  }
+}

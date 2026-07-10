@@ -1,0 +1,138 @@
+{
+  "phase": "tier3_phase9_1",
+  "benchmark": "full_integration_probe",
+  "mode": "local",
+  "base_url": "http://127.0.0.1:8000",
+  "source_dijkstra_api_mode": "blocked",
+  "created_at_utc": "2026-07-09T14:27:43.931024+00:00",
+  "check_count": 6,
+  "success_count": 6,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "checks": [
+    {
+      "name": "root",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/",
+      "expected": "HTTP 200 and root route links include dispatch_compare.",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 25.0417,
+      "error": null,
+      "key_values": {
+        "phase": "Tier 3 Phase 9 - Hungarian Dispatch Engine",
+        "health": "/health",
+        "graph_stats": "/graph/stats",
+        "matrix": "/matrix",
+        "vrp_advanced_compare": "/vrp/compare/advanced",
+        "dispatch_compare": "/dispatch/compare"
+      }
+    },
+    {
+      "name": "health",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/health",
+      "expected": "HTTP 200 and status=ok.",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 4.0089,
+      "error": null,
+      "key_values": {
+        "status": "ok",
+        "graph_loaded": true
+      }
+    },
+    {
+      "name": "openapi",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/openapi.json",
+      "expected": "HTTP 200 and all required Phase 1-9.1 routes registered.",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 71.9208,
+      "error": null,
+      "key_values": {
+        "path_count": 12,
+        "missing_required_paths": [],
+        "all_required_paths_available": true,
+        "dispatch_compare_available": true
+      }
+    },
+    {
+      "name": "graph_stats",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/graph/stats",
+      "expected": "HTTP 200 with graph stats or valid graph_loaded=false shape; HTTP 503 with detail is also accepted.",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 3.7611,
+      "error": null,
+      "key_values": {
+        "graph_loaded": true,
+        "nodes": 12969,
+        "edges": 34996,
+        "detail": null
+      }
+    },
+    {
+      "name": "dispatch_haversine",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/dispatch/compare",
+      "expected": "HTTP 200 and /dispatch/compare works with haversine.",
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 7.6984,
+      "error": null,
+      "key_values": {
+        "status": "ok",
+        "phase": "tier3_phase9_1",
+        "matrix_algorithm": "haversine",
+        "driver_count": 2,
+        "order_count": 2,
+        "assigned_order_count": 2,
+        "unassigned_order_count": 0,
+        "cache_used": false,
+        "cache_hit": false,
+        "hungarian_assigned_count": 2,
+        "hungarian_total_cost": 298.493863,
+        "hungarian_non_regression": true
+      }
+    },
+    {
+      "name": "dispatch_source_dijkstra",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/dispatch/compare",
+      "expected": "HTTP 400 because API-level real source_dijkstra builder is not wired yet. This is expected for current Phase 9.1 service-only stage.",
+      "success": true,
+      "status_code": 400,
+      "elapsed_ms": 3.4862,
+      "error": null,
+      "key_values": {
+        "status": null,
+        "phase": null,
+        "matrix_algorithm": null,
+        "detail": "matrix_algorithm=\"source_dijkstra\" requires an internal source_dijkstra_matrix_builder. Do not call /matrix over HTTP.",
+        "assigned_order_count": null,
+        "cache_used": null,
+        "cache_hit": null,
+        "hungarian_assigned_count": null,
+        "hungarian_non_regression": null
+      }
+    }
+  ],
+  "output_raw_file": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_raw_local_20260709_142743.json",
+  "output_summary_file": "benchmarks\\phase_9_1\\local_results\\phase91_full_integration_summary_local_20260709_142743.json",
+  "quality_flags": {
+    "all_checks_successful": true,
+    "root_ok": true,
+    "health_ok": true,
+    "openapi_required_paths_available": true,
+    "graph_stats_shape_valid": true,
+    "dispatch_haversine_ok": true,
+    "dispatch_haversine_non_regression": true,
+    "dispatch_source_dijkstra_status_expected": true,
+    "source_dijkstra_api_blocked_acknowledged": true,
+    "source_dijkstra_api_ok": true
+  },
+  "evidence_note": "This live full-integration probe validates root, health, OpenAPI route registration, graph stats shape, and /dispatch/compare haversine API behavior. In default mode it also verifies that source_dijkstra is honestly blocked at API level until the real internal Phase 5 graph builder is wired. Use --source-dijkstra-api-mode ok only after API-level source_dijkstra is implemented."
+}
