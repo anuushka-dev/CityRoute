@@ -1,0 +1,887 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "load",
+  "created_at_utc": "2026-07-14T15:01:46.176590+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false,
+    "sizes": [
+      10,
+      25,
+      50
+    ],
+    "concurrency_levels": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "requests_per_level": 40,
+    "warmup": 2
+  },
+  "load_level_count": 12,
+  "total_request_count": 480,
+  "success_count": 480,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "all_requests_successful": true,
+  "hungarian_non_regression_pass_count": 480,
+  "expected_hungarian_non_regression_pass_count": 480,
+  "all_hungarian_non_regression_checks_passed": true,
+  "size_summaries": [
+    {
+      "size": 10,
+      "load_levels": [
+        {
+          "size": 10,
+          "concurrency": 1,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 1504.3092,
+          "throughput_requests_per_second": 26.590278,
+          "successful_requests_per_second": 26.590278,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 24.3794,
+            "median": 33.78595,
+            "mean": 37.289965,
+            "p95": 53.651025,
+            "p99": 77.747223,
+            "max": 90.4863
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 10.997326,
+            "median": 16.457405,
+            "mean": 21.042188,
+            "p95": 38.655723,
+            "p99": 60.444286,
+            "max": 74.001151
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 4.97894,
+            "median": 6.620221,
+            "mean": 7.092023,
+            "p95": 10.077813,
+            "p99": 13.772293,
+            "max": 14.494016
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.0,
+            "median_latency_inflation_ratio": 1.0,
+            "p95_latency_inflation_ratio": 1.0,
+            "throughput_scaling_efficiency_pct": 100.0
+          }
+        },
+        {
+          "size": 10,
+          "concurrency": 2,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 1340.1665,
+          "throughput_requests_per_second": 29.847038,
+          "successful_requests_per_second": 29.847038,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 31.4023,
+            "median": 64.32885,
+            "mean": 65.870933,
+            "p95": 99.33086,
+            "p99": 110.82522,
+            "max": 117.2064
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 12.850307,
+            "median": 33.152864,
+            "mean": 35.762667,
+            "p95": 69.947377,
+            "p99": 74.122273,
+            "max": 75.332649
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 5.796865,
+            "median": 10.078606,
+            "mean": 10.765194,
+            "p95": 19.046674,
+            "p99": 23.657388,
+            "max": 24.254266
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.122479,
+            "median_latency_inflation_ratio": 1.904012,
+            "p95_latency_inflation_ratio": 1.851425,
+            "throughput_scaling_efficiency_pct": 56.124
+          }
+        },
+        {
+          "size": 10,
+          "concurrency": 4,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 1161.8255,
+          "throughput_requests_per_second": 34.428578,
+          "successful_requests_per_second": 34.428578,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 64.868,
+            "median": 104.9001,
+            "mean": 111.911785,
+            "p95": 157.25276,
+            "p99": 158.59099,
+            "max": 158.9806
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 19.988206,
+            "median": 41.701741,
+            "mean": 49.624084,
+            "p95": 91.919143,
+            "p99": 110.882873,
+            "max": 122.897233
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 5.783238,
+            "median": 13.221359,
+            "mean": 13.387452,
+            "p95": 31.340679,
+            "p99": 35.572315,
+            "max": 36.156252
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.294781,
+            "median_latency_inflation_ratio": 3.104844,
+            "p95_latency_inflation_ratio": 2.93103,
+            "throughput_scaling_efficiency_pct": 32.37
+          }
+        },
+        {
+          "size": 10,
+          "concurrency": 8,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 1359.7515,
+          "throughput_requests_per_second": 29.41714,
+          "successful_requests_per_second": 29.41714,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 118.0843,
+            "median": 263.2822,
+            "mean": 249.03269,
+            "p95": 379.65652,
+            "p99": 387.55745,
+            "max": 388.9595
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 19.589368,
+            "median": 99.497503,
+            "mean": 105.022067,
+            "p95": 203.020586,
+            "p99": 240.197955,
+            "max": 240.392064
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 5.950612,
+            "median": 14.687912,
+            "mean": 17.230858,
+            "p95": 43.378393,
+            "p99": 50.602486,
+            "max": 54.801579
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.106312,
+            "median_latency_inflation_ratio": 7.792653,
+            "p95_latency_inflation_ratio": 7.076408,
+            "throughput_scaling_efficiency_pct": 13.829
+          }
+        }
+      ],
+      "best_throughput_requests_per_second": 34.428578,
+      "best_throughput_concurrency": 4
+    },
+    {
+      "size": 25,
+      "load_levels": [
+        {
+          "size": 25,
+          "concurrency": 1,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 4491.3504,
+          "throughput_requests_per_second": 8.906007,
+          "successful_requests_per_second": 8.906007,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 76.11,
+            "median": 104.3619,
+            "mean": 111.54429,
+            "p95": 149.56958,
+            "p99": 177.579672,
+            "max": 181.6143
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 50.669247,
+            "median": 77.060359,
+            "mean": 81.505272,
+            "p95": 109.608511,
+            "p99": 142.611631,
+            "max": 143.660377
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 10.710071,
+            "median": 17.110186,
+            "mean": 17.700151,
+            "p95": 24.570322,
+            "p99": 25.511339,
+            "max": 25.735289
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.0,
+            "median_latency_inflation_ratio": 1.0,
+            "p95_latency_inflation_ratio": 1.0,
+            "throughput_scaling_efficiency_pct": 100.0
+          }
+        },
+        {
+          "size": 25,
+          "concurrency": 2,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 4132.4057,
+          "throughput_requests_per_second": 9.679592,
+          "successful_requests_per_second": 9.679592,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 107.7592,
+            "median": 203.2936,
+            "mean": 204.536248,
+            "p95": 271.761875,
+            "p99": 294.98916,
+            "max": 307.5183
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 79.943156,
+            "median": 152.458692,
+            "mean": 152.991371,
+            "p95": 209.672152,
+            "p99": 223.224792,
+            "max": 231.038911
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 17.69136,
+            "median": 44.687435,
+            "mean": 46.271784,
+            "p95": 67.417286,
+            "p99": 88.542186,
+            "max": 93.561984
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.086861,
+            "median_latency_inflation_ratio": 1.947968,
+            "p95_latency_inflation_ratio": 1.81696,
+            "throughput_scaling_efficiency_pct": 54.343
+          }
+        },
+        {
+          "size": 25,
+          "concurrency": 4,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 3871.2641,
+          "throughput_requests_per_second": 10.332542,
+          "successful_requests_per_second": 10.332542,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 162.364,
+            "median": 358.04065,
+            "mean": 375.791682,
+            "p95": 523.321485,
+            "p99": 551.290539,
+            "max": 564.1605
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 84.776133,
+            "median": 188.698013,
+            "mean": 197.981749,
+            "p95": 314.488053,
+            "p99": 365.907265,
+            "max": 393.83141
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 14.875049,
+            "median": 56.371185,
+            "mean": 55.072428,
+            "p95": 87.254983,
+            "p99": 92.860252,
+            "max": 94.295844
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.160177,
+            "median_latency_inflation_ratio": 3.43076,
+            "p95_latency_inflation_ratio": 3.49885,
+            "throughput_scaling_efficiency_pct": 29.004
+          }
+        },
+        {
+          "size": 25,
+          "concurrency": 8,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 7141.2956,
+          "throughput_requests_per_second": 5.601225,
+          "successful_requests_per_second": 5.601225,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 224.3439,
+            "median": 873.30985,
+            "mean": 1397.429588,
+            "p95": 3873.210335,
+            "p99": 3926.705426,
+            "max": 3958.5125
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 140.255676,
+            "median": 455.232562,
+            "mean": 712.587543,
+            "p95": 3273.265525,
+            "p99": 3349.625736,
+            "max": 3362.446568
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 14.773584,
+            "median": 69.179645,
+            "mean": 65.396309,
+            "p95": 98.500689,
+            "p99": 122.315739,
+            "max": 123.931744
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 0.628927,
+            "median_latency_inflation_ratio": 8.368091,
+            "p95_latency_inflation_ratio": 25.895709,
+            "throughput_scaling_efficiency_pct": 7.862
+          }
+        }
+      ],
+      "best_throughput_requests_per_second": 10.332542,
+      "best_throughput_concurrency": 4
+    },
+    {
+      "size": 50,
+      "load_levels": [
+        {
+          "size": 50,
+          "concurrency": 1,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 10605.1587,
+          "throughput_requests_per_second": 3.771749,
+          "successful_requests_per_second": 3.771749,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 204.7784,
+            "median": 239.859,
+            "mean": 263.586187,
+            "p95": 308.67929,
+            "p99": 703.39752,
+            "max": 938.3304
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 150.031809,
+            "median": 177.561928,
+            "mean": 183.723287,
+            "p95": 229.721932,
+            "p99": 246.05857,
+            "max": 252.707912
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 23.456633,
+            "median": 29.246474,
+            "mean": 31.072215,
+            "p95": 47.254131,
+            "p99": 48.416036,
+            "max": 48.957982
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.0,
+            "median_latency_inflation_ratio": 1.0,
+            "p95_latency_inflation_ratio": 1.0,
+            "throughput_scaling_efficiency_pct": 100.0
+          }
+        },
+        {
+          "size": 50,
+          "concurrency": 2,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 10001.6205,
+          "throughput_requests_per_second": 3.999352,
+          "successful_requests_per_second": 3.999352,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 328.9437,
+            "median": 484.18415,
+            "mean": 495.12572,
+            "p95": 663.87712,
+            "p99": 821.918782,
+            "max": 842.9773
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 218.130801,
+            "median": 359.533914,
+            "mean": 368.389099,
+            "p95": 489.783405,
+            "p99": 617.91497,
+            "max": 673.366122
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 28.177648,
+            "median": 107.167018,
+            "mean": 110.512233,
+            "p95": 162.027958,
+            "p99": 171.443679,
+            "max": 172.219907
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.060344,
+            "median_latency_inflation_ratio": 2.01862,
+            "p95_latency_inflation_ratio": 2.150702,
+            "throughput_scaling_efficiency_pct": 53.017
+          }
+        },
+        {
+          "size": 50,
+          "concurrency": 4,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 9587.6178,
+          "throughput_requests_per_second": 4.172048,
+          "successful_requests_per_second": 4.172048,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 354.1203,
+            "median": 914.4771,
+            "mean": 933.498842,
+            "p95": 1182.29763,
+            "p99": 1324.852093,
+            "max": 1360.8457
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 210.334097,
+            "median": 461.530803,
+            "mean": 468.645032,
+            "p95": 596.294326,
+            "p99": 789.347427,
+            "max": 812.221795
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 36.268688,
+            "median": 122.652861,
+            "mean": 133.796409,
+            "p95": 221.1134,
+            "p99": 329.311344,
+            "max": 392.909273
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.106131,
+            "median_latency_inflation_ratio": 3.812561,
+            "p95_latency_inflation_ratio": 3.830181,
+            "throughput_scaling_efficiency_pct": 27.653
+          }
+        },
+        {
+          "size": 50,
+          "concurrency": 8,
+          "request_count": 40,
+          "success_count": 40,
+          "failure_count": 0,
+          "success_rate_pct": 100.0,
+          "wall_time_ms": 10011.2011,
+          "throughput_requests_per_second": 3.995525,
+          "successful_requests_per_second": 3.995525,
+          "request_elapsed_ms": {
+            "count": 40,
+            "min": 543.9439,
+            "median": 1887.6155,
+            "mean": 1906.84309,
+            "p95": 2618.81305,
+            "p99": 2808.440384,
+            "max": 2892.2297
+          },
+          "api_elapsed_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "road_total_time_ms": {
+            "count": 40,
+            "min": 208.795951,
+            "median": 1038.970438,
+            "mean": 949.345515,
+            "p95": 1407.797359,
+            "p99": 1450.007654,
+            "max": 1453.813464
+          },
+          "road_snap_time_ms": {
+            "count": 40,
+            "min": 27.299984,
+            "median": 168.756329,
+            "mean": 142.119991,
+            "p95": 219.937962,
+            "p99": 274.627304,
+            "max": 303.372186
+          },
+          "road_matrix_build_time_ms": {
+            "count": 0,
+            "min": 0.0,
+            "median": 0.0,
+            "mean": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "max": 0.0
+          },
+          "hungarian_non_regression_count": 40,
+          "expected_hungarian_non_regression_count": 40,
+          "assignment_count_integrity_count": 40,
+          "expected_assignment_count_integrity_count": 40,
+          "status_code_counts": {
+            "200": 40
+          },
+          "comparison_vs_concurrency_1": {
+            "throughput_scaling_ratio": 1.05933,
+            "median_latency_inflation_ratio": 7.869688,
+            "p95_latency_inflation_ratio": 8.483929,
+            "throughput_scaling_efficiency_pct": 13.242
+          }
+        }
+      ],
+      "best_throughput_requests_per_second": 4.172048,
+      "best_throughput_concurrency": 4
+    }
+  ],
+  "failed_requests": [],
+  "interpretation_note": "For each matrix size, every concurrency level executes the same deterministic set of dispatch workloads. Cache is disabled by default so the source_dijkstra run measures concurrent road-network computation rather than warm Redis performance. Throughput scaling and latency inflation are reported relative to concurrency=1 when that baseline is included."
+}

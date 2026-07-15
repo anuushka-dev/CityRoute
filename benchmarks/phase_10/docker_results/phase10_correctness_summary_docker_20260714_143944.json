@@ -1,0 +1,82 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "correctness",
+  "created_at_utc": "2026-07-14T14:40:04.513152+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "sizes": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "scenarios": 3,
+    "pair_tolerance_m": 0.01,
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false
+  },
+  "graph": {
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "raw_node_count": 12969,
+    "raw_edge_count": 34996,
+    "raw_directed": true,
+    "raw_multigraph": true,
+    "oracle_node_count": 12969,
+    "oracle_edge_count": 34876,
+    "skipped_invalid_edge_count": 0,
+    "strongly_connected_component_count": 12,
+    "largest_strongly_connected_component_nodes": 12948,
+    "unique_coordinate_candidate_count": 12948,
+    "graph_load_time_ms": 2385.3266,
+    "normalization_time_ms": 266.696,
+    "scc_analysis_time_ms": 94.0215
+  },
+  "graph_consistency_passed": true,
+  "scenario_count": 15,
+  "scenario_success_count": 15,
+  "scenario_failure_count": 0,
+  "scenario_success_rate_pct": 100.0,
+  "cell_case_count": 270,
+  "cell_success_count": 270,
+  "cell_mismatch_count": 0,
+  "max_abs_road_cost_error_m": 0.009536445,
+  "all_road_cost_cells_matched_oracle": true,
+  "batch_case_count": 15,
+  "batch_success_count": 15,
+  "hungarian_optimality_pass_count": 15,
+  "expected_hungarian_optimality_pass_count": 15,
+  "all_hungarian_results_matched_bruteforce_optimum": true,
+  "hungarian_non_regression_pass_count": 15,
+  "expected_hungarian_non_regression_pass_count": 15,
+  "all_hungarian_non_regression_checks_passed": true,
+  "absolute_optimality_gap_m": {
+    "count": 15,
+    "min": 0.000532,
+    "median": 0.003224,
+    "mean": 0.003669,
+    "p95": 0.00697,
+    "max": 0.007292
+  },
+  "cell_request_elapsed_ms": {
+    "count": 270,
+    "min": 7.57,
+    "median": 35.33885,
+    "mean": 35.340699,
+    "p95": 64.631345,
+    "max": 113.4893
+  },
+  "batch_request_elapsed_ms": {
+    "count": 15,
+    "min": 30.0503,
+    "median": 156.2115,
+    "mean": 152.30228,
+    "p95": 258.60577,
+    "max": 265.4566
+  },
+  "failed_scenarios": [],
+  "interpretation_note": "Each road-cost matrix cell is independently checked through a live 1x1 source_dijkstra API request against a NetworkX Dijkstra oracle built from the same GraphML. The full NxN API request is then checked against an independent brute-force assignment optimum. This probe uses uniquely positioned nodes from the largest strongly connected component so that all tested pairs are expected to be reachable."
+}

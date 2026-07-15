@@ -1,0 +1,109 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "road_dispatch",
+  "created_at_utc": "2026-07-12T19:08:14.937296+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false,
+    "sizes": [
+      5,
+      10
+    ],
+    "iterations": 2,
+    "warmup": 1
+  },
+  "case_count": 4,
+  "success_count": 4,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "all_non_regression": true,
+  "source_dijkstra_road_telemetry_present": true,
+  "size_summaries": [
+    {
+      "size": 5,
+      "case_count": 2,
+      "success_count": 2,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 2,
+        "min": 14.9412,
+        "median": 15.1865,
+        "mean": 15.1865,
+        "p95": 15.40727,
+        "max": 15.4318
+      },
+      "road_total_time_ms": {
+        "count": 2,
+        "min": 6.603584,
+        "median": 6.795899,
+        "mean": 6.795899,
+        "p95": 6.968983,
+        "max": 6.988214
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 2,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    },
+    {
+      "size": 10,
+      "case_count": 2,
+      "success_count": 2,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 2,
+        "min": 23.6817,
+        "median": 24.20295,
+        "mean": 24.20295,
+        "p95": 24.672075,
+        "max": 24.7242
+      },
+      "road_total_time_ms": {
+        "count": 2,
+        "min": 14.595903,
+        "median": 14.838005,
+        "mean": 14.838005,
+        "p95": 15.055898,
+        "max": 15.080108
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 2,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    }
+  ],
+  "failed_cases": []
+}

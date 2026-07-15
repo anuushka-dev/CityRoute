@@ -30,7 +30,6 @@ def test_phase91_required_routes_are_registered_in_openapi():
     assert response.status_code == 200
 
     paths = set(response.json()["paths"])
-
     missing_paths = REQUIRED_ENDPOINTS - paths
 
     assert missing_paths == set()
@@ -52,6 +51,15 @@ def test_phase91_root_lists_core_phase_links():
     assert body["vrp_compare"] == "/vrp/compare"
     assert body["vrp_advanced_compare"] == "/vrp/compare/advanced"
     assert body["dispatch_compare"] == "/dispatch/compare"
+
+    assert (
+        body["phase"]
+        == "Tier 3 Phase 10 - Real Road-Network Dispatch Integration"
+    )
+    assert body["phase_code"] == "tier3_phase10"
+
+    assert "haversine" in body["dispatch_matrix_algorithms"]
+    assert "source_dijkstra" in body["dispatch_matrix_algorithms"]
 
 
 def test_phase91_health_endpoint_still_works():
@@ -128,14 +136,15 @@ def test_phase91_dispatch_endpoint_still_works_with_haversine():
     body = response.json()
 
     assert body["status"] == "ok"
-    assert body["phase"] in {"tier3_phase9", "tier3_phase9_1"}
+    assert body["phase"] == "tier3_phase10"
     assert body["matrix_algorithm"] == "haversine"
     assert body["assigned_order_count"] == 2
     assert body["unassigned_order_count"] == 0
+    assert body["road_network"] is None
     assert body["comparison"]["hungarian_non_regression"] is True
 
 
-def test_phase91_dispatch_source_dijkstra_api_requires_builder_until_wired():
+def test_phase10_dispatch_source_dijkstra_api_is_wired():
     payload = {
         "drivers": [
             {
@@ -157,11 +166,35 @@ def test_phase91_dispatch_source_dijkstra_api_requires_builder_until_wired():
         "use_cache": False,
     }
 
-    response = client.post("/dispatch/compare", json=payload)
+    # Phase 10 road-network adapters are initialized during lifespan startup.
+    with TestClient(app) as lifespan_client:
+        response = lifespan_client.post("/dispatch/compare", json=payload)
 
-    assert response.status_code == 400
+    assert response.status_code == 200
 
     body = response.json()
 
-    assert "source_dijkstra" in body["detail"]
-    assert "source_dijkstra_matrix_builder" in body["detail"]
+    assert body["status"] == "ok"
+    assert body["phase"] == "tier3_phase10"
+    assert body["matrix_algorithm"] == "source_dijkstra"
+
+    assert body["driver_count"] == 1
+    assert body["order_count"] == 1
+    assert body["assigned_order_count"] == 1
+    assert body["unassigned_order_count"] == 0
+
+    assert body["cache_used"] is False
+    assert body["cache_hit"] is False
+
+    road_network = body["road_network"]
+
+    assert road_network is not None
+    assert road_network["pair_count"] == 1
+    assert (
+        road_network["reachable_pair_count"]
+        + road_network["unreachable_pair_count"]
+        == 1
+    )
+    assert road_network["source_search_count"] >= 1
+
+    assert body["comparison"]["hungarian_non_regression"] is True

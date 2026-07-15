@@ -1,0 +1,1421 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "evidence_collector",
+  "created_at_utc": "2026-07-14T15:14:17.522301+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "results_directory": "benchmarks\\phase_10\\docker_results",
+    "output_directory": "benchmarks\\phase_10\\docker_results",
+    "strict": true
+  },
+  "final_acceptance": {
+    "status": "PASS",
+    "all_required_evidence_passed": true,
+    "expected_group_count": 6,
+    "passed_group_count": 6,
+    "missing_group_count": 0,
+    "failed_group_count": 0,
+    "runtime_preflight_healthy": true,
+    "note": "Runtime preflight is recorded separately from historical benchmark acceptance so a later stopped container does not rewrite already-generated benchmark evidence."
+  },
+  "evidence_groups": [
+    {
+      "evidence_name": "road_dispatch",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_road_dispatch_raw_docker_20260712_200109.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_road_dispatch_summary_docker_20260712_200109.json",
+      "evaluation": {
+        "passed": true,
+        "case_count": 80,
+        "success_count": 80,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "acceptance": "All measured road-dispatch requests must succeed.",
+        "metadata_errors": []
+      }
+    },
+    {
+      "evidence_name": "haversine_vs_road",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_haversine_vs_road_raw_docker_20260714_133618.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_haversine_vs_road_summary_docker_20260714_133618.json",
+      "evaluation": {
+        "passed": true,
+        "case_count": 80,
+        "success_count": 80,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "acceptance": "All paired Haversine and road-network requests must succeed.",
+        "metadata_errors": []
+      }
+    },
+    {
+      "evidence_name": "dispatch_cache",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_dispatch_cache_raw_docker_20260714_135753.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_dispatch_cache_summary_docker_20260714_135753.json",
+      "evaluation": {
+        "passed": true,
+        "cycle_count": 40,
+        "success_count": 40,
+        "failure_count": 0,
+        "cold_miss_count": 40,
+        "expected_cold_miss_count": 40,
+        "warm_hit_count": 80,
+        "expected_warm_hit_count": 80,
+        "all_cold_requests_missed": true,
+        "all_warm_requests_hit": true,
+        "all_warm_outputs_identical": true,
+        "acceptance": "Every measured cold request must miss, every warm request must hit, and cached outputs must be identical.",
+        "metadata_errors": []
+      }
+    },
+    {
+      "evidence_name": "unreachable_pair",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_unreachable_pair_raw_docker_20260714_141357.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_unreachable_pair_summary_docker_20260714_141357.json",
+      "evaluation": {
+        "passed": true,
+        "verified_pair_found": true,
+        "case_count": 20,
+        "success_count": 20,
+        "failure_count": 0,
+        "all_greedy_forbidden_pairs_rejected": true,
+        "all_hungarian_forbidden_pairs_rejected": true,
+        "all_directionality_checks_passed": true,
+        "verified_pair": {
+          "graph_edge": {
+            "source_node": "6256695467",
+            "target_node": "8397504754",
+            "source_component": 9,
+            "target_component": 5,
+            "source_lat": 26.4316064,
+            "source_lon": 80.2907534,
+            "target_lat": 26.4301928,
+            "target_lon": 80.2907475
+          },
+          "expected_directionality": {
+            "reachable": "6256695467 -> 8397504754",
+            "unreachable": "8397504754 -> 6256695467"
+          }
+        },
+        "acceptance": "A real directed unreachable pair must be found and rejected by both assignment algorithms while the reachable control succeeds.",
+        "metadata_errors": []
+      }
+    },
+    {
+      "evidence_name": "correctness",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_correctness_raw_docker_20260714_143944.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_correctness_summary_docker_20260714_143944.json",
+      "evaluation": {
+        "passed": true,
+        "graph_consistency_passed": true,
+        "scenario_count": 15,
+        "scenario_success_count": 15,
+        "cell_case_count": 270,
+        "cell_success_count": 270,
+        "cell_mismatch_count": 0,
+        "max_abs_road_cost_error_m": 0.009536445,
+        "all_road_cost_cells_matched_oracle": true,
+        "all_hungarian_results_matched_bruteforce_optimum": true,
+        "all_hungarian_non_regression_checks_passed": true,
+        "absolute_optimality_gap_m": {
+          "count": 15,
+          "min": 0.000532,
+          "median": 0.003224,
+          "mean": 0.003669,
+          "p95": 0.00697,
+          "max": 0.007292
+        },
+        "acceptance": "All independent road-cost cells must match the NetworkX oracle and every tested Hungarian result must match the brute-force optimum.",
+        "metadata_errors": []
+      }
+    },
+    {
+      "evidence_name": "load",
+      "missing": false,
+      "raw_path": "benchmarks\\phase_10\\docker_results\\phase10_load_raw_docker_20260714_150039.json",
+      "summary_path": "benchmarks\\phase_10\\docker_results\\phase10_load_summary_docker_20260714_150039.json",
+      "evaluation": {
+        "passed": true,
+        "total_request_count": 480,
+        "success_count": 480,
+        "failure_count": 0,
+        "success_rate_pct": 100.0,
+        "all_requests_successful": true,
+        "all_hungarian_non_regression_checks_passed": true,
+        "size_summaries": [
+          {
+            "size": 10,
+            "load_levels": [
+              {
+                "size": 10,
+                "concurrency": 1,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 1504.3092,
+                "throughput_requests_per_second": 26.590278,
+                "successful_requests_per_second": 26.590278,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 24.3794,
+                  "median": 33.78595,
+                  "mean": 37.289965,
+                  "p95": 53.651025,
+                  "p99": 77.747223,
+                  "max": 90.4863
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 10.997326,
+                  "median": 16.457405,
+                  "mean": 21.042188,
+                  "p95": 38.655723,
+                  "p99": 60.444286,
+                  "max": 74.001151
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 4.97894,
+                  "median": 6.620221,
+                  "mean": 7.092023,
+                  "p95": 10.077813,
+                  "p99": 13.772293,
+                  "max": 14.494016
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.0,
+                  "median_latency_inflation_ratio": 1.0,
+                  "p95_latency_inflation_ratio": 1.0,
+                  "throughput_scaling_efficiency_pct": 100.0
+                }
+              },
+              {
+                "size": 10,
+                "concurrency": 2,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 1340.1665,
+                "throughput_requests_per_second": 29.847038,
+                "successful_requests_per_second": 29.847038,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 31.4023,
+                  "median": 64.32885,
+                  "mean": 65.870933,
+                  "p95": 99.33086,
+                  "p99": 110.82522,
+                  "max": 117.2064
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 12.850307,
+                  "median": 33.152864,
+                  "mean": 35.762667,
+                  "p95": 69.947377,
+                  "p99": 74.122273,
+                  "max": 75.332649
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 5.796865,
+                  "median": 10.078606,
+                  "mean": 10.765194,
+                  "p95": 19.046674,
+                  "p99": 23.657388,
+                  "max": 24.254266
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.122479,
+                  "median_latency_inflation_ratio": 1.904012,
+                  "p95_latency_inflation_ratio": 1.851425,
+                  "throughput_scaling_efficiency_pct": 56.124
+                }
+              },
+              {
+                "size": 10,
+                "concurrency": 4,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 1161.8255,
+                "throughput_requests_per_second": 34.428578,
+                "successful_requests_per_second": 34.428578,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 64.868,
+                  "median": 104.9001,
+                  "mean": 111.911785,
+                  "p95": 157.25276,
+                  "p99": 158.59099,
+                  "max": 158.9806
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 19.988206,
+                  "median": 41.701741,
+                  "mean": 49.624084,
+                  "p95": 91.919143,
+                  "p99": 110.882873,
+                  "max": 122.897233
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 5.783238,
+                  "median": 13.221359,
+                  "mean": 13.387452,
+                  "p95": 31.340679,
+                  "p99": 35.572315,
+                  "max": 36.156252
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.294781,
+                  "median_latency_inflation_ratio": 3.104844,
+                  "p95_latency_inflation_ratio": 2.93103,
+                  "throughput_scaling_efficiency_pct": 32.37
+                }
+              },
+              {
+                "size": 10,
+                "concurrency": 8,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 1359.7515,
+                "throughput_requests_per_second": 29.41714,
+                "successful_requests_per_second": 29.41714,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 118.0843,
+                  "median": 263.2822,
+                  "mean": 249.03269,
+                  "p95": 379.65652,
+                  "p99": 387.55745,
+                  "max": 388.9595
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 19.589368,
+                  "median": 99.497503,
+                  "mean": 105.022067,
+                  "p95": 203.020586,
+                  "p99": 240.197955,
+                  "max": 240.392064
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 5.950612,
+                  "median": 14.687912,
+                  "mean": 17.230858,
+                  "p95": 43.378393,
+                  "p99": 50.602486,
+                  "max": 54.801579
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.106312,
+                  "median_latency_inflation_ratio": 7.792653,
+                  "p95_latency_inflation_ratio": 7.076408,
+                  "throughput_scaling_efficiency_pct": 13.829
+                }
+              }
+            ],
+            "best_throughput_requests_per_second": 34.428578,
+            "best_throughput_concurrency": 4
+          },
+          {
+            "size": 25,
+            "load_levels": [
+              {
+                "size": 25,
+                "concurrency": 1,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 4491.3504,
+                "throughput_requests_per_second": 8.906007,
+                "successful_requests_per_second": 8.906007,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 76.11,
+                  "median": 104.3619,
+                  "mean": 111.54429,
+                  "p95": 149.56958,
+                  "p99": 177.579672,
+                  "max": 181.6143
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 50.669247,
+                  "median": 77.060359,
+                  "mean": 81.505272,
+                  "p95": 109.608511,
+                  "p99": 142.611631,
+                  "max": 143.660377
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 10.710071,
+                  "median": 17.110186,
+                  "mean": 17.700151,
+                  "p95": 24.570322,
+                  "p99": 25.511339,
+                  "max": 25.735289
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.0,
+                  "median_latency_inflation_ratio": 1.0,
+                  "p95_latency_inflation_ratio": 1.0,
+                  "throughput_scaling_efficiency_pct": 100.0
+                }
+              },
+              {
+                "size": 25,
+                "concurrency": 2,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 4132.4057,
+                "throughput_requests_per_second": 9.679592,
+                "successful_requests_per_second": 9.679592,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 107.7592,
+                  "median": 203.2936,
+                  "mean": 204.536248,
+                  "p95": 271.761875,
+                  "p99": 294.98916,
+                  "max": 307.5183
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 79.943156,
+                  "median": 152.458692,
+                  "mean": 152.991371,
+                  "p95": 209.672152,
+                  "p99": 223.224792,
+                  "max": 231.038911
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 17.69136,
+                  "median": 44.687435,
+                  "mean": 46.271784,
+                  "p95": 67.417286,
+                  "p99": 88.542186,
+                  "max": 93.561984
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.086861,
+                  "median_latency_inflation_ratio": 1.947968,
+                  "p95_latency_inflation_ratio": 1.81696,
+                  "throughput_scaling_efficiency_pct": 54.343
+                }
+              },
+              {
+                "size": 25,
+                "concurrency": 4,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 3871.2641,
+                "throughput_requests_per_second": 10.332542,
+                "successful_requests_per_second": 10.332542,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 162.364,
+                  "median": 358.04065,
+                  "mean": 375.791682,
+                  "p95": 523.321485,
+                  "p99": 551.290539,
+                  "max": 564.1605
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 84.776133,
+                  "median": 188.698013,
+                  "mean": 197.981749,
+                  "p95": 314.488053,
+                  "p99": 365.907265,
+                  "max": 393.83141
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 14.875049,
+                  "median": 56.371185,
+                  "mean": 55.072428,
+                  "p95": 87.254983,
+                  "p99": 92.860252,
+                  "max": 94.295844
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.160177,
+                  "median_latency_inflation_ratio": 3.43076,
+                  "p95_latency_inflation_ratio": 3.49885,
+                  "throughput_scaling_efficiency_pct": 29.004
+                }
+              },
+              {
+                "size": 25,
+                "concurrency": 8,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 7141.2956,
+                "throughput_requests_per_second": 5.601225,
+                "successful_requests_per_second": 5.601225,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 224.3439,
+                  "median": 873.30985,
+                  "mean": 1397.429588,
+                  "p95": 3873.210335,
+                  "p99": 3926.705426,
+                  "max": 3958.5125
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 140.255676,
+                  "median": 455.232562,
+                  "mean": 712.587543,
+                  "p95": 3273.265525,
+                  "p99": 3349.625736,
+                  "max": 3362.446568
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 14.773584,
+                  "median": 69.179645,
+                  "mean": 65.396309,
+                  "p95": 98.500689,
+                  "p99": 122.315739,
+                  "max": 123.931744
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 0.628927,
+                  "median_latency_inflation_ratio": 8.368091,
+                  "p95_latency_inflation_ratio": 25.895709,
+                  "throughput_scaling_efficiency_pct": 7.862
+                }
+              }
+            ],
+            "best_throughput_requests_per_second": 10.332542,
+            "best_throughput_concurrency": 4
+          },
+          {
+            "size": 50,
+            "load_levels": [
+              {
+                "size": 50,
+                "concurrency": 1,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 10605.1587,
+                "throughput_requests_per_second": 3.771749,
+                "successful_requests_per_second": 3.771749,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 204.7784,
+                  "median": 239.859,
+                  "mean": 263.586187,
+                  "p95": 308.67929,
+                  "p99": 703.39752,
+                  "max": 938.3304
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 150.031809,
+                  "median": 177.561928,
+                  "mean": 183.723287,
+                  "p95": 229.721932,
+                  "p99": 246.05857,
+                  "max": 252.707912
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 23.456633,
+                  "median": 29.246474,
+                  "mean": 31.072215,
+                  "p95": 47.254131,
+                  "p99": 48.416036,
+                  "max": 48.957982
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.0,
+                  "median_latency_inflation_ratio": 1.0,
+                  "p95_latency_inflation_ratio": 1.0,
+                  "throughput_scaling_efficiency_pct": 100.0
+                }
+              },
+              {
+                "size": 50,
+                "concurrency": 2,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 10001.6205,
+                "throughput_requests_per_second": 3.999352,
+                "successful_requests_per_second": 3.999352,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 328.9437,
+                  "median": 484.18415,
+                  "mean": 495.12572,
+                  "p95": 663.87712,
+                  "p99": 821.918782,
+                  "max": 842.9773
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 218.130801,
+                  "median": 359.533914,
+                  "mean": 368.389099,
+                  "p95": 489.783405,
+                  "p99": 617.91497,
+                  "max": 673.366122
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 28.177648,
+                  "median": 107.167018,
+                  "mean": 110.512233,
+                  "p95": 162.027958,
+                  "p99": 171.443679,
+                  "max": 172.219907
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.060344,
+                  "median_latency_inflation_ratio": 2.01862,
+                  "p95_latency_inflation_ratio": 2.150702,
+                  "throughput_scaling_efficiency_pct": 53.017
+                }
+              },
+              {
+                "size": 50,
+                "concurrency": 4,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 9587.6178,
+                "throughput_requests_per_second": 4.172048,
+                "successful_requests_per_second": 4.172048,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 354.1203,
+                  "median": 914.4771,
+                  "mean": 933.498842,
+                  "p95": 1182.29763,
+                  "p99": 1324.852093,
+                  "max": 1360.8457
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 210.334097,
+                  "median": 461.530803,
+                  "mean": 468.645032,
+                  "p95": 596.294326,
+                  "p99": 789.347427,
+                  "max": 812.221795
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 36.268688,
+                  "median": 122.652861,
+                  "mean": 133.796409,
+                  "p95": 221.1134,
+                  "p99": 329.311344,
+                  "max": 392.909273
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.106131,
+                  "median_latency_inflation_ratio": 3.812561,
+                  "p95_latency_inflation_ratio": 3.830181,
+                  "throughput_scaling_efficiency_pct": 27.653
+                }
+              },
+              {
+                "size": 50,
+                "concurrency": 8,
+                "request_count": 40,
+                "success_count": 40,
+                "failure_count": 0,
+                "success_rate_pct": 100.0,
+                "wall_time_ms": 10011.2011,
+                "throughput_requests_per_second": 3.995525,
+                "successful_requests_per_second": 3.995525,
+                "request_elapsed_ms": {
+                  "count": 40,
+                  "min": 543.9439,
+                  "median": 1887.6155,
+                  "mean": 1906.84309,
+                  "p95": 2618.81305,
+                  "p99": 2808.440384,
+                  "max": 2892.2297
+                },
+                "api_elapsed_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "road_total_time_ms": {
+                  "count": 40,
+                  "min": 208.795951,
+                  "median": 1038.970438,
+                  "mean": 949.345515,
+                  "p95": 1407.797359,
+                  "p99": 1450.007654,
+                  "max": 1453.813464
+                },
+                "road_snap_time_ms": {
+                  "count": 40,
+                  "min": 27.299984,
+                  "median": 168.756329,
+                  "mean": 142.119991,
+                  "p95": 219.937962,
+                  "p99": 274.627304,
+                  "max": 303.372186
+                },
+                "road_matrix_build_time_ms": {
+                  "count": 0,
+                  "min": 0.0,
+                  "median": 0.0,
+                  "mean": 0.0,
+                  "p95": 0.0,
+                  "p99": 0.0,
+                  "max": 0.0
+                },
+                "hungarian_non_regression_count": 40,
+                "expected_hungarian_non_regression_count": 40,
+                "assignment_count_integrity_count": 40,
+                "expected_assignment_count_integrity_count": 40,
+                "status_code_counts": {
+                  "200": 40
+                },
+                "comparison_vs_concurrency_1": {
+                  "throughput_scaling_ratio": 1.05933,
+                  "median_latency_inflation_ratio": 7.869688,
+                  "p95_latency_inflation_ratio": 8.483929,
+                  "throughput_scaling_efficiency_pct": 13.242
+                }
+              }
+            ],
+            "best_throughput_requests_per_second": 4.172048,
+            "best_throughput_concurrency": 4
+          }
+        ],
+        "acceptance": "All concurrent load requests must complete successfully and preserve Hungarian non-regression. Throughput scaling is reported separately and is not hidden by the pass/fail gate.",
+        "metadata_errors": []
+      }
+    }
+  ],
+  "runtime_preflight": {
+    "health": {
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 17.1201,
+      "payload": {
+        "status": "ok",
+        "graph_loaded": true,
+        "uptime_s": 5901.264
+      }
+    },
+    "root": {
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 6.331,
+      "payload": {
+        "status": "ok",
+        "service": "cityroute",
+        "version": "0.1.0",
+        "phase": "Tier 3 Phase 10 - Real Road-Network Dispatch Integration",
+        "phase_code": "tier3_phase10",
+        "docs": "/docs",
+        "health": "/health",
+        "graph_stats": "/graph/stats",
+        "route": "/route",
+        "route_compare": "/route/compare",
+        "matrix": "/matrix",
+        "vrp_greedy": "/vrp/greedy",
+        "vrp_compare": "/vrp/compare",
+        "vrp_advanced_compare": "/vrp/compare/advanced",
+        "dispatch_compare": "/dispatch/compare",
+        "dispatch_matrix_algorithms": [
+          "haversine",
+          "source_dijkstra"
+        ],
+        "phase10_goal": "Real road-network driver-to-order dispatch cost integration"
+      }
+    },
+    "graph_stats": {
+      "success": true,
+      "status_code": 200,
+      "elapsed_ms": 8.5777,
+      "payload": {
+        "city": "Kanpur Central, Uttar Pradesh, India",
+        "graph_loaded": true,
+        "nodes": 12969,
+        "edges": 34996,
+        "load_time_s": 5.415,
+        "graph_path": "data/graphs/kanpur_central.graphml",
+        "graph_file_size_mb": 12.74,
+        "memory_mb": 386.52,
+        "weakly_connected_components": 1,
+        "largest_component_nodes": 12969,
+        "is_weakly_connected": true,
+        "snap_index_loaded": true,
+        "snap_index_build_time_ms": 47.239,
+        "snap_index_method": "balltree",
+        "snap_index_import_error": null,
+        "dispatch_adjacency_loaded": true,
+        "dispatch_adjacency_build_time_ms": 270.794,
+        "dispatch_adjacency_node_count": 12969,
+        "dispatch_adjacency_edge_count": 34876,
+        "dispatch_road_matrix_ready": true,
+        "dispatch_road_cache_available": true,
+        "dispatch_road_matrix_error": null
+      }
+    }
+  },
+  "telemetry_advisories": {
+    "api_elapsed_ms_null_occurrences": 560,
+    "matrix_build_time_ms_null_occurrences": 800,
+    "cache_status_null_occurrences": 200,
+    "advisories": [
+      "api_elapsed_ms contains null values in collected evidence.",
+      "matrix_build_time_ms contains null values in collected evidence.",
+      "Some cache_status fields are null in collected evidence."
+    ]
+  },
+  "artifacts": [
+    {
+      "evidence_name": "road_dispatch",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_road_dispatch_raw_docker_20260712_200109.json",
+      "size_bytes": 130230,
+      "modified_at_utc": "2026-07-12T20:01:16.606564+00:00",
+      "sha256": "1acab0bf7e4610c926eedbbb3f966b9e974dd9222e66337de2485c54c1429909",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "road_dispatch",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_road_dispatch_summary_docker_20260712_200109.json",
+      "size_bytes": 4533,
+      "modified_at_utc": "2026-07-12T20:01:16.608563+00:00",
+      "sha256": "f0cc05e3d39118e9ee52195131e4bd0974e64a43eba18a53d68bcfc4ecfc81fe",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "haversine_vs_road",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_haversine_vs_road_raw_docker_20260714_133618.json",
+      "size_bytes": 152442,
+      "modified_at_utc": "2026-07-14T13:36:30.646228+00:00",
+      "sha256": "64004e48301be640191257db004f99e7ab30295a84b559a9cea7e51deb81e8a9",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "haversine_vs_road",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_haversine_vs_road_summary_docker_20260714_133618.json",
+      "size_bytes": 6671,
+      "modified_at_utc": "2026-07-14T13:36:30.651092+00:00",
+      "sha256": "98286fe4546a99abce477228e525b5b4c24ef7a1bbe11e8712112196a63e80ee",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "dispatch_cache",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_dispatch_cache_raw_docker_20260714_135753.json",
+      "size_bytes": 323194,
+      "modified_at_utc": "2026-07-14T13:58:02.587802+00:00",
+      "sha256": "ccc71501e0d0d753cff0e9fd146022157d1419de3c405d700dcc568acb20021a",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "dispatch_cache",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_dispatch_cache_summary_docker_20260714_135753.json",
+      "size_bytes": 5931,
+      "modified_at_utc": "2026-07-14T13:58:02.591155+00:00",
+      "sha256": "88203c5f881a97810225f457bd7e5069f7fd65586003b4889191d4fabbd34b98",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "unreachable_pair",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_unreachable_pair_raw_docker_20260714_141357.json",
+      "size_bytes": 67974,
+      "modified_at_utc": "2026-07-14T14:14:01.620394+00:00",
+      "sha256": "cadce2663a23c8f85c4c1e93f4eaf8614a747a52dccbbd7cd6bb38e182d158c6",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "unreachable_pair",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_unreachable_pair_summary_docker_20260714_141357.json",
+      "size_bytes": 2597,
+      "modified_at_utc": "2026-07-14T14:14:01.624289+00:00",
+      "sha256": "e139cb97469648a301b4fac1678062752fec234c7b5eabbf1d61d890ecb48293",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "correctness",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_correctness_raw_docker_20260714_143944.json",
+      "size_bytes": 231054,
+      "modified_at_utc": "2026-07-14T14:40:04.545294+00:00",
+      "sha256": "c176b447b61fb8af932810115858d2cc04c139d94936d10975be76cccd0bc455",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "correctness",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_correctness_summary_docker_20260714_143944.json",
+      "size_bytes": 2748,
+      "modified_at_utc": "2026-07-14T14:40:04.547291+00:00",
+      "sha256": "2e06dc3a50c82d5c52660854cd602fe161794b6f153a105091ab358d9ba48b25",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "load",
+      "artifact_type": "raw",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_load_raw_docker_20260714_150039.json",
+      "size_bytes": 566921,
+      "modified_at_utc": "2026-07-14T15:01:46.248653+00:00",
+      "sha256": "cfff5ab6729e954618f04d266a6f5d7a154f22b822a084e62bbce4de049cff92",
+      "json_parse_success": true,
+      "parse_error": null
+    },
+    {
+      "evidence_name": "load",
+      "artifact_type": "summary",
+      "path": "benchmarks\\phase_10\\docker_results\\phase10_load_summary_docker_20260714_150039.json",
+      "size_bytes": 27790,
+      "modified_at_utc": "2026-07-14T15:01:46.261145+00:00",
+      "sha256": "d547a17ac6c1c1a4db7b9015b12958440daa566153290f7a3d3b91a03de9d9b3",
+      "json_parse_success": true,
+      "parse_error": null
+    }
+  ],
+  "source_snapshot": [
+    {
+      "path": "app\\core\\dispatch_road_cost_matrix.py",
+      "exists": true,
+      "size_bytes": 10506,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "fc84a9eb9381aaabcc139ea68771b200e3ba5a4fffa6a578db8bba00e02eca35"
+    },
+    {
+      "path": "app\\services\\dispatch_road_matrix_service.py",
+      "exists": true,
+      "size_bytes": 32109,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "129a86c23f0c4e224513e64b522861184d716f30bb6bdf4e8b739385ae4aa43e"
+    },
+    {
+      "path": "app\\services\\dispatch_service.py",
+      "exists": true,
+      "size_bytes": 33976,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "a57419bb8e4032e90bcee2947b679dfeb57dd92b3e45dd828f6cb7f9f395f13b"
+    },
+    {
+      "path": "app\\core\\dispatch_cost_matrix.py",
+      "exists": true,
+      "size_bytes": 23577,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "c5c7bf25f7e002840454b50585fd184cbb870f012ebd120538d8321285941e33"
+    },
+    {
+      "path": "app\\core\\multi_target_dijkstra.py",
+      "exists": true,
+      "size_bytes": 13697,
+      "modified_at_utc": "2026-07-11T14:04:25.295580+00:00",
+      "sha256": "90556162f7639c41de1bb60828b1a90f05540b456940c79189d3e1ece2b068b0"
+    },
+    {
+      "path": "app\\core\\graph_adjacency.py",
+      "exists": true,
+      "size_bytes": 12400,
+      "modified_at_utc": "2026-07-11T13:59:14.680599+00:00",
+      "sha256": "d46724862cc9d39c488783643c35ea8152b97407fb8cadcd5f257d6b628c56f3"
+    },
+    {
+      "path": "app\\core\\hungarian.py",
+      "exists": true,
+      "size_bytes": 21387,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "f6c9f321c7b9b585039fedf9696f0ac87d9e9e182b978091f88786b6474d96b8"
+    },
+    {
+      "path": "app\\core\\greedy_dispatch.py",
+      "exists": true,
+      "size_bytes": 12355,
+      "modified_at_utc": "2026-07-11T14:22:20.191697+00:00",
+      "sha256": "c60ab1ecc4d40c2b94d21b60a2bdbb7cb0ff1158c2cbbae9cac012a2aa8df826"
+    },
+    {
+      "path": "app\\utils\\matrix_cache_key.py",
+      "exists": true,
+      "size_bytes": 12213,
+      "modified_at_utc": "2026-07-11T13:08:42.123582+00:00",
+      "sha256": "1e67c888f0f205692fd03e2ccad0bc3d539a36e1a2f4c756eef480ebd347e7ca"
+    },
+    {
+      "path": "app\\utils\\snap_index.py",
+      "exists": true,
+      "size_bytes": 12651,
+      "modified_at_utc": "2026-07-11T13:52:53.095368+00:00",
+      "sha256": "a9bd4c5bb66ae69eaa0e674ca9350f2843d052e5d3123556913fd12f734f50ef"
+    },
+    {
+      "path": "app\\infrastructure\\redis_cache.py",
+      "exists": true,
+      "size_bytes": 10196,
+      "modified_at_utc": "2026-07-11T14:13:46.140625+00:00",
+      "sha256": "e85164996d3b2247812dcc20ac2e5dcf98bbf1a4a0c297a732b20865a412e10b"
+    },
+    {
+      "path": "app\\schemas\\dispatch.py",
+      "exists": true,
+      "size_bytes": 17506,
+      "modified_at_utc": "2026-07-11T19:17:38.937442+00:00",
+      "sha256": "6d32f0d290124d56311143835b59a39a570a4585bb22a16288a7e2ff484f03ba"
+    },
+    {
+      "path": "app\\api\\dispatch.py",
+      "exists": true,
+      "size_bytes": 7946,
+      "modified_at_utc": "2026-07-11T19:17:38.936445+00:00",
+      "sha256": "9113bac07fd436a8a753cef5f3a1f3af3733cb6331b926b7ca2b0d8e2ef1d3bf"
+    },
+    {
+      "path": "app\\main.py",
+      "exists": true,
+      "size_bytes": 22483,
+      "modified_at_utc": "2026-07-11T13:46:23.875913+00:00",
+      "sha256": "09e8f34f8c62164c8b4e1899fb8912b9451dbe73a96acb16dc0369a354b49039"
+    }
+  ],
+  "git": {
+    "available": true,
+    "commit": "cabd254650fd9f8b7607af5a40e3ee2f3c035f48",
+    "short_commit": "cabd254",
+    "branch": "main",
+    "working_tree_clean": false,
+    "status_short": "M app/api/dispatch.py\n M app/core/dispatch_cost_matrix.py\n M app/core/dispatch_fairness.py\n M app/core/distance_matrix.py\n M app/core/graph_adjacency.py\n M app/core/greedy_dispatch.py\n M app/core/hungarian.py\n M app/core/multi_target_dijkstra.py\n M app/infrastructure/redis_cache.py\n M app/main.py\n M app/schemas/dispatch.py\n M app/services/dispatch_service.py\n M app/utils/matrix_cache_key.py\n M app/utils/snap_index.py\n M tests/test_dispatch_cache_integration.py\n M tests/test_dispatch_source_dijkstra.py\n?? app/core/dispatch_road_cost_matrix.py\n?? app/services/dispatch_road_matrix_service.py\n?? benchmarks/phase_10/\n?? benchmarks/phase_8/phase8_FINAL_CLEAN_EVIDENCE_20260702_193641.txt\n?? benchmarks/phase_8/phase8_STRICT_FINAL_EVIDENCE_20260702_193943.txt\n?? benchmarks/phase_8/phase8_docker_results_FULL_DUMP_20260702_192850.txt\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_191814.json\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_192031.json\n?? tests/test_dispatch_matrix_algorithm_parity.py\n?? tests/test_dispatch_road_cost_matrix.py\n?? tests/test_dispatch_road_matrix_service.py\n?? tests/test_dispatch_unreachable_pairs.py",
+    "latest_log": "cabd254 (HEAD -> main, tag: tier3-phase9-dispatch-final-release, origin/tier3-phase9-dispatch-final, origin/main, tier3-phase9-dispatch-final) feat(dispatch): finalize phase 9 hungarian dispatch integration",
+    "commands": {
+      "commit": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "success": true,
+        "return_code": 0,
+        "stdout": "cabd254650fd9f8b7607af5a40e3ee2f3c035f48",
+        "stderr": "",
+        "elapsed_ms": 118.8338
+      },
+      "short_commit": {
+        "command": [
+          "git",
+          "rev-parse",
+          "--short",
+          "HEAD"
+        ],
+        "success": true,
+        "return_code": 0,
+        "stdout": "cabd254",
+        "stderr": "",
+        "elapsed_ms": 102.7579
+      },
+      "branch": {
+        "command": [
+          "git",
+          "branch",
+          "--show-current"
+        ],
+        "success": true,
+        "return_code": 0,
+        "stdout": "main",
+        "stderr": "",
+        "elapsed_ms": 103.0996
+      },
+      "status": {
+        "command": [
+          "git",
+          "status",
+          "--short"
+        ],
+        "success": true,
+        "return_code": 0,
+        "stdout": "M app/api/dispatch.py\n M app/core/dispatch_cost_matrix.py\n M app/core/dispatch_fairness.py\n M app/core/distance_matrix.py\n M app/core/graph_adjacency.py\n M app/core/greedy_dispatch.py\n M app/core/hungarian.py\n M app/core/multi_target_dijkstra.py\n M app/infrastructure/redis_cache.py\n M app/main.py\n M app/schemas/dispatch.py\n M app/services/dispatch_service.py\n M app/utils/matrix_cache_key.py\n M app/utils/snap_index.py\n M tests/test_dispatch_cache_integration.py\n M tests/test_dispatch_source_dijkstra.py\n?? app/core/dispatch_road_cost_matrix.py\n?? app/services/dispatch_road_matrix_service.py\n?? benchmarks/phase_10/\n?? benchmarks/phase_8/phase8_FINAL_CLEAN_EVIDENCE_20260702_193641.txt\n?? benchmarks/phase_8/phase8_STRICT_FINAL_EVIDENCE_20260702_193943.txt\n?? benchmarks/phase_8/phase8_docker_results_FULL_DUMP_20260702_192850.txt\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_191814.json\n?? benchmarks/phase_8/phase8_docker_results_combined_raw_20260702_192031.json\n?? tests/test_dispatch_matrix_algorithm_parity.py\n?? tests/test_dispatch_road_cost_matrix.py\n?? tests/test_dispatch_road_matrix_service.py\n?? tests/test_dispatch_unreachable_pairs.py",
+        "stderr": "",
+        "elapsed_ms": 224.5289
+      },
+      "latest_log": {
+        "command": [
+          "git",
+          "log",
+          "-1",
+          "--oneline",
+          "--decorate"
+        ],
+        "success": true,
+        "return_code": 0,
+        "stdout": "cabd254 (HEAD -> main, tag: tier3-phase9-dispatch-final-release, origin/tier3-phase9-dispatch-final, origin/main, tier3-phase9-dispatch-final) feat(dispatch): finalize phase 9 hungarian dispatch integration",
+        "stderr": "",
+        "elapsed_ms": 130.4978
+      }
+    }
+  },
+  "docker": {
+    "available": true,
+    "containers": [
+      {
+        "name": "cityroute-api-tier3-phase8",
+        "image": "cityroute-api:tier3-phase8",
+        "status": "Up 2 hours (healthy)",
+        "ports": "0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp"
+      },
+      {
+        "name": "cityroute-redis-tier3-phase8",
+        "image": "redis:7-alpine",
+        "status": "Up 2 hours (healthy)",
+        "ports": "6379/tcp"
+      }
+    ],
+    "command": {
+      "command": [
+        "docker",
+        "ps",
+        "--format",
+        "{{.Names}}|{{.Image}}|{{.Status}}|{{.Ports}}"
+      ],
+      "success": true,
+      "return_code": 0,
+      "stdout": "cityroute-api-tier3-phase8|cityroute-api:tier3-phase8|Up 2 hours (healthy)|0.0.0.0:8001->8000/tcp, [::]:8001->8000/tcp\ncityroute-redis-tier3-phase8|redis:7-alpine|Up 2 hours (healthy)|6379/tcp",
+      "stderr": "",
+      "elapsed_ms": 187.0991
+    }
+  },
+  "environment": {
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "system": "Windows",
+    "release": "10",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "working_directory": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "pid": 2916
+  }
+}

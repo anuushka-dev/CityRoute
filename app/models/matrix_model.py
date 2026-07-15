@@ -6,7 +6,6 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-
 SUPPORTED_MATRIX_ALGORITHMS = (
     "source_dijkstra",
     "bidirectional_astar",
@@ -88,7 +87,7 @@ class MatrixRequest(BaseModel):
         return cleaned
 
     @model_validator(mode="after")
-    def validate_unique_location_ids(self) -> "MatrixRequest":
+    def validate_unique_location_ids(self) -> MatrixRequest:
         ids = [location.id for location in self.locations]
 
         if len(ids) != len(set(ids)):

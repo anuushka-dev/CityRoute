@@ -150,7 +150,7 @@ def test_redis_cache_get_json_deletes_corrupt_json(monkeypatch):
     assert "matrix:bad" in fake_client.deleted_keys
 
 
-def test_redis_cache_get_json_rejects_non_object_json(monkeypatch):
+def test_redis_cache_get_json_returns_none_for_non_object_json(monkeypatch):
     fake_client = FakeRedisClient()
     fake_client.values["matrix:list"] = "[1, 2, 3]"
     _patch_redis_client(monkeypatch, fake_client)
@@ -160,8 +160,9 @@ def test_redis_cache_get_json_rejects_non_object_json(monkeypatch):
         ttl_seconds=60,
     )
 
-    with pytest.raises(ValueError):
-        cache.get_json("matrix:list")
+    result = cache.get_json("matrix:list")
+
+    assert result is None
 
 
 def test_redis_cache_delete_existing_key(monkeypatch):

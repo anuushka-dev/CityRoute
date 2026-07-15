@@ -6,7 +6,6 @@ from typing import Any
 
 import networkx as nx
 
-
 DEFAULT_SPEED_KMPH = 25.0
 
 SPEED_BY_HIGHWAY_KMPH = {

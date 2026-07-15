@@ -1,0 +1,75 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "unreachable_pair",
+  "created_at_utc": "2026-07-14T14:14:01.609239+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "iterations": 20,
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false
+  },
+  "graph": {
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "node_count": 12969,
+    "edge_count": 34996,
+    "directed": true,
+    "multigraph": true,
+    "graph_load_time_ms": 2513.4314,
+    "strongly_connected_component_count": 12,
+    "largest_strongly_connected_component_nodes": 12948,
+    "scc_analysis_time_ms": 102.6103,
+    "cross_scc_edge_candidate_count": 13
+  },
+  "verified_pair_found": true,
+  "candidate_attempt_count": 1,
+  "verified_pair": {
+    "graph_edge": {
+      "source_node": "6256695467",
+      "target_node": "8397504754",
+      "source_component": 9,
+      "target_component": 5,
+      "source_lat": 26.4316064,
+      "source_lon": 80.2907534,
+      "target_lat": 26.4301928,
+      "target_lon": 80.2907475
+    },
+    "expected_directionality": {
+      "reachable": "6256695467 -> 8397504754",
+      "unreachable": "8397504754 -> 6256695467"
+    }
+  },
+  "case_count": 20,
+  "success_count": 20,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "greedy_forbidden_pair_safety_count": 20,
+  "expected_greedy_safety_count": 20,
+  "hungarian_forbidden_pair_safety_count": 20,
+  "expected_hungarian_safety_count": 20,
+  "directionality_pass_count": 20,
+  "expected_directionality_pass_count": 20,
+  "all_greedy_forbidden_pairs_rejected": true,
+  "all_hungarian_forbidden_pairs_rejected": true,
+  "all_directionality_checks_passed": true,
+  "unreachable_request_elapsed_ms": {
+    "count": 20,
+    "min": 6.9088,
+    "median": 10.31005,
+    "mean": 11.020375,
+    "p95": 17.284115,
+    "max": 17.6283
+  },
+  "reachable_control_elapsed_ms": {
+    "count": 20,
+    "min": 7.7501,
+    "median": 10.5711,
+    "mean": 10.90626,
+    "p95": 14.26591,
+    "max": 14.3421
+  },
+  "failed_cases": [],
+  "interpretation_note": "The probe identifies a real directed edge whose endpoints belong to different strongly connected components. The edge direction is therefore reachable while the reverse direction is unreachable. The live source_dijkstra API must reject the unreachable driver-order pair for both Greedy and Hungarian assignment while successfully assigning the reachable reverse control."
+}

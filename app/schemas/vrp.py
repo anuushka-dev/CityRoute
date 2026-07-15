@@ -4,7 +4,6 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-
 MAX_TOTAL_MATRIX_LOCATIONS = 25
 MAX_GREEDY_STOPS = MAX_TOTAL_MATRIX_LOCATIONS - 1
 

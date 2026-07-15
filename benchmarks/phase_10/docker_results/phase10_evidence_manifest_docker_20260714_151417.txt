@@ -1,0 +1,118 @@
+========================================================================================
+CityRoute Tier 3 Phase 10 Evidence Manifest
+========================================================================================
+Generated UTC: 2026-07-14T15:14:17.522301+00:00
+Mode: docker
+Base URL: http://127.0.0.1:8001
+
+FINAL ACCEPTANCE
+----------------------------------------------------------------------------------------
+Overall status: PASS
+Passed evidence groups: 6/6
+Missing evidence groups: 0
+Failed evidence groups: 0
+
+EVIDENCE GROUPS
+----------------------------------------------------------------------------------------
+road_dispatch: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_road_dispatch_summary_docker_20260712_200109.json
+  raw: benchmarks\phase_10\docker_results\phase10_road_dispatch_raw_docker_20260712_200109.json
+  case_count: 80
+  success_count: 80
+  failure_count: 0
+  success_rate_pct: 100.0
+
+haversine_vs_road: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_haversine_vs_road_summary_docker_20260714_133618.json
+  raw: benchmarks\phase_10\docker_results\phase10_haversine_vs_road_raw_docker_20260714_133618.json
+  case_count: 80
+  success_count: 80
+  failure_count: 0
+  success_rate_pct: 100.0
+
+dispatch_cache: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_dispatch_cache_summary_docker_20260714_135753.json
+  raw: benchmarks\phase_10\docker_results\phase10_dispatch_cache_raw_docker_20260714_135753.json
+  cycle_count: 40
+  success_count: 40
+  failure_count: 0
+  cold_miss_count: 40
+  expected_cold_miss_count: 40
+  warm_hit_count: 80
+  expected_warm_hit_count: 80
+  all_cold_requests_missed: True
+  all_warm_requests_hit: True
+  all_warm_outputs_identical: True
+
+unreachable_pair: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_unreachable_pair_summary_docker_20260714_141357.json
+  raw: benchmarks\phase_10\docker_results\phase10_unreachable_pair_raw_docker_20260714_141357.json
+  verified_pair_found: True
+  case_count: 20
+  success_count: 20
+  failure_count: 0
+  all_greedy_forbidden_pairs_rejected: True
+  all_hungarian_forbidden_pairs_rejected: True
+  all_directionality_checks_passed: True
+
+correctness: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_correctness_summary_docker_20260714_143944.json
+  raw: benchmarks\phase_10\docker_results\phase10_correctness_raw_docker_20260714_143944.json
+  graph_consistency_passed: True
+  scenario_count: 15
+  scenario_success_count: 15
+  cell_case_count: 270
+  cell_success_count: 270
+  cell_mismatch_count: 0
+  max_abs_road_cost_error_m: 0.009536445
+  all_road_cost_cells_matched_oracle: True
+  all_hungarian_results_matched_bruteforce_optimum: True
+  all_hungarian_non_regression_checks_passed: True
+
+load: PASS
+  summary: benchmarks\phase_10\docker_results\phase10_load_summary_docker_20260714_150039.json
+  raw: benchmarks\phase_10\docker_results\phase10_load_raw_docker_20260714_150039.json
+  total_request_count: 480
+  success_count: 480
+  failure_count: 0
+  success_rate_pct: 100.0
+  all_requests_successful: True
+  all_hungarian_non_regression_checks_passed: True
+
+RUNTIME PREFLIGHT
+----------------------------------------------------------------------------------------
+Health success: True
+Root success: True
+Graph stats success: True
+
+GIT
+----------------------------------------------------------------------------------------
+Commit: cabd254650fd9f8b7607af5a40e3ee2f3c035f48
+Branch: main
+Working tree clean: False
+
+TELEMETRY ADVISORIES
+----------------------------------------------------------------------------------------
+api_elapsed_ms null occurrences: 560
+matrix_build_time_ms null occurrences: 800
+cache_status null occurrences: 200
+  - api_elapsed_ms contains null values in collected evidence.
+  - matrix_build_time_ms contains null values in collected evidence.
+  - Some cache_status fields are null in collected evidence.
+
+ARTIFACT HASHES
+----------------------------------------------------------------------------------------
+1acab0bf7e4610c926eedbbb3f966b9e974dd9222e66337de2485c54c1429909  benchmarks\phase_10\docker_results\phase10_road_dispatch_raw_docker_20260712_200109.json
+f0cc05e3d39118e9ee52195131e4bd0974e64a43eba18a53d68bcfc4ecfc81fe  benchmarks\phase_10\docker_results\phase10_road_dispatch_summary_docker_20260712_200109.json
+64004e48301be640191257db004f99e7ab30295a84b559a9cea7e51deb81e8a9  benchmarks\phase_10\docker_results\phase10_haversine_vs_road_raw_docker_20260714_133618.json
+98286fe4546a99abce477228e525b5b4c24ef7a1bbe11e8712112196a63e80ee  benchmarks\phase_10\docker_results\phase10_haversine_vs_road_summary_docker_20260714_133618.json
+ccc71501e0d0d753cff0e9fd146022157d1419de3c405d700dcc568acb20021a  benchmarks\phase_10\docker_results\phase10_dispatch_cache_raw_docker_20260714_135753.json
+88203c5f881a97810225f457bd7e5069f7fd65586003b4889191d4fabbd34b98  benchmarks\phase_10\docker_results\phase10_dispatch_cache_summary_docker_20260714_135753.json
+cadce2663a23c8f85c4c1e93f4eaf8614a747a52dccbbd7cd6bb38e182d158c6  benchmarks\phase_10\docker_results\phase10_unreachable_pair_raw_docker_20260714_141357.json
+e139cb97469648a301b4fac1678062752fec234c7b5eabbf1d61d890ecb48293  benchmarks\phase_10\docker_results\phase10_unreachable_pair_summary_docker_20260714_141357.json
+c176b447b61fb8af932810115858d2cc04c139d94936d10975be76cccd0bc455  benchmarks\phase_10\docker_results\phase10_correctness_raw_docker_20260714_143944.json
+2e06dc3a50c82d5c52660854cd602fe161794b6f153a105091ab358d9ba48b25  benchmarks\phase_10\docker_results\phase10_correctness_summary_docker_20260714_143944.json
+cfff5ab6729e954618f04d266a6f5d7a154f22b822a084e62bbce4de049cff92  benchmarks\phase_10\docker_results\phase10_load_raw_docker_20260714_150039.json
+d547a17ac6c1c1a4db7b9015b12958440daa566153290f7a3d3b91a03de9d9b3  benchmarks\phase_10\docker_results\phase10_load_summary_docker_20260714_150039.json
+
+========================================================================================

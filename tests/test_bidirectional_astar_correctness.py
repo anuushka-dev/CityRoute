@@ -11,7 +11,6 @@ from app.core.a_star import astar_shortest_path
 from app.core.bidirectional_a_star import bidirectional_astar_shortest_path
 from app.main import app
 
-
 DISTANCE_TOLERANCE_M = 1e-3
 
 

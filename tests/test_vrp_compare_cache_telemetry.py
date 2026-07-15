@@ -7,7 +7,6 @@ from typing import Any
 
 from app.services.vrp_compare_service import compute_vrp_compare
 
-
 BASE_MATRIX_RESPONSE = {
     "status": "ok",
     "n": 3,

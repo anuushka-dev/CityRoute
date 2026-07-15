@@ -1,0 +1,251 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "road_dispatch",
+  "created_at_utc": "2026-07-12T19:08:14.937296+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false,
+    "sizes": [
+      5,
+      10
+    ],
+    "iterations": 2,
+    "warmup": 1,
+    "timeout_seconds": 180.0
+  },
+  "health_preflight": {
+    "success": true,
+    "status_code": 200,
+    "elapsed_ms": 12.3756,
+    "payload": {
+      "status": "ok",
+      "graph_loaded": true,
+      "uptime_s": 755.812
+    }
+  },
+  "records": [
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "road_dispatch",
+      "mode": "docker",
+      "size": 5,
+      "iteration": 1,
+      "success": true,
+      "status_code": 200,
+      "request_elapsed_ms": 14.9412,
+      "request_error": null,
+      "validation_errors": [],
+      "response": {
+        "status": "ok",
+        "phase": "tier3_phase10",
+        "matrix_algorithm": "source_dijkstra",
+        "driver_count": 5,
+        "order_count": 5,
+        "available_slot_count": 5,
+        "assigned_order_count": 5,
+        "unassigned_order_count": 0,
+        "cache_used": false,
+        "cache_hit": false,
+        "cache_status": "disabled",
+        "api_elapsed_ms": null
+      },
+      "road_network": {
+        "matrix_source": "computed",
+        "cache_status": null,
+        "snapped_driver_count": 5,
+        "snapped_order_count": 5,
+        "unique_driver_node_count": 5,
+        "unique_order_node_count": 5,
+        "source_search_count": 5,
+        "pair_count": 25,
+        "reachable_pair_count": 25,
+        "unreachable_pair_count": 0,
+        "all_pairs_reachable": true,
+        "snap_time_ms": 3.480699,
+        "cache_lookup_time_ms": 0.0,
+        "matrix_build_time_ms": null,
+        "cache_write_time_ms": 0.0,
+        "total_time_ms": 6.988214
+      },
+      "greedy": {
+        "assigned_count": 5,
+        "total_cost": 1220.108
+      },
+      "hungarian": {
+        "assigned_count": 5,
+        "total_cost": 1098.246
+      },
+      "comparison": {
+        "hungarian_non_regression": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "road_dispatch",
+      "mode": "docker",
+      "size": 5,
+      "iteration": 2,
+      "success": true,
+      "status_code": 200,
+      "request_elapsed_ms": 15.4318,
+      "request_error": null,
+      "validation_errors": [],
+      "response": {
+        "status": "ok",
+        "phase": "tier3_phase10",
+        "matrix_algorithm": "source_dijkstra",
+        "driver_count": 5,
+        "order_count": 5,
+        "available_slot_count": 5,
+        "assigned_order_count": 5,
+        "unassigned_order_count": 0,
+        "cache_used": false,
+        "cache_hit": false,
+        "cache_status": "disabled",
+        "api_elapsed_ms": null
+      },
+      "road_network": {
+        "matrix_source": "computed",
+        "cache_status": null,
+        "snapped_driver_count": 5,
+        "snapped_order_count": 5,
+        "unique_driver_node_count": 5,
+        "unique_order_node_count": 5,
+        "source_search_count": 5,
+        "pair_count": 25,
+        "reachable_pair_count": 25,
+        "unreachable_pair_count": 0,
+        "all_pairs_reachable": true,
+        "snap_time_ms": 3.884276,
+        "cache_lookup_time_ms": 0.0,
+        "matrix_build_time_ms": null,
+        "cache_write_time_ms": 0.0,
+        "total_time_ms": 6.603584
+      },
+      "greedy": {
+        "assigned_count": 5,
+        "total_cost": 1220.108
+      },
+      "hungarian": {
+        "assigned_count": 5,
+        "total_cost": 1098.246
+      },
+      "comparison": {
+        "hungarian_non_regression": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "road_dispatch",
+      "mode": "docker",
+      "size": 10,
+      "iteration": 1,
+      "success": true,
+      "status_code": 200,
+      "request_elapsed_ms": 23.6817,
+      "request_error": null,
+      "validation_errors": [],
+      "response": {
+        "status": "ok",
+        "phase": "tier3_phase10",
+        "matrix_algorithm": "source_dijkstra",
+        "driver_count": 10,
+        "order_count": 10,
+        "available_slot_count": 10,
+        "assigned_order_count": 10,
+        "unassigned_order_count": 0,
+        "cache_used": false,
+        "cache_hit": false,
+        "cache_status": "disabled",
+        "api_elapsed_ms": null
+      },
+      "road_network": {
+        "matrix_source": "computed",
+        "cache_status": null,
+        "snapped_driver_count": 10,
+        "snapped_order_count": 10,
+        "unique_driver_node_count": 10,
+        "unique_order_node_count": 8,
+        "source_search_count": 10,
+        "pair_count": 100,
+        "reachable_pair_count": 100,
+        "unreachable_pair_count": 0,
+        "all_pairs_reachable": true,
+        "snap_time_ms": 7.701619,
+        "cache_lookup_time_ms": 0.0,
+        "matrix_build_time_ms": null,
+        "cache_write_time_ms": 0.0,
+        "total_time_ms": 14.595903
+      },
+      "greedy": {
+        "assigned_count": 10,
+        "total_cost": 2265.561
+      },
+      "hungarian": {
+        "assigned_count": 10,
+        "total_cost": 1959.425
+      },
+      "comparison": {
+        "hungarian_non_regression": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "road_dispatch",
+      "mode": "docker",
+      "size": 10,
+      "iteration": 2,
+      "success": true,
+      "status_code": 200,
+      "request_elapsed_ms": 24.7242,
+      "request_error": null,
+      "validation_errors": [],
+      "response": {
+        "status": "ok",
+        "phase": "tier3_phase10",
+        "matrix_algorithm": "source_dijkstra",
+        "driver_count": 10,
+        "order_count": 10,
+        "available_slot_count": 10,
+        "assigned_order_count": 10,
+        "unassigned_order_count": 0,
+        "cache_used": false,
+        "cache_hit": false,
+        "cache_status": "disabled",
+        "api_elapsed_ms": null
+      },
+      "road_network": {
+        "matrix_source": "computed",
+        "cache_status": null,
+        "snapped_driver_count": 10,
+        "snapped_order_count": 10,
+        "unique_driver_node_count": 10,
+        "unique_order_node_count": 8,
+        "source_search_count": 10,
+        "pair_count": 100,
+        "reachable_pair_count": 100,
+        "unreachable_pair_count": 0,
+        "all_pairs_reachable": true,
+        "snap_time_ms": 7.539566,
+        "cache_lookup_time_ms": 0.0,
+        "matrix_build_time_ms": null,
+        "cache_write_time_ms": 0.0,
+        "total_time_ms": 15.080108
+      },
+      "greedy": {
+        "assigned_count": 10,
+        "total_cost": 2265.561
+      },
+      "hungarian": {
+        "assigned_count": 10,
+        "total_cost": 1959.425
+      },
+      "comparison": {
+        "hungarian_non_regression": true
+      }
+    }
+  ]
+}

@@ -62,8 +62,17 @@ def test_root_lists_dispatch_compare_endpoint():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json()["dispatch_compare"] == "/dispatch/compare"
-    assert response.json()["phase"] == "Tier 3 Phase 9 - Hungarian Dispatch Engine"
+
+    body = response.json()
+
+    assert body["dispatch_compare"] == "/dispatch/compare"
+    assert (
+        body["phase"]
+        == "Tier 3 Phase 10 - Real Road-Network Dispatch Integration"
+    )
+    assert body["phase_code"] == "tier3_phase10"
+    assert "haversine" in body["dispatch_matrix_algorithms"]
+    assert "source_dijkstra" in body["dispatch_matrix_algorithms"]
 
 
 def test_dispatch_compare_valid_payload_returns_ok():
@@ -74,7 +83,7 @@ def test_dispatch_compare_valid_payload_returns_ok():
     body = response.json()
 
     assert body["status"] == "ok"
-    assert body["phase"] in {"tier3_phase9", "tier3_phase9_1"}
+    assert body["phase"] == "tier3_phase10"
     assert body["driver_count"] == 2
     assert body["order_count"] == 2
     assert body["available_slot_count"] == 2
@@ -85,6 +94,7 @@ def test_dispatch_compare_valid_payload_returns_ok():
     assert body["cache_used"] is False
     assert body["cache_hit"] is False
     assert body["cache_key"] is None
+    assert body["road_network"] is None
 
 
 def test_dispatch_compare_returns_greedy_and_hungarian_results():
@@ -121,8 +131,10 @@ def test_dispatch_compare_assigns_each_order_at_most_once():
     assert response.status_code == 200
 
     body = response.json()
+
     assigned_order_ids = [
-        assignment["order_id"] for assignment in body["hungarian"]["assignments"]
+        assignment["order_id"]
+        for assignment in body["hungarian"]["assignments"]
     ]
 
     assert len(assigned_order_ids) == len(set(assigned_order_ids))
@@ -148,6 +160,7 @@ def test_dispatch_compare_returns_cost_breakdown_when_requested():
     assert first["col_index"] == 0
     assert first["distance_m"] >= 0
     assert first["total_cost"] >= first["distance_m"]
+    assert first["allowed"] is True
 
 
 def test_dispatch_compare_omits_cost_breakdown_by_default():
@@ -249,35 +262,73 @@ def test_dispatch_compare_extra_capacity_returns_unused_slots():
     assert len(body["hungarian"]["unassigned_driver_slot_rows"]) == 2
 
 
-def test_dispatch_compare_source_dijkstra_requires_internal_builder():
+def test_dispatch_compare_source_dijkstra_uses_phase10_live_road_matrix():
     payload = _valid_payload()
     payload["matrix_algorithm"] = "source_dijkstra"
+    payload["use_cache"] = False
 
-    response = client.post("/dispatch/compare", json=payload)
+    # Phase 10 road-network dependencies are initialized during app lifespan.
+    with TestClient(app) as lifespan_client:
+        response = lifespan_client.post("/dispatch/compare", json=payload)
 
-    assert response.status_code == 400
-    assert "source_dijkstra" in response.json()["detail"]
-    assert "source_dijkstra_matrix_builder" in response.json()["detail"]
+    assert response.status_code == 200
+
+    body = response.json()
+
+    assert body["status"] == "ok"
+    assert body["phase"] == "tier3_phase10"
+    assert body["matrix_algorithm"] == "source_dijkstra"
+    assert body["driver_count"] == 2
+    assert body["order_count"] == 2
+    assert body["assigned_order_count"] == 2
+    assert body["unassigned_order_count"] == 0
+    assert body["cache_used"] is False
+    assert body["cache_hit"] is False
+
+    road_network = body["road_network"]
+
+    assert road_network is not None
+    assert road_network["pair_count"] == 4
+    assert (
+        road_network["reachable_pair_count"]
+        + road_network["unreachable_pair_count"]
+        == 4
+    )
+    assert road_network["source_search_count"] >= 1
+
+    assert body["comparison"]["hungarian_non_regression"] is True
 
 
-def test_dispatch_compare_rejects_duplicate_driver_ids():
+def test_dispatch_compare_rejects_duplicate_driver_ids_with_422():
     payload = _valid_payload()
     payload["drivers"][1]["driver_id"] = "driver_1"
 
     response = client.post("/dispatch/compare", json=payload)
 
-    assert response.status_code == 400
-    assert "duplicate driver_id" in response.json()["detail"]
+    assert response.status_code == 422
+
+    detail = response.json()["detail"]
+
+    assert any(
+        "driver_id values must be unique" in error.get("msg", "")
+        for error in detail
+    )
 
 
-def test_dispatch_compare_rejects_duplicate_order_ids():
+def test_dispatch_compare_rejects_duplicate_order_ids_with_422():
     payload = _valid_payload()
     payload["orders"][1]["order_id"] = "order_1"
 
     response = client.post("/dispatch/compare", json=payload)
 
-    assert response.status_code == 400
-    assert "duplicate order_id" in response.json()["detail"]
+    assert response.status_code == 422
+
+    detail = response.json()["detail"]
+
+    assert any(
+        "order_id values must be unique" in error.get("msg", "")
+        for error in detail
+    )
 
 
 def test_dispatch_compare_rejects_all_drivers_full():

@@ -9,7 +9,6 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-
 VALID_ROUTE_PARAMS = {
     "start_lat": 26.44,
     "start_lon": 80.30,

@@ -5,7 +5,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import isfinite
 
-
 DEFAULT_DISTANCE_TOLERANCE_M = 1e-6
 
 

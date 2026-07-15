@@ -17,7 +17,6 @@ from app.core.two_opt import (
     two_optimize,
 )
 
-
 CoordinatePayload = dict[str, Any]
 DistanceMatrix = Sequence[Sequence[float]]
 

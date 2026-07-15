@@ -1,0 +1,2208 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "unreachable_pair",
+  "created_at_utc": "2026-07-14T14:14:01.609239+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "iterations": 20,
+    "candidate_limit": 200,
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false,
+    "timeout_seconds": 180.0
+  },
+  "graph": {
+    "graph_path": "data\\graphs\\kanpur_central.graphml",
+    "node_count": 12969,
+    "edge_count": 34996,
+    "directed": true,
+    "multigraph": true,
+    "graph_load_time_ms": 2513.4314,
+    "strongly_connected_component_count": 12,
+    "largest_strongly_connected_component_nodes": 12948,
+    "scc_analysis_time_ms": 102.6103,
+    "cross_scc_edge_candidate_count": 13
+  },
+  "health_preflight": {
+    "success": true,
+    "status_code": 200,
+    "elapsed_ms": 17.7642,
+    "payload": {
+      "status": "ok",
+      "graph_loaded": true,
+      "uptime_s": 2284.505
+    }
+  },
+  "candidate_search_attempts": [
+    {
+      "attempt": 1,
+      "source_node": "6256695467",
+      "target_node": "8397504754",
+      "verified": true,
+      "unreachable_status_code": 200,
+      "reachable_status_code": 200,
+      "unreachable_validation_errors": [],
+      "reachable_validation_errors": []
+    }
+  ],
+  "verified_pair": {
+    "graph_edge": {
+      "source_node": "6256695467",
+      "target_node": "8397504754",
+      "source_component": 9,
+      "target_component": 5,
+      "source_lat": 26.4316064,
+      "source_lon": 80.2907534,
+      "target_lat": 26.4301928,
+      "target_lon": 80.2907475
+    },
+    "expected_directionality": {
+      "reachable": "6256695467 -> 8397504754",
+      "unreachable": "8397504754 -> 6256695467"
+    }
+  },
+  "records": [
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 1,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 8.1201,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.807965,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.442915,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 7.7501,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.976779,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.67727,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 2,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 9.8836,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.101678,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.733122,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 8.2115,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.01208,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.723783,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 3,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 7.5223,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.895318,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.416783,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 10.8991,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.158691,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 2.07519,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 4,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 13.9348,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.034464,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.600249,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 11.3831,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.167799,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.783942,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 5,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 13.3123,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.085075,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.726817,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 11.2622,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.078291,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.713613,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 6,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 14.5608,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 4.383253,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 5.311217,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 13.4012,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.307046,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 2.018288,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 7,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 13.3923,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.169713,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.912519,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 14.2619,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.111577,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.794314,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 8,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 17.266,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.832403,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.428788,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 13.7397,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.036628,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.702621,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 9,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 8.5896,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.019033,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.674926,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 8.8777,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.060857,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.751299,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 10,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 11.6421,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.227748,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 2.081784,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 8.7325,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.013383,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.715335,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 11,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 9.2269,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.117839,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.712886,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 10.2431,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.887382,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.579977,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 12,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 6.9088,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.842393,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.39475,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 10.2147,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.00193,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.588044,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 13,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 11.8646,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.066317,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.776227,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 9.256,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.123661,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.766598,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 14,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 9.9759,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.205755,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.75745,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 13.8915,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.182569,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.84301,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 15,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 17.6283,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.167939,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.987186,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 12.7428,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.08755,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.662752,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 16,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 10.5154,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.007731,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.700856,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 14.3421,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.039805,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.809904,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 17,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 7.4009,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.904256,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.461482,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 9.4785,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.923083,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.464669,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 18,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 11.2427,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.006299,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.650869,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 9.6634,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.028362,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.600338,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 19,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 10.1047,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 1.032791,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.617502,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 7.819,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.757654,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.301902,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    },
+    {
+      "phase": "tier3_phase10",
+      "benchmark": "unreachable_pair",
+      "iteration": 20,
+      "success": true,
+      "unreachable_direction": {
+        "status_code": 200,
+        "elapsed_ms": 7.3154,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 0,
+        "unassigned_order_count": 1,
+        "greedy": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "hungarian": {
+          "assigned_count": 0,
+          "total_cost": 0.0,
+          "assignment_count": 0,
+          "assignments": []
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 0,
+          "unreachable_pair_count": 1,
+          "all_pairs_reachable": false,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.880618,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 1.456743,
+          "unreachable_pairs": [
+            {
+              "driver_index": 0,
+              "order_index": 0,
+              "driver_id": null,
+              "order_id": null,
+              "driver_node": 8397504754,
+              "order_node": 6256695467,
+              "replacement_cost_m": 1000000000.0
+            }
+          ]
+        }
+      },
+      "reachable_control": {
+        "status_code": 200,
+        "elapsed_ms": 11.9551,
+        "error": null,
+        "validation_errors": [],
+        "assigned_order_count": 1,
+        "unassigned_order_count": 0,
+        "greedy": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "hungarian": {
+          "assigned_count": 1,
+          "total_cost": 157.195,
+          "assignment_count": 1,
+          "assignments": [
+            {
+              "driver_id": "driver_reachable",
+              "order_id": "order_reachable",
+              "row_index": 0,
+              "col_index": 0,
+              "cost": 157.195
+            }
+          ]
+        },
+        "road_network": {
+          "matrix_source": "computed",
+          "pair_count": 1,
+          "reachable_pair_count": 1,
+          "unreachable_pair_count": 0,
+          "all_pairs_reachable": true,
+          "source_search_count": 1,
+          "unique_driver_node_count": 1,
+          "unique_order_node_count": 1,
+          "snap_time_ms": 0.990757,
+          "matrix_build_time_ms": null,
+          "total_time_ms": 5.01062,
+          "unreachable_pairs": []
+        }
+      },
+      "safety": {
+        "unreachable_pair_not_assigned_by_greedy": true,
+        "unreachable_pair_not_assigned_by_hungarian": true,
+        "reachable_pair_assigned_by_greedy": true,
+        "reachable_pair_assigned_by_hungarian": true,
+        "directionality_preserved": true
+      }
+    }
+  ]
+}

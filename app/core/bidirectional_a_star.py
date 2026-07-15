@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import heapq
 import time
+from collections.abc import Iterable
 from dataclasses import dataclass
 from math import inf
-from typing import Any, Iterable
+from typing import Any
 
 import networkx as nx
 

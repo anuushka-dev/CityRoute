@@ -6,8 +6,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from app.schemas.vrp import Coordinate, MAX_GREEDY_STOPS
-
+from app.schemas.vrp import MAX_GREEDY_STOPS, Coordinate
 
 MatrixAlgorithm = Literal["source_dijkstra", "bidirectional_astar"]
 VrpAlgorithm = Literal["nearest_neighbor_greedy", "two_opt"]

@@ -6,10 +6,8 @@ from dataclasses import dataclass
 from heapq import heappop, heappush
 from math import asin, cos, radians, sin, sqrt
 from time import perf_counter
-from typing import Any
 
 import networkx as nx
-
 
 EARTH_RADIUS_M = 6_371_000.0
 

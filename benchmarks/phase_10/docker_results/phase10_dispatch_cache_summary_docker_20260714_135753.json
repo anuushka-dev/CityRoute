@@ -1,0 +1,218 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "dispatch_cache",
+  "created_at_utc": "2026-07-14T13:58:02.564576+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": true,
+    "sizes": [
+      5,
+      10,
+      25,
+      50
+    ],
+    "iterations": 10,
+    "warm_hits": 2,
+    "warmup": 1
+  },
+  "cycle_count": 40,
+  "success_count": 40,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "cold_miss_count": 40,
+  "expected_cold_miss_count": 40,
+  "warm_hit_count": 80,
+  "expected_warm_hit_count": 80,
+  "identical_output_count": 40,
+  "expected_identical_output_count": 40,
+  "all_cold_requests_missed": true,
+  "all_warm_requests_hit": true,
+  "all_warm_outputs_identical": true,
+  "size_summaries": [
+    {
+      "size": 5,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cold_miss_count": 10,
+      "expected_cold_miss_count": 10,
+      "warm_hit_count": 20,
+      "expected_warm_hit_count": 20,
+      "identical_output_count": 10,
+      "expected_identical_output_count": 10,
+      "cold_request_elapsed_ms": {
+        "count": 10,
+        "min": 16.8703,
+        "median": 18.6259,
+        "mean": 19.60542,
+        "p95": 24.83724,
+        "max": 27.8058
+      },
+      "warm_request_elapsed_ms": {
+        "count": 20,
+        "min": 10.7506,
+        "median": 14.3249,
+        "mean": 14.656225,
+        "p95": 18.022725,
+        "max": 20.2899
+      },
+      "per_cycle_warm_median_elapsed_ms": {
+        "count": 10,
+        "min": 12.3933,
+        "median": 14.454625,
+        "mean": 14.656225,
+        "p95": 16.445287,
+        "max": 17.14785
+      },
+      "cold_to_warm_speedup_ratio": {
+        "count": 10,
+        "min": 1.077966,
+        "median": 1.292261,
+        "mean": 1.350269,
+        "p95": 1.784635,
+        "max": 1.963908
+      }
+    },
+    {
+      "size": 10,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cold_miss_count": 10,
+      "expected_cold_miss_count": 10,
+      "warm_hit_count": 20,
+      "expected_warm_hit_count": 20,
+      "identical_output_count": 10,
+      "expected_identical_output_count": 10,
+      "cold_request_elapsed_ms": {
+        "count": 10,
+        "min": 26.0241,
+        "median": 30.68145,
+        "mean": 32.04995,
+        "p95": 42.613075,
+        "max": 47.8297
+      },
+      "warm_request_elapsed_ms": {
+        "count": 20,
+        "min": 15.9533,
+        "median": 20.35795,
+        "mean": 21.469915,
+        "p95": 29.17655,
+        "max": 35.7135
+      },
+      "per_cycle_warm_median_elapsed_ms": {
+        "count": 10,
+        "min": 18.3516,
+        "median": 20.524025,
+        "mean": 21.469915,
+        "p95": 26.75286,
+        "max": 28.92105
+      },
+      "cold_to_warm_speedup_ratio": {
+        "count": 10,
+        "min": 0.957133,
+        "median": 1.502291,
+        "mean": 1.51534,
+        "p95": 1.962144,
+        "max": 1.9844
+      }
+    },
+    {
+      "size": 25,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cold_miss_count": 10,
+      "expected_cold_miss_count": 10,
+      "warm_hit_count": 20,
+      "expected_warm_hit_count": 20,
+      "identical_output_count": 10,
+      "expected_identical_output_count": 10,
+      "cold_request_elapsed_ms": {
+        "count": 10,
+        "min": 81.284,
+        "median": 88.83525,
+        "mean": 91.48608,
+        "p95": 105.341035,
+        "max": 114.4696
+      },
+      "warm_request_elapsed_ms": {
+        "count": 20,
+        "min": 28.6836,
+        "median": 33.2556,
+        "mean": 34.990165,
+        "p95": 45.20389,
+        "max": 48.9866
+      },
+      "per_cycle_warm_median_elapsed_ms": {
+        "count": 10,
+        "min": 29.2206,
+        "median": 32.81885,
+        "mean": 34.990165,
+        "p95": 43.155085,
+        "max": 46.9957
+      },
+      "cold_to_warm_speedup_ratio": {
+        "count": 10,
+        "min": 2.004096,
+        "median": 2.618856,
+        "mean": 2.66818,
+        "p95": 3.421923,
+        "max": 3.917428
+      }
+    },
+    {
+      "size": 50,
+      "cycle_count": 10,
+      "success_count": 10,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "cold_miss_count": 10,
+      "expected_cold_miss_count": 10,
+      "warm_hit_count": 20,
+      "expected_warm_hit_count": 20,
+      "identical_output_count": 10,
+      "expected_identical_output_count": 10,
+      "cold_request_elapsed_ms": {
+        "count": 10,
+        "min": 184.8709,
+        "median": 214.8504,
+        "mean": 218.51605,
+        "p95": 265.876745,
+        "max": 273.4808
+      },
+      "warm_request_elapsed_ms": {
+        "count": 20,
+        "min": 63.8949,
+        "median": 84.702,
+        "mean": 108.509325,
+        "p95": 138.96884,
+        "max": 580.4327
+      },
+      "per_cycle_warm_median_elapsed_ms": {
+        "count": 10,
+        "min": 66.50925,
+        "median": 88.160875,
+        "mean": 108.509325,
+        "p95": 230.081632,
+        "max": 332.1597
+      },
+      "cold_to_warm_speedup_ratio": {
+        "count": 10,
+        "min": 0.631442,
+        "median": 2.641392,
+        "mean": 2.46044,
+        "p95": 3.109624,
+        "max": 3.377614
+      }
+    }
+  ],
+  "failed_cases": [],
+  "interpretation_note": "Each measured cache cycle uses a deterministic driver/order ordering intended to produce a fresh cache key. The first request is expected to compute and store the road matrix; repeated requests for the same payload must hit Redis and return identical dispatch results."
+}

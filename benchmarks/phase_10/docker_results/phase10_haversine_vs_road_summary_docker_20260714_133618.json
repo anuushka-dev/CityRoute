@@ -1,0 +1,255 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "haversine_vs_road",
+  "created_at_utc": "2026-07-14T13:36:30.615118+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "sizes": [
+      5,
+      10,
+      25,
+      50
+    ],
+    "iterations": 20,
+    "warmup": 2,
+    "use_cache": false
+  },
+  "case_count": 80,
+  "success_count": 80,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "size_summaries": [
+    {
+      "size": 5,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "haversine_request_elapsed_ms": {
+        "count": 20,
+        "min": 6.575,
+        "median": 7.8987,
+        "mean": 8.48602,
+        "p95": 12.31769,
+        "max": 12.7241
+      },
+      "road_request_elapsed_ms": {
+        "count": 20,
+        "min": 14.8006,
+        "median": 17.48485,
+        "mean": 18.37772,
+        "p95": 24.12549,
+        "max": 29.5992
+      },
+      "road_vs_haversine_latency_ratio": {
+        "count": 20,
+        "min": 1.222664,
+        "median": 2.29735,
+        "mean": 2.236585,
+        "p95": 2.812771,
+        "max": 3.843203
+      },
+      "road_vs_haversine_hungarian_cost_ratio": {
+        "count": 20,
+        "min": 2.841794,
+        "median": 2.841794,
+        "mean": 2.841794,
+        "p95": 2.841794,
+        "max": 2.841794
+      },
+      "hungarian_assignment_jaccard": {
+        "count": 20,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "greedy_assignment_jaccard": {
+        "count": 20,
+        "min": 1.0,
+        "median": 1.0,
+        "mean": 1.0,
+        "p95": 1.0,
+        "max": 1.0
+      },
+      "hungarian_exact_assignment_match_count": 0,
+      "greedy_exact_assignment_match_count": 20
+    },
+    {
+      "size": 10,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "haversine_request_elapsed_ms": {
+        "count": 20,
+        "min": 9.0281,
+        "median": 12.22815,
+        "mean": 11.79992,
+        "p95": 15.048135,
+        "max": 16.6847
+      },
+      "road_request_elapsed_ms": {
+        "count": 20,
+        "min": 24.0882,
+        "median": 28.1562,
+        "mean": 29.27332,
+        "p95": 37.26454,
+        "max": 37.6757
+      },
+      "road_vs_haversine_latency_ratio": {
+        "count": 20,
+        "min": 1.816461,
+        "median": 2.597955,
+        "mean": 2.538607,
+        "p95": 3.169301,
+        "max": 3.404871
+      },
+      "road_vs_haversine_hungarian_cost_ratio": {
+        "count": 20,
+        "min": 2.535086,
+        "median": 2.535086,
+        "mean": 2.535086,
+        "p95": 2.535086,
+        "max": 2.535086
+      },
+      "hungarian_assignment_jaccard": {
+        "count": 20,
+        "min": 0.333333,
+        "median": 0.333333,
+        "mean": 0.333333,
+        "p95": 0.333333,
+        "max": 0.333333
+      },
+      "greedy_assignment_jaccard": {
+        "count": 20,
+        "min": 0.666667,
+        "median": 0.666667,
+        "mean": 0.666667,
+        "p95": 0.666667,
+        "max": 0.666667
+      },
+      "hungarian_exact_assignment_match_count": 0,
+      "greedy_exact_assignment_match_count": 0
+    },
+    {
+      "size": 25,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "haversine_request_elapsed_ms": {
+        "count": 20,
+        "min": 22.7593,
+        "median": 27.6335,
+        "mean": 28.098035,
+        "p95": 32.313415,
+        "max": 32.8818
+      },
+      "road_request_elapsed_ms": {
+        "count": 20,
+        "min": 75.9259,
+        "median": 91.46875,
+        "mean": 96.565575,
+        "p95": 124.495005,
+        "max": 139.1669
+      },
+      "road_vs_haversine_latency_ratio": {
+        "count": 20,
+        "min": 2.844688,
+        "median": 3.348675,
+        "mean": 3.44031,
+        "p95": 4.078527,
+        "max": 5.322542
+      },
+      "road_vs_haversine_hungarian_cost_ratio": {
+        "count": 20,
+        "min": 2.794915,
+        "median": 2.794915,
+        "mean": 2.794915,
+        "p95": 2.794915,
+        "max": 2.794915
+      },
+      "hungarian_assignment_jaccard": {
+        "count": 20,
+        "min": 0.25,
+        "median": 0.25,
+        "mean": 0.25,
+        "p95": 0.25,
+        "max": 0.25
+      },
+      "greedy_assignment_jaccard": {
+        "count": 20,
+        "min": 0.190476,
+        "median": 0.190476,
+        "mean": 0.190476,
+        "p95": 0.190476,
+        "max": 0.190476
+      },
+      "hungarian_exact_assignment_match_count": 0,
+      "greedy_exact_assignment_match_count": 0
+    },
+    {
+      "size": 50,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "haversine_request_elapsed_ms": {
+        "count": 20,
+        "min": 68.1405,
+        "median": 86.74985,
+        "mean": 97.84798,
+        "p95": 166.207735,
+        "max": 211.4816
+      },
+      "road_request_elapsed_ms": {
+        "count": 20,
+        "min": 170.6408,
+        "median": 205.8555,
+        "mean": 211.32201,
+        "p95": 257.43683,
+        "max": 285.8709
+      },
+      "road_vs_haversine_latency_ratio": {
+        "count": 20,
+        "min": 1.07737,
+        "median": 2.337937,
+        "mean": 2.301599,
+        "p95": 3.057015,
+        "max": 3.128243
+      },
+      "road_vs_haversine_hungarian_cost_ratio": {
+        "count": 20,
+        "min": 2.650213,
+        "median": 2.650213,
+        "mean": 2.650213,
+        "p95": 2.650213,
+        "max": 2.650213
+      },
+      "hungarian_assignment_jaccard": {
+        "count": 20,
+        "min": 0.162791,
+        "median": 0.162791,
+        "mean": 0.162791,
+        "p95": 0.162791,
+        "max": 0.162791
+      },
+      "greedy_assignment_jaccard": {
+        "count": 20,
+        "min": 0.25,
+        "median": 0.25,
+        "mean": 0.25,
+        "p95": 0.25,
+        "max": 0.25
+      },
+      "hungarian_exact_assignment_match_count": 0,
+      "greedy_exact_assignment_match_count": 0
+    }
+  ],
+  "failed_cases": [],
+  "interpretation_note": "Haversine and source_dijkstra optimize different cost matrices. A lower total cost from one model must not be interpreted as proof that it is globally better under the other model. Assignment agreement and latency are reported as comparative evidence."
+}

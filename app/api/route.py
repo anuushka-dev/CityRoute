@@ -7,7 +7,6 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from app.config import settings
 from app.services.routing_service import compare_routes, compute_route
 
-
 router = APIRouter(prefix="/route")
 
 

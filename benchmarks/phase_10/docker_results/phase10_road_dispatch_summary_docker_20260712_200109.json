@@ -1,0 +1,193 @@
+{
+  "phase": "tier3_phase10",
+  "benchmark": "road_dispatch",
+  "created_at_utc": "2026-07-12T20:01:16.593645+00:00",
+  "configuration": {
+    "mode": "docker",
+    "base_url": "http://127.0.0.1:8001",
+    "endpoint": "/dispatch/compare",
+    "matrix_algorithm": "source_dijkstra",
+    "use_cache": false,
+    "sizes": [
+      5,
+      10,
+      25,
+      50
+    ],
+    "iterations": 20,
+    "warmup": 2
+  },
+  "case_count": 80,
+  "success_count": 80,
+  "failure_count": 0,
+  "success_rate_pct": 100.0,
+  "all_non_regression": true,
+  "source_dijkstra_road_telemetry_present": true,
+  "size_summaries": [
+    {
+      "size": 5,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 20,
+        "min": 12.9522,
+        "median": 14.23745,
+        "mean": 14.35415,
+        "p95": 15.7315,
+        "max": 16.9361
+      },
+      "road_total_time_ms": {
+        "count": 20,
+        "min": 5.950506,
+        "median": 7.025398,
+        "mean": 7.037856,
+        "p95": 7.737788,
+        "max": 9.397503
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 20,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    },
+    {
+      "size": 10,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 20,
+        "min": 19.3834,
+        "median": 20.86535,
+        "mean": 20.78009,
+        "p95": 21.93396,
+        "max": 22.7502
+      },
+      "road_total_time_ms": {
+        "count": 20,
+        "min": 11.161623,
+        "median": 12.270668,
+        "mean": 12.356134,
+        "p95": 13.565442,
+        "max": 13.89998
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 20,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    },
+    {
+      "size": 25,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 20,
+        "min": 69.6617,
+        "median": 71.9223,
+        "mean": 73.612145,
+        "p95": 77.934995,
+        "max": 105.0289
+      },
+      "road_total_time_ms": {
+        "count": 20,
+        "min": 54.05624,
+        "median": 57.052602,
+        "mean": 58.809331,
+        "p95": 62.678026,
+        "max": 89.782247
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 20,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    },
+    {
+      "size": 50,
+      "case_count": 20,
+      "success_count": 20,
+      "failure_count": 0,
+      "success_rate_pct": 100.0,
+      "request_elapsed_ms": {
+        "count": 20,
+        "min": 156.6644,
+        "median": 164.0251,
+        "mean": 168.98237,
+        "p95": 189.068565,
+        "max": 200.8308
+      },
+      "road_total_time_ms": {
+        "count": 20,
+        "min": 118.611117,
+        "median": 123.79246,
+        "mean": 128.245555,
+        "p95": 150.942359,
+        "max": 160.600985
+      },
+      "matrix_build_time_ms": {
+        "count": 0,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "unreachable_pair_count": {
+        "count": 20,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "all_non_regression": true,
+      "all_assignment_counts_valid": true
+    }
+  ],
+  "failed_cases": []
+}

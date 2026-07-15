@@ -47,7 +47,7 @@ class Settings(BaseSettings):
         return self.graph_dir / self.graph_file
 
 
-@lru_cache()
+@lru_cache
 def get_settings() -> Settings:
     return Settings()
 
