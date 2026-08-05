@@ -1,0 +1,682 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_attempts": [
+    {
+      "algorithm": "source_dijkstra",
+      "attempt_index": 0,
+      "elapsed_ms": 280.49830003874376,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:20:59.402103+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "source_dijkstra",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 258.537,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-07-20T14:20:59.121197+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "source_dijkstra",
+      "attempt_index": 1,
+      "elapsed_ms": 549.0337999654002,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:20:59.951681+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "source_dijkstra",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 529.439,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-07-20T14:20:59.402620+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "source_dijkstra",
+      "attempt_index": 2,
+      "elapsed_ms": 460.36159998038784,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:00.411680+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "source_dijkstra",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 431.921,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-07-20T14:20:59.951681+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "source_dijkstra",
+      "attempt_index": 3,
+      "elapsed_ms": 217.91579999262467,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:00.629883+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "source_dijkstra",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 199.915,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-07-20T14:21:00.412380+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "source_dijkstra",
+      "attempt_index": 4,
+      "elapsed_ms": 376.7030000453815,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:01.007017+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "source_dijkstra",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 358.523,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-07-20T14:21:00.630511+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    }
+  ],
+  "baseline_latency": {
+    "count": 5,
+    "max_ms": 549.0337999654002,
+    "mean_ms": 376.9025000045076,
+    "median_ms": 376.7030000453815,
+    "min_ms": 217.91579999262467,
+    "p90_ms": 513.5649199713953,
+    "p95_ms": 531.2993599683978,
+    "p99_ms": 545.4869119659998
+  },
+  "benchmark": "phase11_timeout_probe",
+  "configuration": {
+    "baseline_algorithm": "source_dijkstra",
+    "baseline_attempts": 5,
+    "baseline_matrix_size": 25,
+    "client_timeout_s": 45.0,
+    "require_timeout": false,
+    "startup_timeout_s": 180.0,
+    "timeout_lower_bound_ratio": 0.7,
+    "timeout_upper_grace_s": 5.0,
+    "trigger_algorithm": "bidirectional_astar",
+    "trigger_attempts": 3,
+    "trigger_matrix_size": 25,
+    "use_cache": false
+  },
+  "controls_after": [
+    {
+      "elapsed_ms": 13.50350002758205,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:03.020077+00:00",
+      "ok": true,
+      "path": "/health/live",
+      "response_summary": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 2247.239
+      },
+      "stage": "after",
+      "started_at_utc": "2026-07-20T14:21:03.006479+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    },
+    {
+      "elapsed_ms": 14.40430001821369,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:03.034560+00:00",
+      "ok": true,
+      "path": "/health/ready",
+      "response_summary": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 2247.253
+      },
+      "stage": "after",
+      "started_at_utc": "2026-07-20T14:21:03.020077+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    },
+    {
+      "elapsed_ms": 15.295499993953854,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:03.049834+00:00",
+      "ok": true,
+      "path": "/metrics",
+      "response_summary": {
+        "body_size_bytes": 5191,
+        "content_type": "text/plain; version=0.0.4; charset=utf-8"
+      },
+      "stage": "after",
+      "started_at_utc": "2026-07-20T14:21:03.034560+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    }
+  ],
+  "controls_before": [
+    {
+      "elapsed_ms": 30.921800003852695,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:20:59.079048+00:00",
+      "ok": true,
+      "path": "/health/live",
+      "response_summary": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 2243.298
+      },
+      "stage": "before",
+      "started_at_utc": "2026-07-20T14:20:59.047349+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    },
+    {
+      "elapsed_ms": 14.207000029273331,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:20:59.093096+00:00",
+      "ok": true,
+      "path": "/health/ready",
+      "response_summary": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 2243.312
+      },
+      "stage": "before",
+      "started_at_utc": "2026-07-20T14:20:59.079048+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    },
+    {
+      "elapsed_ms": 14.597799978218973,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:20:59.108136+00:00",
+      "ok": true,
+      "path": "/metrics",
+      "response_summary": {
+        "body_size_bytes": 5192,
+        "content_type": "text/plain; version=0.0.4; charset=utf-8"
+      },
+      "stage": "before",
+      "started_at_utc": "2026-07-20T14:20:59.093096+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": null,
+        "enforced": null,
+        "limit_s": null,
+        "raw": {}
+      }
+    }
+  ],
+  "finished_at_utc": "2026-07-20T14:21:03.276794+00:00",
+  "metrics_after": {
+    "error_message": null,
+    "error_type": null,
+    "status_code": 200,
+    "timeout_metrics": {}
+  },
+  "metrics_before": {
+    "error_message": null,
+    "error_type": null,
+    "status_code": 200,
+    "timeout_metrics": {}
+  },
+  "outcome_counts": {
+    "completed": 9
+  },
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "recovery_attempt": {
+    "algorithm": "source_dijkstra",
+    "attempt_index": 0,
+    "elapsed_ms": 208.96090002497658,
+    "error_message": null,
+    "error_type": null,
+    "finished_at_utc": "2026-07-20T14:21:03.258738+00:00",
+    "matrix_size": 5,
+    "outcome": "completed",
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": false,
+        "error": null,
+        "hit": false,
+        "key": null,
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "generation_time_ms": 194.286,
+      "n": 5,
+      "pair_count": 25,
+      "parallel_workers": 8,
+      "status": "ok"
+    },
+    "stage": "recovery",
+    "started_at_utc": "2026-07-20T14:21:03.049834+00:00",
+    "status_code": 200,
+    "timeout_headers": {
+      "category": "matrix",
+      "enforced": true,
+      "limit_s": 15.0,
+      "raw": {
+        "x-cityroute-timeout-category": "matrix",
+        "x-cityroute-timeout-enforced": "true",
+        "x-cityroute-timeout-limit-s": "15.000"
+      }
+    },
+    "validation_errors": []
+  },
+  "results_dir_override": null,
+  "runtime_metadata": {
+    "base_url": "http://127.0.0.1:8001",
+    "captured_at_utc": "2026-07-20T14:21:03.387946+00:00",
+    "cwd": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "git_branch": "tier3-phase10-road-dispatch",
+    "git_commit": "173235815dba9a7c1f6c022b8957941de0988d23",
+    "git_dirty": true,
+    "hostname": "MSI",
+    "machine": "AMD64",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "pid": 18296,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "server_timeout_latency": {
+    "count": 0,
+    "max_ms": null,
+    "mean_ms": null,
+    "median_ms": null,
+    "min_ms": null,
+    "p90_ms": null,
+    "p95_ms": null,
+    "p99_ms": null
+  },
+  "started_at_utc": "2026-07-20T14:20:57.042696+00:00",
+  "startup_probes": {
+    "liveness": {
+      "elapsed_ms": 781.4620000426657,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T14:20:57.832164+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 2242.053
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":2242.053}",
+      "started_at_utc": "2026-07-20T14:20:57.050697+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/live"
+    },
+    "readiness": {
+      "elapsed_ms": 624.7128000250086,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T14:20:58.458247+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 2242.68
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":2242.68,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "started_at_utc": "2026-07-20T14:20:57.833328+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/ready"
+    }
+  },
+  "target": "docker",
+  "timeout_budget_used_pct": 3.636579413106665,
+  "timeout_headroom_ratio": 27.498368285204524,
+  "timeout_limit_s": 15.0,
+  "timeout_metric_deltas": {},
+  "trigger_attempts": [
+    {
+      "algorithm": "bidirectional_astar",
+      "attempt_index": 0,
+      "elapsed_ms": 656.8766999989748,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:01.664066+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "bidirectional_astar",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 639.29,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "trigger",
+      "started_at_utc": "2026-07-20T14:21:01.007017+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "bidirectional_astar",
+      "attempt_index": 1,
+      "elapsed_ms": 674.4421000475995,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:02.338763+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "bidirectional_astar",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 657.194,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "trigger",
+      "started_at_utc": "2026-07-20T14:21:01.664066+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    },
+    {
+      "algorithm": "bidirectional_astar",
+      "attempt_index": 2,
+      "elapsed_ms": 667.5806000130251,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-07-20T14:21:03.006479+00:00",
+      "matrix_size": 25,
+      "outcome": "completed",
+      "response_summary": {
+        "algorithm": "bidirectional_astar",
+        "cache": {
+          "enabled": false,
+          "error": null,
+          "hit": false,
+          "key": null,
+          "ttl_seconds": 86400
+        },
+        "computed_pairs": 625,
+        "failed_pairs": 0,
+        "generation_time_ms": 647.835,
+        "n": 25,
+        "pair_count": 625,
+        "parallel_workers": 8,
+        "status": "ok"
+      },
+      "stage": "trigger",
+      "started_at_utc": "2026-07-20T14:21:02.338763+00:00",
+      "status_code": 200,
+      "timeout_headers": {
+        "category": "matrix",
+        "enforced": true,
+        "limit_s": 15.0,
+        "raw": {
+          "x-cityroute-timeout-category": "matrix",
+          "x-cityroute-timeout-enforced": "true",
+          "x-cityroute-timeout-limit-s": "15.000"
+        }
+      },
+      "validation_errors": []
+    }
+  ],
+  "trigger_completed_latency": {
+    "count": 3,
+    "max_ms": 674.4421000475995,
+    "mean_ms": 666.2998000198664,
+    "median_ms": 667.5806000130251,
+    "min_ms": 656.8766999989748,
+    "p90_ms": 673.0698000406846,
+    "p95_ms": 673.7559500441421,
+    "p99_ms": 674.304870046908
+  },
+  "validation_errors": [],
+  "warnings": [
+    "No HTTP 504 timeout was observed. Timeout policy headers were proven, but the selected real workload completed within the configured server limit on this machine."
+  ]
+}

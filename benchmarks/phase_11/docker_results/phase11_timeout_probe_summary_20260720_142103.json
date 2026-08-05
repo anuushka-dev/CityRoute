@@ -1,0 +1,61 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_algorithm": "source_dijkstra",
+  "baseline_attempt_count": 5,
+  "baseline_completed_count": 5,
+  "baseline_latency": {
+    "count": 5,
+    "max_ms": 549.0337999654002,
+    "mean_ms": 376.9025000045076,
+    "median_ms": 376.7030000453815,
+    "min_ms": 217.91579999262467,
+    "p90_ms": 513.5649199713953,
+    "p95_ms": 531.2993599683978,
+    "p99_ms": 545.4869119659998
+  },
+  "baseline_matrix_size": 25,
+  "benchmark": "phase11_timeout_probe",
+  "client_timeout_s": 45.0,
+  "controls_after_ok": true,
+  "controls_before_ok": true,
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_raw_20260720_142103.json",
+  "recovery_ok": true,
+  "server_timeout_count": 0,
+  "server_timeout_latency": {
+    "count": 0,
+    "max_ms": null,
+    "mean_ms": null,
+    "median_ms": null,
+    "min_ms": null,
+    "p90_ms": null,
+    "p95_ms": null,
+    "p99_ms": null
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_summary_20260720_142103.json",
+  "target": "docker",
+  "timeout_budget_used_pct": 3.636579413106665,
+  "timeout_headroom_ratio": 27.498368285204524,
+  "timeout_limit_s": 15.0,
+  "timeout_metric_deltas": {},
+  "trigger_algorithm": "bidirectional_astar",
+  "trigger_attempt_count": 3,
+  "trigger_completed_count": 3,
+  "trigger_completed_latency": {
+    "count": 3,
+    "max_ms": 674.4421000475995,
+    "mean_ms": 666.2998000198664,
+    "median_ms": 667.5806000130251,
+    "min_ms": 656.8766999989748,
+    "p90_ms": 673.0698000406846,
+    "p95_ms": 673.7559500441421,
+    "p99_ms": 674.304870046908
+  },
+  "trigger_matrix_size": 25,
+  "validation_errors": [],
+  "warnings": [
+    "No HTTP 504 timeout was observed. Timeout policy headers were proven, but the selected real workload completed within the configured server limit on this machine."
+  ]
+}

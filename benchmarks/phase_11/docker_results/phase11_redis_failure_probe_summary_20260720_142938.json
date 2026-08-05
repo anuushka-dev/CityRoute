@@ -1,0 +1,58 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_first_cache_hit": false,
+  "baseline_latency": {
+    "count": 2,
+    "max_ms": 705.936299986206,
+    "mean_ms": 362.75930001283996,
+    "median_ms": 362.75930001283996,
+    "min_ms": 19.58230003947392,
+    "p90_ms": 637.3008999915328,
+    "p95_ms": 671.6185999888694,
+    "p99_ms": 699.0727599867387
+  },
+  "baseline_redis_healthy": true,
+  "baseline_second_cache_hit": true,
+  "benchmark": "phase11_redis_failure_probe",
+  "degraded_detection_ms": 30000.0,
+  "degraded_state_reached": false,
+  "fail_open_cache_error": null,
+  "fail_open_cache_hit": false,
+  "fail_open_matrix_status_code": 200,
+  "failure_action_ok": false,
+  "final_redis_healthy": true,
+  "healthy_state_recovered": true,
+  "overall_ok": false,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_raw_20260720_142938.json",
+  "recovery_action_ok": false,
+  "recovery_detection_ms": 244.9940000078641,
+  "recovery_first_cache_hit": false,
+  "recovery_latency": {
+    "count": 2,
+    "max_ms": 195.8668000297621,
+    "mean_ms": 107.98075000639074,
+    "median_ms": 107.98075000639074,
+    "min_ms": 20.09469998301938,
+    "p90_ms": 178.28959002508782,
+    "p95_ms": 187.07819502742495,
+    "p99_ms": 194.10907902929466
+  },
+  "recovery_second_cache_hit": true,
+  "redis_metric_deltas": {
+    "cityroute_redis_available": 0.0,
+    "cityroute_redis_recoveries_created": 0.0,
+    "cityroute_redis_recoveries_total": 0.0
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_summary_20260720_142938.json",
+  "target": "docker",
+  "validation_errors": [
+    "Redis failure-injection action did not succeed",
+    "CityRoute did not enter degraded Redis fail-open state",
+    "Redis recovery action did not succeed"
+  ],
+  "warnings": [
+    "Degraded matrix response did not include cache.error. The readiness state and redis_available gauge still prove the fail-open outage."
+  ]
+}

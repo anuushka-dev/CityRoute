@@ -1,0 +1,3516 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_probes": [
+    {
+      "elapsed_ms": 8.169299981091172,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.956819+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/",
+      "response_json": {
+        "dispatch_compare": "/dispatch/compare",
+        "dispatch_matrix_algorithms": [
+          "haversine",
+          "source_dijkstra"
+        ],
+        "docs": "/docs",
+        "graph_stats": "/graph/stats",
+        "health": "/health",
+        "liveness": "/health/live",
+        "matrix": "/matrix",
+        "metrics": "/metrics",
+        "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+        "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+        "phase_code": "tier4_phase11",
+        "readiness": "/health/ready",
+        "route": "/route",
+        "route_compare": "/route/compare",
+        "service": "cityroute",
+        "status": "ok",
+        "version": "0.1.0",
+        "vrp_advanced_compare": "/vrp/compare/advanced",
+        "vrp_compare": "/vrp/compare",
+        "vrp_greedy": "/vrp/greedy"
+      },
+      "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+      "started_at_utc": "2026-07-20T13:46:17.948693+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/"
+    },
+    {
+      "elapsed_ms": 4.38850000500679,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.961560+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 162.002
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.002}",
+      "started_at_utc": "2026-07-20T13:46:17.956819+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/live"
+    },
+    {
+      "elapsed_ms": 5.196499987505376,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.966523+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 162.007
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.007,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "started_at_utc": "2026-07-20T13:46:17.961560+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/ready"
+    },
+    {
+      "elapsed_ms": 5.217400030232966,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.971669+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health",
+      "response_json": {
+        "graph_loaded": true,
+        "status": "ok",
+        "uptime_s": 162.012
+      },
+      "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.012}",
+      "started_at_utc": "2026-07-20T13:46:17.966523+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health"
+    },
+    {
+      "elapsed_ms": 5.885999999009073,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.977787+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/graph/stats",
+      "response_json": {
+        "city": "Kanpur Central, Uttar Pradesh, India",
+        "dispatch_adjacency_build_time_ms": 211.232,
+        "dispatch_adjacency_edge_count": 34876,
+        "dispatch_adjacency_loaded": true,
+        "dispatch_adjacency_node_count": 12969,
+        "dispatch_road_cache_available": true,
+        "dispatch_road_matrix_error": null,
+        "dispatch_road_matrix_ready": true,
+        "edges": 34996,
+        "graph_file_size_mb": 12.74,
+        "graph_loaded": true,
+        "graph_path": "data/graphs/kanpur_central.graphml",
+        "is_weakly_connected": true,
+        "largest_component_nodes": 12969,
+        "load_time_s": 3.631,
+        "memory_mb": 388.31,
+        "nodes": 12969,
+        "phase11_accepting_requests": true,
+        "phase11_reliability_enabled": true,
+        "snap_index_build_time_ms": 39.066,
+        "snap_index_import_error": null,
+        "snap_index_loaded": true,
+        "snap_index_method": "balltree",
+        "weakly_connected_components": 1
+      },
+      "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+      "started_at_utc": "2026-07-20T13:46:17.971669+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/graph/stats"
+    },
+    {
+      "elapsed_ms": 6.598600011784583,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.984347+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/metrics",
+      "response_json": null,
+      "response_text": "# HELP python_gc_objects_collected_total Objects collected during gc\n# TYPE python_gc_objects_collected_total counter\npython_gc_objects_collected_total{generation=\"0\"} 10115.0\npython_gc_objects_collected_total{generation=\"1\"} 854.0\npython_gc_objects_collected_total{generation=\"2\"} 153.0\n# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC\n# TYPE python_gc_objects_uncollectable_total counter\npython_gc_objects_uncollectable_total{generation=\"0\"} 0.0\npython_gc_objects_uncollectable_total{generation=\"1\"} 0.0\npython_gc_objects_uncollectable_total{generation=\"2\"} 0.0\n# HELP python_gc_collections_total Number of times this generation was collected\n# TYPE python_gc_collections_total counter\npython_gc_collections_total{generation=\"0\"} 1931.0\npython_gc_collections_total{generation=\"1\"} 175.0\npython_gc_collections_total{generation=\"2\"} 10.0\n# HELP python_info Python platform information\n# TYPE python_info gauge\npython_info{implementation=\"CPython\",major=\"3\",minor=\"11\",patchlevel=\"15\",version=\"3.11.15\"} 1.0\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 2.010734592e+09\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 4.09923584e+08\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.78455501064e+09\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 11.48\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 11.0\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048576e+06\n# HELP cityroute_active_requests Current protected requests executing in this process.\n# TYPE cityroute_active_requests gauge\ncityroute_active_requests 0.0\n# HELP cityroute_waiting_requests Current protected requests waiting for admission.\n# TYPE cityroute_waiting_requests gauge\ncityroute_waiting_requests 0.0\n# HELP cityroute_max_active_requests Configured maximum active protected requests.\n# TYPE cityroute_max_active_requests gauge\ncityroute_max_active_requests 4.0\n# HELP cityroute_max_waiting_requests Configured maximum protected requests allowed to wait.\n# TYPE cityroute_max_waiting_requests gauge\ncityroute_max_waiting_requests 8.0\n# HELP cityroute_readiness CityRoute global readiness: 1 ready, 0 not ready.\n# TYPE cityroute_readiness gauge\ncityroute_readiness 1.0\n# HELP cityroute_accepting_requests Whether protected requests are currently accepted.\n# TYPE cityroute_accepting_requests gauge\ncityroute_accepting_requests 1.0\n# HELP cityroute_redis_available Redis availability: 1 available, 0 unavailable or degraded.\n# TYPE cityroute_redis_available gauge\ncityroute_redis_available 1.0\n# HELP cityroute_graceful_shutdown_inflight Protected requests still active during graceful shutdown.\n# TYPE cityroute_graceful_shutdown_inflight gauge\ncityroute_graceful_shutdown_inflight 0.0\n# HELP cityroute_admission_decisions_total Request admission decisions by endpoint and decision.\n# TYPE cityroute_admission_decisions_total counter\n# HELP cityroute_request_rejections_total Controlled request rejections by endpoint and reason.\n# TYPE cityroute_request_rejections_total counter\n# HELP cityroute_request_timeouts_total Request timeouts by endpoint and timeout category.\n# TYPE cityroute_request_timeouts_total counter\n# HELP cityroute_overload_events_total Observed overload events grouped by controlled reason.\n# TYPE cityroute_overload_events_total counter\n# HELP cityroute_redis_failures_total Redis failures grouped by controlled failure reason.\n# TYPE cityroute_redis_failures_total counter\n# HELP cityroute_redis_recoveries_total Successful Redis recoveries without an API process restart.\n# TYPE cityroute_redis_recoveries_total counter\ncityroute_redis_recoveries_total 0.0\n# HELP cityroute_redis_recoveries_created Successful Redis recoveries without an API process restart.\n# TYPE cityroute_redis_recoveries_created gauge\ncityroute_redis_recoveries_created 1.784555015957888e+09\n# HELP cityroute_corrupted_cache_payloads_total Rejected corrupted or invalid Redis cache payloads.\n# TYPE cityroute_corrupted_cache_payloads_total counter\n# HELP cityroute_graceful_shutdown_forced_total Graceful shutdowns that exceeded the configured drain limit.\n# TYPE cityroute_graceful_shutdown_forced_total counter\ncityroute_graceful_shutdown_forced_total 0.0\n# HELP cityroute_graceful_shutdown_forced_created Graceful shutdowns that exceeded the configured drain limit.\n# TYPE cityroute_graceful_shutdown_forced_created gauge\ncityroute_graceful_shutdown_forced_created 1.784555015957918e+09\n# HELP cityroute_admission_wait_seconds Time spent waiting for bounded request admission.\n# TYPE cityroute_admission_wait_seconds histogram\n# HELP cityroute_request_execution_seconds Protected endpoint execution duration by outcome.\n# TYPE cityroute_request_execution_seconds histogram\n",
+      "started_at_utc": "2026-07-20T13:46:17.978172+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/metrics"
+    }
+  ],
+  "baseline_validation_errors": {},
+  "benchmark": "phase11_baseline_probe",
+  "configuration": {
+    "allow_degraded": true,
+    "fail_on_probe_error": true,
+    "iterations": 20,
+    "startup_timeout_s": 180.0,
+    "timeout_s": 30.0,
+    "warmup_iterations": 3
+  },
+  "failed_baseline_probe_count": 0,
+  "failed_latency_probe_count": 0,
+  "finished_at_utc": "2026-07-20T13:46:18.612275+00:00",
+  "latency_probes": {
+    "GET /": [
+      {
+        "elapsed_ms": 5.247600027360022,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.071050+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.066263+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.19749999511987,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.076345+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.071050+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.101400020066649,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.081433+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.076345+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.519300000742078,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.087192+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.082015+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.666900018695742,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.092907+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.087192+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.414099956396967,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.098598+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.092907+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 4.8386999987997115,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.103217+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.098598+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.507600028067827,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.108776+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.103217+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 4.876200051512569,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.113706+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.108776+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.654499982483685,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.119331+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.113706+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.745399976149201,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.125521+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.119331+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.020799988415092,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.130263+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.125521+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 4.917699960060418,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.135541+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.130263+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.587599996943027,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.141156+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.135541+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.146399955265224,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.146250+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.141156+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.827199958730489,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.152363+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.146250+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.205900000873953,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.157214+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.152363+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.2690000156871974,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.162400+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.157214+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 5.2980000036768615,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.167855+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.162400+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      },
+      {
+        "elapsed_ms": 4.723699996247888,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.172956+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/",
+        "response_json": {
+          "dispatch_compare": "/dispatch/compare",
+          "dispatch_matrix_algorithms": [
+            "haversine",
+            "source_dijkstra"
+          ],
+          "docs": "/docs",
+          "graph_stats": "/graph/stats",
+          "health": "/health",
+          "liveness": "/health/live",
+          "matrix": "/matrix",
+          "metrics": "/metrics",
+          "phase": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+          "phase11_goal": "Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown",
+          "phase_code": "tier4_phase11",
+          "readiness": "/health/ready",
+          "route": "/route",
+          "route_compare": "/route/compare",
+          "service": "cityroute",
+          "status": "ok",
+          "version": "0.1.0",
+          "vrp_advanced_compare": "/vrp/compare/advanced",
+          "vrp_compare": "/vrp/compare",
+          "vrp_greedy": "/vrp/greedy"
+        },
+        "response_text": "{\"status\":\"ok\",\"service\":\"cityroute\",\"version\":\"0.1.0\",\"phase\":\"Tier 4 Phase 11 - Production Reliability and Concurrency Hardening\",\"phase_code\":\"tier4_phase11\",\"docs\":\"/docs\",\"health\":\"/health\",\"liveness\":\"/health/live\",\"readiness\":\"/health/ready\",\"graph_stats\":\"/graph/stats\",\"metrics\":\"/metrics\",\"route\":\"/route\",\"route_compare\":\"/route/compare\",\"matrix\":\"/matrix\",\"vrp_greedy\":\"/vrp/greedy\",\"vrp_compare\":\"/vrp/compare\",\"vrp_advanced_compare\":\"/vrp/compare/advanced\",\"dispatch_compare\":\"/dispatch/compare\",\"dispatch_matrix_algorithms\":[\"haversine\",\"source_dijkstra\"],\"phase11_goal\":\"Production reliability, bounded concurrency, timeouts, Redis recovery, readiness, and graceful shutdown\"}",
+        "started_at_utc": "2026-07-20T13:46:18.167855+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/"
+      }
+    ],
+    "GET /graph/stats": [
+      {
+        "elapsed_ms": 5.319599993526936,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.473770+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.468490+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.083500000182539,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.478788+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.473770+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.722600035369396,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.484737+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.478788+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.12490002438426,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.489951+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.484737+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.248499976005405,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.495369+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.489951+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 6.163800018839538,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.501422+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.495369+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.798299971502274,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.507077+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.501422+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.603600002359599,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.512550+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.507077+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.716799991205335,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.518892+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.513200+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 7.355900015681982,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.526312+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.518892+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.456100043375045,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.531314+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.526312+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 6.96349999634549,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.538542+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.531314+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 5.931699997745454,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.544690+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.538542+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 8.093300042673945,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.552807+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.544690+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 11.55350002227351,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.564053+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.552807+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 12.071300006937236,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.576716+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.564053+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 7.930199964903295,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.583984+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.576716+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 7.815200020559132,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.592341+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.584750+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 8.356600010301918,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.600418+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.592341+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      },
+      {
+        "elapsed_ms": 8.373599965125322,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.609238+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/graph/stats",
+        "response_json": {
+          "city": "Kanpur Central, Uttar Pradesh, India",
+          "dispatch_adjacency_build_time_ms": 211.232,
+          "dispatch_adjacency_edge_count": 34876,
+          "dispatch_adjacency_loaded": true,
+          "dispatch_adjacency_node_count": 12969,
+          "dispatch_road_cache_available": true,
+          "dispatch_road_matrix_error": null,
+          "dispatch_road_matrix_ready": true,
+          "edges": 34996,
+          "graph_file_size_mb": 12.74,
+          "graph_loaded": true,
+          "graph_path": "data/graphs/kanpur_central.graphml",
+          "is_weakly_connected": true,
+          "largest_component_nodes": 12969,
+          "load_time_s": 3.631,
+          "memory_mb": 388.31,
+          "nodes": 12969,
+          "phase11_accepting_requests": true,
+          "phase11_reliability_enabled": true,
+          "snap_index_build_time_ms": 39.066,
+          "snap_index_import_error": null,
+          "snap_index_loaded": true,
+          "snap_index_method": "balltree",
+          "weakly_connected_components": 1
+        },
+        "response_text": "{\"snap_index_loaded\":true,\"snap_index_build_time_ms\":39.066,\"snap_index_method\":\"balltree\",\"snap_index_import_error\":null,\"dispatch_adjacency_loaded\":true,\"dispatch_adjacency_build_time_ms\":211.232,\"dispatch_adjacency_node_count\":12969,\"dispatch_adjacency_edge_count\":34876,\"dispatch_road_matrix_ready\":true,\"dispatch_road_cache_available\":true,\"dispatch_road_matrix_error\":null,\"phase11_reliability_enabled\":true,\"phase11_accepting_requests\":true,\"city\":\"Kanpur Central, Uttar Pradesh, India\",\"graph_loaded\":true,\"nodes\":12969,\"edges\":34996,\"load_time_s\":3.631,\"graph_path\":\"data/graphs/kanpur_central.graphml\",\"graph_file_size_mb\":12.74,\"memory_mb\":388.31,\"weakly_connected_components\":1,\"largest_component_nodes\":12969,\"is_weakly_connected\":true}",
+        "started_at_utc": "2026-07-20T13:46:18.601020+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/graph/stats"
+      }
+    ],
+    "GET /health": [
+      {
+        "elapsed_ms": 4.555499996058643,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.375019+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.415
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.415}",
+        "started_at_utc": "2026-07-20T13:46:18.370203+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.651300027035177,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.379335+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.42
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.42}",
+        "started_at_utc": "2026-07-20T13:46:18.375019+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.689599969424307,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.383927+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.425
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.425}",
+        "started_at_utc": "2026-07-20T13:46:18.379335+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.878700012341142,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.389238+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.43
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.43}",
+        "started_at_utc": "2026-07-20T13:46:18.383927+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.4784999918192625,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.393930+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.434
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.434}",
+        "started_at_utc": "2026-07-20T13:46:18.389238+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.745100042782724,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.398383+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.439
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.439}",
+        "started_at_utc": "2026-07-20T13:46:18.393930+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.370299982838333,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.402961+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.444
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.444}",
+        "started_at_utc": "2026-07-20T13:46:18.398383+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.942800034768879,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.408140+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.448
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.448}",
+        "started_at_utc": "2026-07-20T13:46:18.402961+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.973400024231523,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.414077+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.454
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.454}",
+        "started_at_utc": "2026-07-20T13:46:18.408140+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.634200013242662,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.418627+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.459
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.459}",
+        "started_at_utc": "2026-07-20T13:46:18.414077+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.675600037444383,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.423408+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.464
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.464}",
+        "started_at_utc": "2026-07-20T13:46:18.418627+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.421999958343804,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.428826+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.469
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.469}",
+        "started_at_utc": "2026-07-20T13:46:18.423408+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.016300012357533,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.433853+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.474
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.474}",
+        "started_at_utc": "2026-07-20T13:46:18.428826+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.671600006986409,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.438832+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.479
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.479}",
+        "started_at_utc": "2026-07-20T13:46:18.433853+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.541300004348159,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.442953+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.484
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.484}",
+        "started_at_utc": "2026-07-20T13:46:18.438832+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.799599992111325,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.448199+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.489
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.489}",
+        "started_at_utc": "2026-07-20T13:46:18.442953+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.255200027022511,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.453157+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.494
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.494}",
+        "started_at_utc": "2026-07-20T13:46:18.448199+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.105499993078411,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.458493+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.499
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.499}",
+        "started_at_utc": "2026-07-20T13:46:18.453157+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 5.232000024989247,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.463876+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.504
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.504}",
+        "started_at_utc": "2026-07-20T13:46:18.458493+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      },
+      {
+        "elapsed_ms": 4.584999987855554,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.468490+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health",
+        "response_json": {
+          "graph_loaded": true,
+          "status": "ok",
+          "uptime_s": 162.509
+        },
+        "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":162.509}",
+        "started_at_utc": "2026-07-20T13:46:18.463876+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health"
+      }
+    ],
+    "GET /health/live": [
+      {
+        "elapsed_ms": 4.807099991012365,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.176745+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.218
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.218}",
+        "started_at_utc": "2026-07-20T13:46:18.172956+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.666400025598705,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.182037+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.223
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.223}",
+        "started_at_utc": "2026-07-20T13:46:18.176745+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.609399999026209,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.187198+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.228
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.228}",
+        "started_at_utc": "2026-07-20T13:46:18.182037+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.544000024907291,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.191649+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.232
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.232}",
+        "started_at_utc": "2026-07-20T13:46:18.187198+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.656600009184331,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.196331+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.237
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.237}",
+        "started_at_utc": "2026-07-20T13:46:18.191649+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.360300023108721,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.200426+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.242
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.242}",
+        "started_at_utc": "2026-07-20T13:46:18.196331+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.773700027726591,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.205827+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.246
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.246}",
+        "started_at_utc": "2026-07-20T13:46:18.200426+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.944799991790205,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.210589+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.251
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.251}",
+        "started_at_utc": "2026-07-20T13:46:18.205827+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.629300034139305,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.215175+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.256
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.256}",
+        "started_at_utc": "2026-07-20T13:46:18.210589+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.602000000886619,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.219788+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.26
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.26}",
+        "started_at_utc": "2026-07-20T13:46:18.215175+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.337700025644153,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.224474+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.265
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.265}",
+        "started_at_utc": "2026-07-20T13:46:18.219788+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 5.010200024116784,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.229073+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.27
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.27}",
+        "started_at_utc": "2026-07-20T13:46:18.224474+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.907800001092255,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.234200+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.275
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.275}",
+        "started_at_utc": "2026-07-20T13:46:18.229073+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 6.119599973317236,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.240388+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.28
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.28}",
+        "started_at_utc": "2026-07-20T13:46:18.234200+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 5.027300037909299,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.245496+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.286
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.286}",
+        "started_at_utc": "2026-07-20T13:46:18.240388+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 5.30259998049587,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.250512+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.292
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.292}",
+        "started_at_utc": "2026-07-20T13:46:18.245496+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 6.416900025215,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.257423+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.296
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.296}",
+        "started_at_utc": "2026-07-20T13:46:18.251212+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.939299949910492,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.262146+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.303
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.303}",
+        "started_at_utc": "2026-07-20T13:46:18.257423+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.99739998485893,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.267311+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.308
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.308}",
+        "started_at_utc": "2026-07-20T13:46:18.262146+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      },
+      {
+        "elapsed_ms": 4.834799969103187,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.272407+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/live",
+        "response_json": {
+          "phase": "tier4_phase11",
+          "status": "alive",
+          "uptime_s": 162.313
+        },
+        "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":162.313}",
+        "started_at_utc": "2026-07-20T13:46:18.267311+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/live"
+      }
+    ],
+    "GET /health/ready": [
+      {
+        "elapsed_ms": 4.615899990312755,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.276909+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.318
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.318,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.272407+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.681300022639334,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.281594+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.322
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.322,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.276909+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 5.7477999944239855,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.287664+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.328
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.328,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.281594+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.754699999466538,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.292184+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.333
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.333,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.287664+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.36479999916628,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.296589+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.337
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.337,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.292184+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.654899996239692,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.301266+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.342
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.342,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.296589+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.832699953112751,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.306360+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.347
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.347,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.301266+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.460000025574118,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.310456+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.352
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.352,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.306360+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 5.547500040847808,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.316191+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.357
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.357,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.310456+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.846199997700751,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.321107+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.362
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.362,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.316191+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.517800000030547,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.326157+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.367
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.367,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.321637+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.605200025252998,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.330709+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.371
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.371,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.326157+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.964300023857504,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.335740+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.376
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.376,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.330709+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 5.248499976005405,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.340828+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.381
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.381,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.335740+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.815299995243549,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.345805+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.386
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.386,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.340828+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.8584999749436975,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.350305+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.391
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.391,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.345805+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.763800010550767,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.355261+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.396
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.396,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.350305+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.740700009278953,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.360344+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.401
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.401,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.355261+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 4.518100002314895,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.364589+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.406
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.406,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.360344+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      },
+      {
+        "elapsed_ms": 5.328100000042468,
+        "error_message": null,
+        "error_type": null,
+        "expected_status_codes": [
+          200
+        ],
+        "finished_at_utc": "2026-07-20T13:46:18.370203+00:00",
+        "method": "GET",
+        "ok": true,
+        "path": "/health/ready",
+        "response_json": {
+          "accepting_requests": true,
+          "components": {
+            "dispatch_adjacency": "ready",
+            "graph": "ready",
+            "redis": "ready",
+            "snap_index": "ready"
+          },
+          "degraded_dependencies": [],
+          "failure_reasons": [],
+          "phase": "tier4_phase11",
+          "ready": true,
+          "shutting_down": false,
+          "startup_complete": true,
+          "status": "ready",
+          "uptime_s": 162.41
+        },
+        "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":162.41,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+        "started_at_utc": "2026-07-20T13:46:18.364589+00:00",
+        "status_code": 200,
+        "url": "http://127.0.0.1:8001/health/ready"
+      }
+    ]
+  },
+  "latency_summaries": {
+    "GET /": {
+      "count": 20,
+      "failure_count": 0,
+      "max_ms": 5.827199958730489,
+      "mean_ms": 5.2882749965647236,
+      "median_ms": 5.25830002152361,
+      "min_ms": 4.723699996247888,
+      "p90_ms": 5.674750014441088,
+      "p95_ms": 5.749489975278266,
+      "p99_ms": 5.811657962040044,
+      "stdev_ms": 0.31269142890625545,
+      "success_count": 20,
+      "success_rate": 1.0
+    },
+    "GET /graph/stats": {
+      "count": 20,
+      "failure_count": 0,
+      "max_ms": 12.071300006937236,
+      "mean_ms": 6.984125004964881,
+      "median_ms": 6.047750008292496,
+      "min_ms": 5.083500000182539,
+      "p90_ms": 8.691589970840147,
+      "p95_ms": 11.579390021506697,
+      "p99_ms": 11.972918009851128,
+      "stdev_ms": 1.9622006952159277,
+      "success_count": 20,
+      "success_rate": 1.0
+    },
+    "GET /health": {
+      "count": 20,
+      "failure_count": 0,
+      "max_ms": 5.973400024231523,
+      "mean_ms": 4.861175006953999,
+      "median_ms": 4.717350006103516,
+      "min_ms": 4.370299982838333,
+      "p90_ms": 5.27188002015464,
+      "p95_ms": 5.44956996163819,
+      "p99_ms": 5.868634011712856,
+      "stdev_ms": 0.374642320629811,
+      "success_count": 20,
+      "success_rate": 1.0
+    },
+    "GET /health/live": {
+      "count": 20,
+      "failure_count": 0,
+      "max_ms": 6.416900025215,
+      "mean_ms": 4.924360004952177,
+      "median_ms": 4.820949980057776,
+      "min_ms": 4.337700025644153,
+      "p90_ms": 5.384299979778008,
+      "p95_ms": 6.134464975912124,
+      "p99_ms": 6.360413015354425,
+      "stdev_ms": 0.5051458491637119,
+      "success_count": 20,
+      "success_rate": 1.0
+    },
+    "GET /health/ready": {
+      "count": 20,
+      "failure_count": 0,
+      "max_ms": 5.7477999944239855,
+      "mean_ms": 4.84330500185024,
+      "median_ms": 4.759250005008653,
+      "min_ms": 4.36479999916628,
+      "p90_ms": 5.350040004123002,
+      "p95_ms": 5.557515038526617,
+      "p99_ms": 5.709743003244512,
+      "stdev_ms": 0.35436119330703186,
+      "success_count": 20,
+      "success_rate": 1.0
+    }
+  },
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "results_dir_override": null,
+  "runtime_metadata": {
+    "base_url": "http://127.0.0.1:8001",
+    "captured_at_utc": "2026-07-20T13:46:18.754631+00:00",
+    "cwd": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "git_branch": "tier3-phase10-road-dispatch",
+    "git_commit": "173235815dba9a7c1f6c022b8957941de0988d23",
+    "git_dirty": true,
+    "hostname": "MSI",
+    "machine": "AMD64",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "pid": 20664,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "started_at_utc": "2026-07-20T13:46:15.998993+00:00",
+  "startup_probes": {
+    "liveness": {
+      "elapsed_ms": 905.2420000080019,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:16.903981+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 160.943
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":160.943}",
+      "started_at_utc": "2026-07-20T13:46:15.998993+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/live"
+    },
+    "readiness": {
+      "elapsed_ms": 520.7228999934159,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-07-20T13:46:17.424909+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 161.465
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":161.465,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "started_at_utc": "2026-07-20T13:46:16.904534+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/ready"
+    }
+  },
+  "target": "docker"
+}

@@ -1,0 +1,52 @@
+{
+  "api_process_start_unchanged": true,
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_healthy": true,
+  "baseline_latency": {
+    "count": 2,
+    "max_ms": 375.9049000000232,
+    "mean_ms": 195.9835000000112,
+    "median_ms": 195.9835000000112,
+    "min_ms": 16.06209999999919,
+    "p90_ms": 339.9206200000208,
+    "p95_ms": 357.912760000022,
+    "p99_ms": 372.30647200002295
+  },
+  "baseline_second_cache_hit": true,
+  "benchmark": "phase11_redis_recovery_probe",
+  "container_running": true,
+  "container_stopped": true,
+  "degraded_state_reached": true,
+  "fail_open_matrix_status_code": 200,
+  "healthy_state_recovered": true,
+  "overall_ok": false,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_recovery_probe_raw_20260720_175559.json",
+  "recovery_latency": {
+    "count": 2,
+    "max_ms": 183.69299999994837,
+    "mean_ms": 100.98745000004783,
+    "median_ms": 100.98745000004783,
+    "min_ms": 18.28190000014729,
+    "p90_ms": 167.15188999996826,
+    "p95_ms": 175.42244499995832,
+    "p99_ms": 182.03888899995036
+  },
+  "recovery_second_cache_hit": true,
+  "redis_failure_counter_delta": null,
+  "redis_recovery_counter_delta": 0.0,
+  "redis_start_ok": true,
+  "redis_stop_ok": true,
+  "resolved_redis_container": {
+    "id": "6f259a691a74936418b3a996549f45e0a2dc87b7dc74c6367deb6ac5d83e0ba7",
+    "image": "redis:7-alpine",
+    "name": "cityroute-redis-tier3-phase8"
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_recovery_probe_summary_20260720_175559.json",
+  "target": "docker",
+  "validation_errors": [
+    "Redis recovered functionally, but cityroute_redis_recoveries_total did not increase."
+  ],
+  "warnings": []
+}
