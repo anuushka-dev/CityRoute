@@ -2,12 +2,16 @@
 
 from __future__ import annotations
 
+import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
 
-client = TestClient(app)
 
+@pytest.fixture()
+def client() -> TestClient:
+    with TestClient(app) as test_client:
+        yield test_client
 
 def _valid_payload() -> dict:
     return {
@@ -47,7 +51,9 @@ def _valid_payload() -> dict:
     }
 
 
-def test_dispatch_compare_route_is_registered_in_openapi():
+def test_dispatch_compare_route_is_registered_in_openapi(
+    client: TestClient,
+):
     response = client.get("/openapi.json")
 
     assert response.status_code == 200
@@ -58,7 +64,9 @@ def test_dispatch_compare_route_is_registered_in_openapi():
     assert "post" in paths["/dispatch/compare"]
 
 
-def test_root_lists_dispatch_compare_endpoint():
+def test_root_lists_dispatch_compare_endpoint(
+    client: TestClient,
+):
     response = client.get("/")
 
     assert response.status_code == 200
@@ -68,15 +76,20 @@ def test_root_lists_dispatch_compare_endpoint():
     assert body["dispatch_compare"] == "/dispatch/compare"
     assert (
         body["phase"]
-        == "Tier 3 Phase 10 - Real Road-Network Dispatch Integration"
-    )
-    assert body["phase_code"] == "tier3_phase10"
+        == "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening"
+        )
+    assert body["phase_code"] == "tier4_phase11"
     assert "haversine" in body["dispatch_matrix_algorithms"]
     assert "source_dijkstra" in body["dispatch_matrix_algorithms"]
 
 
-def test_dispatch_compare_valid_payload_returns_ok():
-    response = client.post("/dispatch/compare", json=_valid_payload())
+def test_dispatch_compare_valid_payload_returns_ok(
+    client: TestClient,
+):
+    response = client.post(
+        "/dispatch/compare",
+        json=_valid_payload(),
+    )
 
     assert response.status_code == 200
 
@@ -97,7 +110,9 @@ def test_dispatch_compare_valid_payload_returns_ok():
     assert body["road_network"] is None
 
 
-def test_dispatch_compare_returns_greedy_and_hungarian_results():
+def test_dispatch_compare_returns_greedy_and_hungarian_results(
+    client: TestClient,
+):
     response = client.post("/dispatch/compare", json=_valid_payload())
 
     assert response.status_code == 200
@@ -114,7 +129,9 @@ def test_dispatch_compare_returns_greedy_and_hungarian_results():
     assert len(body["hungarian"]["assignments"]) == 2
 
 
-def test_dispatch_compare_hungarian_is_not_worse_than_greedy():
+def test_dispatch_compare_hungarian_is_not_worse_than_greedy(
+    client: TestClient,
+):
     response = client.post("/dispatch/compare", json=_valid_payload())
 
     assert response.status_code == 200
@@ -125,7 +142,9 @@ def test_dispatch_compare_hungarian_is_not_worse_than_greedy():
     assert body["hungarian"]["total_cost"] <= body["greedy"]["total_cost"]
 
 
-def test_dispatch_compare_assigns_each_order_at_most_once():
+def test_dispatch_compare_assigns_each_order_at_most_once(
+    client: TestClient,
+):
     response = client.post("/dispatch/compare", json=_valid_payload())
 
     assert response.status_code == 200
@@ -140,7 +159,9 @@ def test_dispatch_compare_assigns_each_order_at_most_once():
     assert len(assigned_order_ids) == len(set(assigned_order_ids))
 
 
-def test_dispatch_compare_returns_cost_breakdown_when_requested():
+def test_dispatch_compare_returns_cost_breakdown_when_requested(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["return_cost_breakdown"] = True
 
@@ -163,7 +184,9 @@ def test_dispatch_compare_returns_cost_breakdown_when_requested():
     assert first["allowed"] is True
 
 
-def test_dispatch_compare_omits_cost_breakdown_by_default():
+def test_dispatch_compare_omits_cost_breakdown_by_default(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["return_cost_breakdown"] = False
 
@@ -173,7 +196,9 @@ def test_dispatch_compare_omits_cost_breakdown_by_default():
     assert response.json()["cost_breakdown"] == []
 
 
-def test_dispatch_compare_returns_fairness_metrics():
+def test_dispatch_compare_returns_fairness_metrics(
+    client: TestClient,
+):
     response = client.post("/dispatch/compare", json=_valid_payload())
 
     assert response.status_code == 200
@@ -188,7 +213,9 @@ def test_dispatch_compare_returns_fairness_metrics():
     assert 0 <= body["hungarian_fairness"]["fairness_score"] <= 100
 
 
-def test_dispatch_compare_more_orders_than_capacity_returns_unassigned_orders():
+def test_dispatch_compare_more_orders_than_capacity_returns_unassigned_orders(
+    client: TestClient
+):
     payload = {
         "drivers": [
             {
@@ -230,7 +257,9 @@ def test_dispatch_compare_more_orders_than_capacity_returns_unassigned_orders():
     assert len(body["hungarian"]["unassigned_order_ids"]) == 2
 
 
-def test_dispatch_compare_extra_capacity_returns_unused_slots():
+def test_dispatch_compare_extra_capacity_returns_unused_slots(
+    client: TestClient,
+):
     payload = {
         "drivers": [
             {
@@ -299,7 +328,9 @@ def test_dispatch_compare_source_dijkstra_uses_phase10_live_road_matrix():
     assert body["comparison"]["hungarian_non_regression"] is True
 
 
-def test_dispatch_compare_rejects_duplicate_driver_ids_with_422():
+def test_dispatch_compare_rejects_duplicate_driver_ids_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["drivers"][1]["driver_id"] = "driver_1"
 
@@ -315,7 +346,9 @@ def test_dispatch_compare_rejects_duplicate_driver_ids_with_422():
     )
 
 
-def test_dispatch_compare_rejects_duplicate_order_ids_with_422():
+def test_dispatch_compare_rejects_duplicate_order_ids_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["orders"][1]["order_id"] = "order_1"
 
@@ -331,7 +364,9 @@ def test_dispatch_compare_rejects_duplicate_order_ids_with_422():
     )
 
 
-def test_dispatch_compare_rejects_all_drivers_full():
+def test_dispatch_compare_rejects_all_drivers_full(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["drivers"] = [
         {
@@ -349,7 +384,9 @@ def test_dispatch_compare_rejects_all_drivers_full():
     assert "available capacity" in response.json()["detail"]
 
 
-def test_dispatch_compare_rejects_invalid_driver_latitude_with_422():
+def test_dispatch_compare_rejects_invalid_driver_latitude_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["drivers"][0]["lat"] = 91.0
 
@@ -357,8 +394,9 @@ def test_dispatch_compare_rejects_invalid_driver_latitude_with_422():
 
     assert response.status_code == 422
 
-
-def test_dispatch_compare_rejects_invalid_order_longitude_with_422():
+def test_dispatch_compare_rejects_invalid_order_longitude_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["orders"][0]["pickup_lon"] = 181.0
 
@@ -367,7 +405,9 @@ def test_dispatch_compare_rejects_invalid_order_longitude_with_422():
     assert response.status_code == 422
 
 
-def test_dispatch_compare_rejects_missing_drivers_with_422():
+def test_dispatch_compare_rejects_missing_drivers_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["drivers"] = []
 
@@ -376,7 +416,9 @@ def test_dispatch_compare_rejects_missing_drivers_with_422():
     assert response.status_code == 422
 
 
-def test_dispatch_compare_rejects_missing_orders_with_422():
+def test_dispatch_compare_rejects_missing_orders_with_422(
+    client: TestClient,
+):
     payload = _valid_payload()
     payload["orders"] = []
 

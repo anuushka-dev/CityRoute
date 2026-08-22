@@ -32,12 +32,6 @@ def anyio_backend() -> str:
 
 @pytest.fixture
 def registry() -> CollectorRegistry:
-    """
-    Give every test an isolated Prometheus registry.
-
-    Using the global registry would make counter values and collector
-    registration dependent on test execution order.
-    """
 
     return CollectorRegistry(
         auto_describe=True,
@@ -95,12 +89,6 @@ def _sample_value(
 def _registered_names(
     registry: CollectorRegistry,
 ) -> set[str]:
-    """
-    Return collector names registered with this isolated registry.
-
-    This intentionally checks the registry contract because labeled
-    counters and histograms do not produce text samples until first use.
-    """
 
     names_to_collectors = getattr(
         registry,

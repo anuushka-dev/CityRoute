@@ -108,8 +108,47 @@ services:
         max-size: "5m"
         max-file: "3"
 
+  prometheus:
+    image: prom/prometheus:v3.14.0
+    container_name: cityroute-prometheus-tier4-phase11
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+
+    depends_on:
+      api:
+        condition: service_started
+
+    networks:
+      - backend
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--spider",
+          "-q",
+          "http://127.0.0.1:9090/-/healthy"
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
 volumes:
   redis_data:
+  prometheus_data:
 
 networks:
   backend:

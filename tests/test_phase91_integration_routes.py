@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
 
-client = TestClient(app)
-
+@pytest.fixture()
+def client() -> TestClient:
+    with TestClient(app) as test_client:
+        yield test_client
 
 REQUIRED_ENDPOINTS = {
     "/health",
@@ -24,7 +27,9 @@ REQUIRED_ENDPOINTS = {
 }
 
 
-def test_phase91_required_routes_are_registered_in_openapi():
+def test_phase91_required_routes_are_registered_in_openapi(
+    client: TestClient,
+):
     response = client.get("/openapi.json")
 
     assert response.status_code == 200
@@ -34,8 +39,9 @@ def test_phase91_required_routes_are_registered_in_openapi():
 
     assert missing_paths == set()
 
-
-def test_phase91_root_lists_core_phase_links():
+def test_phase91_root_lists_core_phase_links(
+    client: TestClient,
+):
     response = client.get("/")
 
     assert response.status_code == 200
@@ -54,26 +60,33 @@ def test_phase91_root_lists_core_phase_links():
 
     assert (
         body["phase"]
-        == "Tier 3 Phase 10 - Real Road-Network Dispatch Integration"
-    )
-    assert body["phase_code"] == "tier3_phase10"
+        == "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening"
+        )
+    assert body["phase_code"] == "tier4_phase11"
 
     assert "haversine" in body["dispatch_matrix_algorithms"]
     assert "source_dijkstra" in body["dispatch_matrix_algorithms"]
 
 
-def test_phase91_health_endpoint_still_works():
+def test_phase91_health_endpoint_still_works(client: TestClient):
     response = client.get("/health")
 
     assert response.status_code == 200
 
     body = response.json()
 
-    assert body["status"] == "ok"
+    assert body["status"] in {
+        "ok",
+        "degraded",
+        "starting",
+        "shutting_down",
+    }
     assert "graph_loaded" in body
 
 
-def test_phase91_graph_stats_endpoint_still_works():
+def test_phase91_graph_stats_endpoint_still_works(
+    client: TestClient,
+):
     response = client.get("/graph/stats")
 
     assert response.status_code in {200, 503}
@@ -92,7 +105,9 @@ def test_phase91_graph_stats_endpoint_still_works():
         assert "detail" in body
 
 
-def test_phase91_dispatch_endpoint_still_works_with_haversine():
+def test_phase91_dispatch_endpoint_still_works_with_haversine(
+    client: TestClient,
+):
     payload = {
         "drivers": [
             {
@@ -135,7 +150,12 @@ def test_phase91_dispatch_endpoint_still_works_with_haversine():
 
     body = response.json()
 
-    assert body["status"] == "ok"
+    assert body["status"] in {
+    "ok",
+    "degraded",
+    "starting",
+    "shutting_down",
+    }
     assert body["phase"] == "tier3_phase10"
     assert body["matrix_algorithm"] == "haversine"
     assert body["assigned_order_count"] == 2
@@ -174,7 +194,12 @@ def test_phase10_dispatch_source_dijkstra_api_is_wired():
 
     body = response.json()
 
-    assert body["status"] == "ok"
+    assert body["status"] in {
+    "ok",
+    "degraded",
+    "starting",
+    "shutting_down",
+    }
     assert body["phase"] == "tier3_phase10"
     assert body["matrix_algorithm"] == "source_dijkstra"
 

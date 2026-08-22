@@ -234,7 +234,9 @@ def test_advanced_compare_endpoint_returns_lns_payload(monkeypatch: pytest.Monke
     assert len(body["lns"]["trace"]) == 2
 
 
-def test_advanced_compare_endpoint_requires_graph_ready(monkeypatch: pytest.MonkeyPatch):
+def test_advanced_compare_endpoint_requires_graph_ready(
+    monkeypatch: pytest.MonkeyPatch,
+):
     async def should_not_reach_service(*args: Any, **kwargs: Any):
         raise AssertionError("advanced compare service should not run when graph is not ready")
 
@@ -244,13 +246,15 @@ def test_advanced_compare_endpoint_requires_graph_ready(monkeypatch: pytest.Monk
         should_not_reach_service,
     )
 
-    app.state.graph_loaded = False
-    app.state.graph = None
-    app.state.snap_index = object()
+    with TestClient(app) as client:
+        app.state.graph_loaded = False
+        app.state.graph = None
+        app.state.snap_index = object()
 
-    client = TestClient(app)
-    response = client.post("/vrp/compare/advanced", json=_valid_payload())
-
+        response = client.post(
+            "/vrp/compare/advanced",
+            json=_valid_payload(),
+        )
     assert response.status_code == 503
     assert response.json()["detail"]["error"] == "Graph not loaded"
 
