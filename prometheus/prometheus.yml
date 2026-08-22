@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: "cityroute-api"
+    scrape_interval: 5s
+    scrape_timeout: 4s
+
+    static_configs:
+      - targets:
+          - "api:8000"
+        labels:
+          service: "cityroute-api"
+          environment: "docker"
+          phase: "tier4_phase11"
