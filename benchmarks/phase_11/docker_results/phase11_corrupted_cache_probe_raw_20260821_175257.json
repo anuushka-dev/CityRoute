@@ -1,0 +1,462 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_hit": {
+    "cache_enabled": true,
+    "cache_error": null,
+    "cache_hit": true,
+    "cache_key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+    "elapsed_ms": 13.418400019872934,
+    "error_message": null,
+    "error_type": null,
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": true,
+        "error": null,
+        "hit": true,
+        "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 100,
+      "failed_pairs": 0,
+      "generation_time_ms": 2.217,
+      "n": 10,
+      "pair_count": 100,
+      "status": "ok"
+    },
+    "stage": "baseline_hit",
+    "status_code": 200
+  },
+  "baseline_miss": {
+    "cache_enabled": true,
+    "cache_error": null,
+    "cache_hit": false,
+    "cache_key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+    "elapsed_ms": 183.98199998773634,
+    "error_message": null,
+    "error_type": null,
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": true,
+        "error": null,
+        "hit": false,
+        "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 100,
+      "failed_pairs": 0,
+      "generation_time_ms": 164.233,
+      "n": 10,
+      "pair_count": 100,
+      "status": "ok"
+    },
+    "stage": "baseline_miss",
+    "status_code": 200
+  },
+  "baseline_state": {
+    "captured_at_utc": "2026-08-21T17:52:55.838589+00:00",
+    "health": {
+      "elapsed_ms": 8.552199986297637,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health",
+      "response_json": {
+        "graph_loaded": true,
+        "status": "ok",
+        "uptime_s": 181.955
+      },
+      "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":181.955}",
+      "status_code": 200
+    },
+    "liveness": {
+      "elapsed_ms": 20.24889999302104,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 181.938
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":181.938}",
+      "status_code": 200
+    },
+    "metrics": {
+      "cityroute_corrupted_cache_payloads_total": null,
+      "cityroute_redis_available": 1.0,
+      "process_start_time_seconds": 1787334586.58
+    },
+    "metrics_status_code": 200,
+    "readiness": {
+      "elapsed_ms": 8.377400052268058,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 181.947
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":181.947,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "status_code": 200
+    }
+  },
+  "benchmark": "phase11_corrupted_cache_probe",
+  "cache_key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+  "cleanup_actions": [],
+  "configuration": {
+    "algorithm": "source_dijkstra",
+    "corruption_kind": "invalid_json",
+    "matrix_size": 10,
+    "redis_db": 0,
+    "require_corruption_counter": true,
+    "resolved_redis_container": {
+      "container_id": "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+      "health": "healthy",
+      "image": "redis:7-alpine",
+      "name": "cityroute-redis-tier4-phase11",
+      "state": "running"
+    },
+    "variant": 3700
+  },
+  "container_resolution": {
+    "command": {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--format",
+        "{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.State}}"
+      ],
+      "elapsed_ms": 179.89299999317154,
+      "error_message": null,
+      "error_type": null,
+      "ok": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "b34cceafb8bd\tcityroute-prometheus-tier4-phase11\tprom/prometheus:v3.14.0\trunning\nd96c563eb602\tcityroute-api-tier4-phase11\tcityroute-api:tier4-phase11\trunning\n314ab2a41cfe\tcityroute-redis-tier4-phase11\tredis:7-alpine\trunning\nd181fc2a51df\tgrafana\tgrafana/grafana-enterprise\texited"
+    },
+    "mode": "auto_discovery"
+  },
+  "corruption_counter_delta": null,
+  "corruption_verify": {
+    "command": {
+      "command": [
+        "docker",
+        "exec",
+        "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+        "redis-cli",
+        "-n",
+        "0",
+        "--raw",
+        "GET",
+        "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1"
+      ],
+      "elapsed_ms": 208.20960000855848,
+      "error_message": null,
+      "error_type": null,
+      "ok": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "{\"broken\":"
+    },
+    "exact_value_observed": true
+  },
+  "corruption_write": {
+    "command": [
+      "docker",
+      "exec",
+      "-i",
+      "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+      "redis-cli",
+      "-n",
+      "0",
+      "-x",
+      "SET",
+      "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1"
+    ],
+    "elapsed_ms": 221.7780000064522,
+    "error_message": null,
+    "error_type": null,
+    "ok": true,
+    "return_code": 0,
+    "stderr": "",
+    "stdout": "OK"
+  },
+  "final_state": {
+    "captured_at_utc": "2026-08-21T17:52:57.474210+00:00",
+    "health": {
+      "elapsed_ms": 9.350900014396757,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health",
+      "response_json": {
+        "graph_loaded": true,
+        "status": "ok",
+        "uptime_s": 183.589
+      },
+      "response_text": "{\"status\":\"ok\",\"graph_loaded\":true,\"uptime_s\":183.589}",
+      "status_code": 200
+    },
+    "liveness": {
+      "elapsed_ms": 8.93259997246787,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 183.572
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":183.572}",
+      "status_code": 200
+    },
+    "metrics": {
+      "cityroute_corrupted_cache_payloads_total": null,
+      "cityroute_redis_available": 1.0,
+      "process_start_time_seconds": 1787334586.58
+    },
+    "metrics_status_code": 200,
+    "readiness": {
+      "elapsed_ms": 8.45409999601543,
+      "error_message": null,
+      "error_type": null,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 183.58
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":183.58,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "status_code": 200
+    }
+  },
+  "finished_at_utc": "2026-08-21T17:52:57.678835+00:00",
+  "original_ttl": {
+    "command": [
+      "docker",
+      "exec",
+      "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+      "redis-cli",
+      "-n",
+      "0",
+      "--raw",
+      "PTTL",
+      "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1"
+    ],
+    "elapsed_ms": 216.49650001199916,
+    "error_message": null,
+    "error_type": null,
+    "ok": true,
+    "return_code": 0,
+    "stderr": "",
+    "stdout": "86399587"
+  },
+  "original_value": {
+    "command": {
+      "command": [
+        "docker",
+        "exec",
+        "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+        "redis-cli",
+        "-n",
+        "0",
+        "--raw",
+        "GET",
+        "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1"
+      ],
+      "elapsed_ms": 192.51870003063232,
+      "error_message": null,
+      "error_type": null,
+      "ok": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\":\"ok\",\"n\":10,\"algorithm\":\"source_dijkstra\",\"cache\":{\"enabled\":true,\"hit\":false,\"key\":\"matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1\",\"ttl_seconds\":86400,\"error\":null},\"locations\":[{\"id\":\"p00\",\"lat\":26.446737,\"lon\":80.328663},{\"id\":\"p01\",\"lat\":26.446737,\"lon\":80.330263},{\"id\":\"p02\",\"lat\":26.446737,\"lon\":80.331863},{\"id\":\"p03\",\"lat\":26.446737,\"lon\":80.333463},{\"id\":\"p04\",\"lat\":26.446737,\"lon\":80.335063},{\"id\":\"p05\",\"lat\":26.448337,\"lon\":80.328663},{\"id\":\"p06\",\"lat\":26.448337,\"lon\":80.330263},{\"id\":\"p07\",\"lat\":26.448337,\"lon\":80.331863},{\"id\":\"p08\",\"lat\":26.448337,\"lon\":80.333463},{\"id\":\"p09\",\"lat\":26.448337,\"lon\":80.335063}],\"matrix_distance_m\":[[0.0,233.073,344.251,566.372,746.893,412.49,262.698,567.604,531.946,725.975],[233.073,0.0,111.178,340.487,513.82,414.587,264.795,527.387,491.729,680.462],[344.251,111.178,0.0,229.309,545.666,525.765,375.973,638.565,602.907,591.201],[566.372,340.487,229.309,0.0,363.589,747.886,598.094,860.686,825.028,410.647],[746.893,513.82,545.666,363.589,0.0,928.407,778.615,1041.207,882.379,405.29],[412.49,414.587,525.765,747.886,928.407,0.0,149.792,681.346,637.11,907.489],[262.698,264.795,375.973,598.094,778.615,149.792,0.0,531.554,487.318,757.697],[567.604,527.387,638.565,860.686,1041.207,681.346,531.554,0.0,179.188,735.919],[531.946,491.729,602.907,825.028,882.379,637.11,487.318,179.188,0.0,556.731],[725.975,680.462,591.201,410.647,405.29,907.489,757.697,735.919,556.731,0.0]],\"matrix_eta_s\":[[0.0,36.229,53.511,88.037,116.097,64.118,40.834,88.229,82.686,112.846],[36.229,0.0,17.282,52.925,79.868,64.444,41.16,81.977,76.435,105.771],[53.511,17.282,0.0,35.644,84.819,81.725,58.441,99.259,93.716,91.897],[88.037,52.925,35.644,0.0,56.516,116.252,92.968,133.785,128.243,63.831],[116.097,79.868,84.819,56.516,0.0,144.312,121.028,161.846,137.157,62.998],[64.118,64.444,81.725,116.252,144.312,0.0,23.284,105.909,99.033,141.06],[40.834,41.16,58.441,92.968,121.028,23.284,0.0,82.625,75.749,117.777],[88.229,81.977,99.259,133.785,161.846,105.909,82.625,0.0,27.853,114.392],[82.686,76.435,93.716,128.243,137.157,99.033,75.749,27.853,0.0,86.538],[112.846,105.771,91.897,63.831,62.998,141.06,117.777,114.392,86.538,0.0]],\"pair_count\":100,\"computed_pairs\":100,\"failed_pairs\":0,\"failures\":[],\"generation_time_ms\":164.233,\"parallel_workers\":8}"
+    },
+    "valid_json_object": true
+  },
+  "overall_ok": false,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "recovered_read": {
+    "cache_enabled": true,
+    "cache_error": null,
+    "cache_hit": false,
+    "cache_key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+    "elapsed_ms": 340.42600000975654,
+    "error_message": null,
+    "error_type": null,
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": true,
+        "error": null,
+        "hit": false,
+        "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 100,
+      "failed_pairs": 0,
+      "generation_time_ms": 326.397,
+      "n": 10,
+      "pair_count": 100,
+      "status": "ok"
+    },
+    "stage": "corrupted_payload_read",
+    "status_code": 200
+  },
+  "repaired_hit": {
+    "cache_enabled": true,
+    "cache_error": null,
+    "cache_hit": true,
+    "cache_key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+    "elapsed_ms": 15.138900023885071,
+    "error_message": null,
+    "error_type": null,
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": true,
+        "error": null,
+        "hit": true,
+        "key": "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1",
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 100,
+      "failed_pairs": 0,
+      "generation_time_ms": 2.79,
+      "n": 10,
+      "pair_count": 100,
+      "status": "ok"
+    },
+    "stage": "repaired_cache_hit",
+    "status_code": 200
+  },
+  "repaired_value": {
+    "command": {
+      "command": [
+        "docker",
+        "exec",
+        "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+        "redis-cli",
+        "-n",
+        "0",
+        "--raw",
+        "GET",
+        "matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1"
+      ],
+      "elapsed_ms": 198.84909997927025,
+      "error_message": null,
+      "error_type": null,
+      "ok": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "{\"status\":\"ok\",\"n\":10,\"algorithm\":\"source_dijkstra\",\"cache\":{\"enabled\":true,\"hit\":false,\"key\":\"matrix:v1:kanpur_central.graphml:source_dijkstra:f89ce7523226b2529068782f9905e4415105355a8b6ab50d00236a50dccc1ee1\",\"ttl_seconds\":86400,\"error\":null},\"locations\":[{\"id\":\"p00\",\"lat\":26.446737,\"lon\":80.328663},{\"id\":\"p01\",\"lat\":26.446737,\"lon\":80.330263},{\"id\":\"p02\",\"lat\":26.446737,\"lon\":80.331863},{\"id\":\"p03\",\"lat\":26.446737,\"lon\":80.333463},{\"id\":\"p04\",\"lat\":26.446737,\"lon\":80.335063},{\"id\":\"p05\",\"lat\":26.448337,\"lon\":80.328663},{\"id\":\"p06\",\"lat\":26.448337,\"lon\":80.330263},{\"id\":\"p07\",\"lat\":26.448337,\"lon\":80.331863},{\"id\":\"p08\",\"lat\":26.448337,\"lon\":80.333463},{\"id\":\"p09\",\"lat\":26.448337,\"lon\":80.335063}],\"matrix_distance_m\":[[0.0,233.073,344.251,566.372,746.893,412.49,262.698,567.604,531.946,725.975],[233.073,0.0,111.178,340.487,513.82,414.587,264.795,527.387,491.729,680.462],[344.251,111.178,0.0,229.309,545.666,525.765,375.973,638.565,602.907,591.201],[566.372,340.487,229.309,0.0,363.589,747.886,598.094,860.686,825.028,410.647],[746.893,513.82,545.666,363.589,0.0,928.407,778.615,1041.207,882.379,405.29],[412.49,414.587,525.765,747.886,928.407,0.0,149.792,681.346,637.11,907.489],[262.698,264.795,375.973,598.094,778.615,149.792,0.0,531.554,487.318,757.697],[567.604,527.387,638.565,860.686,1041.207,681.346,531.554,0.0,179.188,735.919],[531.946,491.729,602.907,825.028,882.379,637.11,487.318,179.188,0.0,556.731],[725.975,680.462,591.201,410.647,405.29,907.489,757.697,735.919,556.731,0.0]],\"matrix_eta_s\":[[0.0,36.229,53.511,88.037,116.097,64.118,40.834,88.229,82.686,112.846],[36.229,0.0,17.282,52.925,79.868,64.444,41.16,81.977,76.435,105.771],[53.511,17.282,0.0,35.644,84.819,81.725,58.441,99.259,93.716,91.897],[88.037,52.925,35.644,0.0,56.516,116.252,92.968,133.785,128.243,63.831],[116.097,79.868,84.819,56.516,0.0,144.312,121.028,161.846,137.157,62.998],[64.118,64.444,81.725,116.252,144.312,0.0,23.284,105.909,99.033,141.06],[40.834,41.16,58.441,92.968,121.028,23.284,0.0,82.625,75.749,117.777],[88.229,81.977,99.259,133.785,161.846,105.909,82.625,0.0,27.853,114.392],[82.686,76.435,93.716,128.243,137.157,99.033,75.749,27.853,0.0,86.538],[112.846,105.771,91.897,63.831,62.998,141.06,117.777,114.392,86.538,0.0]],\"pair_count\":100,\"computed_pairs\":100,\"failed_pairs\":0,\"failures\":[],\"generation_time_ms\":326.397,\"parallel_workers\":8}"
+    },
+    "valid_json_object": true
+  },
+  "runtime_metadata": {
+    "base_url": "http://127.0.0.1:8001",
+    "captured_at_utc": "2026-08-21T17:52:57.785708+00:00",
+    "cwd": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "git_branch": "tier4-phase11-reliability",
+    "git_commit": "81e676fca8cc0b3e49e117200bdf2d6f6c270829",
+    "git_dirty": true,
+    "hostname": "MSI",
+    "machine": "AMD64",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "pid": 20736,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "started_at_utc": "2026-08-21T17:52:53.646430+00:00",
+  "startup_probes": {
+    "liveness": {
+      "elapsed_ms": 726.9430999876931,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-08-21T17:52:54.380325+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 180.512
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":180.512}",
+      "started_at_utc": "2026-08-21T17:52:53.652811+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/live"
+    },
+    "readiness": {
+      "elapsed_ms": 582.2218999965116,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-08-21T17:52:54.963512+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 181.096
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":181.096,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "started_at_utc": "2026-08-21T17:52:54.381443+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/ready"
+    }
+  },
+  "target": "docker",
+  "validation_errors": [
+    "Corrupted-cache counter was unavailable after injection"
+  ],
+  "warnings": []
+}

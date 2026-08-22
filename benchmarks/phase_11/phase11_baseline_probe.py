@@ -21,7 +21,6 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from benchmarks.phase_11.phase11_common import (
     DEFAULT_BASE_URL,
-    DEFAULT_RESULTS_DIR,
     DEFAULT_TIMEOUT_S,
     PROJECT_PHASE_CODE,
     PROJECT_PHASE_NAME,
@@ -37,7 +36,6 @@ from benchmarks.phase_11.phase11_common import (
     wait_for_readiness,
     write_json,
 )
-
 
 DEFAULT_ITERATIONS = 20
 DEFAULT_WARMUP_ITERATIONS = 3

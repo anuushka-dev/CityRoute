@@ -39,7 +39,6 @@ from benchmarks.phase_11.phase11_common import (
     write_json,
 )
 
-
 DEFAULT_ROUNDS = 3
 DEFAULT_MATRIX_SIZE = 25
 DEFAULT_MONITOR_INTERVAL_S = 0.025

@@ -1,0 +1,53 @@
+{
+  "active_limit_respected": true,
+  "base_url": "http://127.0.0.1:8001",
+  "benchmark": "phase11_concurrency_limit_probe",
+  "configured_max_active": 4,
+  "configured_max_waiting": 8,
+  "configured_total_capacity": 12,
+  "counter_deltas": {
+    "cityroute_admission_decisions_total": 144.0,
+    "cityroute_overload_events_total": 120.0,
+    "cityroute_request_rejections_total": 120.0
+  },
+  "latency_summary": {
+    "count": 144,
+    "max_ms": 3791.1080000340007,
+    "mean_ms": 1698.8724451390833,
+    "median_ms": 1515.0279499939643,
+    "min_ms": 527.6283000130206,
+    "p90_ms": 2629.9652100075036,
+    "p95_ms": 2754.205315024592,
+    "p99_ms": 3747.5573369790795
+  },
+  "liveness_failure_count": 0,
+  "liveness_sample_count": 4,
+  "outcome_counts": {
+    "accepted": 24,
+    "controlled_rejection": 120
+  },
+  "overall_ok": true,
+  "peak_active_requests": 4.0,
+  "peak_total_in_system": 12.0,
+  "peak_waiting_requests": 8.0,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_concurrency_limit_probe_raw_20260821_175126.json",
+  "recovery_ok": true,
+  "rejection_reason_counts": {
+    "queue_full": 99,
+    "wait_timeout": 21
+  },
+  "request_count_per_round": 48,
+  "rounds": 3,
+  "status_code_counts": {
+    "200": 24,
+    "429": 99,
+    "503": 21
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_concurrency_limit_probe_summary_20260821_175126.json",
+  "target": "docker",
+  "total_request_count": 144,
+  "validation_errors": [],
+  "waiting_limit_respected": true
+}

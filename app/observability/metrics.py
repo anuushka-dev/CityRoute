@@ -5,80 +5,90 @@ from __future__ import annotations
 import time
 from collections.abc import Awaitable, Callable
 
-from prometheus_client import (
-    CONTENT_TYPE_LATEST,
-    CollectorRegistry,
-    Counter,
-    Gauge,
-    Histogram,
-    generate_latest,
-)
 from starlette.requests import Request
 from starlette.responses import Response
 
-# A dedicated registry keeps CityRoute metrics isolated and makes tests deterministic.
-REGISTRY = CollectorRegistry()
-
-REQUEST_COUNT = Counter(
-    "cityroute_http_requests_total",
-    "Total HTTP requests handled by CityRoute.",
-    labelnames=("method", "path", "status"),
-    registry=REGISTRY,
+from app.observability.reliability_metrics import (
+    ReliabilityMetrics,
+    get_reliability_metrics,
 )
-
-REQUEST_LATENCY = Histogram(
-    "cityroute_http_request_duration_seconds",
-    "HTTP request latency in seconds.",
-    labelnames=("method", "path"),
-    # Buckets tuned for a routing API: sub-ms snaps up to multi-second matrices.
-    buckets=(0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0),
-    registry=REGISTRY,
-)
-
-GRAPH_LOADED = Gauge(
-    "cityroute_graph_loaded",
-    "Whether the road graph is loaded (1) or not (0).",
-    registry=REGISTRY,
-)
-
-SNAP_INDEX_LOADED = Gauge(
-    "cityroute_snap_index_loaded",
-    "Whether the BallTree snap index is loaded (1) or not (0).",
-    registry=REGISTRY,
-)
-
 
 def _route_template(request: Request) -> str:
-    """Return the matched route pattern (e.g. '/route/compare') to keep label
-    cardinality bounded. Falls back to the raw path, then 'unmatched'."""
+    """Return a normalized request path for metrics labeling."""
+
     route = request.scope.get("route")
-    path_format = getattr(route, "path_format", None) or getattr(route, "path", None)
+
+    path_format = (
+        getattr(route, "path_format", None)
+        or getattr(route, "path", None)
+    )
+
     if path_format:
         return str(path_format)
-    return request.url.path or "unmatched"
+
+    path = request.url.path or "/"
+
+    return path.split(
+        "?",
+        maxsplit=1,
+    )[0]
+
+def _http_outcome_for_status(
+    status_code: int,
+) -> str:
+    if status_code == 504:
+        return "timeout"
+
+    if status_code == 429:
+        return "rejected"
+
+    if 200 <= status_code < 400:
+        return "success"
+
+    if 400 <= status_code < 500:
+        return "client_error"
+
+    if 500 <= status_code < 600:
+        return "server_error"
+
+    return "other"
 
 
 async def metrics_middleware(
     request: Request,
     call_next: Callable[[Request], Awaitable[Response]],
 ) -> Response:
-    """Time every request and record count + latency. Never swallow app errors."""
-    # Do not instrument the scrape endpoint itself.
+    """Record HTTP compatibility and Phase 11 execution metrics."""
+
     if request.url.path == "/metrics":
         return await call_next(request)
 
+    metrics = getattr(
+        request.app.state,
+        "reliability_metrics",
+        None,
+    )
+
+    if not isinstance(metrics, ReliabilityMetrics):
+        metrics = get_reliability_metrics()
+
     start = time.perf_counter()
     status_code = 500
+
     try:
         response = await call_next(request)
         status_code = response.status_code
         return response
     finally:
         elapsed = time.perf_counter() - start
-        path = _route_template(request)
-        REQUEST_LATENCY.labels(request.method, path).observe(elapsed)
-        REQUEST_COUNT.labels(request.method, path, str(status_code)).inc()
 
+        metrics.observe_execution(
+            endpoint=_route_template(request),
+            duration_s=elapsed,
+            outcome=_http_outcome_for_status(status_code),
+            method=request.method,
+            status_code=status_code,
+        )
 
 def metrics_endpoint(request: Request) -> Response:
     """Render the Prometheus exposition format. Refreshes runtime gauges first."""

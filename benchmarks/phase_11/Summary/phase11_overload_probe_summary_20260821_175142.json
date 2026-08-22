@@ -1,0 +1,161 @@
+{
+  "accepted_latency": {
+    "count": 24,
+    "max_ms": 2784.1990000451915,
+    "mean_ms": 1946.9692208294873,
+    "median_ms": 1868.7543999694753,
+    "min_ms": 1002.0623999880627,
+    "p90_ms": 2652.4791799718514,
+    "p95_ms": 2747.458065036335,
+    "p99_ms": 2779.4942120462656
+  },
+  "active_limit_respected": true,
+  "base_url": "http://127.0.0.1:8001",
+  "benchmark": "phase11_overload_probe",
+  "configured_max_active": 4,
+  "configured_max_waiting": 8,
+  "configured_total_capacity": 12,
+  "counter_deltas": {
+    "cityroute_admission_decisions_total": 73.0,
+    "cityroute_overload_events_total": 48.0,
+    "cityroute_request_rejections_total": 48.0
+  },
+  "minimum_accepting_requests_metric": 1.0,
+  "minimum_readiness_metric": 1.0,
+  "outcome_counts": {
+    "accepted": 24,
+    "controlled_overload": 48
+  },
+  "overall_ok": true,
+  "overload_response_count": 48,
+  "peak_active_requests": 4.0,
+  "peak_total_in_system": 12.0,
+  "peak_waiting_requests": 8.0,
+  "per_round_summaries": [
+    {
+      "elapsed_ms": 2883.4660000284202,
+      "monitor_sample_count": 5,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 0,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    },
+    {
+      "elapsed_ms": 2429.569600033574,
+      "monitor_sample_count": 4,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 1,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    },
+    {
+      "elapsed_ms": 2664.6466000238433,
+      "monitor_sample_count": 4,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 2,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    }
+  ],
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "queue_full_admission_wait": {
+    "count": 36,
+    "max_ms": 756.116,
+    "mean_ms": 213.43333333333334,
+    "median_ms": 119.32300000000001,
+    "min_ms": 0.007,
+    "p90_ms": 596.638,
+    "p95_ms": 733.66475,
+    "p99_ms": 751.91495
+  },
+  "queue_full_latency": {
+    "count": 36,
+    "max_ms": 1354.6781999757513,
+    "mean_ms": 1029.1321111095992,
+    "median_ms": 1142.409599997336,
+    "min_ms": 483.1666999962181,
+    "p90_ms": 1316.0964499984402,
+    "p95_ms": 1325.8904249814805,
+    "p99_ms": 1347.6526499784086
+  },
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_overload_probe_raw_20260821_175142.json",
+  "reason_counts": {
+    "queue_full": 36,
+    "wait_timeout": 12
+  },
+  "recovery_ok": true,
+  "requests_per_round": 24,
+  "rounds": 3,
+  "status_code_counts": {
+    "200": 24,
+    "429": 36,
+    "503": 12
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_overload_probe_summary_20260821_175142.json",
+  "target": "docker",
+  "total_request_count": 72,
+  "unexpected_response_count": 0,
+  "validation_errors": [],
+  "wait_timeout_admission_wait": {
+    "count": 12,
+    "max_ms": 1206.724,
+    "mean_ms": 1099.2044166666667,
+    "median_ms": 1135.6165,
+    "min_ms": 1000.745,
+    "p90_ms": 1178.5962,
+    "p95_ms": 1191.4967,
+    "p99_ms": 1203.6785399999999
+  },
+  "wait_timeout_latency": {
+    "count": 12,
+    "max_ms": 1588.2943000178784,
+    "mean_ms": 1413.1207333412021,
+    "median_ms": 1371.8700500321575,
+    "min_ms": 1335.5676000355743,
+    "p90_ms": 1557.6268099946901,
+    "p95_ms": 1576.1291250033537,
+    "p99_ms": 1585.8612650149735
+  },
+  "waiting_limit_respected": true,
+  "warnings": []
+}

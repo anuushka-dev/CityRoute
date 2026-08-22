@@ -1,0 +1,61 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_algorithm": "source_dijkstra",
+  "baseline_attempt_count": 5,
+  "baseline_completed_count": 5,
+  "baseline_latency": {
+    "count": 5,
+    "max_ms": 347.37470000982285,
+    "mean_ms": 267.9084599833004,
+    "median_ms": 237.9918999504298,
+    "min_ms": 205.89969999855384,
+    "p90_ms": 343.2305400026962,
+    "p95_ms": 345.30262000625953,
+    "p99_ms": 346.9602840091102
+  },
+  "baseline_matrix_size": 25,
+  "benchmark": "phase11_timeout_probe",
+  "client_timeout_s": 45.0,
+  "controls_after_ok": true,
+  "controls_before_ok": true,
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_raw_20260821_175152.json",
+  "recovery_ok": true,
+  "server_timeout_count": 0,
+  "server_timeout_latency": {
+    "count": 0,
+    "max_ms": null,
+    "mean_ms": null,
+    "median_ms": null,
+    "min_ms": null,
+    "p90_ms": null,
+    "p95_ms": null,
+    "p99_ms": null
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_summary_20260821_175152.json",
+  "target": "docker",
+  "timeout_budget_used_pct": 2.313068560060734,
+  "timeout_headroom_ratio": 43.2326139080695,
+  "timeout_limit_s": 15.0,
+  "timeout_metric_deltas": {},
+  "trigger_algorithm": "bidirectional_astar",
+  "trigger_attempt_count": 3,
+  "trigger_completed_count": 3,
+  "trigger_completed_latency": {
+    "count": 3,
+    "max_ms": 739.1423000372015,
+    "mean_ms": 625.9690000054737,
+    "median_ms": 605.5499999783933,
+    "min_ms": 533.2147000008263,
+    "p90_ms": 712.4238400254399,
+    "p95_ms": 725.7830700313207,
+    "p99_ms": 736.4704540360253
+  },
+  "trigger_matrix_size": 25,
+  "validation_errors": [],
+  "warnings": [
+    "No HTTP 504 timeout was observed. Timeout policy headers were proven, but the selected real workload completed within the configured server limit on this machine."
+  ]
+}

@@ -39,7 +39,6 @@ from benchmarks.phase_11.phase11_common import (
     write_json,
 )
 
-
 DEFAULT_BASELINE_ATTEMPTS = 5
 DEFAULT_TRIGGER_ATTEMPTS = 3
 DEFAULT_MATRIX_SIZE = 25

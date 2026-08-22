@@ -1,0 +1,29 @@
+{
+  "api_process_start_unchanged": true,
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_cache_hit": true,
+  "baseline_healthy": true,
+  "baseline_hit_ms": 13.418400019872934,
+  "baseline_miss_ms": 183.98199998773634,
+  "benchmark": "phase11_corrupted_cache_probe",
+  "corrupted_payload_rejected": true,
+  "corruption_counter_delta": null,
+  "corruption_injected": true,
+  "corruption_recovery_ms": 340.42600000975654,
+  "final_healthy": true,
+  "matrix_recomputed_successfully": true,
+  "overall_ok": false,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_corrupted_cache_probe_raw_20260821_175257.json",
+  "repaired_cache_hit": true,
+  "repaired_hit_ms": 15.138900023885071,
+  "repaired_value_valid_json_object": true,
+  "resolved_redis_container": "cityroute-redis-tier4-phase11",
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_corrupted_cache_probe_summary_20260821_175257.json",
+  "target": "docker",
+  "validation_errors": [
+    "Corrupted-cache counter was unavailable after injection"
+  ],
+  "warnings": []
+}

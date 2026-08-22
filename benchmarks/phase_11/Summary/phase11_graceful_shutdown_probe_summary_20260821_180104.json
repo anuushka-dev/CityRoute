@@ -1,0 +1,51 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_liveness_ok": true,
+  "baseline_readiness_ok": true,
+  "benchmark": "phase11_graceful_shutdown_probe",
+  "inflight_observed": true,
+  "overall_ok": false,
+  "peak_active_requests": 4.0,
+  "peak_waiting_requests": 0.0,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_graceful_shutdown_probe_raw_20260821_180104.json",
+  "recovery": {
+    "container_running": true,
+    "liveness_ok": true,
+    "metrics_ok": true,
+    "readiness_ok": true,
+    "restart_ok": true
+  },
+  "request_outcome_counts": {
+    "completed": 4,
+    "controlled_rejection": 4
+  },
+  "service_down_after_shutdown": true,
+  "shutdown_command_ok": true,
+  "shutdown_log_evidence": {
+    "application_shutdown_complete": false,
+    "drain_completed": false,
+    "graceful_shutdown_finished_complete": false,
+    "graceful_shutdown_started": false,
+    "shutdown_requested": false
+  },
+  "shutdown_metrics": {
+    "minimum_accepting_requests": 1.0,
+    "minimum_readiness": 1.0,
+    "peak_active_requests": 4.0,
+    "peak_shutdown_inflight": 0.0,
+    "peak_waiting_requests": 0.0,
+    "sample_count": 1294
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_graceful_shutdown_probe_summary_20260821_180104.json",
+  "target": "docker",
+  "validation_errors": [
+    "Missing required shutdown log evidence: shutdown_requested",
+    "Missing required shutdown log evidence: graceful_shutdown_started",
+    "Missing required shutdown log evidence: drain_completed",
+    "Missing required shutdown log evidence: graceful_shutdown_finished_complete",
+    "Missing required shutdown log evidence: application_shutdown_complete"
+  ],
+  "warnings": []
+}

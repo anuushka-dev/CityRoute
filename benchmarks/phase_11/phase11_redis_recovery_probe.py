@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import asyncio
-import json
 import statistics
 import subprocess
 import sys
@@ -38,7 +37,6 @@ from benchmarks.phase_11.phase11_common import (
     wait_for_readiness,
     write_json,
 )
-
 
 DEFAULT_MATRIX_SIZE = 10
 DEFAULT_STATE_TIMEOUT_S = 30.0

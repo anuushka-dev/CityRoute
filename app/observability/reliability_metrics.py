@@ -125,12 +125,6 @@ def _normalize_path(path: str) -> str:
 
 
 def endpoint_group_for(path: str) -> str:
-    """
-    Convert an HTTP path into a controlled low-cardinality metric label.
-
-    Unknown paths are grouped as `other`. Raw URLs, coordinates, IDs, cache
-    keys, and query parameters are never used as Prometheus labels.
-    """
 
     return _ENDPOINT_GROUPS.get(
         _normalize_path(path),
@@ -187,37 +181,6 @@ def _validate_non_negative_integer(
 
 
 class ReliabilityMetrics:
-    """
-    Prometheus metrics for CityRoute Phase 11 reliability controls.
-
-    The metrics cover:
-
-        bounded concurrency;
-        waiting-queue pressure;
-        overload rejection;
-        request timeouts;
-        endpoint execution time;
-        readiness;
-        request admission;
-        Redis availability and recovery;
-        corrupted cache payloads;
-        graceful shutdown.
-
-    Label values are deliberately restricted to controlled enums and endpoint
-    groups. User coordinates, IDs, full URLs, exception messages, and Redis
-    keys must never become metric labels.
-
-    Create only one ReliabilityMetrics instance per CollectorRegistry.
-    Application code should normally use `get_reliability_metrics()`. Tests
-    should create a fresh CollectorRegistry and instantiate this class
-    directly.
-
-    Multi-worker boundary:
-
-    These collectors are process-local unless prometheus_client multiprocess
-    mode is configured externally. Phase 11 multi-worker testing must verify
-    the final metrics deployment configuration separately.
-    """
 
     def __init__(
         self,
@@ -271,6 +234,52 @@ class ReliabilityMetrics:
         self.shutdown_inflight = Gauge(
             "cityroute_graceful_shutdown_inflight",
             "Protected requests still active during graceful shutdown.",
+            registry=registry,
+        )
+
+        self.http_requests_total = Counter(
+            "cityroute_http_requests_total",
+            "Total HTTP requests handled by CityRoute.",
+            labelnames=(
+                "method",
+                "path",
+                "status",
+            ),
+            registry=registry,
+        )
+
+        self.http_request_duration_seconds = Histogram(
+            "cityroute_http_request_duration_seconds",
+            "HTTP request latency in seconds.",
+            labelnames=(
+                "method",
+                "path",
+            ),
+            buckets=(
+                0.005,
+                0.01,
+                0.025,
+                0.05,
+                0.1,
+                0.25,
+                0.5,
+                1.0,
+                2.5,
+                5.0,
+                10.0,
+            ),
+            registry=registry,
+        )
+
+        self.graph_loaded = Gauge(
+            "cityroute_graph_loaded",
+            "Whether the road graph is loaded (1) or not (0).",
+            registry=registry,
+        )
+
+        self.snap_index_loaded = Gauge(
+            "cityroute_snap_index_loaded",
+            "Whether the BallTree snap index is loaded (1) or not (0).",
             registry=registry,
         )
 
@@ -448,6 +457,18 @@ class ReliabilityMetrics:
             )
         )
 
+    def set_graph_loaded(self, loaded: bool) -> None:
+        if not isinstance(loaded, bool):
+            raise TypeError("loaded must be a boolean")
+
+        self.graph_loaded.set(1 if loaded else 0)
+
+    def set_snap_index_loaded(self, loaded: bool) -> None:
+        if not isinstance(loaded, bool):
+            raise TypeError("loaded must be a boolean")
+
+        self.snap_index_loaded.set(1 if loaded else 0)
+
     def observe_admission(
         self,
         *,
@@ -539,17 +560,64 @@ class ReliabilityMetrics:
             reason=normalized_reason
         ).inc()
 
+    def observe_http_request(
+        self,
+        *,
+        method: str,
+        path: str,
+        status_code: int,
+        duration_s: float,
+    ) -> None:
+        if not isinstance(method, str) or not method.strip():
+            raise ValueError("method must be a non-empty string")
+
+        if not isinstance(path, str) or not path.strip():
+            raise ValueError("path must be a non-empty string")
+
+        if (
+            isinstance(status_code, bool)
+            or not isinstance(status_code, int)
+            or not 100 <= status_code <= 599
+        ):
+            raise ValueError(
+                "status_code must be an integer between 100 and 599"
+            )
+
+        normalized_duration = _validate_non_negative_number(
+            duration_s,
+            field_name="duration_s",
+        )
+
+        normalized_path = _normalize_path(path)
+
+        if normalized_path not in _ENDPOINT_GROUPS:
+            normalized_path = "/other"
+
+        self.http_requests_total.labels(
+            method=method.strip().upper(),
+            path=normalized_path,
+            status=str(status_code),
+        ).inc()
+
+        self.http_request_duration_seconds.labels(
+            method=method.strip().upper(),
+            path=normalized_path,
+        ).observe(normalized_duration)
+
     def observe_execution(
         self,
         *,
         endpoint: str,
         duration_s: float,
         outcome: object,
+        method: str | None = None,
+        status_code: int | None = None,
     ) -> None:
         normalized_outcome = _controlled_label(
             outcome,
             allowed_values=_ALLOWED_EXECUTION_OUTCOMES,
         )
+
         normalized_duration = _validate_non_negative_number(
             duration_s,
             field_name="duration_s",
@@ -559,6 +627,14 @@ class ReliabilityMetrics:
             endpoint_group=endpoint_group_for(endpoint),
             outcome=normalized_outcome,
         ).observe(normalized_duration)
+
+        if method is not None and status_code is not None:
+            self.observe_http_request(
+                method=method,
+                path=endpoint,
+                status_code=status_code,
+                duration_s=normalized_duration,
+            )
 
     def record_redis_failure(self, *, reason: object) -> None:
         normalized_reason = _controlled_label(
@@ -609,13 +685,6 @@ class ReliabilityMetrics:
         redis_snapshot: RedisHealthSnapshot | None = None,
         ready: bool | None = None,
     ) -> None:
-        """
-        Refresh current-value gauges from internally consistent snapshots.
-
-        Counters are deliberately not synchronized here because repeatedly
-        copying absolute counter values into Prometheus counters would
-        double-count events.
-        """
 
         if limiter_snapshot is not None:
             active_requests = limiter_snapshot.active_requests
@@ -663,13 +732,6 @@ _default_metrics_lock = Lock()
 
 
 def get_reliability_metrics() -> ReliabilityMetrics:
-    """
-    Return the process-local default reliability metrics instance.
-
-    Metric registration is lazy so importing this module does not immediately
-    mutate the default Prometheus registry.
-    """
-
     global _default_metrics
 
     if _default_metrics is not None:

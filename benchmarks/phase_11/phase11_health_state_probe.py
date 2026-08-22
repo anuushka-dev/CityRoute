@@ -40,7 +40,6 @@ from benchmarks.phase_11.phase11_common import (
     write_json,
 )
 
-
 DEFAULT_SAMPLES = 30
 DEFAULT_INTERVAL_S = 0.5
 

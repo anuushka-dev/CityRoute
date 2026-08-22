@@ -1,0 +1,954 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline": {
+    "liveness": {
+      "elapsed_ms": 26.17839997401461,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:53:07.319442+00:00",
+      "ok": true,
+      "path": "/health/live",
+      "response_summary": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 193.449
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-08-21T17:53:07.292740+00:00",
+      "status_code": 200
+    },
+    "metrics": {
+      "captured_at_utc": "2026-08-21T17:53:07.366637+00:00",
+      "elapsed_ms": 15.00559999840334,
+      "error_message": null,
+      "error_type": null,
+      "execution_sample_count": 8.0,
+      "raw_text_available": true,
+      "request_counter_total": 110.0,
+      "stage": "baseline",
+      "status_code": 200
+    },
+    "protected_request": {
+      "elapsed_ms": 22.61079999152571,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:53:07.351724+00:00",
+      "ok": true,
+      "path": "/route",
+      "response_summary": {
+        "algorithm": "astar",
+        "distance_km": 3.37,
+        "distance_m": 3370.185,
+        "end": {
+          "input": {
+            "lat": 26.468,
+            "lon": 80.352
+          },
+          "snap_distance_m": 30.15,
+          "snap_method": "balltree",
+          "snap_time_ms": 0.355,
+          "snapped": {
+            "lat": 26.4682542,
+            "lon": 80.3518946
+          },
+          "snapped_node": 8813220242
+        },
+        "eta_minutes": 7.97,
+        "eta_seconds": 478.1,
+        "geometry": [
+          {
+            "lat": 26.4552778,
+            "lon": 80.3310659
+          },
+          {
+            "lat": 26.4551484,
+            "lon": 80.3313716
+          },
+          {
+            "lat": 26.4558971,
+            "lon": 80.3318247
+          },
+          {
+            "lat": 26.454963,
+            "lon": 80.3335507
+          },
+          {
+            "lat": 26.4547901,
+            "lon": 80.3334622
+          },
+          {
+            "lat": 26.4545868,
+            "lon": 80.333828
+          },
+          {
+            "lat": 26.4540032,
+            "lon": 80.3343443
+          },
+          {
+            "lat": 26.4539457,
+            "lon": 80.3343644
+          },
+          {
+            "lat": 26.4539586,
+            "lon": 80.3344664
+          },
+          {
+            "lat": 26.4537479,
+            "lon": 80.3348338
+          },
+          {
+            "lat": 26.4535258,
+            "lon": 80.3354993
+          },
+          {
+            "lat": 26.4535471,
+            "lon": 80.3359406
+          },
+          {
+            "lat": 26.4534765,
+            "lon": 80.3360653
+          },
+          {
+            "lat": 26.4531935,
+            "lon": 80.3365988
+          },
+          {
+            "lat": 26.45329,
+            "lon": 80.3366709
+          },
+          {
+            "lat": 26.4534193,
+            "lon": 80.3367674
+          },
+          {
+            "lat": 26.453599,
+            "lon": 80.3369129
+          },
+          {
+            "lat": 26.4536578,
+            "lon": 80.3369866
+          },
+          {
+            "lat": 26.4540153,
+            "lon": 80.3374618
+          },
+          {
+            "lat": 26.4543087,
+            "lon": 80.3378631
+          },
+          {
+            "lat": 26.4545995,
+            "lon": 80.3382609
+          },
+          {
+            "lat": 26.4549927,
+            "lon": 80.3387988
+          },
+          {
+            "lat": 26.455088,
+            "lon": 80.3389291
+          },
+          {
+            "lat": 26.4551436,
+            "lon": 80.3390051
+          },
+          {
+            "lat": 26.4572963,
+            "lon": 80.3419531
+          },
+          {
+            "lat": 26.4576879,
+            "lon": 80.3424902
+          },
+          {
+            "lat": 26.4582836,
+            "lon": 80.3433058
+          },
+          {
+            "lat": 26.4588365,
+            "lon": 80.3440629
+          },
+          {
+            "lat": 26.4595222,
+            "lon": 80.3448944
+          },
+          {
+            "lat": 26.459481,
+            "lon": 80.3450151
+          },
+          {
+            "lat": 26.4592031,
+            "lon": 80.3457687
+          },
+          {
+            "lat": 26.4591571,
+            "lon": 80.3463981
+          },
+          {
+            "lat": 26.4592803,
+            "lon": 80.3464648
+          },
+          {
+            "lat": 26.4597778,
+            "lon": 80.346734
+          },
+          {
+            "lat": 26.4600191,
+            "lon": 80.3468646
+          },
+          {
+            "lat": 26.4601542,
+            "lon": 80.3469377
+          },
+          {
+            "lat": 26.4608121,
+            "lon": 80.3472649
+          },
+          {
+            "lat": 26.4608828,
+            "lon": 80.3472893
+          },
+          {
+            "lat": 26.4609668,
+            "lon": 80.3473154
+          },
+          {
+            "lat": 26.461214,
+            "lon": 80.347372
+          },
+          {
+            "lat": 26.4613771,
+            "lon": 80.3474882
+          },
+          {
+            "lat": 26.4616818,
+            "lon": 80.3476923
+          },
+          {
+            "lat": 26.4619046,
+            "lon": 80.347899
+          },
+          {
+            "lat": 26.4621162,
+            "lon": 80.3480483
+          },
+          {
+            "lat": 26.4622433,
+            "lon": 80.3481313
+          },
+          {
+            "lat": 26.4626034,
+            "lon": 80.3484085
+          },
+          {
+            "lat": 26.4626665,
+            "lon": 80.3484585
+          },
+          {
+            "lat": 26.4631807,
+            "lon": 80.3490409
+          },
+          {
+            "lat": 26.4634602,
+            "lon": 80.3489156
+          },
+          {
+            "lat": 26.4635328,
+            "lon": 80.3489803
+          },
+          {
+            "lat": 26.4638898,
+            "lon": 80.349385
+          },
+          {
+            "lat": 26.4640484,
+            "lon": 80.3496302
+          },
+          {
+            "lat": 26.4642577,
+            "lon": 80.3498827
+          },
+          {
+            "lat": 26.4644353,
+            "lon": 80.35004
+          },
+          {
+            "lat": 26.4646064,
+            "lon": 80.3502106
+          },
+          {
+            "lat": 26.4648053,
+            "lon": 80.3504138
+          },
+          {
+            "lat": 26.4649606,
+            "lon": 80.3505784
+          },
+          {
+            "lat": 26.4651449,
+            "lon": 80.350772
+          },
+          {
+            "lat": 26.4651853,
+            "lon": 80.3508144
+          },
+          {
+            "lat": 26.465494,
+            "lon": 80.3510485
+          },
+          {
+            "lat": 26.4655694,
+            "lon": 80.3509125
+          },
+          {
+            "lat": 26.4663531,
+            "lon": 80.3511818
+          },
+          {
+            "lat": 26.4662991,
+            "lon": 80.3516704
+          },
+          {
+            "lat": 26.4662631,
+            "lon": 80.3516892
+          },
+          {
+            "lat": 26.4669378,
+            "lon": 80.3526092
+          },
+          {
+            "lat": 26.4673444,
+            "lon": 80.3530378
+          },
+          {
+            "lat": 26.4677938,
+            "lon": 80.3528013
+          },
+          {
+            "lat": 26.4680135,
+            "lon": 80.3526306
+          },
+          {
+            "lat": 26.4680486,
+            "lon": 80.3524963
+          },
+          {
+            "lat": 26.4682542,
+            "lon": 80.3518946
+          }
+        ],
+        "nodes_expanded": 807,
+        "path_node_count": 70,
+        "route_time_ms": 8.697,
+        "start": {
+          "input": {
+            "lat": 26.455,
+            "lon": 80.331
+          },
+          "snap_distance_m": 31.579,
+          "snap_method": "balltree",
+          "snap_time_ms": 0.649,
+          "snapped": {
+            "lat": 26.4552778,
+            "lon": 80.3310659
+          },
+          "snapped_node": 8813602568
+        },
+        "status": "ok",
+        "total_time_ms": 10.137
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-08-21T17:53:07.328917+00:00",
+      "status_code": 200
+    },
+    "readiness": {
+      "elapsed_ms": 9.550499962642789,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:53:07.328917+00:00",
+      "ok": true,
+      "path": "/health/ready",
+      "response_summary": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 193.459
+      },
+      "stage": "baseline",
+      "started_at_utc": "2026-08-21T17:53:07.319442+00:00",
+      "status_code": 200
+    }
+  },
+  "benchmark": "phase11_failure_injection_probe",
+  "configuration": {
+    "api_container": "d96c563eb602",
+    "docker_bin": "docker",
+    "fail_on_validation_error": true,
+    "pause_hold_s": 3.0,
+    "poll_interval_s": 0.5,
+    "require_metrics_recovery": true,
+    "require_readiness_recovery": true,
+    "state_timeout_s": 30.0,
+    "timeout_s": 30.0
+  },
+  "container": {
+    "id": "d96c563eb602514a5fc980033ee51060e0e75065899b333364974619075043f1",
+    "name": "cityroute-api-tier4-phase11"
+  },
+  "failure_mechanism": "docker pause / docker unpause",
+  "failure_mode": "transient_api_container_freeze",
+  "finished_at_utc": "2026-08-21T17:54:41.988505+00:00",
+  "freeze_evidence": {
+    "captured_at_utc": "2026-08-21T17:54:41.987960+00:00",
+    "docker_pause_ok": true,
+    "pause_command": {
+      "command": [
+        "docker",
+        "pause",
+        "d96c563eb602"
+      ],
+      "elapsed_ms": 170.36480002570897,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:53:07.538241+00:00",
+      "ok": true,
+      "operation": "pause_api_container",
+      "return_code": 0,
+      "started_at_utc": "2026-08-21T17:53:07.368283+00:00",
+      "stderr": "",
+      "stdout": "d96c563eb602"
+    },
+    "pause_state": {
+      "captured_at_utc": "2026-08-21T17:53:07.634807+00:00",
+      "container_id": "d96c563eb602514a5fc980033ee51060e0e75065899b333364974619075043f1",
+      "container_name": "cityroute-api-tier4-phase11",
+      "error_message": null,
+      "error_type": null,
+      "paused": true,
+      "running": true,
+      "status": "paused"
+    },
+    "paused_state_observed": true,
+    "requested": true
+  },
+  "initial_container_state": {
+    "captured_at_utc": "2026-08-21T17:53:06.608642+00:00",
+    "container_id": "d96c563eb602514a5fc980033ee51060e0e75065899b333364974619075043f1",
+    "container_name": "cityroute-api-tier4-phase11",
+    "error_message": null,
+    "error_type": null,
+    "paused": false,
+    "running": true,
+    "status": "running"
+  },
+  "paused_observations": {
+    "liveness": {
+      "elapsed_ms": 30012.750199995935,
+      "error_message": "",
+      "error_type": "ReadTimeout",
+      "finished_at_utc": "2026-08-21T17:53:37.647294+00:00",
+      "ok": false,
+      "path": "/health/live",
+      "response_summary": null,
+      "stage": "paused",
+      "started_at_utc": "2026-08-21T17:53:07.635810+00:00",
+      "status_code": null
+    },
+    "metrics": {
+      "captured_at_utc": "2026-08-21T17:54:37.680137+00:00",
+      "elapsed_ms": 30017.576299957,
+      "error_message": "",
+      "error_type": "ReadTimeout",
+      "execution_sample_count": null,
+      "raw_text_available": false,
+      "request_counter_total": null,
+      "stage": "paused",
+      "status_code": null
+    },
+    "readiness": {
+      "elapsed_ms": 30015.10210003471,
+      "error_message": "",
+      "error_type": "ReadTimeout",
+      "finished_at_utc": "2026-08-21T17:54:07.662083+00:00",
+      "ok": false,
+      "path": "/health/ready",
+      "response_summary": null,
+      "stage": "paused",
+      "started_at_utc": "2026-08-21T17:53:37.647294+00:00",
+      "status_code": null
+    }
+  },
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "recovered_observations": {
+    "liveness": {
+      "elapsed_ms": 532.0754999993369,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:54:41.448039+00:00",
+      "ok": true,
+      "path": "/health/live",
+      "response_summary": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 287.588
+      },
+      "stage": "recovered",
+      "started_at_utc": "2026-08-21T17:54:40.915873+00:00",
+      "status_code": 200
+    },
+    "metrics": {
+      "captured_at_utc": "2026-08-21T17:54:41.985776+00:00",
+      "elapsed_ms": 13.762399961706251,
+      "error_message": null,
+      "error_type": null,
+      "execution_sample_count": 8.0,
+      "raw_text_available": true,
+      "request_counter_total": 111.0,
+      "stage": "recovered",
+      "status_code": 200
+    },
+    "protected_request": {
+      "elapsed_ms": 23.034200014080852,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:54:41.971679+00:00",
+      "ok": true,
+      "path": "/route",
+      "response_summary": {
+        "algorithm": "astar",
+        "distance_km": 3.37,
+        "distance_m": 3370.185,
+        "end": {
+          "input": {
+            "lat": 26.468,
+            "lon": 80.352
+          },
+          "snap_distance_m": 30.15,
+          "snap_method": "balltree",
+          "snap_time_ms": 0.204,
+          "snapped": {
+            "lat": 26.4682542,
+            "lon": 80.3518946
+          },
+          "snapped_node": 8813220242
+        },
+        "eta_minutes": 7.97,
+        "eta_seconds": 478.1,
+        "geometry": [
+          {
+            "lat": 26.4552778,
+            "lon": 80.3310659
+          },
+          {
+            "lat": 26.4551484,
+            "lon": 80.3313716
+          },
+          {
+            "lat": 26.4558971,
+            "lon": 80.3318247
+          },
+          {
+            "lat": 26.454963,
+            "lon": 80.3335507
+          },
+          {
+            "lat": 26.4547901,
+            "lon": 80.3334622
+          },
+          {
+            "lat": 26.4545868,
+            "lon": 80.333828
+          },
+          {
+            "lat": 26.4540032,
+            "lon": 80.3343443
+          },
+          {
+            "lat": 26.4539457,
+            "lon": 80.3343644
+          },
+          {
+            "lat": 26.4539586,
+            "lon": 80.3344664
+          },
+          {
+            "lat": 26.4537479,
+            "lon": 80.3348338
+          },
+          {
+            "lat": 26.4535258,
+            "lon": 80.3354993
+          },
+          {
+            "lat": 26.4535471,
+            "lon": 80.3359406
+          },
+          {
+            "lat": 26.4534765,
+            "lon": 80.3360653
+          },
+          {
+            "lat": 26.4531935,
+            "lon": 80.3365988
+          },
+          {
+            "lat": 26.45329,
+            "lon": 80.3366709
+          },
+          {
+            "lat": 26.4534193,
+            "lon": 80.3367674
+          },
+          {
+            "lat": 26.453599,
+            "lon": 80.3369129
+          },
+          {
+            "lat": 26.4536578,
+            "lon": 80.3369866
+          },
+          {
+            "lat": 26.4540153,
+            "lon": 80.3374618
+          },
+          {
+            "lat": 26.4543087,
+            "lon": 80.3378631
+          },
+          {
+            "lat": 26.4545995,
+            "lon": 80.3382609
+          },
+          {
+            "lat": 26.4549927,
+            "lon": 80.3387988
+          },
+          {
+            "lat": 26.455088,
+            "lon": 80.3389291
+          },
+          {
+            "lat": 26.4551436,
+            "lon": 80.3390051
+          },
+          {
+            "lat": 26.4572963,
+            "lon": 80.3419531
+          },
+          {
+            "lat": 26.4576879,
+            "lon": 80.3424902
+          },
+          {
+            "lat": 26.4582836,
+            "lon": 80.3433058
+          },
+          {
+            "lat": 26.4588365,
+            "lon": 80.3440629
+          },
+          {
+            "lat": 26.4595222,
+            "lon": 80.3448944
+          },
+          {
+            "lat": 26.459481,
+            "lon": 80.3450151
+          },
+          {
+            "lat": 26.4592031,
+            "lon": 80.3457687
+          },
+          {
+            "lat": 26.4591571,
+            "lon": 80.3463981
+          },
+          {
+            "lat": 26.4592803,
+            "lon": 80.3464648
+          },
+          {
+            "lat": 26.4597778,
+            "lon": 80.346734
+          },
+          {
+            "lat": 26.4600191,
+            "lon": 80.3468646
+          },
+          {
+            "lat": 26.4601542,
+            "lon": 80.3469377
+          },
+          {
+            "lat": 26.4608121,
+            "lon": 80.3472649
+          },
+          {
+            "lat": 26.4608828,
+            "lon": 80.3472893
+          },
+          {
+            "lat": 26.4609668,
+            "lon": 80.3473154
+          },
+          {
+            "lat": 26.461214,
+            "lon": 80.347372
+          },
+          {
+            "lat": 26.4613771,
+            "lon": 80.3474882
+          },
+          {
+            "lat": 26.4616818,
+            "lon": 80.3476923
+          },
+          {
+            "lat": 26.4619046,
+            "lon": 80.347899
+          },
+          {
+            "lat": 26.4621162,
+            "lon": 80.3480483
+          },
+          {
+            "lat": 26.4622433,
+            "lon": 80.3481313
+          },
+          {
+            "lat": 26.4626034,
+            "lon": 80.3484085
+          },
+          {
+            "lat": 26.4626665,
+            "lon": 80.3484585
+          },
+          {
+            "lat": 26.4631807,
+            "lon": 80.3490409
+          },
+          {
+            "lat": 26.4634602,
+            "lon": 80.3489156
+          },
+          {
+            "lat": 26.4635328,
+            "lon": 80.3489803
+          },
+          {
+            "lat": 26.4638898,
+            "lon": 80.349385
+          },
+          {
+            "lat": 26.4640484,
+            "lon": 80.3496302
+          },
+          {
+            "lat": 26.4642577,
+            "lon": 80.3498827
+          },
+          {
+            "lat": 26.4644353,
+            "lon": 80.35004
+          },
+          {
+            "lat": 26.4646064,
+            "lon": 80.3502106
+          },
+          {
+            "lat": 26.4648053,
+            "lon": 80.3504138
+          },
+          {
+            "lat": 26.4649606,
+            "lon": 80.3505784
+          },
+          {
+            "lat": 26.4651449,
+            "lon": 80.350772
+          },
+          {
+            "lat": 26.4651853,
+            "lon": 80.3508144
+          },
+          {
+            "lat": 26.465494,
+            "lon": 80.3510485
+          },
+          {
+            "lat": 26.4655694,
+            "lon": 80.3509125
+          },
+          {
+            "lat": 26.4663531,
+            "lon": 80.3511818
+          },
+          {
+            "lat": 26.4662991,
+            "lon": 80.3516704
+          },
+          {
+            "lat": 26.4662631,
+            "lon": 80.3516892
+          },
+          {
+            "lat": 26.4669378,
+            "lon": 80.3526092
+          },
+          {
+            "lat": 26.4673444,
+            "lon": 80.3530378
+          },
+          {
+            "lat": 26.4677938,
+            "lon": 80.3528013
+          },
+          {
+            "lat": 26.4680135,
+            "lon": 80.3526306
+          },
+          {
+            "lat": 26.4680486,
+            "lon": 80.3524963
+          },
+          {
+            "lat": 26.4682542,
+            "lon": 80.3518946
+          }
+        ],
+        "nodes_expanded": 807,
+        "path_node_count": 70,
+        "route_time_ms": 6.447,
+        "start": {
+          "input": {
+            "lat": 26.455,
+            "lon": 80.331
+          },
+          "snap_distance_m": 31.579,
+          "snap_method": "balltree",
+          "snap_time_ms": 0.441,
+          "snapped": {
+            "lat": 26.4552778,
+            "lon": 80.3310659
+          },
+          "snapped_node": 8813602568
+        },
+        "status": "ok",
+        "total_time_ms": 7.366
+      },
+      "stage": "recovered",
+      "started_at_utc": "2026-08-21T17:54:41.948584+00:00",
+      "status_code": 200
+    },
+    "readiness": {
+      "elapsed_ms": 499.0665999939665,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:54:41.948049+00:00",
+      "ok": true,
+      "path": "/health/ready",
+      "response_summary": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 288.086
+      },
+      "stage": "recovered",
+      "started_at_utc": "2026-08-21T17:54:41.449248+00:00",
+      "status_code": 200
+    }
+  },
+  "recovery_evidence": {
+    "captured_at_utc": "2026-08-21T17:54:41.987960+00:00",
+    "liveness_recovered": true,
+    "readiness_recovered": true,
+    "recovered_metrics": {
+      "captured_at_utc": "2026-08-21T17:54:41.985776+00:00",
+      "elapsed_ms": 13.762399961706251,
+      "error_message": null,
+      "error_type": null,
+      "execution_sample_count": 8.0,
+      "raw_text_available": true,
+      "request_counter_total": 111.0,
+      "stage": "recovered",
+      "status_code": 200
+    },
+    "restored_container_state": {
+      "captured_at_utc": "2026-08-21T17:54:40.915342+00:00",
+      "container_id": "d96c563eb602514a5fc980033ee51060e0e75065899b333364974619075043f1",
+      "container_name": "cityroute-api-tier4-phase11",
+      "error_message": null,
+      "error_type": null,
+      "paused": false,
+      "running": true,
+      "status": "running"
+    },
+    "running_state_observed": true,
+    "unpause_command": {
+      "command": [
+        "docker",
+        "unpause",
+        "d96c563eb602"
+      ],
+      "elapsed_ms": 139.6499000256881,
+      "error_message": null,
+      "error_type": null,
+      "finished_at_utc": "2026-08-21T17:54:40.823570+00:00",
+      "ok": true,
+      "operation": "unpause_api_container",
+      "return_code": 0,
+      "started_at_utc": "2026-08-21T17:54:40.683544+00:00",
+      "stderr": "",
+      "stdout": "d96c563eb602"
+    }
+  },
+  "runtime_metadata": {
+    "base_url": "http://127.0.0.1:8001",
+    "captured_at_utc": "2026-08-21T17:54:42.093020+00:00",
+    "cwd": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "git_branch": "tier4-phase11-reliability",
+    "git_commit": "81e676fca8cc0b3e49e117200bdf2d6f6c270829",
+    "git_dirty": true,
+    "hostname": "MSI",
+    "machine": "AMD64",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "pid": 29780,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "started_at_utc": "2026-08-21T17:53:06.285901+00:00",
+  "target": "docker",
+  "validation": {
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [
+      "Container status changed away from running while paused"
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "benchmark": "phase11_health_state_probe",
+  "component_state_distributions": {
+    "dispatch_adjacency": {
+      "ready": 30
+    },
+    "graph": {
+      "ready": 30
+    },
+    "redis": {
+      "ready": 30
+    },
+    "snap_index": {
+      "ready": 30
+    }
+  },
+  "failed_snapshot_count": 0,
+  "health_status_distribution": {
+    "ok": 30
+  },
+  "latency_summaries": {
+    "GET /graph/stats": {
+      "count": 30,
+      "failure_count": 0,
+      "max_ms": 8.557100023608655,
+      "mean_ms": 4.6072366744435085,
+      "median_ms": 4.533450002782047,
+      "min_ms": 3.450100019108504,
+      "p90_ms": 5.035679962020368,
+      "p95_ms": 6.000590039184314,
+      "p99_ms": 7.921913031605074,
+      "stdev_ms": 0.951289431751509,
+      "success_count": 30,
+      "success_rate": 1.0
+    },
+    "GET /health": {
+      "count": 30,
+      "failure_count": 0,
+      "max_ms": 5.433499987702817,
+      "mean_ms": 4.021593338499467,
+      "median_ms": 4.1431500285398215,
+      "min_ms": 3.087199991568923,
+      "p90_ms": 4.592220013728365,
+      "p95_ms": 4.694610007572919,
+      "p99_ms": 5.219769997638651,
+      "stdev_ms": 0.5332107994262131,
+      "success_count": 30,
+      "success_rate": 1.0
+    },
+    "GET /health/live": {
+      "count": 30,
+      "failure_count": 0,
+      "max_ms": 11.32710004458204,
+      "mean_ms": 5.633709998801351,
+      "median_ms": 5.563499988056719,
+      "min_ms": 4.467199963983148,
+      "p90_ms": 6.485359999351205,
+      "p95_ms": 7.614245018339714,
+      "p99_ms": 10.315870041958991,
+      "stdev_ms": 1.3268063244821546,
+      "success_count": 30,
+      "success_rate": 1.0
+    },
+    "GET /health/ready": {
+      "count": 30,
+      "failure_count": 0,
+      "max_ms": 6.0680999886244535,
+      "mean_ms": 4.462686660311495,
+      "median_ms": 4.236849956214428,
+      "min_ms": 3.351899969857186,
+      "p90_ms": 5.283379985485226,
+      "p95_ms": 5.620240012649446,
+      "p99_ms": 5.9782579966122285,
+      "stdev_ms": 0.6760044278441116,
+      "success_count": 30,
+      "success_rate": 1.0
+    },
+    "GET /metrics": {
+      "count": 30,
+      "failure_count": 0,
+      "max_ms": 13.778499967884272,
+      "mean_ms": 7.287676671209435,
+      "median_ms": 6.915000005392358,
+      "min_ms": 5.700900044757873,
+      "p90_ms": 8.33316997741349,
+      "p95_ms": 8.605445036664605,
+      "p99_ms": 12.300485989544544,
+      "stdev_ms": 1.4221003404975379,
+      "success_count": 30,
+      "success_rate": 1.0
+    }
+  },
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_health_state_probe_raw_20260821_175104.json",
+  "readiness_status_distribution": {
+    "ready": 30
+  },
+  "sample_count": 30,
+  "success_rate": 1.0,
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_health_state_probe_summary_20260821_175104.json",
+  "target": "docker"
+}

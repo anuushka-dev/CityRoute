@@ -1,0 +1,52 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_first_cache_hit": true,
+  "baseline_latency": {
+    "count": 2,
+    "max_ms": 14.097900013439357,
+    "mean_ms": 13.997050002217293,
+    "median_ms": 13.997050002217293,
+    "min_ms": 13.896199990995228,
+    "p90_ms": 14.077730011194944,
+    "p95_ms": 14.08781501231715,
+    "p99_ms": 14.095883013214916
+  },
+  "baseline_redis_healthy": true,
+  "baseline_second_cache_hit": true,
+  "benchmark": "phase11_redis_failure_probe",
+  "degraded_detection_ms": 4222.776799986605,
+  "degraded_state_reached": true,
+  "fail_open_cache_error": "Error -5 connecting to redis:6379. No address associated with hostname.",
+  "fail_open_cache_hit": false,
+  "fail_open_matrix_status_code": 200,
+  "failure_action_ok": true,
+  "final_redis_healthy": true,
+  "healthy_state_recovered": true,
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_raw_20260821_180952.json",
+  "recovery_action_ok": true,
+  "recovery_detection_ms": 14148.60159996897,
+  "recovery_first_cache_hit": true,
+  "recovery_latency": {
+    "count": 2,
+    "max_ms": 14.424599998164922,
+    "mean_ms": 14.099399995757267,
+    "median_ms": 14.099399995757267,
+    "min_ms": 13.774199993349612,
+    "p90_ms": 14.359559997683391,
+    "p95_ms": 14.392079997924156,
+    "p99_ms": 14.418095998116769
+  },
+  "recovery_second_cache_hit": true,
+  "redis_metric_deltas": {
+    "cityroute_redis_available": 0.0,
+    "cityroute_redis_recoveries_created": 0.0,
+    "cityroute_redis_recoveries_total": 0.0
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_summary_20260821_180952.json",
+  "target": "docker",
+  "validation_errors": [],
+  "warnings": []
+}

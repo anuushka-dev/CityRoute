@@ -16,6 +16,7 @@ from app.core.concurrency_limiter import (
     ConcurrencyLimiter,
 )
 from app.infrastructure.resilience_state import ResilienceState
+from app.observability.reliability_metrics import ReliabilityMetrics
 
 logger = logging.getLogger(__name__)
 
@@ -92,34 +93,6 @@ def _normalize_endpoint_key(endpoint: EndpointKey) -> EndpointKey:
 
 
 class ConcurrencyControlMiddleware:
-    """
-    Pure ASGI middleware providing bounded request admission.
-
-    Only explicitly protected, computationally expensive CityRoute endpoints
-    pass through the concurrency limiter. Operational endpoints such as
-    liveness, readiness, metrics, documentation, and OpenAPI remain available
-    during saturation.
-
-    Admission outcomes:
-
-        available active capacity
-            -> request executes immediately
-
-        active capacity full and queue capacity available
-            -> request waits for bounded admission
-
-        waiting queue full
-            -> HTTP 429
-
-        admission deadline exceeded
-            -> HTTP 503
-
-        limiter closed during shutdown
-            -> HTTP 503
-
-    The limiter and resilience state are process-local. Each Uvicorn worker
-    owns an independent middleware, limiter, and state instance.
-    """
 
     def __init__(
         self,
@@ -127,6 +100,7 @@ class ConcurrencyControlMiddleware:
         *,
         limiter: ConcurrencyLimiter,
         resilience_state: ResilienceState | None = None,
+        reliability_metrics: ReliabilityMetrics | None = None,
         protected_endpoints: Collection[EndpointKey] | None = None,
         wait_timeout_s: float | None = None,
         retry_after_s: int = 1,
@@ -146,6 +120,7 @@ class ConcurrencyControlMiddleware:
         self._app = app
         self._limiter = limiter
         self._resilience_state = resilience_state
+        self._reliability_metrics = reliability_metrics
         self._protected_endpoints = frozenset(
             _normalize_endpoint_key(endpoint)
             for endpoint in endpoints
@@ -186,6 +161,11 @@ class ConcurrencyControlMiddleware:
             )
             return
 
+        self._record_admission_metrics(
+            endpoint=path,
+            outcome=outcome,
+        )
+
         lease = outcome.require_lease()
         state_request_started = False
 
@@ -218,12 +198,6 @@ class ConcurrencyControlMiddleware:
         method: str,
         path: str,
     ) -> bool:
-        """
-        Return whether this request is subject to bounded admission.
-
-        OPTIONS requests bypass the limiter so CORS preflight and basic
-        operational access do not consume routing or dispatch capacity.
-        """
 
         if method == "OPTIONS":
             return False
@@ -232,6 +206,62 @@ class ConcurrencyControlMiddleware:
             (method, path) in self._protected_endpoints
             or ("*", path) in self._protected_endpoints
         )
+
+    def _record_admission_metrics(
+        self,
+        *,
+        endpoint: str,
+        outcome: AdmissionOutcome,
+        ) -> None:
+
+        if self._reliability_metrics is None:
+            return
+
+        try:
+            self._reliability_metrics.observe_admission(
+                endpoint=endpoint,
+                waited_ms=outcome.waited_ms,
+                queued=outcome.queued,
+            )
+        except Exception:
+            logger.exception(
+                "Unable to record admission metrics | "
+                "endpoint=%s | queued=%s | waited_ms=%.3f",
+                endpoint,
+                outcome.queued,
+                outcome.waited_ms,
+            )
+    
+    def _record_rejection_metrics(
+        self,
+        *,
+        endpoint: str,
+        reason: AdmissionRejectionReason,
+        waited_ms: float,
+    ) -> None:
+
+        if self._reliability_metrics is None:
+            return
+
+        try:
+            self._reliability_metrics.record_admission_rejection(
+                endpoint=endpoint,
+                reason=reason,
+                waited_ms=waited_ms,
+            )
+
+            if reason in {"queue_full", "wait_timeout"}:
+                self._reliability_metrics.record_overload(
+                    reason=reason,
+                )
+        except Exception:
+            logger.exception(
+                "Unable to record rejection metrics | "
+                "endpoint=%s | reason=%s | waited_ms=%.3f",
+                endpoint,
+                reason,
+                waited_ms,
+            )
 
     async def _handle_rejection(
         self,
@@ -253,6 +283,12 @@ class ConcurrencyControlMiddleware:
 
             if reason in {"queue_full", "wait_timeout"}:
                 await self._resilience_state.overload_event(reason)
+
+        self._record_rejection_metrics(
+            endpoint=path,
+            reason=reason,
+            waited_ms=outcome.waited_ms,
+            )
 
         status_code = _REJECTION_STATUS_CODES[reason]
         message = _REJECTION_MESSAGES[reason]
@@ -312,12 +348,6 @@ class ConcurrencyControlMiddleware:
         send: Send,
         outcome: AdmissionOutcome,
     ) -> Send:
-        """
-        Add bounded-admission telemetry to accepted HTTP responses.
-
-        This wrapper changes response headers only. It does not buffer or
-        modify the response body.
-        """
 
         if not self._emit_admission_headers:
             return send

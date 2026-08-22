@@ -1,0 +1,3907 @@
+{
+  "accepted_latency": {
+    "count": 24,
+    "max_ms": 2784.1990000451915,
+    "mean_ms": 1946.9692208294873,
+    "median_ms": 1868.7543999694753,
+    "min_ms": 1002.0623999880627,
+    "p90_ms": 2652.4791799718514,
+    "p95_ms": 2747.458065036335,
+    "p99_ms": 2779.4942120462656
+  },
+  "after_metrics": {
+    "counters": {
+      "cityroute_admission_decisions_total": {
+        "declared": true,
+        "sample_count": 3,
+        "total": 219.0
+      },
+      "cityroute_overload_events_total": {
+        "declared": true,
+        "sample_count": 2,
+        "total": 168.0
+      },
+      "cityroute_request_rejections_total": {
+        "declared": true,
+        "sample_count": 2,
+        "total": 168.0
+      }
+    },
+    "error_message": null,
+    "error_type": null,
+    "gauges": {
+      "cityroute_accepting_requests": 1.0,
+      "cityroute_active_requests": 0.0,
+      "cityroute_graceful_shutdown_inflight": 0.0,
+      "cityroute_max_active_requests": 4.0,
+      "cityroute_max_waiting_requests": 8.0,
+      "cityroute_readiness": 1.0,
+      "cityroute_redis_available": 1.0,
+      "cityroute_waiting_requests": 0.0
+    },
+    "status_code": 200
+  },
+  "base_url": "http://127.0.0.1:8001",
+  "baseline_metrics": {
+    "counters": {
+      "cityroute_admission_decisions_total": {
+        "declared": true,
+        "sample_count": 3,
+        "total": 146.0
+      },
+      "cityroute_overload_events_total": {
+        "declared": true,
+        "sample_count": 2,
+        "total": 120.0
+      },
+      "cityroute_request_rejections_total": {
+        "declared": true,
+        "sample_count": 2,
+        "total": 120.0
+      }
+    },
+    "error_message": null,
+    "error_type": null,
+    "gauges": {
+      "cityroute_accepting_requests": 1.0,
+      "cityroute_active_requests": 0.0,
+      "cityroute_graceful_shutdown_inflight": 0.0,
+      "cityroute_max_active_requests": 4.0,
+      "cityroute_max_waiting_requests": 8.0,
+      "cityroute_readiness": 1.0,
+      "cityroute_redis_available": 1.0,
+      "cityroute_waiting_requests": 0.0
+    },
+    "status_code": 200
+  },
+  "benchmark": "phase11_overload_probe",
+  "configuration": {
+    "algorithm": "source_dijkstra",
+    "configured_max_active": 4,
+    "configured_max_waiting": 8,
+    "configured_total_capacity": 12,
+    "matrix_size": 25,
+    "monitor_interval_s": 0.025,
+    "recovery_timeout_s": 15.0,
+    "requests_per_round": 24,
+    "require_counter_evidence": false,
+    "require_queue_full": true,
+    "require_wait_timeout": true,
+    "rounds": 3,
+    "startup_timeout_s": 180.0,
+    "timeout_s": 60.0,
+    "use_cache": false
+  },
+  "counter_deltas": {
+    "cityroute_admission_decisions_total": 73.0,
+    "cityroute_overload_events_total": 48.0,
+    "cityroute_request_rejections_total": 48.0
+  },
+  "finished_at_utc": "2026-08-21T17:51:42.006314+00:00",
+  "minimum_accepting_requests_metric": 1.0,
+  "minimum_readiness_metric": 1.0,
+  "outcome_counts": {
+    "accepted": 24,
+    "controlled_overload": 48
+  },
+  "overall_ok": true,
+  "peak_active_requests": 4.0,
+  "peak_total_in_system": 12.0,
+  "peak_waiting_requests": 8.0,
+  "per_round_summaries": [
+    {
+      "elapsed_ms": 2883.4660000284202,
+      "monitor_sample_count": 5,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 0,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    },
+    {
+      "elapsed_ms": 2429.569600033574,
+      "monitor_sample_count": 4,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 1,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    },
+    {
+      "elapsed_ms": 2664.6466000238433,
+      "monitor_sample_count": 4,
+      "monitor_validation_error_count": 0,
+      "outcome_counts": {
+        "accepted": 8,
+        "controlled_overload": 16
+      },
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 8.0,
+      "reason_counts": {
+        "queue_full": 12,
+        "wait_timeout": 4
+      },
+      "round_index": 2,
+      "status_code_counts": {
+        "200": 8,
+        "429": 12,
+        "503": 4
+      }
+    }
+  ],
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "preflight": {
+    "elapsed_ms": 178.86530002579093,
+    "response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": false,
+        "error": null,
+        "hit": false,
+        "key": null,
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "generation_time_ms": 161.567,
+      "n": 5,
+      "pair_count": 25,
+      "parallel_workers": 8,
+      "status": "ok"
+    },
+    "status_code": 200
+  },
+  "queue_full_admission_wait": {
+    "count": 36,
+    "max_ms": 756.116,
+    "mean_ms": 213.43333333333334,
+    "median_ms": 119.32300000000001,
+    "min_ms": 0.007,
+    "p90_ms": 596.638,
+    "p95_ms": 733.66475,
+    "p99_ms": 751.91495
+  },
+  "queue_full_latency": {
+    "count": 36,
+    "max_ms": 1354.6781999757513,
+    "mean_ms": 1029.1321111095992,
+    "median_ms": 1142.409599997336,
+    "min_ms": 483.1666999962181,
+    "p90_ms": 1316.0964499984402,
+    "p95_ms": 1325.8904249814805,
+    "p99_ms": 1347.6526499784086
+  },
+  "reason_counts": {
+    "queue_full": 36,
+    "wait_timeout": 12
+  },
+  "recovery": {
+    "idle_recovery": {
+      "final_counters": {
+        "cityroute_admission_decisions_total": {
+          "declared": true,
+          "sample_count": 3,
+          "total": 219.0
+        },
+        "cityroute_overload_events_total": {
+          "declared": true,
+          "sample_count": 2,
+          "total": 168.0
+        },
+        "cityroute_request_rejections_total": {
+          "declared": true,
+          "sample_count": 2,
+          "total": 168.0
+        }
+      },
+      "final_gauges": {
+        "cityroute_accepting_requests": 1.0,
+        "cityroute_active_requests": 0.0,
+        "cityroute_graceful_shutdown_inflight": 0.0,
+        "cityroute_max_active_requests": 4.0,
+        "cityroute_max_waiting_requests": 8.0,
+        "cityroute_readiness": 1.0,
+        "cityroute_redis_available": 1.0,
+        "cityroute_waiting_requests": 0.0
+      },
+      "recovered": true,
+      "samples": [
+        {
+          "captured_at_utc": "2026-08-21T17:51:41.809088+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 219.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            }
+          },
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "metrics_status_code": 200
+        }
+      ],
+      "timed_out": false
+    },
+    "liveness_json": {
+      "phase": "tier4_phase11",
+      "status": "alive",
+      "uptime_s": 107.951
+    },
+    "liveness_status_code": 200,
+    "matrix_elapsed_ms": 168.8916000421159,
+    "matrix_response_summary": {
+      "algorithm": "source_dijkstra",
+      "cache": {
+        "enabled": false,
+        "error": null,
+        "hit": false,
+        "key": null,
+        "ttl_seconds": 86400
+      },
+      "computed_pairs": 25,
+      "failed_pairs": 0,
+      "generation_time_ms": 156.36,
+      "n": 5,
+      "pair_count": 25,
+      "parallel_workers": 8,
+      "status": "ok"
+    },
+    "matrix_status_code": 200,
+    "readiness_json": {
+      "accepting_requests": true,
+      "components": {
+        "dispatch_adjacency": "ready",
+        "graph": "ready",
+        "redis": "ready",
+        "snap_index": "ready"
+      },
+      "degraded_dependencies": [],
+      "failure_reasons": [],
+      "phase": "tier4_phase11",
+      "ready": true,
+      "shutting_down": false,
+      "startup_complete": true,
+      "status": "ready",
+      "uptime_s": 107.942
+    },
+    "readiness_status_code": 200
+  },
+  "results_dir_override": null,
+  "rounds": [
+    {
+      "elapsed_ms": 2883.4660000284202,
+      "monitor_samples": [
+        {
+          "captured_at_utc": "2026-08-21T17:51:33.293352+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 147.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 120.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 120.0
+            }
+          },
+          "elapsed_from_round_start_ms": 473.79040002124384,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 99.63
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 99.875
+          },
+          "readiness_status_code": 200,
+          "round_index": 0,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:33.791194+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 163.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 132.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 132.0
+            }
+          },
+          "elapsed_from_round_start_ms": 1646.2353999959305,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 8.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 100.871
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 101.046
+          },
+          "readiness_status_code": 200,
+          "round_index": 0,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:34.976996+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 171.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2770.9828999941237,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 102.101
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 102.168
+          },
+          "readiness_status_code": 200,
+          "round_index": 0,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:36.087076+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 171.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2840.7264000270516,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 1.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 102.244
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 102.255
+          },
+          "readiness_status_code": 200,
+          "round_index": 0,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:36.130279+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 171.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2880.6487999972887,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 102.277
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 102.294
+          },
+          "readiness_status_code": 200,
+          "round_index": 0,
+          "validation_errors": []
+        }
+      ],
+      "request_results": [
+        {
+          "admission_wait_ms": 0.008,
+          "elapsed_ms": 1002.0623999880627,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.298773+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 0,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.008",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 414.082,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.296594+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.01,
+          "elapsed_ms": 1435.0371999898925,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.735004+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 1,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.010",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 934.548,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.300051+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.007,
+          "elapsed_ms": 1436.288099968806,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.739375+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 2,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.007",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 957.289,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.303257+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.006,
+          "elapsed_ms": 1422.6141000399366,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.728494+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 3,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.006",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 833.466,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.305888+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 984.203,
+          "elapsed_ms": 2646.19010000024,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:35.955040+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 4,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "984.203",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1057.884,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.309282+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1000.969,
+          "elapsed_ms": 1433.3265000022948,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.745882+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 5,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1000.969",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 3
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1000.969
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.312412+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 991.08,
+          "elapsed_ms": 2655.174499959685,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:35.970681+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 6,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "991.080",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1110.437,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.315145+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 983.945,
+          "elapsed_ms": 2784.1990000451915,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:36.102531+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 7,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "983.945",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1361.38,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.318390+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 986.859,
+          "elapsed_ms": 2763.7434000498615,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:36.085065+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 8,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "986.859",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1309.341,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.321613+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1000.745,
+          "elapsed_ms": 1480.6859000236727,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.804956+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 9,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1000.745",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 2
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1000.745
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.324482+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1045.675,
+          "elapsed_ms": 1566.1757999914698,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.893104+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 10,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1045.675",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 1
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1045.675
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.326672+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1127.896,
+          "elapsed_ms": 1588.2943000178784,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.918580+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 11,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1127.896",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 0
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1127.896
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.330517+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 28.801,
+          "elapsed_ms": 483.1666999962181,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:33.818132+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 12,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "28.801",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 28.801
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.334836+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 30.948,
+          "elapsed_ms": 523.6620000214316,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:33.862105+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 13,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "30.948",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 30.948
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.338779+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 38.069,
+          "elapsed_ms": 559.6346000093035,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:33.902559+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 14,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "38.069",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 38.069
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.342687+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 51.203,
+          "elapsed_ms": 607.4429999571294,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:33.954749+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 15,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "51.203",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 51.203
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.347093+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 72.736,
+          "elapsed_ms": 620.7168000400998,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:33.972289+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 16,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "72.736",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 72.736
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.351792+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 125.652,
+          "elapsed_ms": 671.9799999846146,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.027326+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 17,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "125.652",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 125.652
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.355471+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 176.1,
+          "elapsed_ms": 742.9819000535645,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.102065+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 18,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "176.100",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 176.1
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.359420+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 210.799,
+          "elapsed_ms": 1020.9279000409879,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.383916+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 19,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "210.799",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 210.799
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.363227+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 265.228,
+          "elapsed_ms": 1070.3444000100717,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.438323+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 20,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "265.228",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 265.228
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.368210+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 308.831,
+          "elapsed_ms": 1278.1939000124112,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.650302+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 21,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "308.831",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 308.831
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.372150+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 553.167,
+          "elapsed_ms": 1303.6988999811,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.680407+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 22,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "553.167",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 553.167
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.376707+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 640.109,
+          "elapsed_ms": 1334.6051999833435,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:34.716175+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 23,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "640.109",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 640.109
+            }
+          },
+          "retry_after": "1",
+          "round_index": 0,
+          "started_at_utc": "2026-08-21T17:51:33.381722+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        }
+      ],
+      "round_index": 0
+    },
+    {
+      "elapsed_ms": 2429.569600033574,
+      "monitor_samples": [
+        {
+          "captured_at_utc": "2026-08-21T17:51:36.429219+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 171.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 136.0
+            }
+          },
+          "elapsed_from_round_start_ms": 507.70469999406487,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 102.695
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 102.789
+          },
+          "readiness_status_code": 200,
+          "round_index": 1,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:36.971221+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 187.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 148.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 148.0
+            }
+          },
+          "elapsed_from_round_start_ms": 1505.426699994132,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 8.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 103.969
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 104.029
+          },
+          "readiness_status_code": 200,
+          "round_index": 1,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:37.964228+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 195.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2396.708899992518,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 104.903
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 104.935
+          },
+          "readiness_status_code": 200,
+          "round_index": 1,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:38.826354+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 195.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2427.9154000105336,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 104.971
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 104.979
+          },
+          "readiness_status_code": 200,
+          "round_index": 1,
+          "validation_errors": []
+        }
+      ],
+      "request_results": [
+        {
+          "admission_wait_ms": 0.014,
+          "elapsed_ms": 1330.858699977398,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.762403+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 0,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.014",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 724.851,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.431373+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.013,
+          "elapsed_ms": 1374.4686999707483,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.808963+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 1,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.013",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 955.708,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.434403+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 798.271,
+          "elapsed_ms": 2340.6052999780513,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:38.779183+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 2,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "798.271",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 814.495,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.438584+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1206.724,
+          "elapsed_ms": 1388.0480999941938,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.829652+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 3,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1206.724",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 7
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1206.724
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.440963+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.009,
+          "elapsed_ms": 1383.26249999227,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.827653+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 4,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.009",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1213.011,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.444503+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 799.756,
+          "elapsed_ms": 2362.628599978052,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:38.809933+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 5,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "799.756",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 955.977,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.447060+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1143.337,
+          "elapsed_ms": 1381.3959000399336,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.832650+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 6,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1143.337",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 5
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1143.337
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.451224+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.007,
+          "elapsed_ms": 1361.7823999957182,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.815579+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 7,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.007",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1147.354,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.453571+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 744.113,
+          "elapsed_ms": 1354.6781999757513,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.811538+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 8,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "744.113",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 744.113
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.456563+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 419.612,
+          "elapsed_ms": 1298.0176000273786,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.757957+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 9,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "419.612",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 419.612
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.459738+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 798.903,
+          "elapsed_ms": 2362.656600016635,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:38.826354+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 10,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "798.903",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1004.812,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.463106+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 504.697,
+          "elapsed_ms": 1317.9604000179097,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.784664+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 11,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "504.697",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 504.697
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.466407+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1179.038,
+          "elapsed_ms": 1360.6426999904215,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.830652+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 12,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1179.038",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 6
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1179.038
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.469670+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 186.278,
+          "elapsed_ms": 1006.4640999771655,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.479659+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 13,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "186.278",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 186.278
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.472669+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 471.963,
+          "elapsed_ms": 1288.1330999662168,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.765095+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 14,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "471.963",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 471.963
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.477150+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 248.309,
+          "elapsed_ms": 1037.9877000232227,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.518399+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 15,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "248.309",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 248.309
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.480438+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 800.536,
+          "elapsed_ms": 2301.220699970145,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:38.784117+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 16,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "800.536",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 830.695,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.482469+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1144.535,
+          "elapsed_ms": 1348.4329999773763,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.834652+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 17,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1144.535",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 4
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1144.535
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.486412+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 107.126,
+          "elapsed_ms": 862.475500034634,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.351493+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 18,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "107.126",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 107.126
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.488688+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 730.182,
+          "elapsed_ms": 1306.4286999870092,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.800351+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 19,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "730.182",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 730.182
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.493746+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 343.836,
+          "elapsed_ms": 1039.0186000149697,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.535541+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 20,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "343.836",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 343.836
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.496306+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 756.116,
+          "elapsed_ms": 1314.2324999789707,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.814568+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 21,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "756.116",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 756.116
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.500319+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 112.994,
+          "elapsed_ms": 898.2514999806881,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.401846+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 22,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "112.994",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 112.994
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.502857+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 101.073,
+          "elapsed_ms": 750.3976000007242,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:37.257423+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 23,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "101.073",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 101.073
+            }
+          },
+          "retry_after": "1",
+          "round_index": 1,
+          "started_at_utc": "2026-08-21T17:51:36.507351+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        }
+      ],
+      "round_index": 1
+    },
+    {
+      "elapsed_ms": 2664.6466000238433,
+      "monitor_samples": [
+        {
+          "captured_at_utc": "2026-08-21T17:51:39.120358+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 195.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 152.0
+            }
+          },
+          "elapsed_from_round_start_ms": 389.2224000301212,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 105.371
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 105.591
+          },
+          "readiness_status_code": 200,
+          "round_index": 2,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:39.533491+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 209.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 162.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 162.0
+            }
+          },
+          "elapsed_from_round_start_ms": 1640.692199987825,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 8.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 106.658
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 106.707
+          },
+          "readiness_status_code": 200,
+          "round_index": 2,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:40.799085+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 219.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2632.463000016287,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 4.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 107.852
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 107.875
+          },
+          "readiness_status_code": 200,
+          "round_index": 2,
+          "validation_errors": []
+        },
+        {
+          "captured_at_utc": "2026-08-21T17:51:41.749882+00:00",
+          "counters": {
+            "cityroute_admission_decisions_total": {
+              "declared": true,
+              "sample_count": 3,
+              "total": 219.0
+            },
+            "cityroute_overload_events_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            },
+            "cityroute_request_rejections_total": {
+              "declared": true,
+              "sample_count": 2,
+              "total": 168.0
+            }
+          },
+          "elapsed_from_round_start_ms": 2662.8842999925837,
+          "error_message": null,
+          "error_type": null,
+          "gauges": {
+            "cityroute_accepting_requests": 1.0,
+            "cityroute_active_requests": 0.0,
+            "cityroute_graceful_shutdown_inflight": 0.0,
+            "cityroute_max_active_requests": 4.0,
+            "cityroute_max_waiting_requests": 8.0,
+            "cityroute_readiness": 1.0,
+            "cityroute_redis_available": 1.0,
+            "cityroute_waiting_requests": 0.0
+          },
+          "liveness_json": {
+            "phase": "tier4_phase11",
+            "status": "alive",
+            "uptime_s": 107.897
+          },
+          "liveness_status_code": 200,
+          "metrics_status_code": 200,
+          "readiness_json": {
+            "accepting_requests": true,
+            "components": {
+              "dispatch_adjacency": "ready",
+              "graph": "ready",
+              "redis": "ready",
+              "snap_index": "ready"
+            },
+            "degraded_dependencies": [],
+            "failure_reasons": [],
+            "phase": "tier4_phase11",
+            "ready": true,
+            "shutting_down": false,
+            "startup_complete": true,
+            "status": "ready",
+            "uptime_s": 107.905
+          },
+          "readiness_status_code": 200,
+          "round_index": 2,
+          "validation_errors": []
+        }
+      ],
+      "request_results": [
+        {
+          "admission_wait_ms": 0.009,
+          "elapsed_ms": 1353.377699968405,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.475453+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 0,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.009",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 951.187,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.122358+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.068,
+          "elapsed_ms": 1352.8433999745175,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.477797+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 1,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.068",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1040.679,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.125361+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 993.399,
+          "elapsed_ms": 2611.5611999994144,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:41.739333+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 2,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "993.399",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1251.53,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.127358+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1174.62,
+          "elapsed_ms": 1357.3623999836855,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.487228+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 3,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1174.620",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 7
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1174.62
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.130359+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.008,
+          "elapsed_ms": 1351.9419999793172,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.484203+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 4,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.008",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1173.065,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.132358+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 995.915,
+          "elapsed_ms": 2599.453100003302,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:41.734705+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 5,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "995.915",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1208.476,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.135358+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1002.008,
+          "elapsed_ms": 1355.1724000135437,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.493179+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 6,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1002.008",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 1
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1002.008
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.137371+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.008,
+          "elapsed_ms": 1345.451800036244,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.486227+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 7,
+          "response_headers": {
+            "x-cityroute-admission-queued": "false",
+            "x-cityroute-admission-wait-ms": "0.008",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1140.217,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.140372+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.008,
+          "elapsed_ms": 1322.9854999808595,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.466120+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 8,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.008",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.008
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.142369+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.01,
+          "elapsed_ms": 1293.9726000186056,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.439661+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 9,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.010",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.01
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.144856+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 994.73,
+          "elapsed_ms": 2589.2987999832258,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:41.736954+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 10,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "994.730",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1225.305,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.147938+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.007,
+          "elapsed_ms": 1304.595399997197,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.455512+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 11,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.007",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.007
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.151515+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1146.974,
+          "elapsed_ms": 1335.5676000355743,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.489324+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 12,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1146.974",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 6
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1146.974
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.153516+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 147.003,
+          "elapsed_ms": 1214.4747999846004,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.370730+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 13,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "147.003",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 147.003
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.156515+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.011,
+          "elapsed_ms": 1294.6195999975316,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.453628+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 14,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.011",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.011
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.158515+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 198.861,
+          "elapsed_ms": 1262.7696999697946,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.424465+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 15,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "198.861",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 198.861
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.161523+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 1017.932,
+          "elapsed_ms": 1362.3442000243813,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.526176+00:00",
+          "outcome": "controlled_overload",
+          "reason": "wait_timeout",
+          "request_index": 16,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "1017.932",
+            "x-cityroute-rejection-reason": "wait_timeout"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 0
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute could not admit the request before the configured admission deadline.",
+              "method": "POST",
+              "reason": "wait_timeout",
+              "waited_ms": 1017.932
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.164030+00:00",
+          "status_code": 503,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 992.878,
+          "elapsed_ms": 2560.5410000425763,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:41.727860+00:00",
+          "outcome": "accepted",
+          "reason": null,
+          "request_index": 17,
+          "response_headers": {
+            "x-cityroute-admission-queued": "true",
+            "x-cityroute-admission-wait-ms": "992.878",
+            "x-cityroute-timeout-category": "matrix",
+            "x-cityroute-timeout-enforced": "true",
+            "x-cityroute-timeout-limit-s": "15.000"
+          },
+          "response_summary": {
+            "algorithm": "source_dijkstra",
+            "cache": {
+              "enabled": false,
+              "error": null,
+              "hit": false,
+              "key": null,
+              "ttl_seconds": 86400
+            },
+            "computed_pairs": 625,
+            "failed_pairs": 0,
+            "generation_time_ms": 1134.288,
+            "n": 25,
+            "pair_count": 625,
+            "parallel_workers": 8,
+            "status": "ok"
+          },
+          "retry_after": null,
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.167042+00:00",
+          "status_code": 200,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 30.961,
+          "elapsed_ms": 539.387299970258,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:39.708381+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 18,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "30.961",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 30.961
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.169042+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.01,
+          "elapsed_ms": 1285.4466999997385,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.457251+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 19,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.010",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.01
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.172041+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.007,
+          "elapsed_ms": 1261.2306000082754,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.435942+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 20,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.007",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.007
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.174041+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 0.009,
+          "elapsed_ms": 1287.0324999676086,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:40.463963+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 21,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "0.009",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 0.009
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.177041+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 53.429,
+          "elapsed_ms": 790.2189000160433,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:39.969426+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 22,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "53.429",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 53.429
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.179041+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        },
+        {
+          "admission_wait_ms": 25.342,
+          "elapsed_ms": 500.6215999601409,
+          "error_message": null,
+          "error_type": null,
+          "finished_at_utc": "2026-08-21T17:51:39.683401+00:00",
+          "outcome": "controlled_overload",
+          "reason": "queue_full",
+          "request_index": 23,
+          "response_headers": {
+            "retry-after": "1",
+            "x-cityroute-admission-wait-ms": "25.342",
+            "x-cityroute-rejection-reason": "queue_full"
+          },
+          "response_summary": {
+            "detail": {
+              "capacity": {
+                "active_requests": 4,
+                "max_active_requests": 4,
+                "max_waiting_requests": 8,
+                "waiting_requests": 8
+              },
+              "endpoint": "/matrix",
+              "error": "request_overloaded",
+              "message": "CityRoute is at its active-request and waiting-queue capacity.",
+              "method": "POST",
+              "reason": "queue_full",
+              "waited_ms": 25.342
+            }
+          },
+          "retry_after": "1",
+          "round_index": 2,
+          "started_at_utc": "2026-08-21T17:51:39.182367+00:00",
+          "status_code": 429,
+          "validation_errors": []
+        }
+      ],
+      "round_index": 2
+    }
+  ],
+  "runtime_metadata": {
+    "base_url": "http://127.0.0.1:8001",
+    "captured_at_utc": "2026-08-21T17:51:42.109781+00:00",
+    "cwd": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute",
+    "git_branch": "tier4-phase11-reliability",
+    "git_commit": "81e676fca8cc0b3e49e117200bdf2d6f6c270829",
+    "git_dirty": true,
+    "hostname": "MSI",
+    "machine": "AMD64",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "pid": 28868,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "python_executable": "C:\\MYDOWNLOADS\\MYPROJECT\\CityRoute\\.venv\\Scripts\\python.exe",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]"
+  },
+  "started_at_utc": "2026-08-21T17:51:30.567378+00:00",
+  "startup_probes": {
+    "liveness": {
+      "elapsed_ms": 701.6250999877229,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-08-21T17:51:31.275140+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/live",
+      "response_json": {
+        "phase": "tier4_phase11",
+        "status": "alive",
+        "uptime_s": 97.401
+      },
+      "response_text": "{\"status\":\"alive\",\"phase\":\"tier4_phase11\",\"uptime_s\":97.401}",
+      "started_at_utc": "2026-08-21T17:51:30.573392+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/live"
+    },
+    "readiness": {
+      "elapsed_ms": 605.8026000391692,
+      "error_message": null,
+      "error_type": null,
+      "expected_status_codes": [
+        200
+      ],
+      "finished_at_utc": "2026-08-21T17:51:31.882065+00:00",
+      "method": "GET",
+      "ok": true,
+      "path": "/health/ready",
+      "response_json": {
+        "accepting_requests": true,
+        "components": {
+          "dispatch_adjacency": "ready",
+          "graph": "ready",
+          "redis": "ready",
+          "snap_index": "ready"
+        },
+        "degraded_dependencies": [],
+        "failure_reasons": [],
+        "phase": "tier4_phase11",
+        "ready": true,
+        "shutting_down": false,
+        "startup_complete": true,
+        "status": "ready",
+        "uptime_s": 98.008
+      },
+      "response_text": "{\"status\":\"ready\",\"ready\":true,\"phase\":\"tier4_phase11\",\"uptime_s\":98.008,\"startup_complete\":true,\"accepting_requests\":true,\"shutting_down\":false,\"components\":{\"graph\":\"ready\",\"snap_index\":\"ready\",\"dispatch_adjacency\":\"ready\",\"redis\":\"ready\"},\"degraded_dependencies\":[],\"failure_reasons\":[]}",
+      "started_at_utc": "2026-08-21T17:51:31.276233+00:00",
+      "status_code": 200,
+      "url": "http://127.0.0.1:8001/health/ready"
+    }
+  },
+  "status_code_counts": {
+    "200": 24,
+    "429": 36,
+    "503": 12
+  },
+  "target": "docker",
+  "validation_errors": [],
+  "wait_timeout_admission_wait": {
+    "count": 12,
+    "max_ms": 1206.724,
+    "mean_ms": 1099.2044166666667,
+    "median_ms": 1135.6165,
+    "min_ms": 1000.745,
+    "p90_ms": 1178.5962,
+    "p95_ms": 1191.4967,
+    "p99_ms": 1203.6785399999999
+  },
+  "wait_timeout_latency": {
+    "count": 12,
+    "max_ms": 1588.2943000178784,
+    "mean_ms": 1413.1207333412021,
+    "median_ms": 1371.8700500321575,
+    "min_ms": 1335.5676000355743,
+    "p90_ms": 1557.6268099946901,
+    "p95_ms": 1576.1291250033537,
+    "p99_ms": 1585.8612650149735
+  },
+  "warnings": []
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import statistics
 import sys
 import time
 from collections import Counter
@@ -37,7 +38,6 @@ from benchmarks.phase_11.phase11_common import (
     wait_for_readiness,
     write_json,
 )
-
 
 DEFAULT_MATRIX_SIZE = 25
 DEFAULT_ROUNDS = 3
@@ -863,11 +863,18 @@ def _counter_delta(
     after: dict[str, Any],
     metric_name: str,
 ) -> float | None:
-    before_value = before.get("counters", {}).get(metric_name)
-    after_value = after.get("counters", {}).get(metric_name)
+    before_value = (
+        before.get("counters", {}).get(metric_name)
+    )
+    after_value = (
+        after.get("counters", {}).get(metric_name)
+    )
 
-    if before_value is None or after_value is None:
+    if after_value is None:
         return None
+
+    if before_value is None:
+        return after_value
 
     return after_value - before_value
 
@@ -1223,7 +1230,7 @@ async def async_main(
             matrix_size=min(args.matrix_size, 5),
             algorithm=args.algorithm,
             use_cache=False,
-            unique_shift=999_999,
+            unique_shift=0,
             payload_template=payload_template,
         )
 

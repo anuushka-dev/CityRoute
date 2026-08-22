@@ -26,18 +26,6 @@ router = APIRouter(
 def _resolve_metrics(
     request: Request,
 ) -> ReliabilityMetrics:
-    """
-    Return the process-local reliability metrics instance.
-
-    The normal Phase 11 application integration stores the configured
-    instance in:
-
-        app.state.reliability_metrics
-
-    A lazy default-registry instance is used when the application has not
-    explicitly attached one. This keeps focused tests and development startup
-    functional without registering duplicate collectors.
-    """
 
     configured_metrics = getattr(
         request.app.state,
@@ -65,13 +53,6 @@ async def _refresh_reliability_gauges(
     request: Request,
     metrics: ReliabilityMetrics,
 ) -> None:
-    """
-    Refresh point-in-time reliability gauges before Prometheus collection.
-
-    Event counters and histograms are updated where the events occur. They are
-    not reconstructed from absolute runtime counters here because doing so
-    would double-count events on every scrape.
-    """
 
     resilience_state = getattr(
         request.app.state,
@@ -175,23 +156,27 @@ async def _refresh_reliability_gauges(
 async def metrics(
     request: Request,
 ) -> Response:
-    """
-    Expose Prometheus-compatible process and reliability metrics.
-
-    This endpoint intentionally remains outside lifecycle, concurrency, and
-    timeout protection so monitoring can inspect CityRoute while the service
-    is:
-
-        starting;
-        saturated;
-        degraded;
-        shutting down.
-
-    Gauge-refresh failures are logged but do not prevent Prometheus from
-    collecting the remaining registered metrics.
-    """
 
     reliability_metrics = _resolve_metrics(request)
+
+    reliability_metrics.set_graph_loaded(
+        bool(
+            getattr(
+                request.app.state,
+                "graph_loaded",
+                False,
+            )
+        )
+    )
+
+    reliability_metrics.set_snap_index_loaded(
+        getattr(
+            request.app.state,
+            "snap_index",
+            None,
+        )
+        is not None
+    )
 
     await _refresh_reliability_gauges(
         request,

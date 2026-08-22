@@ -1,0 +1,43 @@
+{
+  "baseline": {
+    "liveness_ok": true,
+    "protected_request_ok": true,
+    "readiness_ok": true
+  },
+  "benchmark": "phase11_failure_injection_probe",
+  "container": {
+    "id": "d96c563eb602",
+    "name": "cityroute-api-tier4-phase11"
+  },
+  "failure_mechanism": "docker pause / docker unpause",
+  "failure_mode": "transient_api_container_freeze",
+  "injection": {
+    "pause_command_ok": true,
+    "paused_liveness_unavailable": true,
+    "paused_readiness_unavailable": true,
+    "paused_state_observed": true
+  },
+  "metrics": {
+    "baseline_execution_sample_count": 8.0,
+    "baseline_request_counter": 110.0,
+    "recovered_execution_sample_count": 8.0,
+    "recovered_request_counter": 111.0
+  },
+  "overall_ok": true,
+  "phase_code": "tier4_phase11",
+  "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+  "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_failure_injection_probe_raw_20260821_175441.json",
+  "recovery": {
+    "liveness_recovered": true,
+    "metrics_recovered": true,
+    "protected_request_recovered": true,
+    "readiness_recovered": true,
+    "running_state_observed": true,
+    "unpause_command_ok": true
+  },
+  "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_failure_injection_probe_summary_20260821_175441.json",
+  "validation_errors": [],
+  "warnings": [
+    "Container status changed away from running while paused"
+  ]
+}

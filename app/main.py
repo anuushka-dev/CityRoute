@@ -342,10 +342,6 @@ async def lifespan(
 
     await _resilience_state.mark_startup_started()
 
-    # ------------------------------------------------------------------
-    # 1. Load the road graph.
-    # ------------------------------------------------------------------
-
     logger.info("Loading CityRoute graph")
 
     try:
@@ -363,9 +359,6 @@ async def lifespan(
 
     await _resilience_state.set_graph_ready(graph is not None)
 
-    # ------------------------------------------------------------------
-    # 2. Build the snap index.
-    # ------------------------------------------------------------------
 
     if graph is not None:
         logger.info("Building snap index")
@@ -419,10 +412,6 @@ async def lifespan(
         app.state.snap_index is not None
     )
 
-    # ------------------------------------------------------------------
-    # 3. Build the reusable directed graph adjacency.
-    # ------------------------------------------------------------------
-
     if app.state.graph is not None and app.state.snap_index is not None:
         logger.info("Building reusable dispatch graph adjacency")
 
@@ -473,10 +462,6 @@ async def lifespan(
                     "dispatch_road_matrix_error": repr(exc),
                 }
             )
-
-    # ------------------------------------------------------------------
-    # 4. Initialize Redis and the automatic recovery controller.
-    # ------------------------------------------------------------------
 
     redis_cache: RedisCache | None = None
 
@@ -533,10 +518,6 @@ async def lifespan(
             "Redis cache is unavailable; fail_open=%s",
             settings.redis_fail_open,
         )
-
-    # ------------------------------------------------------------------
-    # 5. Wire the Phase 10 road-dispatch adapters.
-    # ------------------------------------------------------------------
 
     if app.state.graph is None or app.state.snap_index is None:
         app.state.dispatch_road_matrix_error = (
@@ -631,10 +612,6 @@ async def lifespan(
     )
 
     app.state.graph_stats["phase11_accepting_requests"] = True
-
-    # ------------------------------------------------------------------
-    # 6. Start Redis recovery and configure graceful shutdown.
-    # ------------------------------------------------------------------
 
     redis_recovery_stop_event = asyncio.Event()
     redis_recovery_task: asyncio.Task[None] | None = None
@@ -763,15 +740,6 @@ app.state.readiness_policy = _readiness_policy
 app.state.readiness_service = _readiness_service
 app.state.reliability_metrics = _reliability_metrics
 
-# ---------------------------------------------------------------------------
-# Phase 11 reliability middleware
-#
-# Starlette wraps later-added middleware around earlier-added middleware.
-# This order produces:
-#
-# metrics -> lifecycle -> concurrency -> timeout -> endpoint
-# ---------------------------------------------------------------------------
-
 if settings.request_timeout_enabled:
     app.add_middleware(
         RequestTimeoutMiddleware,
@@ -790,6 +758,7 @@ if settings.concurrency_control_enabled:
         ConcurrencyControlMiddleware,
         limiter=_concurrency_limiter,
         resilience_state=_resilience_state,
+        reliability_metrics=_reliability_metrics,
         wait_timeout_s=settings.concurrency_wait_timeout_s,
         retry_after_s=settings.concurrency_retry_after_s,
         emit_admission_headers=(
@@ -808,10 +777,6 @@ if settings.lifecycle_guard_enabled:
 if settings.metrics_enabled:
     app.middleware("http")(metrics_middleware)
 
-
-# ---------------------------------------------------------------------------
-# API routers
-# ---------------------------------------------------------------------------
 
 app.include_router(health_router)
 

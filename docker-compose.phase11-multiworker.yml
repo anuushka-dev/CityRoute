@@ -1,0 +1,9 @@
+services:
+  api:
+    environment:
+      WEB_CONCURRENCY: "2"
+
+    deploy:
+      resources:
+        limits:
+          memory: "1.5G"
