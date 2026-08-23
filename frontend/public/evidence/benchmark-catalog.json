@@ -1,0 +1,100 @@
+[
+  {
+    "phase": "phase_2",
+    "file_count": 1,
+    "json_count": 0,
+    "python_count": 0,
+    "text_count": 1
+  },
+  {
+    "phase": "phase_3",
+    "file_count": 37,
+    "json_count": 23,
+    "python_count": 0,
+    "text_count": 14
+  },
+  {
+    "phase": "phase_3_5",
+    "file_count": 4,
+    "json_count": 2,
+    "python_count": 1,
+    "text_count": 0
+  },
+  {
+    "phase": "phase_4",
+    "file_count": 17,
+    "json_count": 7,
+    "python_count": 1,
+    "text_count": 8
+  },
+  {
+    "phase": "phase_5",
+    "file_count": 45,
+    "json_count": 35,
+    "python_count": 5,
+    "text_count": 0
+  },
+  {
+    "phase": "phase_5_1",
+    "file_count": 20,
+    "json_count": 16,
+    "python_count": 2,
+    "text_count": 0
+  },
+  {
+    "phase": "phase_6",
+    "file_count": 34,
+    "json_count": 28,
+    "python_count": 4,
+    "text_count": 2
+  },
+  {
+    "phase": "phase_7",
+    "file_count": 31,
+    "json_count": 24,
+    "python_count": 1,
+    "text_count": 6
+  },
+  {
+    "phase": "phase_7_1",
+    "file_count": 18,
+    "json_count": 9,
+    "python_count": 1,
+    "text_count": 8
+  },
+  {
+    "phase": "phase_8",
+    "file_count": 28,
+    "json_count": 16,
+    "python_count": 3,
+    "text_count": 9
+  },
+  {
+    "phase": "phase_9",
+    "file_count": 38,
+    "json_count": 27,
+    "python_count": 6,
+    "text_count": 5
+  },
+  {
+    "phase": "phase_9_1",
+    "file_count": 26,
+    "json_count": 17,
+    "python_count": 4,
+    "text_count": 5
+  },
+  {
+    "phase": "phase_10",
+    "file_count": 32,
+    "json_count": 16,
+    "python_count": 7,
+    "text_count": 2
+  },
+  {
+    "phase": "phase_11",
+    "file_count": 51,
+    "json_count": 25,
+    "python_count": 13,
+    "text_count": 0
+  }
+]

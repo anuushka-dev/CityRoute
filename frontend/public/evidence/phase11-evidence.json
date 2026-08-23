@@ -1,0 +1,937 @@
+[
+  {
+    "benchmark": "phase11_concurrency_limit_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_concurrency_limit_probe_raw_20260821_175126.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_concurrency_limit_probe_summary_20260821_175126.json",
+    "details": {
+      "active_limit_respected": true,
+      "base_url": "http://127.0.0.1:8001",
+      "configured_max_active": 4,
+      "configured_max_waiting": 8,
+      "configured_total_capacity": 12,
+      "counter_deltas": {
+        "cityroute_admission_decisions_total": 144.0,
+        "cityroute_overload_events_total": 120.0,
+        "cityroute_request_rejections_total": 120.0
+      },
+      "latency_summary": {
+        "count": 144,
+        "max_ms": 3791.1080000340007,
+        "mean_ms": 1698.8724451390833,
+        "median_ms": 1515.0279499939643,
+        "min_ms": 527.6283000130206,
+        "p90_ms": 2629.9652100075036,
+        "p95_ms": 2754.205315024592,
+        "p99_ms": 3747.5573369790795
+      },
+      "liveness_failure_count": 0,
+      "liveness_sample_count": 4,
+      "outcome_counts": {
+        "accepted": 24,
+        "controlled_rejection": 120
+      },
+      "peak_active_requests": 4.0,
+      "peak_total_in_system": 12.0,
+      "peak_waiting_requests": 8.0,
+      "recovery_ok": true,
+      "rejection_reason_counts": {
+        "queue_full": 99,
+        "wait_timeout": 21
+      },
+      "request_count_per_round": 48,
+      "rounds": 3,
+      "status_code_counts": {
+        "200": 24,
+        "429": 99,
+        "503": 21
+      },
+      "total_request_count": 144,
+      "waiting_limit_respected": true
+    }
+  },
+  {
+    "benchmark": "phase11_corrupted_cache_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": false,
+    "validation_errors": [
+      "Corrupted-cache counter was unavailable after injection"
+    ],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_corrupted_cache_probe_raw_20260821_175257.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_corrupted_cache_probe_summary_20260821_175257.json",
+    "details": {
+      "api_process_start_unchanged": true,
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_cache_hit": true,
+      "baseline_healthy": true,
+      "baseline_hit_ms": 13.418400019872934,
+      "baseline_miss_ms": 183.98199998773634,
+      "corrupted_payload_rejected": true,
+      "corruption_counter_delta": null,
+      "corruption_injected": true,
+      "corruption_recovery_ms": 340.42600000975654,
+      "final_healthy": true,
+      "matrix_recomputed_successfully": true,
+      "repaired_cache_hit": true,
+      "repaired_hit_ms": 15.138900023885071,
+      "repaired_value_valid_json_object": true,
+      "resolved_redis_container": "cityroute-redis-tier4-phase11"
+    }
+  },
+  {
+    "benchmark": "phase11_failure_injection_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [
+      "Container status changed away from running while paused"
+    ],
+    "target": null,
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_failure_injection_probe_raw_20260821_175441.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_failure_injection_probe_summary_20260821_175441.json",
+    "details": {
+      "baseline": {
+        "liveness_ok": true,
+        "protected_request_ok": true,
+        "readiness_ok": true
+      },
+      "container": {
+        "id": "d96c563eb602",
+        "name": "cityroute-api-tier4-phase11"
+      },
+      "failure_mechanism": "docker pause / docker unpause",
+      "failure_mode": "transient_api_container_freeze",
+      "injection": {
+        "pause_command_ok": true,
+        "paused_liveness_unavailable": true,
+        "paused_readiness_unavailable": true,
+        "paused_state_observed": true
+      },
+      "metrics": {
+        "baseline_execution_sample_count": 8.0,
+        "baseline_request_counter": 110.0,
+        "recovered_execution_sample_count": 8.0,
+        "recovered_request_counter": 111.0
+      },
+      "recovery": {
+        "liveness_recovered": true,
+        "metrics_recovered": true,
+        "protected_request_recovered": true,
+        "readiness_recovered": true,
+        "running_state_observed": true,
+        "unpause_command_ok": true
+      }
+    }
+  },
+  {
+    "benchmark": "phase11_graceful_shutdown_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": false,
+    "validation_errors": [
+      "Missing required shutdown log evidence: shutdown_requested",
+      "Missing required shutdown log evidence: graceful_shutdown_started",
+      "Missing required shutdown log evidence: drain_completed",
+      "Missing required shutdown log evidence: graceful_shutdown_finished_complete",
+      "Missing required shutdown log evidence: application_shutdown_complete"
+    ],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_graceful_shutdown_probe_raw_20260821_180104.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_graceful_shutdown_probe_summary_20260821_180104.json",
+    "details": {
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_liveness_ok": true,
+      "baseline_readiness_ok": true,
+      "inflight_observed": true,
+      "peak_active_requests": 4.0,
+      "peak_waiting_requests": 0.0,
+      "recovery": {
+        "container_running": true,
+        "liveness_ok": true,
+        "metrics_ok": true,
+        "readiness_ok": true,
+        "restart_ok": true
+      },
+      "request_outcome_counts": {
+        "completed": 4,
+        "controlled_rejection": 4
+      },
+      "service_down_after_shutdown": true,
+      "shutdown_command_ok": true,
+      "shutdown_log_evidence": {
+        "application_shutdown_complete": false,
+        "drain_completed": false,
+        "graceful_shutdown_finished_complete": false,
+        "graceful_shutdown_started": false,
+        "shutdown_requested": false
+      },
+      "shutdown_metrics": {
+        "minimum_accepting_requests": 1.0,
+        "minimum_readiness": 1.0,
+        "peak_active_requests": 4.0,
+        "peak_shutdown_inflight": 0.0,
+        "peak_waiting_requests": 0.0,
+        "sample_count": 1294
+      }
+    }
+  },
+  {
+    "benchmark": "phase11_health_state_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_health_state_probe_raw_20260821_175104.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_health_state_probe_summary_20260821_175104.json",
+    "details": {
+      "base_url": "http://127.0.0.1:8001",
+      "component_state_distributions": {
+        "dispatch_adjacency": {
+          "ready": 30
+        },
+        "graph": {
+          "ready": 30
+        },
+        "redis": {
+          "ready": 30
+        },
+        "snap_index": {
+          "ready": 30
+        }
+      },
+      "failed_snapshot_count": 0,
+      "health_status_distribution": {
+        "ok": 30
+      },
+      "latency_summaries": {
+        "GET /graph/stats": {
+          "count": 30,
+          "failure_count": 0,
+          "max_ms": 8.557100023608655,
+          "mean_ms": 4.6072366744435085,
+          "median_ms": 4.533450002782047,
+          "min_ms": 3.450100019108504,
+          "p90_ms": 5.035679962020368,
+          "p95_ms": 6.000590039184314,
+          "p99_ms": 7.921913031605074,
+          "stdev_ms": 0.951289431751509,
+          "success_count": 30,
+          "success_rate": 1.0
+        },
+        "GET /health": {
+          "count": 30,
+          "failure_count": 0,
+          "max_ms": 5.433499987702817,
+          "mean_ms": 4.021593338499467,
+          "median_ms": 4.1431500285398215,
+          "min_ms": 3.087199991568923,
+          "p90_ms": 4.592220013728365,
+          "p95_ms": 4.694610007572919,
+          "p99_ms": 5.219769997638651,
+          "stdev_ms": 0.5332107994262131,
+          "success_count": 30,
+          "success_rate": 1.0
+        },
+        "GET /health/live": {
+          "count": 30,
+          "failure_count": 0,
+          "max_ms": 11.32710004458204,
+          "mean_ms": 5.633709998801351,
+          "median_ms": 5.563499988056719,
+          "min_ms": 4.467199963983148,
+          "p90_ms": 6.485359999351205,
+          "p95_ms": 7.614245018339714,
+          "p99_ms": 10.315870041958991,
+          "stdev_ms": 1.3268063244821546,
+          "success_count": 30,
+          "success_rate": 1.0
+        },
+        "GET /health/ready": {
+          "count": 30,
+          "failure_count": 0,
+          "max_ms": 6.0680999886244535,
+          "mean_ms": 4.462686660311495,
+          "median_ms": 4.236849956214428,
+          "min_ms": 3.351899969857186,
+          "p90_ms": 5.283379985485226,
+          "p95_ms": 5.620240012649446,
+          "p99_ms": 5.9782579966122285,
+          "stdev_ms": 0.6760044278441116,
+          "success_count": 30,
+          "success_rate": 1.0
+        },
+        "GET /metrics": {
+          "count": 30,
+          "failure_count": 0,
+          "max_ms": 13.778499967884272,
+          "mean_ms": 7.287676671209435,
+          "median_ms": 6.915000005392358,
+          "min_ms": 5.700900044757873,
+          "p90_ms": 8.33316997741349,
+          "p95_ms": 8.605445036664605,
+          "p99_ms": 12.300485989544544,
+          "stdev_ms": 1.4221003404975379,
+          "success_count": 30,
+          "success_rate": 1.0
+        }
+      },
+      "readiness_status_distribution": {
+        "ready": 30
+      },
+      "sample_count": 30,
+      "success_rate": 1.0
+    }
+  },
+  {
+    "benchmark": "phase11_multiworker_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": false,
+    "validation_errors": [
+      "HTTP request metric was not exposed before the benchmark."
+    ],
+    "warnings": [
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=503.",
+      "Controlled request failure observed at endpoint=/route, status=503.",
+      "Controlled request failure observed at endpoint=/matrix, status=429.",
+      "Controlled request failure observed at endpoint=/route, status=429.",
+      "Controlled request failure observed at endpoint=/matrix, status=429."
+    ],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_multiworker_probe_raw_20260821_175603.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_multiworker_probe_summary_20260821_175603.json",
+    "details": {
+      "aggregate": {
+        "failed_requests": 62,
+        "max_ms": 3266.531799978111,
+        "mean_ms": 1026.7038290012472,
+        "median_ms": 772.4787499755621,
+        "min_ms": 72.61249999282882,
+        "p95_ms": 2832.498079966173,
+        "p99_ms": 3213.281709993025,
+        "success_rate": 0.7933333333333333,
+        "successful_requests": 238,
+        "throughput_rps": 22.980148502214977,
+        "total_requests": 300
+      },
+      "base_url": "http://127.0.0.1:8001",
+      "configuration": {
+        "concurrency": 32,
+        "endpoints": [
+          "/health/live",
+          "/health/ready",
+          "/metrics",
+          "/route",
+          "/matrix"
+        ],
+        "requests": 300
+      },
+      "consistency": {
+        "/health/live": {
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 0,
+          "sampled_successful_responses": 0,
+          "validation_errors": []
+        },
+        "/health/ready": {
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 0,
+          "sampled_successful_responses": 0,
+          "validation_errors": []
+        },
+        "/matrix": {
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 1,
+          "sampled_successful_responses": 5,
+          "validation_errors": []
+        },
+        "/metrics": {
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 0,
+          "sampled_successful_responses": 0,
+          "validation_errors": []
+        },
+        "/route": {
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 1,
+          "sampled_successful_responses": 5,
+          "validation_errors": []
+        }
+      },
+      "endpoint_statistics": [
+        {
+          "consistency_applicable": false,
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 58,
+          "endpoint": "/health/live",
+          "failures": 0,
+          "max_ms": 2240.944299963303,
+          "mean_ms": 480.9103299999454,
+          "median_ms": 275.87189999758266,
+          "min_ms": 72.61249999282882,
+          "outcome_counts": {
+            "success": 60
+          },
+          "p95_ms": 1659.4054449553366,
+          "p99_ms": 2152.430729983607,
+          "requests": 60,
+          "status_code_counts": {
+            "200": 60
+          },
+          "success": 60,
+          "throughput_rps": 5.793314748457558
+        },
+        {
+          "consistency_applicable": false,
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 58,
+          "endpoint": "/health/ready",
+          "failures": 0,
+          "max_ms": 2292.092500021681,
+          "mean_ms": 496.3346533360891,
+          "median_ms": 335.90839998214506,
+          "min_ms": 72.97390000894666,
+          "outcome_counts": {
+            "success": 60
+          },
+          "p95_ms": 1426.4731849922089,
+          "p99_ms": 2289.4052270276006,
+          "requests": 60,
+          "status_code_counts": {
+            "200": 60
+          },
+          "success": 60,
+          "throughput_rps": 5.793314748457558
+        },
+        {
+          "consistency_applicable": false,
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 46,
+          "endpoint": "/metrics",
+          "failures": 0,
+          "max_ms": 3263.8884999905713,
+          "mean_ms": 844.8701916689364,
+          "median_ms": 738.359799986938,
+          "min_ms": 127.06359999720007,
+          "outcome_counts": {
+            "success": 60
+          },
+          "p95_ms": 2327.573375010977,
+          "p99_ms": 3225.3504669998074,
+          "requests": 60,
+          "status_code_counts": {
+            "200": 60
+          },
+          "success": 60,
+          "throughput_rps": 5.793314748457558
+        },
+        {
+          "consistency_applicable": true,
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 1,
+          "endpoint": "/route",
+          "failures": 28,
+          "max_ms": 3266.531799978111,
+          "mean_ms": 1389.6092333297322,
+          "median_ms": 1130.2709500014316,
+          "min_ms": 178.65799996070564,
+          "outcome_counts": {
+            "controlled_failure": 28,
+            "success": 32
+          },
+          "p95_ms": 3057.428674981929,
+          "p99_ms": 3234.9303379870253,
+          "requests": 60,
+          "status_code_counts": {
+            "200": 32,
+            "429": 8,
+            "503": 20
+          },
+          "success": 32,
+          "throughput_rps": 5.793314748457558
+        },
+        {
+          "consistency_applicable": true,
+          "consistency_ok": true,
+          "distinct_response_fingerprints": 1,
+          "endpoint": "/matrix",
+          "failures": 34,
+          "max_ms": 3244.1409999737516,
+          "mean_ms": 1921.7947366715332,
+          "median_ms": 1863.533700001426,
+          "min_ms": 590.511999966111,
+          "outcome_counts": {
+            "controlled_failure": 34,
+            "success": 26
+          },
+          "p95_ms": 3007.1968049713173,
+          "p99_ms": 3217.05079599109,
+          "requests": 60,
+          "status_code_counts": {
+            "200": 26,
+            "429": 9,
+            "503": 25
+          },
+          "success": 26,
+          "throughput_rps": 5.793314748457558
+        }
+      ],
+      "metrics": {
+        "execution_metric_samples_after": 8,
+        "execution_metric_samples_before": 0,
+        "request_counter_after": 183.0,
+        "request_counter_before": null,
+        "request_counter_delta": null
+      },
+      "worker_runtime": {
+        "after": {
+          "detection_source": "docker:WEB_CONCURRENCY",
+          "worker_count": 2
+        },
+        "before": {
+          "detection_source": "docker:WEB_CONCURRENCY",
+          "worker_count": 2
+        }
+      }
+    }
+  },
+  {
+    "benchmark": "phase11_overload_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_overload_probe_raw_20260821_175142.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_overload_probe_summary_20260821_175142.json",
+    "details": {
+      "accepted_latency": {
+        "count": 24,
+        "max_ms": 2784.1990000451915,
+        "mean_ms": 1946.9692208294873,
+        "median_ms": 1868.7543999694753,
+        "min_ms": 1002.0623999880627,
+        "p90_ms": 2652.4791799718514,
+        "p95_ms": 2747.458065036335,
+        "p99_ms": 2779.4942120462656
+      },
+      "active_limit_respected": true,
+      "base_url": "http://127.0.0.1:8001",
+      "configured_max_active": 4,
+      "configured_max_waiting": 8,
+      "configured_total_capacity": 12,
+      "counter_deltas": {
+        "cityroute_admission_decisions_total": 73.0,
+        "cityroute_overload_events_total": 48.0,
+        "cityroute_request_rejections_total": 48.0
+      },
+      "minimum_accepting_requests_metric": 1.0,
+      "minimum_readiness_metric": 1.0,
+      "outcome_counts": {
+        "accepted": 24,
+        "controlled_overload": 48
+      },
+      "overload_response_count": 48,
+      "peak_active_requests": 4.0,
+      "peak_total_in_system": 12.0,
+      "peak_waiting_requests": 8.0,
+      "per_round_summaries": [
+        {
+          "elapsed_ms": 2883.4660000284202,
+          "monitor_sample_count": 5,
+          "monitor_validation_error_count": 0,
+          "outcome_counts": {
+            "accepted": 8,
+            "controlled_overload": 16
+          },
+          "peak_active_requests": 4.0,
+          "peak_waiting_requests": 8.0,
+          "reason_counts": {
+            "queue_full": 12,
+            "wait_timeout": 4
+          },
+          "round_index": 0,
+          "status_code_counts": {
+            "200": 8,
+            "429": 12,
+            "503": 4
+          }
+        },
+        {
+          "elapsed_ms": 2429.569600033574,
+          "monitor_sample_count": 4,
+          "monitor_validation_error_count": 0,
+          "outcome_counts": {
+            "accepted": 8,
+            "controlled_overload": 16
+          },
+          "peak_active_requests": 4.0,
+          "peak_waiting_requests": 8.0,
+          "reason_counts": {
+            "queue_full": 12,
+            "wait_timeout": 4
+          },
+          "round_index": 1,
+          "status_code_counts": {
+            "200": 8,
+            "429": 12,
+            "503": 4
+          }
+        },
+        {
+          "elapsed_ms": 2664.6466000238433,
+          "monitor_sample_count": 4,
+          "monitor_validation_error_count": 0,
+          "outcome_counts": {
+            "accepted": 8,
+            "controlled_overload": 16
+          },
+          "peak_active_requests": 4.0,
+          "peak_waiting_requests": 8.0,
+          "reason_counts": {
+            "queue_full": 12,
+            "wait_timeout": 4
+          },
+          "round_index": 2,
+          "status_code_counts": {
+            "200": 8,
+            "429": 12,
+            "503": 4
+          }
+        }
+      ],
+      "queue_full_admission_wait": {
+        "count": 36,
+        "max_ms": 756.116,
+        "mean_ms": 213.43333333333334,
+        "median_ms": 119.32300000000001,
+        "min_ms": 0.007,
+        "p90_ms": 596.638,
+        "p95_ms": 733.66475,
+        "p99_ms": 751.91495
+      },
+      "queue_full_latency": {
+        "count": 36,
+        "max_ms": 1354.6781999757513,
+        "mean_ms": 1029.1321111095992,
+        "median_ms": 1142.409599997336,
+        "min_ms": 483.1666999962181,
+        "p90_ms": 1316.0964499984402,
+        "p95_ms": 1325.8904249814805,
+        "p99_ms": 1347.6526499784086
+      },
+      "reason_counts": {
+        "queue_full": 36,
+        "wait_timeout": 12
+      },
+      "recovery_ok": true,
+      "requests_per_round": 24,
+      "rounds": 3,
+      "status_code_counts": {
+        "200": 24,
+        "429": 36,
+        "503": 12
+      },
+      "total_request_count": 72,
+      "unexpected_response_count": 0,
+      "wait_timeout_admission_wait": {
+        "count": 12,
+        "max_ms": 1206.724,
+        "mean_ms": 1099.2044166666667,
+        "median_ms": 1135.6165,
+        "min_ms": 1000.745,
+        "p90_ms": 1178.5962,
+        "p95_ms": 1191.4967,
+        "p99_ms": 1203.6785399999999
+      },
+      "wait_timeout_latency": {
+        "count": 12,
+        "max_ms": 1588.2943000178784,
+        "mean_ms": 1413.1207333412021,
+        "median_ms": 1371.8700500321575,
+        "min_ms": 1335.5676000355743,
+        "p90_ms": 1557.6268099946901,
+        "p95_ms": 1576.1291250033537,
+        "p99_ms": 1585.8612650149735
+      },
+      "waiting_limit_respected": true
+    }
+  },
+  {
+    "benchmark": "phase11_redis_failure_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_raw_20260821_180952.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_failure_probe_summary_20260821_180952.json",
+    "details": {
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_first_cache_hit": true,
+      "baseline_latency": {
+        "count": 2,
+        "max_ms": 14.097900013439357,
+        "mean_ms": 13.997050002217293,
+        "median_ms": 13.997050002217293,
+        "min_ms": 13.896199990995228,
+        "p90_ms": 14.077730011194944,
+        "p95_ms": 14.08781501231715,
+        "p99_ms": 14.095883013214916
+      },
+      "baseline_redis_healthy": true,
+      "baseline_second_cache_hit": true,
+      "degraded_detection_ms": 4222.776799986605,
+      "degraded_state_reached": true,
+      "fail_open_cache_error": "Error -5 connecting to redis:6379. No address associated with hostname.",
+      "fail_open_cache_hit": false,
+      "fail_open_matrix_status_code": 200,
+      "failure_action_ok": true,
+      "final_redis_healthy": true,
+      "healthy_state_recovered": true,
+      "recovery_action_ok": true,
+      "recovery_detection_ms": 14148.60159996897,
+      "recovery_first_cache_hit": true,
+      "recovery_latency": {
+        "count": 2,
+        "max_ms": 14.424599998164922,
+        "mean_ms": 14.099399995757267,
+        "median_ms": 14.099399995757267,
+        "min_ms": 13.774199993349612,
+        "p90_ms": 14.359559997683391,
+        "p95_ms": 14.392079997924156,
+        "p99_ms": 14.418095998116769
+      },
+      "recovery_second_cache_hit": true,
+      "redis_metric_deltas": {
+        "cityroute_redis_available": 0.0,
+        "cityroute_redis_recoveries_created": 0.0,
+        "cityroute_redis_recoveries_total": 0.0
+      }
+    }
+  },
+  {
+    "benchmark": "phase11_redis_recovery_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": false,
+    "validation_errors": [
+      "Redis recovered functionally, but cityroute_redis_recoveries_total did not increase."
+    ],
+    "warnings": [],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_recovery_probe_raw_20260821_175246.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_redis_recovery_probe_summary_20260821_175246.json",
+    "details": {
+      "api_process_start_unchanged": true,
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_healthy": true,
+      "baseline_latency": {
+        "count": 2,
+        "max_ms": 19.46390001103282,
+        "mean_ms": 16.259600000921637,
+        "median_ms": 16.259600000921637,
+        "min_ms": 13.055299990810454,
+        "p90_ms": 18.823040009010583,
+        "p95_ms": 19.1434700100217,
+        "p99_ms": 19.399814010830596
+      },
+      "baseline_second_cache_hit": true,
+      "container_running": true,
+      "container_stopped": true,
+      "degraded_state_reached": true,
+      "fail_open_matrix_status_code": 200,
+      "healthy_state_recovered": true,
+      "recovery_latency": {
+        "count": 2,
+        "max_ms": 13.953500019852072,
+        "mean_ms": 13.612200011266395,
+        "median_ms": 13.612200011266395,
+        "min_ms": 13.270900002680719,
+        "p90_ms": 13.885240018134937,
+        "p95_ms": 13.919370018993504,
+        "p99_ms": 13.946674019680358
+      },
+      "recovery_second_cache_hit": true,
+      "redis_failure_counter_delta": null,
+      "redis_recovery_counter_delta": 0.0,
+      "redis_start_ok": true,
+      "redis_stop_ok": true,
+      "resolved_redis_container": {
+        "id": "314ab2a41cfe78fc8ee1ee07f52fb5555a3a4e4e3c5fa3e836463286b7089b6e",
+        "image": "redis:7-alpine",
+        "name": "cityroute-redis-tier4-phase11"
+      }
+    }
+  },
+  {
+    "benchmark": "phase11_timeout_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [
+      "No HTTP 504 timeout was observed. Timeout policy headers were proven, but the selected real workload completed within the configured server limit on this machine."
+    ],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_raw_20260821_175152.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_timeout_probe_summary_20260821_175152.json",
+    "details": {
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_algorithm": "source_dijkstra",
+      "baseline_attempt_count": 5,
+      "baseline_completed_count": 5,
+      "baseline_latency": {
+        "count": 5,
+        "max_ms": 347.37470000982285,
+        "mean_ms": 267.9084599833004,
+        "median_ms": 237.9918999504298,
+        "min_ms": 205.89969999855384,
+        "p90_ms": 343.2305400026962,
+        "p95_ms": 345.30262000625953,
+        "p99_ms": 346.9602840091102
+      },
+      "baseline_matrix_size": 25,
+      "client_timeout_s": 45.0,
+      "controls_after_ok": true,
+      "controls_before_ok": true,
+      "recovery_ok": true,
+      "server_timeout_count": 0,
+      "server_timeout_latency": {
+        "count": 0,
+        "max_ms": null,
+        "mean_ms": null,
+        "median_ms": null,
+        "min_ms": null,
+        "p90_ms": null,
+        "p95_ms": null,
+        "p99_ms": null
+      },
+      "timeout_budget_used_pct": 2.313068560060734,
+      "timeout_headroom_ratio": 43.2326139080695,
+      "timeout_limit_s": 15.0,
+      "timeout_metric_deltas": {},
+      "trigger_algorithm": "bidirectional_astar",
+      "trigger_attempt_count": 3,
+      "trigger_completed_count": 3,
+      "trigger_completed_latency": {
+        "count": 3,
+        "max_ms": 739.1423000372015,
+        "mean_ms": 625.9690000054737,
+        "median_ms": 605.5499999783933,
+        "min_ms": 533.2147000008263,
+        "p90_ms": 712.4238400254399,
+        "p95_ms": 725.7830700313207,
+        "p99_ms": 736.4704540360253
+      },
+      "trigger_matrix_size": 25
+    }
+  },
+  {
+    "benchmark": "phase11_worker_restart_probe",
+    "phase_code": "tier4_phase11",
+    "phase_name": "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening",
+    "overall_ok": true,
+    "validation_errors": [],
+    "warnings": [
+      "Docker container identity was unchanged. This is expected for docker restart; process_start_time_seconds is the primary restart proof.",
+      "HTTP request counter decreased after restart. The metric may be process-local and reset on worker restart."
+    ],
+    "target": "docker",
+    "raw_result_path": "benchmarks\\phase_11\\docker_results\\phase11_worker_restart_probe_raw_20260821_180920.json",
+    "summary_result_path": "benchmarks\\phase_11\\docker_results\\phase11_worker_restart_probe_summary_20260821_180920.json",
+    "details": {
+      "base_url": "http://127.0.0.1:8001",
+      "baseline_liveness_ok": true,
+      "baseline_readiness_ok": true,
+      "container_id_after": "61dda6628753853e87b8e3737a9b2ea5ded635183e484e6cd9698046d3d98c27",
+      "container_id_before": "61dda6628753853e87b8e3737a9b2ea5ded635183e484e6cd9698046d3d98c27",
+      "container_identity_changed": false,
+      "post_restart_mean_ms": 229.5087749880622,
+      "post_restart_p95_ms": 304.1164699825458,
+      "post_restart_requests": 8,
+      "post_restart_successful_requests": 8,
+      "pre_restart_mean_ms": 272.5301499958732,
+      "process_start_time_after": 1787335740.56,
+      "process_start_time_before": 1787335244.23,
+      "process_start_time_changed": true,
+      "recovery_liveness_ok": true,
+      "recovery_readiness_ok": true,
+      "request_counter_after": 3.0,
+      "request_counter_before": 11.0,
+      "restart_command_ok": true,
+      "restart_runtime_state_observed": true
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "test_file_count": 58,
+  "explicit_test_function_count": 576,
+  "note": "Archive inventory counts explicit test_* function definitions only; parametrized collection can exceed this number. No claim is made here about total passed in the latest full run.",
+  "recorded_run_counts": [
+    {
+      "source": "benchmarks/phase3_docker_results/phase3_pytest_49_tests.txt",
+      "passed": 49,
+      "text": "s_no_path PASSED [ 95%]\ntests/test_route_geometry.py::test_route_geometry_points_are_graph_node_coordinates PASSED [ 97%]\ntests/test_route_geometry.py::test_route_geometry_starts_and_ends_at_snapped_nodes PASSED [100%]\n\n======================== 49 passed in 75.78s (0:01:15) ========================"
+    },
+    {
+      "source": "benchmarks/phase_7_1/pytest_208_passed.txt",
+      "passed": 208,
+      "text": "y::test_rejects_negative_distance PASSED [ 99%]\ntests/test_vrp_improvement_metrics.py::test_rejects_non_finite_distance PASSED [ 99%]\ntests/test_vrp_improvement_metrics.py::test_rejects_negative_tolerance PASSED [100%]\n\n======================= 208 passed in 151.70s (0:02:31) ======================="
+    },
+    {
+      "source": "benchmarks/phase_7_1/phase7_targeted_tests.txt",
+      "passed": 29,
+      "text": "PASSED [ 93%]\ntests/test_vrp_compare_endpoint.py::test_vrp_compare_endpoint_rejects_more_than_24_stops PASSED [ 96%]\ntests/test_vrp_compare_endpoint.py::test_vrp_compare_endpoint_rejects_invalid_algorithm PASSED [100%]\n\n============================= 29 passed in 5.24s =============================="
+    }
+  ]
+}

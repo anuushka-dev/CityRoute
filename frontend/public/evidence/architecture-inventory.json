@@ -1,0 +1,81 @@
+{
+  "api": [
+    "dispatch.py",
+    "graph.py",
+    "health.py",
+    "matrix.py",
+    "metrics.py",
+    "route.py",
+    "vrp.py"
+  ],
+  "core": [
+    "__init__.py",
+    "a_star.py",
+    "bidirectional_a_star.py",
+    "concurrency_limiter.py",
+    "dispatch_cost_matrix.py",
+    "dispatch_fairness.py",
+    "dispatch_road_cost_matrix.py",
+    "distance_matrix.py",
+    "eta.py",
+    "graph_adjacency.py",
+    "greedy_dispatch.py",
+    "greedy_nearest_neighbor.py",
+    "hungarian.py",
+    "lns.py",
+    "multi_target_dijkstra.py",
+    "timeout_policy.py",
+    "two_opt.py",
+    "vrp_improvement_metrics.py"
+  ],
+  "services": [
+    "__init__.py",
+    "dispatch_distance_service.py",
+    "dispatch_road_matrix_service.py",
+    "dispatch_service.py",
+    "graph_service.py",
+    "greedy_service.py",
+    "matrix_service.py",
+    "readiness_service.py",
+    "routing_service.py",
+    "shutdown_service.py",
+    "vrp_advanced_compare_service.py",
+    "vrp_compare_service.py"
+  ],
+  "infrastructure": [
+    "redis_cache.py",
+    "redis_resilience.py",
+    "resilience_state.py"
+  ],
+  "middleware": [
+    "__init__.py",
+    "concurrency_control.py",
+    "lifecycle_guard.py",
+    "request_timeout.py"
+  ],
+  "observability": [
+    "__init__.py",
+    "metrics.py",
+    "reliability_metrics.py"
+  ],
+  "schemas": [
+    "dispatch.py",
+    "health.py",
+    "reliability.py",
+    "vrp.py",
+    "vrp_advanced_compare.py",
+    "vrp_compare.py"
+  ],
+  "utils": [
+    "dispatch_cache_key.py",
+    "geo_validation.py",
+    "logger.py",
+    "matrix_cache_key.py",
+    "node_snapper.py",
+    "route_map.py",
+    "snap_index.py"
+  ],
+  "models": [
+    "matrix_model.py"
+  ]
+}
