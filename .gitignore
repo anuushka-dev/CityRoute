@@ -29,3 +29,9 @@ data/graphs/*.graphml
 # Local benchmark scratch / cache
 cache/
 benchmarks/*.tmp
+
+# Local Phase 12 evidence output
+.phase12_evidence/
+
+# Local frontend environment
+.env.local
