@@ -242,7 +242,7 @@ class ReliabilityMetrics:
             "Total HTTP requests handled by CityRoute.",
             labelnames=(
                 "method",
-                "path",
+                "endpoint_group",
                 "status",
             ),
             registry=registry,
@@ -595,13 +595,13 @@ class ReliabilityMetrics:
 
         self.http_requests_total.labels(
             method=method.strip().upper(),
-            path=normalized_path,
+            endpoint_group=normalized_path,
             status=str(status_code),
         ).inc()
 
         self.http_request_duration_seconds.labels(
             method=method.strip().upper(),
-            path=normalized_path,
+            endpoint_group=normalized_path,
         ).observe(normalized_duration)
 
     def observe_execution(
