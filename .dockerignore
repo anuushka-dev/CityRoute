@@ -21,7 +21,7 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
-# Tests and docs not needed in runtime image
+# Tests and documentation are not needed in the runtime image
 tests/
 docs/
 *.md
@@ -30,10 +30,12 @@ docs/
 benchmarks/
 cache/
 
-# Graph data is mounted at runtime, not baked into image
-data/
-data/graphs/
-data/graphs/*.graphml
+# Keep only the production Kanpur graph.
+# Everything else under data stays outside the image.
+data/*
+!data/graphs/
+data/graphs/*
+!data/graphs/kanpur.graphml
 
 # OS/editor junk
 .DS_Store
@@ -41,6 +43,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Docker / misc local files
+# Docker / local runtime files
 docker-compose.yml
 *.log

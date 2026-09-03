@@ -253,7 +253,7 @@ class ReliabilityMetrics:
             "HTTP request latency in seconds.",
             labelnames=(
                 "method",
-                "path",
+                "endpoint_group",
             ),
             buckets=(
                 0.005,
