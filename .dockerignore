@@ -30,12 +30,13 @@ docs/
 benchmarks/
 cache/
 
-# Keep only the production Kanpur graph.
+# Keep only the graphs used by CityRoute deployment images.
 # Everything else under data stays outside the image.
 data/*
 !data/graphs/
 data/graphs/*
 !data/graphs/kanpur.graphml
+!data/graphs/kanpur_central.graphml
 
 # OS/editor junk
 .DS_Store
