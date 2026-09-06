@@ -7,10 +7,12 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
+
 @pytest.fixture()
 def client() -> TestClient:
     with TestClient(app) as test_client:
         yield test_client
+
 
 REQUIRED_ENDPOINTS = {
     "/health",
@@ -39,6 +41,7 @@ def test_phase91_required_routes_are_registered_in_openapi(
 
     assert missing_paths == set()
 
+
 def test_phase91_root_lists_core_phase_links(
     client: TestClient,
 ):
@@ -58,10 +61,7 @@ def test_phase91_root_lists_core_phase_links(
     assert body["vrp_advanced_compare"] == "/vrp/compare/advanced"
     assert body["dispatch_compare"] == "/dispatch/compare"
 
-    assert (
-        body["phase"]
-        == "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening"
-        )
+    assert body["phase"] == "Tier 4 Phase 11 - Production Reliability and Concurrency Hardening"
     assert body["phase_code"] == "tier4_phase11"
 
     assert "haversine" in body["dispatch_matrix_algorithms"]
@@ -151,10 +151,10 @@ def test_phase91_dispatch_endpoint_still_works_with_haversine(
     body = response.json()
 
     assert body["status"] in {
-    "ok",
-    "degraded",
-    "starting",
-    "shutting_down",
+        "ok",
+        "degraded",
+        "starting",
+        "shutting_down",
     }
     assert body["phase"] == "tier3_phase10"
     assert body["matrix_algorithm"] == "haversine"
@@ -195,10 +195,10 @@ def test_phase10_dispatch_source_dijkstra_api_is_wired():
     body = response.json()
 
     assert body["status"] in {
-    "ok",
-    "degraded",
-    "starting",
-    "shutting_down",
+        "ok",
+        "degraded",
+        "starting",
+        "shutting_down",
     }
     assert body["phase"] == "tier3_phase10"
     assert body["matrix_algorithm"] == "source_dijkstra"
@@ -215,11 +215,7 @@ def test_phase10_dispatch_source_dijkstra_api_is_wired():
 
     assert road_network is not None
     assert road_network["pair_count"] == 1
-    assert (
-        road_network["reachable_pair_count"]
-        + road_network["unreachable_pair_count"]
-        == 1
-    )
+    assert road_network["reachable_pair_count"] + road_network["unreachable_pair_count"] == 1
     assert road_network["source_search_count"] >= 1
 
     assert body["comparison"]["hungarian_non_regression"] is True

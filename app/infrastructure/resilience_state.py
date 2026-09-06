@@ -8,7 +8,6 @@ from datetime import UTC, datetime
 from math import isfinite
 from time import perf_counter
 from typing import Literal
-from time import perf_counter
 
 ComponentName = Literal[
     "graph",
@@ -170,9 +169,7 @@ class ResilienceState:
                 self._startup_completed_at_utc = _utc_now_iso()
 
             self._accepting_requests = (
-                accepting_requests
-                and not self._shutdown_requested
-                and not self._shutdown_complete
+                accepting_requests and not self._shutdown_requested and not self._shutdown_complete
             )
 
             self._condition.notify_all()
@@ -187,16 +184,10 @@ class ResilienceState:
 
         async with self._condition:
             if accepting and not self._startup_complete:
-                raise RuntimeError(
-                    "Cannot accept requests before startup is complete"
-                )
+                raise RuntimeError("Cannot accept requests before startup is complete")
 
-            if accepting and (
-                self._shutdown_requested or self._shutdown_complete
-            ):
-                raise RuntimeError(
-                    "Cannot accept requests after shutdown has started"
-                )
+            if accepting and (self._shutdown_requested or self._shutdown_complete):
+                raise RuntimeError("Cannot accept requests after shutdown has started")
 
             self._accepting_requests = accepting
             self._condition.notify_all()
@@ -307,9 +298,7 @@ class ResilienceState:
         normalized_reason = reason.strip() or "unknown_redis_failure"
 
         async with self._condition:
-            self._components["redis"] = (
-                "unavailable" if unavailable else "not_ready"
-            )
+            self._components["redis"] = "unavailable" if unavailable else "not_ready"
             self._last_redis_failure_at_utc = _utc_now_iso()
             self._last_redis_failure_reason = normalized_reason
             self._last_failure_reason = normalized_reason
@@ -486,9 +475,7 @@ class ResilienceState:
                 shutdown_completed_at_utc=self._shutdown_completed_at_utc,
                 graph=self._components["graph"],
                 snap_index=self._components["snap_index"],
-                dispatch_adjacency=self._components[
-                    "dispatch_adjacency"
-                ],
+                dispatch_adjacency=self._components["dispatch_adjacency"],
                 redis=self._components["redis"],
                 active_requests=self._active_requests,
                 waiting_requests=self._waiting_requests,
@@ -503,6 +490,7 @@ class ResilienceState:
                 last_redis_failure_at_utc=self._last_redis_failure_at_utc,
                 last_redis_failure_reason=self._last_redis_failure_reason,
             )
+
     async def reset_for_startup(self) -> None:
         """
         Reset process-local lifecycle state for a new application lifespan.
@@ -516,14 +504,10 @@ class ResilienceState:
 
         async with self._condition:
             if self._active_requests != 0:
-                raise RuntimeError(
-                    "Cannot reset resilience state while requests are active"
-                )
+                raise RuntimeError("Cannot reset resilience state while requests are active")
 
             if self._waiting_requests != 0:
-                raise RuntimeError(
-                    "Cannot reset resilience state while requests are waiting"
-                )
+                raise RuntimeError("Cannot reset resilience state while requests are waiting")
 
             self._started_at = perf_counter()
 

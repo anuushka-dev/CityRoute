@@ -5,6 +5,12 @@ from __future__ import annotations
 import time
 from collections.abc import Awaitable, Callable
 
+from prometheus_client import (
+    CONTENT_TYPE_LATEST,
+    CollectorRegistry,
+    Gauge,
+    generate_latest,
+)
 from starlette.requests import Request
 from starlette.responses import Response
 
@@ -13,15 +19,27 @@ from app.observability.reliability_metrics import (
     get_reliability_metrics,
 )
 
+REGISTRY = CollectorRegistry()
+
+GRAPH_LOADED = Gauge(
+    "cityroute_graph_loaded",
+    "Whether the routing graph is loaded.",
+    registry=REGISTRY,
+)
+
+SNAP_INDEX_LOADED = Gauge(
+    "cityroute_snap_index_loaded",
+    "Whether the graph snap index is loaded.",
+    registry=REGISTRY,
+)
+
+
 def _route_template(request: Request) -> str:
     """Return a normalized request path for metrics labeling."""
 
     route = request.scope.get("route")
 
-    path_format = (
-        getattr(route, "path_format", None)
-        or getattr(route, "path", None)
-    )
+    path_format = getattr(route, "path_format", None) or getattr(route, "path", None)
 
     if path_format:
         return str(path_format)
@@ -32,6 +50,7 @@ def _route_template(request: Request) -> str:
         "?",
         maxsplit=1,
     )[0]
+
 
 def _http_outcome_for_status(
     status_code: int,
@@ -89,6 +108,7 @@ async def metrics_middleware(
             method=request.method,
             status_code=status_code,
         )
+
 
 def metrics_endpoint(request: Request) -> Response:
     """Render the Prometheus exposition format. Refreshes runtime gauges first."""
