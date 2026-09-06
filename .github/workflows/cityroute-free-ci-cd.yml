@@ -67,7 +67,6 @@ jobs:
 
       - name: Set up Python 3.11
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
-
         with:
           python-version: "3.11"
           cache: pip
@@ -91,8 +90,7 @@ jobs:
           set -euo pipefail
 
           mapfile -t python_files < <(
-            git diff --name-only HEAD^ HEAD -- \
-              '*.py'
+            git diff --name-only HEAD^ HEAD -- '*.py'
           )
 
           if [ "${#python_files[@]}" -eq 0 ]; then
@@ -130,6 +128,7 @@ jobs:
           context: .
           file: ./Dockerfile.render-free
           push: false
+          load: true
           tags: cityroute-api:render-free-ci
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
@@ -233,11 +232,16 @@ jobs:
 
       - name: Show container logs on failure
         if: failure()
-        run: docker logs cityroute-render-free-smoke
+        run: |
+          if docker container inspect cityroute-render-free-smoke >/dev/null 2>&1; then
+            docker logs cityroute-render-free-smoke
+          else
+            echo "Smoke-test container was never created."
+          fi
 
       - name: Stop smoke-test container
         if: always()
-        run: docker rm -f cityroute-render-free-smoke
+        run: docker rm -f cityroute-render-free-smoke || true
 
   deploy-render:
     name: Deploy | Render Free Demo
