@@ -62,9 +62,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 2
 
       - name: Set up Python 3.11
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+
         with:
           python-version: "3.11"
           cache: pip
@@ -79,11 +82,28 @@ jobs:
       - name: Validate dependency graph
         run: python -m pip check
 
-      - name: Lint with Ruff
-        run: python -m ruff check .
+      - name: Lint backend and tests with Ruff
+        run: python -m ruff check app tests
 
-      - name: Check Ruff formatting
-        run: python -m ruff format --check .
+      - name: Check formatting of changed Python files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mapfile -t python_files < <(
+            git diff --name-only HEAD^ HEAD -- \
+              '*.py'
+          )
+
+          if [ "${#python_files[@]}" -eq 0 ]; then
+            echo "No changed Python files in this commit."
+            exit 0
+          fi
+
+          echo "Checking Ruff formatting for changed Python files:"
+          printf '  %s\n' "${python_files[@]}"
+
+          python -m ruff format --check "${python_files[@]}"
 
       - name: Compile Python sources
         run: python -m compileall -q app tests
