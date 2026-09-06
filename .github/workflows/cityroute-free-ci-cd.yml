@@ -1,0 +1,253 @@
+name: CityRoute Free Demo CI/CD
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "app/**"
+      - "tests/**"
+      - "requirements.txt"
+      - "requirements-prod.txt"
+      - "Dockerfile.render-free"
+      - ".dockerignore"
+      - "data/graphs/kanpur_central.graphml"
+      - ".github/workflows/cityroute-free-ci-cd.yml"
+
+  push:
+    branches:
+      - render-free-deploy
+    paths:
+      - "app/**"
+      - "tests/**"
+      - "requirements.txt"
+      - "requirements-prod.txt"
+      - "Dockerfile.render-free"
+      - ".dockerignore"
+      - "data/graphs/kanpur_central.graphml"
+      - ".github/workflows/cityroute-free-ci-cd.yml"
+
+  workflow_dispatch:
+
+concurrency:
+  group: cityroute-free-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend | Python 3.11 | Ruff | Pytest | Redis
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+
+    env:
+      CITYROUTE_ENVIRONMENT: ci
+      CITYROUTE_CITY_NAME: Kanpur, Uttar Pradesh, India
+      CITYROUTE_GRAPH_FILE: kanpur_central.graphml
+      CITYROUTE_REDIS_URL: redis://127.0.0.1:6379/0
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install ruff==0.16.0
+
+      - name: Validate dependency graph
+        run: python -m pip check
+
+      - name: Lint with Ruff
+        run: python -m ruff check .
+
+      - name: Check Ruff formatting
+        run: python -m ruff format --check .
+
+      - name: Compile Python sources
+        run: python -m compileall -q app tests
+
+      - name: Run full backend test suite
+        run: python -m pytest -q
+
+  docker-free:
+    name: Docker | Render Free image + 512 MB smoke test
+    runs-on: ubuntu-latest
+    needs:
+      - backend
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
+
+      - name: Build Render Free image
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+        with:
+          context: .
+          file: ./Dockerfile.render-free
+          push: false
+          tags: cityroute-api:render-free-ci
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.title=CityRoute Render Free Demo
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Verify bundled graph
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          graph_size="$(
+            docker run --rm \
+              --entrypoint sh \
+              cityroute-api:render-free-ci \
+              -c 'stat -c %s /app/data/graphs/kanpur_central.graphml'
+          )"
+
+          echo "Bundled graph size: ${graph_size} bytes"
+
+          if [ "${graph_size}" -le 10000000 ]; then
+            echo "Bundled graph is missing or unexpectedly small."
+            exit 1
+          fi
+
+      - name: Start 512 MB smoke-test container
+        run: |
+          docker run -d \
+            --name cityroute-render-free-smoke \
+            --memory=512m \
+            -p 8003:8000 \
+            -e CITYROUTE_ENVIRONMENT=production \
+            -e CITYROUTE_CITY_NAME="Kanpur, Uttar Pradesh, India" \
+            -e CITYROUTE_GRAPH_FILE=kanpur_central.graphml \
+            -e WEB_CONCURRENCY=1 \
+            cityroute-api:render-free-ci
+
+      - name: Wait for CityRoute readiness
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for attempt in {1..60}; do
+            response="$(
+              curl \
+                --silent \
+                --show-error \
+                --fail \
+                http://127.0.0.1:8003/health/ready \
+                || true
+            )"
+
+            echo "Attempt ${attempt}: ${response}"
+
+            if echo "${response}" | grep -q '"ready":true'; then
+              echo "CityRoute readiness check passed."
+              exit 0
+            fi
+
+            sleep 2
+          done
+
+          echo "CityRoute did not become ready within the smoke-test window."
+          echo
+          echo "Container logs:"
+          docker logs cityroute-render-free-smoke
+          exit 1
+
+      - name: Verify health endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl \
+            --silent \
+            --show-error \
+            --fail \
+            http://127.0.0.1:8003/health
+
+          echo
+          echo "Health endpoint passed."
+
+      - name: Verify readiness endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl \
+            --silent \
+            --show-error \
+            --fail \
+            http://127.0.0.1:8003/health/ready
+
+          echo
+          echo "Readiness endpoint passed."
+
+      - name: Check memory usage
+        run: docker stats --no-stream cityroute-render-free-smoke
+
+      - name: Show container logs on failure
+        if: failure()
+        run: docker logs cityroute-render-free-smoke
+
+      - name: Stop smoke-test container
+        if: always()
+        run: docker rm -f cityroute-render-free-smoke
+
+  deploy-render:
+    name: Deploy | Render Free Demo
+    runs-on: ubuntu-latest
+    needs:
+      - docker-free
+
+    if: >
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/render-free-deploy'
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Trigger Render deployment
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -n "${RENDER_DEPLOY_HOOK_URL}"
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --request POST \
+            "${RENDER_DEPLOY_HOOK_URL}"
+
+      - name: Deployment triggered
+        run: echo "Render Free deployment triggered successfully."
