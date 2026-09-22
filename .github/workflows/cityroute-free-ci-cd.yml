@@ -16,7 +16,7 @@ on:
 
   push:
     branches:
-      - render-free-deploy
+      - cityroute-demo
     paths:
       - "app/**"
       - "tests/**"
@@ -251,7 +251,7 @@ jobs:
 
     if: >
       github.event_name == 'push' &&
-      github.ref == 'refs/heads/render-free-deploy'
+      github.ref == 'refs/heads/cityroute-demo'
 
     permissions:
       contents: read
